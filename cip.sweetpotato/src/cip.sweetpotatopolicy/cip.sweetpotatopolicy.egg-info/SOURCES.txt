@@ -1,0 +1,15 @@
+README.txt
+setup.cfg
+setup.py
+cip/__init__.py
+cip.sweetpotatopolicy.egg-info/PKG-INFO
+cip.sweetpotatopolicy.egg-info/SOURCES.txt
+cip.sweetpotatopolicy.egg-info/dependency_links.txt
+cip.sweetpotatopolicy.egg-info/entry_points.txt
+cip.sweetpotatopolicy.egg-info/namespace_packages.txt
+cip.sweetpotatopolicy.egg-info/not-zip-safe
+cip.sweetpotatopolicy.egg-info/paster_plugins.txt
+cip.sweetpotatopolicy.egg-info/requires.txt
+cip.sweetpotatopolicy.egg-info/top_level.txt
+cip/sweetpotatopolicy/__init__.py
+cip/sweetpotatopolicy/tests.py
