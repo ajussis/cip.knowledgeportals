@@ -9,11 +9,19 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="cip.sppolicy"
+      title="Policy Product for Sweetpotato Knowledge Portal"
       directory="profiles/default"
-      description="Installs the cip.sppolicy package"
+      description="Turn a Plone site to a Sweetpotato Knowledge Portal"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
   <!-- -*- extra stuff goes here -*- -->
-  
+
+<genericsetup:importStep
+       name="cip.sppolicy_updateCatalog"
+       title="Update catalog"
+       description="After creating content (from profiles/default/structure), the catalog needs to be updated."
+       handler="cip.sppolicy.setuphandlers.updateCatalog">
+     <depends name="content"/>
+   </genericsetup:importStep> 
+
 </configure>
