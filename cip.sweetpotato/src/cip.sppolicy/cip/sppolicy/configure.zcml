@@ -5,6 +5,9 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="cip.sppolicy">
 
+  <include package="cip.sptheme" />
+  <include package="cip.spcontent" />
+
   <five:registerPackage package="." initialize=".initialize" />
 
   <genericsetup:registerProfile
@@ -16,11 +19,11 @@
       />
   <!-- -*- extra stuff goes here -*- -->
 
-<genericsetup:importStep
-       name="cip.sppolicy_updateCatalog"
-       title="Update catalog"
-       description="After creating content (from profiles/default/structure), the catalog needs to be updated."
-       handler="cip.sppolicy.setuphandlers.updateCatalog">
+  <genericsetup:importStep
+      name="cip.sppolicy_updateCatalog"
+      title="Update catalog"
+      description="After creating content (from profiles/default/structure), the catalog needs to be updated."
+      handler="cip.sppolicy.setuphandlers.updateCatalog">
      <depends name="content"/>
    </genericsetup:importStep> 
 

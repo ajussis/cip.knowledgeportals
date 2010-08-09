@@ -1,4 +1,5 @@
 from Products.CMFPlone.utils import _createObjectByType
+from Products.CMFCore.utils import getToolByName
 
 def updateCatalog(context, clear=True):
     portal = context.getSite()
@@ -20,6 +21,33 @@ def updateCatalog(context, clear=True):
 #    for item in itemsToDelete:
 #        if item in existing:
 #            p.manage_delObjects(item)
+
+def importPAS(portal):
+    users_here = 'jussi;jussi;Jussi;Savolainen;ajussis@gmail.com'
+    users = users_here.data.split('\n')
+    regtool = getToolByName(portal, 'portal_registration')
+    index = 1
+    imported_count = 0
+    for user in users:
+        tokens = user.split(';')
+        if len(tokens) == 5:
+            passwd, id, last, first, email = tokens
+            properties = {
+                'username' : id,
+                'fullname' : '%s %s' % (first, last),
+                'email' : email,
+            }
+            try:
+                regtool.addMember(id, passwd, properties=properties)
+                print "Successfully added %s %s (%s) with email %s" % (first, last, id, email)
+                imported_count += 1
+            except ValueError, e:
+                print "Couldn't add %s: %s" % (id, e)
+        else:
+            print "Could not parse line %d because it had the following contents: '%s'" % (index, user)
+        index += 1
+    print "Imported %d users (from %d lines of CSV)" % (imported_count, index)
+    return printed
 
 def createFolderStructure(portal):
     """Define which objects we want to create in the site.
@@ -622,5 +650,6 @@ def setupVarious(context):
 #    deletePloneFolders(portal)
     disableDocument(portal)
     createFolderStructure(portal)
+#    importPAS(portal)
 
 
