@@ -5,13 +5,16 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="cip.sppolicy4">
 
+  <include package="cip.sptheme4" />
+  <include package="cip.spcontent4" />
+
   <five:registerPackage package="." initialize=".initialize" />
 
   <genericsetup:registerProfile
       name="default"
-      title="cip.sppolicy4"
+      title="Policy Product for Sweetpotato Knowledge Portal"
       directory="profiles/default"
-      description="Installs the cip.sppolicy4 package"
+      description="Turn a Plone site to a Sweetpotato Knowledge Portal"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
   <!-- -*- extra stuff goes here -*- -->
