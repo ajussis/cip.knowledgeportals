@@ -1,0 +1,15 @@
+README.txt
+setup.cfg
+setup.py
+cip/__init__.py
+cip.sppolicy4.egg-info/PKG-INFO
+cip.sppolicy4.egg-info/SOURCES.txt
+cip.sppolicy4.egg-info/dependency_links.txt
+cip.sppolicy4.egg-info/entry_points.txt
+cip.sppolicy4.egg-info/namespace_packages.txt
+cip.sppolicy4.egg-info/not-zip-safe
+cip.sppolicy4.egg-info/paster_plugins.txt
+cip.sppolicy4.egg-info/requires.txt
+cip.sppolicy4.egg-info/top_level.txt
+cip/sppolicy4/__init__.py
+cip/sppolicy4/tests.py
