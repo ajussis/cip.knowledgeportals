@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<portlets
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="plone">
+
+
+ <!-- Assign the standard portlets -->
+
+ <assignment
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="portlets.Navigation"
+     name="navigation">
+     <property name="topLevel">0</property>
+ </assignment>
+
+ <assignment
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="portlets.Calendar"
+     name="calendar"
+     />
+
+ <assignment
+     manager="plone.leftcolumn"
+     category="context"
+     key="/"
+     type="portlets.Login"
+     name="login"
+     />
+
+  <assignment
+     manager="plone.leftcolumn"
+     category="context"
+     key="/"
+     type="portlets.Review"
+     name="review"
+     />
+
+ <assignment
+     manager="plone.leftcolumn"
+     category="context"
+     key="/"
+     type="portlets.News"
+     name="news"
+     />
+
+  <portlet
+    addview="cip.spImagePortlet"
+    title="SP Image portlet"
+    description="Portlet with light grey background"
+    />
+
+</portlets>

@@ -2,6 +2,7 @@ README.txt
 setup.cfg
 setup.py
 cip/__init__.py
+cip/__init__.pyc
 cip.sppolicy4.egg-info/PKG-INFO
 cip.sppolicy4.egg-info/SOURCES.txt
 cip.sppolicy4.egg-info/dependency_links.txt
@@ -12,8 +13,19 @@ cip.sppolicy4.egg-info/paster_plugins.txt
 cip.sppolicy4.egg-info/requires.txt
 cip.sppolicy4.egg-info/top_level.txt
 cip/sppolicy4/__init__.py
+cip/sppolicy4/__init__.pyc
 cip/sppolicy4/configure.zcml
+cip/sppolicy4/setuphandlers.py
 cip/sppolicy4/tests.py
+cip/sppolicy4/Extensions/Install.py
+cip/sppolicy4/Extensions/__init__.py
+cip/sppolicy4/profiles/default/cip.sppolicy4_various.txt
+cip/sppolicy4/profiles/default/controlpanel.xml
+cip/sppolicy4/profiles/default/import_steps.xml
+cip/sppolicy4/profiles/default/memberdata_properties.xml
+cip/sppolicy4/profiles/default/portal_languages.xml
+cip/sppolicy4/profiles/default/properties.xml
+cip/sppolicy4/profiles/default/propertiestool.xml
 docs/HISTORY.txt
 docs/INSTALL.txt
 docs/LICENSE.GPL
