@@ -1,0 +1,7 @@
+# If you want to change externals, modify the relevant line in this
+# file. Afterwards, run:
+# svn propset svn:externals -F EXTERNALS.txt .
+
+cip.sppolicy4 svn://66.249.23.38/svn/sweetpotato/cip.sppolicy4
+cip.sptheme4 svn://66.249.23.38/svn/sweetpotato/cip.sptheme4
+cip.spcontent4 svn://66.249.23.38/svn/sweetpotato/cip.spcontent4
