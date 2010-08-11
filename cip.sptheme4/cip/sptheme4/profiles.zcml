@@ -5,15 +5,15 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="Custom Theme"
+      title="Sweetpotato Theme for Plone 4"
       directory="profiles/default"
-      description='Extension profile for the "Custom Theme" Plone theme.'
+      description='Extension profile for the Sweetpotato Plone theme.'
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
   <genericsetup:importStep
       name="cip.sptheme4.various"
-      title="Custom Theme: miscellaneous import steps"
+      title="Sweetpotato Theme: miscellaneous import steps"
       description="Various import steps that are not handled by GS import/export handlers."
       handler="cip.sptheme4.setuphandlers.setupVarious">
     <depends name="skins"/>

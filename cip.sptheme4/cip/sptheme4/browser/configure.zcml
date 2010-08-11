@@ -1,7 +1,8 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
-    i18n_domain="cip.sptheme4">
+    i18n_domain="cip.sptheme4"
+    xmlns:plone="http://namespaces.plone.org/plone">
 
   <!-- 'Custom Theme' Zope 3 browser layer
     Register views, viewlets and resources for this layer to make sure
@@ -12,7 +13,7 @@
   <interface
       interface=".interfaces.IThemeSpecific"
       type="zope.publisher.interfaces.browser.IBrowserSkinType"
-      name="Custom Theme"
+      name="Sweetpotato Theme for Plone 4"
       />
   
   <!-- Viewlets registration -->
@@ -25,6 +26,19 @@
       permission="zope2.View"
       />
   -->
+
+
+  <include package="plone.app.portlets" />
+
+  <browser:page
+      for="*"
+      name="frontpage"
+      template="templates/frontpage.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
+
 
   <!-- Zope 3 browser resources -->
 

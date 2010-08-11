@@ -1,6 +1,6 @@
-title:string=Custom Theme's color, font, logo and border defaults
+title:string=Sweetpotato Theme's color, font, logo and border defaults
 
-plone_skin:string=Custom Theme
+plone_skin:string=Sweetpotato Theme for Plone 4
 
 logoName:string=logo.jpg
 

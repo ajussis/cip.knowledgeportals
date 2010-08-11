@@ -1,5 +1,6 @@
 MANIFEST.in
 README.txt
+cip.sptheme4-configure.zcml
 setup.cfg
 setup.py
 cip/__init__.py
@@ -21,13 +22,19 @@ cip/sptheme4/tests.py
 cip/sptheme4/version.txt
 cip/sptheme4/browser/__init__.py
 cip/sptheme4/browser/configure.zcml
+cip/sptheme4/browser/frontpage.py
 cip/sptheme4/browser/interfaces.py
 cip/sptheme4/browser/viewlet.pt
 cip/sptheme4/browser/viewlets.py
 cip/sptheme4/browser/images/README.txt
 cip/sptheme4/browser/stylesheets/README.txt
 cip/sptheme4/browser/stylesheets/main.css
+cip/sptheme4/browser/templates/frontpage.pt
 cip/sptheme4/locales/README.txt
+cip/sptheme4/portlets/__init__.py
+cip/sptheme4/portlets/configure.zcml
+cip/sptheme4/portlets/spImage.pt
+cip/sptheme4/portlets/spImage.py
 cip/sptheme4/profiles/default/cip.sptheme4_various.txt
 cip/sptheme4/profiles/default/cssregistry.xml
 cip/sptheme4/profiles/default/jsregistry.xml
@@ -38,3 +45,7 @@ cip/sptheme4/skins/cip_sptheme4_custom_images/CONTENT.txt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/CONTENT.txt
 cip/sptheme4/skins/cip_sptheme4_styles/CONTENT.txt
 cip/sptheme4/skins/cip_sptheme4_styles/base_properties.props
+docs/HISTORY.txt
+docs/INSTALL.txt
+docs/LICENSE.GPL
+docs/LICENSE.txt
