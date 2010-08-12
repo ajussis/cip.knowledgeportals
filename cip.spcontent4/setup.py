@@ -5,7 +5,7 @@ version = '1.0'
 
 setup(name='cip.spcontent4',
       version=version,
-      description="",
+      description="Content types for Sweetpotato Knowledge Portal",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from

@@ -7,5 +7,7 @@
   <five:registerPackage package="." initialize=".initialize" />
 
   <!-- -*- extra stuff goes here -*- -->
-  
+
+
+
 </configure>

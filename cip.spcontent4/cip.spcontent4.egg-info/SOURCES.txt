@@ -12,4 +12,9 @@ cip.spcontent4.egg-info/paster_plugins.txt
 cip.spcontent4.egg-info/requires.txt
 cip.spcontent4.egg-info/top_level.txt
 cip/spcontent4/__init__.py
+cip/spcontent4/configure.zcml
 cip/spcontent4/tests.py
+docs/HISTORY.txt
+docs/INSTALL.txt
+docs/LICENSE.GPL
+docs/LICENSE.txt
