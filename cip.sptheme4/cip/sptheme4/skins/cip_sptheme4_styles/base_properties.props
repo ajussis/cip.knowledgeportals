@@ -1,47 +1,32 @@
-title:string=Sweetpotato Theme's color, font, logo and border defaults
-
-plone_skin:string=Sweetpotato Theme for Plone 4
-
-logoName:string=logo.jpg
-
-fontFamily:string="Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif
+backgroundColor:string=Black
+borderStyle:string=solid
+borderStyleAnnotations:string=solid
+borderWidth:string=1px
+columnOneWidth:string=185px
+columnTwoWidth:string=200px
+contentViewBackgroundColor:string=#cde2a7
+contentViewBorderColor:string=#74ae0b
+contentViewFontColor:string=#578308
+discreetColor:string=#76797c
+evenRowBackgroundColor:string=transparent
 fontBaseSize:string=69%
 fontColor:string=Black
+fontFamily:string=Verdana, Geneva, sans-serif
 fontSmallSize:string=85%
-
-backgroundColor:string=White
-
-linkColor:string=#436976
-linkActiveColor:string=Red
-linkVisitedColor:string=Purple
-
-borderWidth:string=1px
-borderStyle:string=solid
-borderStyleAnnotations:string=dashed
-
-globalBorderColor:string=#8cacbb
-globalBackgroundColor:string=#dee7ec
+globalBackgroundColor:string=#CFCFCF
+globalBorderColor:string=#BCBCBC
 globalFontColor:string=#436976
-
-headingFontFamily:string="Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif
-
-contentViewBorderColor:string=#74ae0b
-contentViewBackgroundColor:string=#cde2a7
-contentViewFontColor:string=#578308
-
-inputFontColor:string=Black
-
-textTransform:string=lowercase
-
-evenRowBackgroundColor:string=#eef3f5 
-oddRowBackgroundColor:string=transparent
-
-notifyBorderColor:string=#ffa500
-notifyBackgroundColor:string=#ffce7b
-
-discreetColor:string=#76797c
+headingFontFamily:string=Verdana, Geneva, sans-serif
 helpBackgroundColor:string=#ffffe1
-
-portalMinWidth:string=70em
-columnOneWidth:string=16em
-columnTwoWidth:string=16em
+inputFontColor:string=Black
+linkActiveColor:string=Red
+logoName:string=logo.png
+linkColor:string=#355fb8
+linkVisitedColor:string=#85adde
+notifyBackgroundColor:string=#ffce7b
+notifyBorderColor:string=#ffa500
+oddRowBackgroundColor:string=transparent
+plone_skin:string=Sweetpotato Theme
+portalMinWidth:string=0
+textTransform:string=lowercase
+title:string=Sweetpotato Knowledge Portal Theme for Plone 4

@@ -69,38 +69,53 @@ body {
 
 /*---------- GLOBAL NAVIGATION ----------*/
 #portal-globalnav {
-  background-color:#6791C9;
-  border-top:1px solid #fff;
-  line-height:2.7em;
-  list-style-image:none;
-  list-style-type:none;
-  overflow:hidden;
-  padding:0 0 0 1.25em;
-  }
+background-color:#5C1B77;
+background-image:url("action.jpg");
+background-position:right center;
+background-repeat:no-repeat;
+border-top:medium none;
+line-height:12px;
+list-style-image:none;
+list-style-type:none;
+margin-top:146px;
+overflow:hidden;
+padding:0 0 0 1.2em;
+}
+
 #portal-globalnav li {
-  border-right:1px solid #8BAFDF;
-  float:left;
-  margin:0 -1px 0 0;
-  }
+border-right:2px solid white;
+float:left;
+margin:3px -1px 3px 0;
+}
+
+
 #portal-globalnav li.lastItem {
   border-right:0;
   }
+#portal-globalnav li a:hover, #portal-globalnav li.selected a {
+background:none repeat scroll 0 0 transparent;
+border:0 none;
+color:#FFFFFF;
+}
+#portal-globalnav .selected a, #portal-globalnav a:hover {
+background:transparent;
+color:White;
+}
 #portal-globalnav li a {
-  border:0;
-  color:#fff;
-  display:block;
-  font-weight:bold;
-  margin:0;
-  padding:0 1.5em;
-  text-decoration:none;
-  text-transform:none;
-  }
-#portal-globalnav li a:hover,
-#portal-globalnav li.selected a {
-  background:#ddd;
-  border:0;
-  color:#000;
-  }
+border:0 none;
+color:#FFFFFF;
+display:block;
+font-weight:bold;
+margin:0;
+padding:0 0;
+text-decoration:none;
+text-transform:none;
+}
+#portal-globalnav li a:hover, #portal-globalnav li.selected a {
+background:none repeat scroll 0 0 transparent;
+border:0 none;
+color:#FFFFFF;
+}
 .themeComment {
   left:-9999px;
   position:absolute;
@@ -108,22 +123,23 @@ body {
   
 /*---------- PORTAL PERSONAL TOOLS ----------*/
 
-#portal-personaltools-wrapper{
-  background-color:#6495b6;
-  height:20px;
-  margin:0;
-  padding:0;
-  position:relative;
+#portal-personaltools-wrapper  {
+background-color:transparent;
+height:20px;
+margin:0;
+padding:0;
+position:relative;
 }
-#portal-personaltools {
-  background-color:transparent;
-  border:0;
-  bottom:2px;
-  padding:0;
-  position:static;
-  float:right;
-  width:150px;
-  }
+#portal-personaltools  {
+background-color:transparent;
+border:0 none;
+bottom:2px;
+float:right;
+padding:10px 0 0;
+position:static;
+text-align:right;
+width:100%;
+}
 #portal-personaltools li {
   margin:0;
   }
@@ -136,7 +152,16 @@ body {
 #portal-personaltools li a:hover {
   text-decoration:underline;
   }
-  
+dl.actionMenu a, dl.actionMenu div {
+color:white;
+display:block !important;
+white-space:nowrap;
+}
+#portal-personaltools dd {
+background-color:orange;
+min-width:150px !important;
+padding-bottom:0.5em;
+}
 /*---------- PORTAL BREAD CRUMBS ----------*/
 #portal-breadcrumbs {
   padding:3px 15px 4px 11px;
@@ -147,8 +172,9 @@ body {
 
 /*---------- PORTAL COLUMNS PROPERTIES ----------*/
 #portal-columns {
-  clear:both;
-  }
+clear:both;
+margin-top:20px;
+}
 #portal-column-content #content-wrapper {
   color:#000;
   margin-left:auto !important;
@@ -330,8 +356,13 @@ dl.portletNavigationTree .navTreeLevel2 .navTreeItem a.navTreeCurrentItem  {
   margin-left:0;
   }
 #searchGadget {
-  border:1px solid #000;
-  }
+background-color:#E4CFE2;
+border:1px solid #000000;
+}
+.searchSection {
+color:white;
+margin-top:0.15em;
+}
 /*---------- PORTLET NAVIGATION ----------*/
 /*.navTreeItem {
   line-height:1.3em;
@@ -477,13 +508,13 @@ dd.portletItem .navTreeLevel2 .navTreeItem .navTreeCurrentItem {
 
 /*---------- PORTAL FOOTER ----------*/
 #portal-footer {
-  background-color:#fff;
-  border-top:20px solid #6791C9;
-  border-bottom:0;
-  clear:both;
-  margin:2em 10px 0;
-  padding:0;
-  }
+background-color:#EEDBEF;
+border-bottom:0 none;
+border-top:0 none;
+clear:both;
+margin:0;
+padding:0;
+}
 #portal-footer p {
   line-height:2.5em;
   margin:0 0 0.25em;
@@ -494,12 +525,13 @@ dd.portletItem .navTreeLevel2 .navTreeItem .navTreeCurrentItem {
 
 /*---------- PORTAL COLOPHON ----------*/
 #portal-colophon {
-  background-color:#eee;
-  margin:0;
-  padding:0.5em 0;
-  position:relative;
-  width:852px;
-  }
+background-color:transparent;
+margin:0;
+padding:0.5em 0;
+position:relative;
+width:852px;
+clear:both;
+}
 #portal-colophon ul {
   margin:0;
   }
@@ -651,5 +683,61 @@ li {
   background:none;
   padding:0;
   }
+
+/*----------------COLUMNS----------------------*/
+#portal-column-two {
+width:184px;
+}
+#portal-column-one {
+
+}
+div.position-1:4 {
+margin-left:-78.875%;
+}
+div.managePortletsLink, a.managePortletsFallback {
+-moz-border-radius:0 0 0 0;
+background:none repeat scroll 0 0 #FFEF98;
+font-size:80%;
+margin:0;
+padding:0;
+text-align:center;
+width:184px;
+}
+div.width-1:2 {
+width:515px;
+}
+div.width-1:4 {
+width:190px;
+}
+div.width-full {
+width:100%;
+}
+div.position-0 {
+margin-left:-100%;
+}
+div.position-3:4 {
+margin-left:-19.05%;
+}
+
+
+/*-----------------PORTLETS-------------------*/
+dl.portlet ul.navTreeLevel0 > .navTreeItem {
+border-bottom:0.2em dotted #DDDDDD;
+line-height:2em;
+margin-bottom:0;
+padding:0;
+}
+.navTree {
+background-color:#DB214C;
+padding:5px;
+}
+dl.portletNavigationTree .navTreeItem a {
+background-color:#DB214C;
+border:0 none;
+color:#F1F1F1 !important;
+font-weight:normal;
+padding:0;
+}
+
 
 /* </dtml-with> */

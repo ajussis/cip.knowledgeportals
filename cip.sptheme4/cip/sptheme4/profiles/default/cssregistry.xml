@@ -22,10 +22,7 @@
       ResourceRegistries/tools/CSSRegistry.py for the latest list of all
       available keys and default values.
       -->
- <stylesheet title=""
-    id="++resource++cip.sptheme4.stylesheets/main.css"
-    media="screen" rel="stylesheet" rendering="import"
-    cacheable="True" compression="safe" cookable="True"
-    enabled="1" expression=""/>
-
+ <stylesheet title="Sweetpotato Stylesheet" cacheable="True" compression="safe" cookable="True"
+    enabled="1" expression="" id="sweetpotato.css" media="screen"
+    rel="stylesheet" rendering="import"/>
 </object>

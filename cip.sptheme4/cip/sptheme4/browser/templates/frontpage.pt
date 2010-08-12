@@ -1,1 +1,9 @@
-joujoujou!!!!!!
+<html metal:use-macro="here/main_template/macros/master">
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main">
+            <span tal:define="div_item1 nocall:here/germplasm">
+                <tal:block content="structure div_item1/getText" />
+            </span>
+        </metal:main>
+    </metal:main_macro>
+</html>
