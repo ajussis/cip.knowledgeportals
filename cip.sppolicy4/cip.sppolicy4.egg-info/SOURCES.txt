@@ -24,6 +24,7 @@ cip/sppolicy4/profiles/default/controlpanel.xml
 cip/sppolicy4/profiles/default/import_steps.xml
 cip/sppolicy4/profiles/default/memberdata_properties.xml
 cip/sppolicy4/profiles/default/portal_languages.xml
+cip/sppolicy4/profiles/default/portlets.xml
 cip/sppolicy4/profiles/default/properties.xml
 cip/sppolicy4/profiles/default/propertiestool.xml
 docs/HISTORY.txt

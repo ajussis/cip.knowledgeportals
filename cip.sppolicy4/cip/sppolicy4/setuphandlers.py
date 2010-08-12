@@ -823,7 +823,7 @@ def createFolderStructure(portal):
         {   'id': 'test-project',
             'title': 'Global Project',
             'description': '',
-            'type': 'b-org Project',
+            'type': 'Folder',
             'layout': 'folder_listing',
             },
         ]
