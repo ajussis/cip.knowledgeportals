@@ -267,7 +267,29 @@ def createFolderStructure(portal):
             },
         ]
 
+    gp_children = [
+        {   'id': 'test-ntoicia',
+            'title': 'Test noticia',
+            'description': 'gp-noticias-ejemplo gp-noticias-ejemplo gp-noticias-ejemplo gp-noticias-ejemplo',
+            'type': 'News Item',
+            'layout': 'folder_listing',
+            },
+        {   'id': 'test-ntoicia2',
+            'title': 'Test noticia 2',
+            'description': 'gp-noticias-ejemplo gp-noticias-ejemplo gp-noticias-ejemplo gp-noticias-ejemplo',
+            'type': 'News Item',
+            'layout': 'folder_listing',
+            },
+        ]
+
     germplasm_children = [
+        {   'id': 'germplasm-noticias',
+            'title': 'Germplasm Noticias',
+            'description': '',
+            'type': 'Folder',
+            'layout': 'folder_listing',
+            'children': gp_children,
+            },
         {   'id': 'germplasm-collection',
             'title': 'Germplasm Collection',
             'description': '',
@@ -861,16 +883,19 @@ def createFolderStructure(portal):
             'type': 'Folder',
             'layout': 'folder_listing',
             },
-
-    ]
-
+        ]
 
     top_folders = [
+        {   'id': 'fp-introduction',
+            'title': 'Welcome to Sweetpotato Knowledge Portal',
+            'description': '',
+            'type': 'Document',
+            },
         {   'id': 'sweetpotato-introduction',
             'title': 'Sweetpotato introduction',
             'description': '',
             'type': 'Folder',
-            'layout': 'frontpage',
+            'layout': 'folder_listing',
             'children': sweetpotatoIntroduction_children,
             },
         {   'id': 'germplasm',
@@ -966,6 +991,15 @@ def setupVarious(context):
 
     if context.readDataFile('cip.sppolicy4_various.txt') is None:
         return
+
+    existing = portal.objectIds()
+
+    if 'gpNews' not in existing:
+        _createObjectByType('Topic', portal, id='gpNews', title='Latest on Germplasm',
+                            description='Show the latest objects from Germplasm Category')
+        gpNews = portal.gpNews
+        type_crit = gpNews.addCriterion('Type','ATPortalTypeCriterion')
+        type_crit.setValue('News Item')
 
     # Add additional setup code here
 #    deletePloneFolders(portal)
