@@ -47,6 +47,11 @@
         <property name="wf_states_to_show" type="lines"/>
     </object>
     <object name="site_properties" meta_type="Plone Property Sheet">
+        <!-- the following property added -->
+        <property name="user_registration_fields" type="lines">
+            <element value="country" />
+            <element value="accept" />
+        </property>
         <property name="title">Site wide properties</property>
         <property name="allowAnonymousViewAbout" type="boolean">False</property>
         <property name="localTimeFormat" type="string">%b %d, %Y</property>

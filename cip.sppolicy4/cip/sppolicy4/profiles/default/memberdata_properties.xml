@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<object name="portal_memberdata" meta_type="PlonePAS MemberData Tool">
+<object name="portal_memberdata" meta_type="Plone Memberdata Tool">
+ <property name="firstname" type="string"></property>
+ <property name="lastname" type="string"></property>
+ <property name="city" type="string"></property>
+ <property name="country" type="string"></property>
+ <property name="birthdate" type="string"></property>
+ <property name="subscribe_newsletter" type="boolean"></property>
+ <property name="phone" type="string"></property>
+ <property name="gender" type="string"></property>
+</object>
+
+<!--object name="portal_memberdata" meta_type="PlonePAS MemberData Tool">
  <property name="email" type="string"/>
  <property name="portal_skin" type="string"/>
  <property name="listed" type="boolean">True</property>
@@ -14,4 +25,4 @@
  <property name="ext_editor" type="boolean">False</property>
  <property name="wysiwyg_editor" type="string">Kupu</property>
  <property name="visible_ids" type="boolean">False</property>
-</object>
+</object-->
