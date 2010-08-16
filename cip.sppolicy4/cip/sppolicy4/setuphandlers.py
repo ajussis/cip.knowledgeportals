@@ -898,7 +898,7 @@ def createFolderStructure(portal):
             },
         ]
 
-impact_children = [
+    impact_children = [
         {   'id': 'impact-on-food-security',
             'title': 'Impact on Food Security',
             'description': '',
@@ -919,7 +919,7 @@ impact_children = [
             },
         ]
 
-consumption_children = [
+    consumption_children = [
         {   'id': 'consumer-assessment',
             'title': 'Consumer Assessment',
             'description': '',
@@ -941,7 +941,7 @@ consumption_children = [
             },
         ]
 
-nutritional_children = [
+    nutritional_children = [
         {   'id': 'nutritional-value',
             'title': 'Nutritional Value',
             'description': '',
@@ -968,7 +968,7 @@ nutritional_children = [
             },
         ]
 
-consumptions_children = [
+    consumptions_children = [
         {   'id': 'food-frequency',
             'title': 'Food Frequency Question',
             'description': '',
@@ -983,7 +983,7 @@ consumptions_children = [
             },
         ]
 
-research_children = [
+    research_children = [
         {   'id': 'consumption-studies',
             'title': 'Consumption Studies',
             'description': '',
@@ -993,7 +993,7 @@ research_children = [
             },
         ]
 
-training_children = [
+    training_children = [
         {   'id': 'nutritional-benefits',
             'title': 'Nutritional Benefits',
             'description': '',
@@ -1026,7 +1026,7 @@ training_children = [
             },
         ]
 
-silage_children = [
+    silage_children = [
         {   'id': 'making-and-conservation',
             'title': 'Making and Conservation',
             'description': '',
@@ -1047,7 +1047,7 @@ silage_children = [
             },
         ]
 
-animalfeed_children = [
+    animalfeed_children = [
         {   'id': 'use-of-dual-purpose',
             'title': 'Use of Dual-purpose Varieties',
             'description': '',
@@ -1069,7 +1069,7 @@ animalfeed_children = [
             },
         ]
 
-useconsumption_children = [
+    useconsumption_children = [
         {   'id': 'nutritional-information',
             'title': 'Nutritional Information',
             'description': '',
@@ -1114,7 +1114,7 @@ useconsumption_children = [
         ]
 
 
-demandcreation_children = [
+    demandcreation_children = [
         {   'id': 'campaigns',
             'title': 'Campaigns',
             'description': '',
@@ -1135,7 +1135,7 @@ demandcreation_children = [
             },
         ]
 
-demand_children = [
+    demand_children = [
         {   'id': 'consumer-peferences',
             'title': 'Consumer Preferences',
             'description': '',
@@ -1151,8 +1151,7 @@ demand_children = [
             },
         ]
 
-
-productdevelopment_children = [
+    productdevelopment_children = [
         {   'id': 'flour',
             'title': 'Flour',
             'description': '',
@@ -1209,7 +1208,7 @@ productdevelopment_children = [
             },
         ]
 
-postharvestissues_children = [
+    postharvestissues_children = [
         {   'id': 'insects',
             'title': 'Insects',
             'description': '',
@@ -1230,7 +1229,7 @@ postharvestissues_children = [
             },
         ]
 
-postharvest_children = [
+    postharvest_children = [
         {   'id': 'cleaning',
             'title': 'Cleaning & Curing',
             'description': '',
@@ -1270,7 +1269,7 @@ postharvest_children = [
             },
         ]
 
-valueadding_children = [
+    valueadding_children = [
         {   'id': 'introduction',
             'title': 'Introduction',
             'description': '',
@@ -1318,7 +1317,7 @@ valueadding_children = [
             },
         ]
 
-institutions_children = [
+    institutions_children = [
         {   'id': 'international-research',
             'title': 'International Research',
             'description': '',
@@ -1345,7 +1344,7 @@ institutions_children = [
             },
         ]
 
-top_folders = [
+    top_folders = [
         {   'id': 'fp-introduction',
             'title': 'Welcome to Sweetpotato Knowledge Portal',
             'description': '',
@@ -1409,7 +1408,7 @@ top_folders = [
             },
         ]
 
-createObjects(parent=portal, children=top_folders)
+    createObjects(parent=portal, children=top_folders)
 
 def createObjects(parent, children):
     """This will create new objects, or modify existing ones if id's and type
