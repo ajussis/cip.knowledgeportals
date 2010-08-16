@@ -18,5 +18,13 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
   <!-- -*- extra stuff goes here -*- -->
-  
+
+     <permission
+       id="cip.sppolicy4.AddStaticPortlet"
+       title="cip.sppolicy4: Add static portlet"
+       />
+
+     <!-- Register the portlet -->
+
+
 </configure>

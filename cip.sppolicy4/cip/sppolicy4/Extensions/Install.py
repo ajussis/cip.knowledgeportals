@@ -1,8 +1,8 @@
 import transaction
 from Products.CMFCore.utils import getToolByName
 
-PRODUCT_DEPENDENCIES = ('raptus.multilanguageplone','cip.sptheme4',
-                        'raptus.multilanguagefields','borg.project')
+PRODUCT_DEPENDENCIES = ('borg.project', 'cip.spcontent4', 'raptus.multilanguageplone','cip.sptheme4',
+                        'raptus.multilanguagefields', 'collective.googleanalytics')
 EXTENSION_PROFILES = ('cip.sppolicy4:default',)
 
 

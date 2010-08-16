@@ -14,9 +14,14 @@ cip.sppolicy4.egg-info/requires.txt
 cip.sppolicy4.egg-info/top_level.txt
 cip/sppolicy4/__init__.py
 cip/sppolicy4/__init__.pyc
+cip/sppolicy4/adapter.py
+cip/sppolicy4/adapter.pyc
 cip/sppolicy4/configure.zcml
+cip/sppolicy4/overrides.zcml
 cip/sppolicy4/setuphandlers.py
 cip/sppolicy4/tests.py
+cip/sppolicy4/userdataschema.py
+cip/sppolicy4/userdataschema.pyc
 cip/sppolicy4/Extensions/Install.py
 cip/sppolicy4/Extensions/__init__.py
 cip/sppolicy4/profiles/default/cip.sppolicy4_various.txt
