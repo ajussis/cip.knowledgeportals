@@ -5,3 +5,4 @@
 cip.sppolicy4 svn://66.249.23.38/svn/sweetpotato/cip.sppolicy4
 cip.sptheme4 svn://66.249.23.38/svn/sweetpotato/cip.sptheme4
 cip.spcontent4 svn://66.249.23.38/svn/sweetpotato/cip.spcontent4
+collective.googleanalytics svn://66.249.23.38/svn/sweetpotato/collective.googleanalytics
