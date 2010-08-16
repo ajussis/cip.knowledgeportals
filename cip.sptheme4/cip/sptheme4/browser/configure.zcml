@@ -17,15 +17,7 @@
       />
   
   <!-- Viewlets registration -->
-  <!-- EXAMPLE (UNCOMMENT TO MAKE AVAILABLE):
-  <browser:viewlet
-      name="cip.someviewlet"
-      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-      class=".viewlets.MyViewlet"
-      layer=".interfaces.IThemeSpecific"
-      permission="zope2.View"
-      />
-  -->
+
 
 
   <include package="plone.app.portlets" />
@@ -63,5 +55,43 @@
       directory="stylesheets"
       layer=".interfaces.IThemeSpecific"
       />
+
+    <!-- Footer -->
+    <browser:viewlet
+        name="plone.footer"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        class=".viewlets.FooterViewlet"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope.Public"
+        />
+
+    <!-- Colophon -->
+    <browser:viewlet
+        name="plone.colophon"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        template="templates/colophon.pt"
+        permission="zope.Public"
+        layer=".interfaces.IThemeSpecific"
+        />
+
+    <!-- The site actions -->
+    <browser:viewlet
+        name="plone.site_actions"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        class=".viewlets.SiteActionsViewlet"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        />
+
+    <!--browser:viewlet
+        name="plone.links.navigation"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
+        class=".viewlets.NavigationViewlet"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        /-->
+
 
 </configure>

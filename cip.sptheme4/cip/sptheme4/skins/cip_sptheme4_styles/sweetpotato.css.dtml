@@ -161,6 +161,7 @@ white-space:nowrap;
 background-color:orange;
 min-width:150px !important;
 padding-bottom:0.5em;
+z-index:999;
 }
 /*---------- PORTAL BREAD CRUMBS ----------*/
 #portal-breadcrumbs {
@@ -172,6 +173,7 @@ padding-bottom:0.5em;
 
 /*---------- PORTAL COLUMNS PROPERTIES ----------*/
 #portal-columns {
+background:none repeat scroll 0 0 white;
 clear:both;
 margin-top:20px;
 }
@@ -237,14 +239,18 @@ dl.portletNavigationTree .navTreeLevel2 .navTreeItem a.navTreeCurrentItem  {
 
 /***********************************************/
 .portletHeader {
-  background-color:#6791C9;
+  background-color:#EEDBEF !important;
   border:0;
-  color:#fff;
+  color:#f81447;
   font-weight:bold;
   /*padding:7px;*/
   text-align:center;
   text-transform:none;
+  border-bottom:2px solid #91247f;
   }
+a.portletheader {
+  color:#f81447 !important;
+}
 .managedPortlet .portletHeader {
   background-color:#6791C9;
   border:0;
@@ -270,13 +276,32 @@ dl.portletNavigationTree .navTreeLevel2 .navTreeItem a.navTreeCurrentItem  {
   padding:10px;;
   }*/
 .portletFooter {
-  background-color:#f1f1f1;
-  border-color:#bcbcbc;
-  border-style:solid solid none;
+  background-color:#EEDBEF !important;
+  border-color:none;
+  border-style:none;
+  text-align:right;
   }
 .portletItem a:visited, dd.portletFooter a:visited {
-  color:#85ADDE;
+  color:#772c65 !important;
   }
+
+.portletItem a {
+  color:#772c65 !important;
+  }
+
+dd.portletItem {
+  border-bottom:1px solid #c255a4 !important;
+}
+
+#content a:link, dl.portlet a:link {
+border-bottom:none !important;
+color:#205C90;
+}
+
+#content a:visited, dl.portlet a:visited {
+border-bottom:none !important;
+color:#427597;
+}
 
 #portal-xolumn-one .portletwrapper {
   float:right;
@@ -385,7 +410,7 @@ dl.portletNavigationTree .navTreeItem a {
 
 dl.portletNavigationTree .navTreeItem a:hover,
 dl.portletNavigationTree .navTreeItem a.navTreeCurrentItem{
-  background-color:#6495b6 !important;
+  background-color:#b72245 !important;
   /*padding-left:35px;*/
   border: 0 !important;
   color: #FFFFFF !important;
@@ -406,6 +431,21 @@ dd.portletItem .navTreeItem .navTreeCurrentItem {
   border:0 !important;
   font-weight:bold;
   }
+dl.portlet ul.navTree .navTreeCurrentItem {
+background-color:#DDDDDD;
+border-left:1em solid #DDDDDD;
+margin-left:0 !important;
+margin-right:0 !important;
+}
+
+#edit-bar {
+font-size:10px !important;
+}
+
+#portal-languageselector  {
+background:none repeat scroll 0 0 transparent !important;
+}
+
 /*dd.portletItem .navTreeItem a:visited {
   color:#000;
   }*/
@@ -453,7 +493,30 @@ dd.portletItem .navTreeLevel2 .navTreeItem .navTreeCurrentItem {
   color:#000;
   border-color:#fff;
   }
- 
+
+/*---------- PORTLET COLLECTION ----------*/
+
+.portletCollection {
+background: #eedbef;
+}
+
+dl.portletCollection {
+  padding:5px 10px;
+}
+
+dl.portletCollection dd.portletItem {
+padding:1em 0.2em; 
+}
+
+dl.portletCollection dd.portletItem:hover {
+padding:1em 0.2em;
+background-color:#e8caea;
+}
+
+dd.portletItem a:hover {
+color:#91247F !important;
+}
+
 /*---------- PORTLET CALENDAR ----------*/
 .ploneCalendar{
   background-color:#FDCB76;
@@ -464,14 +527,15 @@ dd.portletItem .navTreeLevel2 .navTreeItem .navTreeCurrentItem {
   color:#FDCB76;
   }
 .portletCalendar dt {
-  /*background:url(&dtml-portal_url;/ceja-pink.png) repeat 0 0 #581A74;*/
   background-color:#581A74;
   font-weight:bold;
   color:#F1F1F1;
   }
-.ploneCalendar td{
-  color:#581A74;
-  }
+.portletCalendar dt {
+background-color:#581A74 !important;
+color:#F1F1F1;
+font-weight:bold;
+}
 .portletCalendar .hiddenStructure {
   display:none;
   }
@@ -512,13 +576,14 @@ background-color:#EEDBEF;
 border-bottom:0 none;
 border-top:0 none;
 clear:both;
-margin:0;
 padding:0;
+background-image:url("footerbottom.png");
+background-position:center bottom;
+background-repeat:no-repeat;
+height:225px;
+line-height:2em;
+margin:0 0 0.25em;
 }
-#portal-footer p {
-  line-height:2.5em;
-  margin:0 0 0.25em;
-  }
 #portal-footer a {
   text-decoration:underline;
   }
@@ -684,12 +749,14 @@ li {
   padding:0;
   }
 
-/*----------------COLUMNS----------------------*/
-#portal-column-two {
-width:184px;
+.portal-footer-column  {
+float:left;
+margin:0 57px 50px;
+width:200px;
 }
-#portal-column-one {
-
+.portal-footer-list li {
+list-style: none outside none;
+display: list-item;
 }
 div.position-1:4 {
 margin-left:-78.875%;
@@ -719,6 +786,58 @@ div.position-3:4 {
 margin-left:-19.05%;
 }
 
+.frontpageBox {
+width:270px;
+float:left;}
+
+h1.titleFrontpage {
+padding:0;
+border:0;
+}
+
+.titleSweetpotato {
+color:#551b68;
+float:left;
+border:0;
+margin-bottom:0.1em;
+font-size:1.9em !important;
+margin-top:0 !important;
+}
+
+.titleKnowledge {
+color:#ea2050;
+float:left;
+border:0;
+margin-bottom:0.1em;
+font-size:1.9em !important;
+margin-top:0 !important;
+}
+
+.titleLine1 {
+height:4px;
+background-color:#ea2050;
+width:180px;
+float:left;
+}
+.titleLine2 {
+height:4px;
+background-color:#551b68;
+width:360px;
+float:left;
+}
+
+.titleBall {
+padding-top:8px;
+float:left;
+}
+
+.lineBreak {
+clear:both;
+}
+
+#content {
+margin:0em 0.25em 2em !important;
+}
 
 /*-----------------PORTLETS-------------------*/
 dl.portlet ul.navTreeLevel0 > .navTreeItem {
@@ -739,5 +858,22 @@ font-weight:normal;
 padding:0;
 }
 
+dl.portlet dt a:link, dl.portlet dt a:visited, dl.portlet dt a:hover {
+border:medium none;
+color:#F81447;
+display:block;
+}
+
+/*------------------------------ICONS----------------------------/*
+
+.icons-on .contenttype-folder {
+background:url("spIcon.jpg") no-repeat scroll 0 0 transparent;
+}
+
+.portal-footer-list {
+list-style: none outside none;
+display: list-item;
+color: red;
+}
 
 /* </dtml-with> */

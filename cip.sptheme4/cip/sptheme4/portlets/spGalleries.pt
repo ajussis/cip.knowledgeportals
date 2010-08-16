@@ -5,7 +5,7 @@
     tal:attributes="class string:portlet portletStaticText portletGrey ${view/css_class}"
     i18n:domain="plone">
 
-    <img src="potatos.jpg" width="200" />
+    <h1>Galleries</h1>
 
     <dd class="portletItem odd">
         <div tal:replace="structure view/data/text" />

@@ -1,0 +1,57 @@
+<div metal:define-macro="portal_footer"
+     i18n:domain="plone"
+     class="row">
+    <div class="cell width-full position-0">
+
+        <div id="portal-footer">
+            <div class="portal-footer-column">
+                <h2>Site use</h2>
+                <ul class="portal-footer-list">
+                    <li>
+                        Sitemap
+                    </li>
+                    <li>
+                        Accessability
+                    </li>
+                    <li>
+                        Contact
+                    </li>
+                    <li>
+                        How to use the portal
+                    </li>
+                </ul>
+            </div>
+            <div class="portal-footer-column">
+                <h2>Membership</h2>
+                <ul class="portal-footer-list">
+                    <li>
+                        Become Member
+                    </li>
+                    <li>
+                        Add an institution
+                    </li>
+                    <li>
+                        All members
+                    </li>
+                </ul>
+            </div>
+            <div class="portal-footer-column">
+                <h2>Site use</h2>
+                <ul class="portal-footer-list">
+                    <li>
+                        Sitemap
+                    </li>
+                    <li>
+                        Accessability
+                    </li>
+                    <li>
+                        Contact
+                    </li>
+                    <li>
+                        Control Panel
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

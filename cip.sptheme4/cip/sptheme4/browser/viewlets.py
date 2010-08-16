@@ -1,5 +1,10 @@
+from plone.app.layout.viewlets import ViewletBase
+from zope.component import getMultiAdapter
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
+from datetime import date
+from plone.app.portlets.cache import render_cachekey
+from plone.memoize import ram
 
 # Sample code for a basic viewlet (In order to use it, you'll have to):
 # - Un-comment the following useable piece of code (viewlet python class).
@@ -19,3 +24,26 @@ from plone.app.layout.viewlets.common import ViewletBase
 #
 #    def update(self):
 #        self.computed_value = 'any output'
+
+
+class FooterViewlet(ViewletBase):
+    index = ViewPageTemplateFile('templates/footer.pt')
+
+    def update(self):
+        self.year = date.today().year
+
+class SiteActionsViewlet(ViewletBase):
+    index = ViewPageTemplateFile('templates/site_actions.pt')
+
+    def update(self):
+        context_state = getMultiAdapter((self.context, self.request),
+                                        name=u'plone_context_state')
+        self.site_actions = context_state.actions('site_actions')
+
+class NavigationViewlet(ViewletBase):
+
+    _template = ViewPageTemplateFile('templates/navigation.pt')
+
+    @ram.cache(render_cachekey)
+    def render(self):
+        return xhtml_compress(self._template())

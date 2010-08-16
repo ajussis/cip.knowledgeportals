@@ -1,9 +1,65 @@
 <html metal:use-macro="here/main_template/macros/master">
     <metal:main_macro define-macro="main">
-        <metal:main fill-slot="main">
-            <span tal:define="div_item1 nocall:here/germplasm">
-                <tal:block content="structure div_item1/getText" />
-            </span>
+        <metal:main fill-slot="main"
+                    tal:define="news python:context.portal_catalog(portal_type='News Item', sort_on='Date', sort_order='Reverse')[:4];
+                                germplasm python:context.portal_catalog(id='gpNews');
+                                gpLatest python:context.portal_catalog(path={'query': '/sweetpotato2/germplasm'})[:4];
+                                ssLatest python:context.portal_catalog(path={'query': '/sweetpotato2/seedsystem'})[:4];
+                                cmLatest python:context.portal_catalog(path={'query': '/sweetpotato2/crop-management'})[:4]">
+
+            <div tal:define="fpIntro nocall:here/fp-introduction">
+                <img class="titleBall" src="frontpageball.jpg" />
+                <h1 class="titleSweetpotato">Sweetpotato</h1>
+                <h1 class="titleKnowledge">Knowledge Portal</h1>
+                <div class="lineBreak"></div>
+                <div class="titleLine1"></div>
+                <div class="titleLine2"></div>
+                <p tal:content="structure fpIntro/getText"></p>
+            </div>
+
+            <div class="lineBreak"></div>
+
+            <h1>Latest News</h1>
+            <div tal:repeat="news_item news">
+              <tal:objects define="newsObject news_item/getObject">
+                  <h2 tal:content="news_item/Title"></h2>
+                  <p tal:content="news_item/Description"></p>
+              </tal:objects>
+            </div>
+
+            <h1>Latest Updates</h1>
+            <div class="frontpageBox">
+                <h2>Germplasm</h2>
+                <p tal:repeat="m gpLatest">
+                    <tal:rep define="k m/getObject">
+                        <a href="#" tal:attributes="href m/getURL">
+                            <span tal:replace="k/pretty_title_or_id"/>
+                        </a>
+                    </tal:rep>
+                </p>
+            </div>
+            <div class="frontpageBox">
+                <h2>Seedsystem</h2>
+                <p tal:repeat="m ssLatest">
+                    <tal:rep define="k m/getObject">
+                        <a href="#" tal:attributes="href m/getURL">
+                            <span tal:replace="k/pretty_title_or_id"/>
+                        </a>
+                    </tal:rep>
+                </p>
+            </div>
+            <div class="frontpageBox">
+                <h2>Crop Management</h2>
+                <p tal:repeat="m cmLatest">
+                    <tal:rep define="k m/getObject">
+                        <a href="#" tal:attributes="href m/getURL">
+                            <span tal:replace="k/pretty_title_or_id"/>
+                        </a>
+                    </tal:rep>
+                </p>
+            </div>
+
+
         </metal:main>
     </metal:main_macro>
 </html>

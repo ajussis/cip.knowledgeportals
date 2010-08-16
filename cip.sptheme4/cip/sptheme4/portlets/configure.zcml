@@ -20,4 +20,15 @@
      editview="plone.portlet.static.static.EditForm"
      />
 
+    <plone:portlet
+    name="cip.spGalleriesPortlet"
+    interface=".spGalleries.IspGalleriesPortlet"
+     assignment=".spGalleries.spGalleriesAssignment"
+     view_permission="zope2.View"
+     edit_permission="cmf.ManagePortal"
+     renderer=".spGalleries.spGalleriesRenderer"
+     addview=".spGalleries.spGalleriesAddForm"
+     editview="plone.portlet.static.static.EditForm"
+     />
+
 </configure>
