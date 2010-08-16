@@ -1,7 +1,12 @@
+CHANGES.txt
+CONTRIBUTORS.txt
 MANIFEST.in
 README.txt
 setup.cfg
 setup.py
+svn-commit.2.tmp
+svn-commit.3.tmp
+svn-commit.tmp
 cip/__init__.py
 cip.spcontent4.egg-info/PKG-INFO
 cip.spcontent4.egg-info/SOURCES.txt
@@ -16,6 +21,7 @@ cip/spcontent4/README.txt
 cip/spcontent4/__init__.py
 cip/spcontent4/config.py
 cip/spcontent4/configure.zcml
+cip/spcontent4/setuphandlers.py
 cip/spcontent4/browser/__init__.py
 cip/spcontent4/browser/configure.zcml
 cip/spcontent4/content/__init__.py
@@ -34,3 +40,7 @@ cip/spcontent4/profiles/default/types/Project_Folder.xml
 cip/spcontent4/tests/__init__.py
 cip/spcontent4/tests/base.py
 cip/spcontent4/tests/test_doctest.py
+docs/HISTORY.txt
+docs/INSTALL.txt
+docs/LICENSE.GPL
+docs/LICENSE.txt
