@@ -270,14 +270,14 @@ def createFolderStructure(portal):
 
     gp_children = [
         {   'id': 'test-ntoicia',
-            'title': 'Test noticia',
-            'description': 'gp-noticias-ejemplo gp-noticias-ejemplo gp-noticias-ejemplo gp-noticias-ejemplo',
+            'title': 'Native potato takes center stage at photo exhibit in Lima',
+            'description': '"Fertile Legacy", a photo exhibition celebrating the power and beauty of native Andean potatoes opened on August 10th in Lima, Peru. The exhibition features a sample of the exquisite variety of potatoes available in Peru, Bolivia, and Ecuador, and presents a graphic story of the tuber’s journey from field to table',
             'type': 'News Item',
             'layout': 'folder_listing',
             },
         {   'id': 'test-ntoicia2',
-            'title': 'Test noticia 2',
-            'description': 'gp-noticias-ejemplo gp-noticias-ejemplo gp-noticias-ejemplo gp-noticias-ejemplo',
+            'title': 'Ahipa - A nutrient rich crop for a hungry world ',
+            'description': 'The International Potato Center (CIP) has launched a project to enhance the nutrient-rich yam bean in an effort to improve health, food security and the sustainability of farming systems in Central and West Africa. Ahipa is the name the Inca gave to the highly nutritious legume root produced by the American yam bean (Pachyrhizus spp.) ',
             'type': 'News Item',
             'layout': 'folder_listing',
             },
@@ -1471,6 +1471,13 @@ def setupVarious(context):
                             description='Show the latest objects from Crop Management Category')
         cmnNews = portal.cmnNews
         type_crit = cmnNews.addCriterion('Type','ATPortalTypeCriterion')
+        type_crit.setValue(['News Item', 'Document', 'Folder'])
+
+    if 'vaNews' not in existing:
+        _createObjectByType('Topic', portal, id='vaNews', title='Latest on Crop Management',
+                            description='Show the latest objects from Crop Management Category')
+        vaNews = portal.vaNews
+        type_crit = vaNews.addCriterion('Type','ATPortalTypeCriterion')
         type_crit.setValue(['News Item', 'Document', 'Folder'])
 
     if 'gpProjects' not in existing:
