@@ -271,7 +271,7 @@ def createFolderStructure(portal):
     gp_children = [
         {   'id': 'test-ntoicia',
             'title': 'Native potato takes center stage at photo exhibit in Lima',
-            'description': '"Fertile Legacy", a photo exhibition celebrating the power and beauty of native Andean potatoes opened on August 10th in Lima, Peru. The exhibition features a sample of the exquisite variety of potatoes available in Peru, Bolivia, and Ecuador, and presents a graphic story of the tuber’s journey from field to table',
+            'description': 'Fertile Legacy, a photo exhibition celebrating the power and beauty of native Andean potatoes opened on August 10th in Lima, Peru. The exhibition features a sample of the exquisite variety of potatoes available in Peru, Bolivia, and Ecuador, and presents a graphic story of the tubers journey from field to table',
             'type': 'News Item',
             'layout': 'folder_listing',
             },
