@@ -22,7 +22,7 @@ def updateCatalog(context, clear=True):
 #        if item in existing:
 #            p.manage_delObjects(item)
 
-def importPAS(portal):
+"""def importPAS(portal):
     users_here = 'jussi;jussi;Jussi;Savolainen;ajussis@gmail.com'
     users = users_here.data.split('\n')
     regtool = getToolByName(portal, 'portal_registration')
@@ -47,7 +47,7 @@ def importPAS(portal):
             print "Could not parse line %d because it had the following contents: '%s'" % (index, user)
         index += 1
     print "Imported %d users (from %d lines of CSV)" % (imported_count, index)
-    return printed
+    return printed"""
 
 def createFolderStructure(portal):
     """Define which objects we want to create in the site.
@@ -1472,7 +1472,6 @@ def setupVarious(context):
         cmnNews = portal.cmnNews
         type_crit = cmnNews.addCriterion('Type','ATPortalTypeCriterion')
         type_crit.setValue(['News Item', 'Document', 'Folder'])
-
 
     if 'gpProjects' not in existing:
         _createObjectByType('Topic', portal, id='gpProjects', title='Latest Proejcts',

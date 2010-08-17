@@ -3,11 +3,11 @@
     i18n_domain="cip.sppolicy4">
 
   <!-- TODO: this will even take effect if the product is not installed -->
-  <utility 
+  <utility
       provides="plone.app.users.userdataschema.IUserDataSchemaProvider"
       factory=".userdataschema.UserDataSchemaProvider"/>
 
-  <adapter 
+  <adapter
     provides=".userdataschema.IEnhancedUserDataSchema"
     for="Products.CMFCore.interfaces.ISiteRoot"
     factory=".adapter.EnhancedUserDataPanelAdapter"
