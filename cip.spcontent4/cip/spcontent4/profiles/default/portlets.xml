@@ -7,4 +7,18 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="plone">
   <!-- -*- extra stuff goes here -*- -->
+
+ <!--assignment
+     name="latest-projects"
+     category="context"
+     key="/"
+     manager="plone.leftcolumn"
+     type="plone.portlet.collection.Collection"
+     visible="True">
+     <property name="header">Latest Projects</property>
+     <property name="target_collection">/gpProjects</property>
+     <property name="random">False</property>
+     <property name="show_dates">True</property>
+     <property name="limit">4</property>
+ </assignment-->
 </portlets>
