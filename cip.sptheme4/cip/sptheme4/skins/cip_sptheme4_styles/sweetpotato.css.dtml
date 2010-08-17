@@ -123,22 +123,32 @@ color:#FFFFFF;
   
 /*---------- PORTAL PERSONAL TOOLS ----------*/
 
+#portal-searchbox {
+clear:right;
+float:right;
+font-size:80%;
+margin:1.2em 0 108px !important;
+position:inherit;
+text-align:left;
+}
+
 #portal-personaltools-wrapper  {
 background-color:transparent;
+float:right;
 height:20px;
 margin:0;
 padding:0;
 position:relative;
+width:90px;
 }
-#portal-personaltools  {
-background-color:transparent;
+#portal-personaltools {
+background:none repeat scroll 0 0 #6D3080;
 border:0 none;
 bottom:2px;
 float:right;
-padding:10px 0 0;
-position:static;
+margin:0 10px;
+position:relative;
 text-align:right;
-width:100%;
 }
 #portal-personaltools li {
   margin:0;
@@ -165,11 +175,14 @@ z-index:999;
 }
 /*---------- PORTAL BREAD CRUMBS ----------*/
 #portal-breadcrumbs {
-  padding:3px 15px 4px 11px;
+padding:3px 15px 0 0;
+margin-bottom:0.1em !important;
   }
 #portal-breadcrumbs a {
   text-decoration:underline;
   }
+
+
 
 /*---------- PORTAL COLUMNS PROPERTIES ----------*/
 #portal-columns {
@@ -290,17 +303,17 @@ a.portletheader {
   }
 
 dd.portletItem {
-  border-bottom:1px solid #c255a4 !important;
+  border-bottom:0px solid #c255a4 !important;
 }
 
 #content a:link, dl.portlet a:link {
 border-bottom:none !important;
-color:#205C90;
+color:#581A74;
 }
 
 #content a:visited, dl.portlet a:visited {
 border-bottom:none !important;
-color:#427597;
+color:#581A74;
 }
 
 #portal-xolumn-one .portletwrapper {
@@ -505,7 +518,8 @@ dl.portletCollection {
 }
 
 dl.portletCollection dd.portletItem {
-padding:1em 0.2em; 
+border-bottom:1px solid #C255A4 !important;
+padding:1em 0.2em;
 }
 
 dl.portletCollection dd.portletItem:hover {
@@ -658,14 +672,14 @@ body.kssActive h1.inlineEditable:hover {
   padding:2px 7px;
   }
 h2 {
-  border-top:2px solid #f1f1f1;
-  border-bottom:0;
-  color: #2F477B;
-  font-size:1.17em;
-  font-weight:600;
-  margin-top:1.25em;
-  padding:2px 0 0;
-  }
+border-bottom:0 none;
+border-top:0 solid #F1F1F1;
+color:#EC2453;
+font-size:1.17em;
+font-weight:600;
+margin-top:0.25em;
+padding:2px 0 0;
+}
 h3 {
   font-size:1.08em;
   }
@@ -749,9 +763,10 @@ li {
   padding:0;
   }
 
+
 .portal-footer-column  {
 float:left;
-margin:0 57px 50px;
+margin:20px 57px 50px;
 width:200px;
 }
 .portal-footer-list li {
@@ -787,8 +802,11 @@ margin-left:-19.05%;
 }
 
 .frontpageBox {
-width:270px;
-float:left;}
+float:left;
+margin-bottom:10px;
+padding-left:10px;
+width:259px;
+}
 
 h1.titleFrontpage {
 padding:0;
@@ -837,6 +855,46 @@ clear:both;
 
 #content {
 margin:0em 0.25em 2em !important;
+}
+
+.frontDate {
+color:grey;
+font-size:0.7em;
+font-style:italic;
+margin:0;
+text-transform:capitalize;
+}
+.frontNewsDate {
+color:grey;
+font-size:0.9em;
+font-style:italic;
+margin:0;
+text-transform:capitalize;
+}
+.frontDate2 {
+border-right:1px solid grey;
+padding-right:10px;
+padding-left:5px;
+}
+.frontDate3 {
+font-style:normal !important;
+padding-left:3px;
+padding-right:8px;
+}
+.frontP {
+margin-bottom:0 !important;
+}
+
+.frontA {
+color:#EA2050 !important;
+}
+.frontH2 {
+border:0 !important;
+}
+
+.frontNewsTitle {
+border: 0 !important;
+margin-top:0.55em;
 }
 
 /*-----------------PORTLETS-------------------*/

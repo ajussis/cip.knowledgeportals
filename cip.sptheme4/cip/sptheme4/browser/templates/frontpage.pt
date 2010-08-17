@@ -5,7 +5,9 @@
                                 germplasm python:context.portal_catalog(id='gpNews');
                                 gpLatest python:context.portal_catalog(path={'query': '/sweetpotato2/germplasm'})[:4];
                                 ssLatest python:context.portal_catalog(path={'query': '/sweetpotato2/seedsystem'})[:4];
-                                cmLatest python:context.portal_catalog(path={'query': '/sweetpotato2/crop-management'})[:4]">
+                                cmLatest python:context.portal_catalog(path={'query': '/sweetpotato2/crop-management'})[:4];
+                                vaLatest python:context.portal_catalog(path={'query': '/sweetpotato2/value-adding'})[:4];
+                                toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
             <div tal:define="fpIntro nocall:here/fp-introduction">
                 <img class="titleBall" src="frontpageball.jpg" />
@@ -21,40 +23,95 @@
 
             <h1>Latest News</h1>
             <div tal:repeat="news_item news">
-              <tal:objects define="newsObject news_item/getObject">
-                  <h2 tal:content="news_item/Title"></h2>
-                  <p tal:content="news_item/Description"></p>
+                <tal:objects define="newsObject news_item/getObject;
+                                     author news_item/Creator;">
+                    <h2 class="frontNewsTitle">
+                        <a class="frontA" tal:content="news_item/Title"
+                           tal:attributes="href news_item/getURL">TITLE</a>
+                    </h2>
+                    <span class="frontNewsDate">
+                        <span class="frontDate2" tal:content="python:toLocalizedTime(news_item.Date)"/>
+                        <span class="frontDate3" tal:content="author" />
+                    </span>
+                    <p class="portada-noticias-description"
+                        tal:replace="news_item/Description">
+                    </p>
+                    <div tal:define="ups news_item/getObject">
+                        <a href="#" tal:attributes="href news_item/getURL">
+                            <img tal:condition="exists: ups/image_thumb"
+                                 src="#" tal:replace="structure python: path('nocall:ups/tag')(scale='thumb', css_class='tileImage')" />
+                        </a>
+                    </div>
+
               </tal:objects>
             </div>
 
             <h1>Latest Updates</h1>
             <div class="frontpageBox">
                 <h2>Germplasm</h2>
-                <p tal:repeat="m gpLatest">
-                    <tal:rep define="k m/getObject">
+                <p class="frontP" tal:repeat="m gpLatest">
+                    <tal:rep define="k m/getObject; 
+                                     pType m/portal_type;
+                                     author m/Creator;">
                         <a href="#" tal:attributes="href m/getURL">
                             <span tal:replace="k/pretty_title_or_id"/>
-                        </a>
+                        </a><br />
+                        <span class="frontDate">
+                            <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                            <span class="frontDate2" tal:content="pType" />
+                            <span class="frontDate3" tal:content="author" />
+                        </span>
                     </tal:rep>
                 </p>
             </div>
             <div class="frontpageBox">
                 <h2>Seedsystem</h2>
-                <p tal:repeat="m ssLatest">
-                    <tal:rep define="k m/getObject">
+                <p class="frontP" tal:repeat="m ssLatest">
+                    <tal:rep define="k m/getObject;
+                                     pType m/portal_type;
+                                     author m/Creator;">
                         <a href="#" tal:attributes="href m/getURL">
                             <span tal:replace="k/pretty_title_or_id"/>
-                        </a>
+                        </a><br />
+                        <span class="frontDate">
+                            <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                            <span class="frontDate2" tal:content="pType" />
+                            <span class="frontDate3" tal:content="author" />
+                        </span>
                     </tal:rep>
                 </p>
             </div>
             <div class="frontpageBox">
                 <h2>Crop Management</h2>
-                <p tal:repeat="m cmLatest">
-                    <tal:rep define="k m/getObject">
+                <p class="frontP" tal:repeat="m cmLatest">
+                    <tal:rep define="k m/getObject;
+                                     pType m/portal_type;
+                                     author m/Creator;">
                         <a href="#" tal:attributes="href m/getURL">
                             <span tal:replace="k/pretty_title_or_id"/>
-                        </a>
+                        </a><br />
+                        <span class="frontDate">
+                            <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                            <span class="frontDate2" tal:content="pType" />
+                            <span class="frontDate3" tal:content="author" />
+                        </span>
+                    </tal:rep>
+                </p>
+            </div>
+            <div class="frontpageBox">
+                <h2>Crop Management</h2>
+                <p class="frontP" tal:repeat="m vaLatest">
+                    <tal:rep define="k m/getObject;
+                                     pType m/portal_type;
+                                     author m/Creator;">
+                        <a href="#" tal:attributes="href m/getURL">
+                            <span tal:replace="k/pretty_title_or_id"/>
+                        </a><br />
+                        <span class="frontDate">
+                            <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                            <span class="frontDate2" tal:content="pType" />
+                            <span class="frontDate3" tal:content="author" />
+                        </span>
                     </tal:rep>
                 </p>
             </div>
