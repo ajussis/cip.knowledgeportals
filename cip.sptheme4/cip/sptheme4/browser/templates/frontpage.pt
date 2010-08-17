@@ -64,7 +64,7 @@
                     </tal:rep>
                 </p>
             </div>
-            <div class="frontpageBox">
+            <div class="frontpageBox2">
                 <h2>Seedsystem</h2>
                 <p class="frontP" tal:repeat="m ssLatest">
                     <tal:rep define="k m/getObject;
@@ -81,7 +81,7 @@
                     </tal:rep>
                 </p>
             </div>
-            <div class="frontpageBox">
+            <div class="frontpageBox2">
                 <h2>Crop Management</h2>
                 <p class="frontP" tal:repeat="m cmLatest">
                     <tal:rep define="k m/getObject;

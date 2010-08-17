@@ -811,6 +811,12 @@ margin-bottom:10px;
 padding-left:10px;
 width:259px;
 }
+.frontpageBox2 {
+float:right;
+margin-bottom:10px;
+padding-left:10px;
+width:259px;
+}
 
 h1.titleFrontpage {
 padding:0;
