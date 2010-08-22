@@ -22,9 +22,60 @@ def updateCatalog(context, clear=True):
 #        if item in existing:
 #            p.manage_delObjects(item)
 
-"""def importPAS(portal):
-    users_here = 'jussi;jussi;Jussi;Savolainen;ajussis@gmail.com'
-    users = users_here.data.split('\n')
+"""def createCompany(request, site, username, title, email, passwd=None):
+ 
+    prepareMemberProperties(site)
+
+    # portal_registrations manages new user creation
+    regtool = getToolByName(site, 'portal_registration')
+
+    # Default password to the username
+    # ... don't do this on the production server!
+    if passwd == None:
+        passwd = username
+
+    # Only lowercase allowed
+    username = username.lower()
+
+    # Username must be ASCII string
+    # or Plone will choke when the user tries to log in
+    username = str(username)
+
+    def is_ascii(s):
+        for c in s:
+            if not ord(c) < 128:
+                return False
+
+        return True
+
+    if not is_ascii(username):
+        """ """
+        IStatusMessage(request).addStatusMessage(_(u"Username must contain only characters a-z"), "error")
+        return None
+
+    # This is minimum required information set
+    # to create a working member
+    properties = {
+
+        'username' : username,
+
+        # Full name must be always as utf-8 encoded
+        'fullname' : title.encode("utf-8"),
+        'email' : email,
+    }
+
+    try:
+        # addMember() returns MemberData object
+        member = regtool.addMember(username, passwd, properties=properties)
+    except ValueError, e:
+        # Give user visual feedback what went wrong
+        IStatusMessage(request).addStatusMessage(_(u"Could not create the user:") + unicode(e), "error")
+        return None"""
+
+def importPAS(portal):
+    users_here = ['jussi;jussi;Jussi;Savolainen;ajussis@gmail.com','john;john1;John;Smith;john@mail.com','jens;jens;Jens;Riis;jens@mail.com','charles;charles;Charles;Day;charles@mail.com','michael;michael;Michael;Johnson;michael@mail.com','barbara;barbara;Barbara;Macintosh;barbara@mail.com','adelayde;adelayde;Adelayde;Rivas;adelayde@mailcom','vanessa;vanessa;Vanessa;Lopez;vanessa@mail.com']
+#    users = users_here.data.split('\n')
+    users = users_here
     regtool = getToolByName(portal, 'portal_registration')
     index = 1
     imported_count = 0
@@ -47,7 +98,6 @@ def updateCatalog(context, clear=True):
             print "Could not parse line %d because it had the following contents: '%s'" % (index, user)
         index += 1
     print "Imported %d users (from %d lines of CSV)" % (imported_count, index)
-    return printed"""
 
 def createFolderStructure(portal):
     """Define which objects we want to create in the site.
