@@ -1,0 +1,80 @@
+<html metal:use-macro="here/main_template/macros/master">
+
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main">
+
+            <div>
+                <img class="titleBall" src="frontpageball.jpg" />
+                <h1 class="titleSweetpotato">Project:</h1>
+                <h1 class="titleKnowledge" tal:content="context/Title">Sweetpotato</h1>
+                <div class="lineBreak"></div>
+                <div class="titleLine1"></div>
+                <div class="titleLine2"></div>
+                <div class="lineBreak"></div>
+                <p tal:content="context/Description"/>
+            </div>
+
+            <div class="lineBreak"></div>
+
+            <h1>Information about the project</h1>
+            <p class="projectStart">Start date: <span tal:content="python:context.getStart()" /></p>
+            <p class="projectEnd">End date: <span tal:content="python:context.getEnd()" /></p>
+
+            <div class="lineBreak"></div>
+
+            <div tal:define="areas python:context.getArea()">
+                <ol>
+                    <tal:block tal:repeat="area areas">
+                        <li tal:content="area" />
+                    </tal:block>
+                </ol>
+            </div>
+
+            <div class="projectMembers">
+                <p>Project Leader:
+                    <tal:leaderHere condition="python:context.getLeader()" replace="python:context.getLeader()" />
+                    <tal:leaderHere condition="python:context.getLeaderText()" replace="python:context.getLeaderText()" />
+                </p>
+                <p>Project Members: <span>
+            </div>
+
+            <p tal:content="python:context.getSomething()"/>
+
+            <tal:with-fullname define="membership context/portal_membership;
+                                       info python:membership.getMemberInfo(user.getId());
+                                       fullname info/fullname">
+                You are are <span class="name" tal:content="fullname" />
+            </tal:with-fullname>
+
+            <!--div tal:repeat="news_item news">
+                <tal:objects define="newsObject news_item/getObject;
+                                     author news_item/Creator;">
+                    <h2 class="frontNewsTitle">
+                        <a class="frontA" tal:content="news_item/Title"
+                           tal:attributes="href news_item/getURL">TITLE</a>
+                    </h2>
+                    <span class="frontNewsDate">
+                        <span class="frontDate2" tal:content="python:toLocalizedTime(news_item.Date)"/>
+                        <span class="frontDate3" tal:content="author" />
+                    </span>
+                    <p class="portada-noticias-description"
+                        tal:replace="news_item/Description">
+                    </p>
+                    <div tal:define="ups news_item/getObject">
+                        <a href="#" tal:attributes="href news_item/getURL">
+                            <img tal:condition="exists: ups/image_thumb"
+                                 src="#" tal:replace="structure python: path('nocall:ups/tag')(scale='thumb', css_class='tileImage')" />
+                        </a>
+                    </div>
+
+              </tal:objects>
+            </div-->
+
+
+
+        </metal:main>
+    </metal:main_macro>
+</html>

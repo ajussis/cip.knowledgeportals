@@ -24,6 +24,7 @@ cip/sptheme4/browser/__init__.py
 cip/sptheme4/browser/configure.zcml
 cip/sptheme4/browser/frontpage.py
 cip/sptheme4/browser/interfaces.py
+cip/sptheme4/browser/project.py
 cip/sptheme4/browser/viewlet.pt
 cip/sptheme4/browser/viewlets.py
 cip/sptheme4/browser/images/README.txt
@@ -33,6 +34,7 @@ cip/sptheme4/browser/templates/colophon.pt
 cip/sptheme4/browser/templates/footer.pt
 cip/sptheme4/browser/templates/frontpage.pt
 cip/sptheme4/browser/templates/navigation.pt
+cip/sptheme4/browser/templates/project.pt
 cip/sptheme4/browser/templates/site_actions.pt
 cip/sptheme4/locales/README.txt
 cip/sptheme4/portlets/__init__.py
@@ -47,7 +49,9 @@ cip/sptheme4/profiles/default/jsregistry.xml
 cip/sptheme4/profiles/default/metadata.xml
 cip/sptheme4/profiles/default/portlets.xml
 cip/sptheme4/profiles/default/skins.xml
+cip/sptheme4/profiles/default/types.xml
 cip/sptheme4/profiles/default/viewlets.xml
+cip/sptheme4/profiles/default/types/Project_Folder.xml
 cip/sptheme4/skins/cip_sptheme4_custom_images/CONTENT.txt
 cip/sptheme4/skins/cip_sptheme4_custom_images/action.jpg
 cip/sptheme4/skins/cip_sptheme4_custom_images/bullet.gif

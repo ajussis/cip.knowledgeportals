@@ -4,6 +4,8 @@
     i18n_domain="cip.sptheme4"
     xmlns:plone="http://namespaces.plone.org/plone">
 
+    <include package="plone.app.contentmenu" />
+
   <!-- 'Custom Theme' Zope 3 browser layer
     Register views, viewlets and resources for this layer to make sure
     they only apply to the 'Custom Theme' theme.
@@ -93,5 +95,12 @@
         layer=".interfaces.IThemeSpecific"
         /-->
 
+  <browser:page
+      for="*"
+      name="projectFolder"
+      template="templates/project.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
 
 </configure>
