@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<object name="Project Folder"
+<object name="Institution"
    meta_type="Factory-based Type Information with dynamic views"
    i18n:domain="cip.spcontent4" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
-  <property name="title" i18n:translate="">Project Folder</property>
+  <property name="title" i18n:translate="">Institution</property>
   <property name="description"
-    i18n:translate="">The container for Sweetpotato Projects</property>
-  <property name="content_meta_type">ProjectFolder</property>
+    i18n:translate="">Institution Content Type</property>
+  <property name="content_meta_type">Institution</property>
   <property name="content_icon">folder_icon.gif</property>
   <property name="product">cip.spcontent4</property>
-  <property name="factory">addProjectFolder</property>
+  <property name="factory">addInstitution</property>
   <property name="immediate_view">atct_edit</property>
   <property name="global_allow">True</property>
   <property name="filter_content_types">False</property>

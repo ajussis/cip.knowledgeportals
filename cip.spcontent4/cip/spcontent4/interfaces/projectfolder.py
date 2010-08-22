@@ -9,6 +9,30 @@ class IProjectFolder(Interface):
     """The container for Sweetpotato Projects"""
 
     # -*- schema definition goes here -*-
+    image = schema.Bytes(
+        title=_(u"Project Image"),
+        required=False,
+        description=_(u"Insert the project's logo or a representative image"),
+    )
+#
+    leaderText = schema.TextLine(
+        title=_(u"Leader (not a member of portal)"),
+        required=False,
+        description=_(u"Fill this field only if the project leader is not a member in this portal"),
+    )
+#
+    info = schema.Text(
+        title=_(u"More information"),
+        required=False,
+        description=_(u"More information about the project"),
+    )
+#
+    leader = schema.TextLine(
+        title=_(u"Project Leader"),
+        required=False,
+        description=_(u"The name of the project leader"),
+    )
+#
     financing = schema.Text(
         title=_(u"Financing"),
         required=True,

@@ -26,8 +26,10 @@ cip/spcontent4/browser/__init__.py
 cip/spcontent4/browser/configure.zcml
 cip/spcontent4/content/__init__.py
 cip/spcontent4/content/configure.zcml
+cip/spcontent4/content/institution.py
 cip/spcontent4/content/projectfolder.py
 cip/spcontent4/interfaces/__init__.py
+cip/spcontent4/interfaces/institution.py
 cip/spcontent4/interfaces/projectfolder.py
 cip/spcontent4/portlets/__init__.py
 cip/spcontent4/portlets/configure.zcml
@@ -36,6 +38,7 @@ cip/spcontent4/profiles/default/metadata.xml
 cip/spcontent4/profiles/default/portlets.xml
 cip/spcontent4/profiles/default/rolemap.xml
 cip/spcontent4/profiles/default/types.xml
+cip/spcontent4/profiles/default/types/Institution.xml
 cip/spcontent4/profiles/default/types/Project_Folder.xml
 cip/spcontent4/tests/__init__.py
 cip/spcontent4/tests/base.py

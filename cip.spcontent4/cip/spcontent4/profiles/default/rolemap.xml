@@ -2,6 +2,10 @@
 <rolemap>
   <permissions>
     <!-- -*- extra stuff goes here -*- -->
+    <permission name="cip.spcontent4: Add Institution" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
     <permission name="cip.spcontent4: Add Project Folder" acquire="False">
       <role name="Manager" />
       <role name="Contributor" />
