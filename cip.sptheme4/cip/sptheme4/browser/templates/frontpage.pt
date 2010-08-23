@@ -3,6 +3,7 @@
         <metal:main fill-slot="main"
                     tal:define="news python:context.portal_catalog(portal_type='News Item', sort_on='Date', sort_order='Reverse')[:4];
                                 germplasm python:context.portal_catalog(id='gpNews');
+                                gpLatest python:context.portal_catalog(path={'query': '/sweetpotato2/germplasm'})[:4];
                                 ssLatest python:context.portal_catalog(path={'query': '/sweetpotato2/seedsystem'})[:4];
                                 cmLatest python:context.portal_catalog(path={'query': '/sweetpotato2/crop-management'})[:4];
                                 vaLatest python:context.portal_catalog(path={'query': '/sweetpotato2/value-adding'})[:4];
@@ -46,7 +47,7 @@
             </div>
 
             <h1>Latest Updates</h1>
-            <div class="frontpageBox"
+            <!--div class="frontpageBox"
                  tal:define="gpLatest python: getattr(context, 'gpNews')">
                 <h2>Germplasm</h2>
                 <tal:defs define="n gpLatest/queryCatalog">
@@ -64,7 +65,26 @@
                         </tal:rep>
                     </p>
                 </tal:defs>
+            </div-->
+            <div class="frontpageBox">
+                <h2>Germplasm</h2>
+                <p class="frontP" tal:repeat="m gpLatest">
+                    <tal:rep define="k m/getObject;
+                                     pType m/portal_type;
+                                     author m/Creator;">
+                        <a href="#" tal:attributes="href m/getURL">
+                            <span tal:replace="k/pretty_title_or_id"/>
+                        </a><br />
+                        <span class="frontDate">
+                            <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                            <span class="frontDate2" tal:content="pType" />
+                            <span class="frontDate3" tal:content="author" />
+                        </span>
+                    </tal:rep>
+                </p>
             </div>
+
+
             <div class="frontpageBox2">
                 <h2>Seedsystem</h2>
                 <p class="frontP" tal:repeat="m ssLatest">

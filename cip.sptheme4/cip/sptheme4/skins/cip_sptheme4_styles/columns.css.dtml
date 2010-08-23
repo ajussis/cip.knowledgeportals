@@ -63,11 +63,11 @@ div.position-15 { margin-left:  -5.125% }
 
 /* Convenience classes — ¼, ½, ¾ widths and ¼, ½, ¾ positions.
    Not strictly necessary. */
-div.width-1\3a 2 { width:    57.75%; } /* .width-1:2 */
+div.width-1\3a 2 { width:    55.75%; } /* .width-1:2 */
 div.width-1\3a 4 { width:    19.15%; } /* .width-1:4 */
 div.width-3\3a 4 { width:    72.75%; } /* .width-3:4 */
 div.width-full   { width:    97.75%  }
-div.position-1\3a 4 {margin-left:    -78.275%;} /* .position-1:4 */
+div.position-1\3a 4 {margin-left:    -80.275%;} /* .position-1:4 */
 div.position-1\3a 2 {margin-left:    -55.75%;} /* .position-1:2 */
 div.position-3\3a 4 {margin-left:    -19.275%;} /* .position-3:4 */
 

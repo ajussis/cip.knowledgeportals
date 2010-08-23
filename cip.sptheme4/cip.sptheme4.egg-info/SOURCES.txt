@@ -63,10 +63,13 @@ cip/sptheme4/skins/cip_sptheme4_custom_images/current.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/favicon.ico
 cip/sptheme4/skins/cip_sptheme4_custom_images/footerbottom.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/frontpageball.jpg
+cip/sptheme4/skins/cip_sptheme4_custom_images/header.gif
 cip/sptheme4/skins/cip_sptheme4_custom_images/header.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/potatos.jpg
 cip/sptheme4/skins/cip_sptheme4_custom_images/spIcon.jpg
 cip/sptheme4/skins/cip_sptheme4_custom_templates/CONTENT.txt
+cip/sptheme4/skins/cip_sptheme4_custom_templates/base_view.pt
+cip/sptheme4/skins/cip_sptheme4_custom_templates/base_view.pt.metadata
 cip/sptheme4/skins/cip_sptheme4_styles/CONTENT.txt
 cip/sptheme4/skins/cip_sptheme4_styles/IEFixes.css.dtml
 cip/sptheme4/skins/cip_sptheme4_styles/base_properties.props
