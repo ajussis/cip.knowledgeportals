@@ -82,7 +82,7 @@ ProjectFolderSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     atapi.ReferenceField(
         'member',
         storage=atapi.AnnotationStorage(),
-        widget=atapi.ReferenceWidget(
+        widget=ReferenceBrowserWidget(
             label=_(u"Proejct Members"),
             description=_(u"Members in of the project which are also in members of this portal"),
         ),

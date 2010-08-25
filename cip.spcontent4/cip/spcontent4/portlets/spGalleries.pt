@@ -1,0 +1,11 @@
+<div tal:condition="view/data/omit_border"
+     tal:attributes="class string:portletStaticText ${view/css_class}"
+     tal:content="structure view/data/text" />
+<dl tal:condition="not:view/data/omit_border"
+    tal:attributes="class string:portlet portletStaticText portletGrey ${view/css_class}"
+    i18n:domain="plone">
+
+    <h1>Galleries</h1>
+
+    <p tal:content="python:view.getGalleryFolder()" />
+</dl>
