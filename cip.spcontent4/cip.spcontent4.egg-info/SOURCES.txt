@@ -37,12 +37,12 @@ cip/spcontent4/interfaces/projectfolder.py
 cip/spcontent4/interfaces/projectsholder.py
 cip/spcontent4/portlets/__init__.py
 cip/spcontent4/portlets/configure.zcml
-cip/spcontent4/portlets/galleriesportlet.pt
-cip/spcontent4/portlets/galleriesportlet.py
 cip/spcontent4/portlets/spGalleries.pt
 cip/spcontent4/portlets/spGalleries.py
 cip/spcontent4/portlets/spImage.pt
 cip/spcontent4/portlets/spImage.py
+cip/spcontent4/portlets/spMembers.pt
+cip/spcontent4/portlets/spMembers.py
 cip/spcontent4/portlets/spProjects.pt
 cip/spcontent4/portlets/spProjects.py
 cip/spcontent4/profiles/default/factorytool.xml
@@ -57,6 +57,7 @@ cip/spcontent4/profiles/default/types/Projects_Holder.xml
 cip/spcontent4/tests/__init__.py
 cip/spcontent4/tests/base.py
 cip/spcontent4/tests/base_galleriesportlet.py
+cip/spcontent4/tests/membersportlet.py
 cip/spcontent4/tests/test_doctest.py
 cip/spcontent4/tests/test_galleriesportlet.py
 docs/HISTORY.txt

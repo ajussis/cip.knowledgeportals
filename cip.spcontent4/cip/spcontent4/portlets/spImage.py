@@ -13,6 +13,10 @@ class spImageRenderer(static.Renderer):
     """ Overrides static.pt in the rendering of the portlet. """
     render = ViewPageTemplateFile('spImage.pt')
 
+#    @property
+#    def mostactiveshit(self):
+#        return 0
+
 class spImageAssignment(static.Assignment):
     """ Assigner for grey static portlet. """
     implements(IspImagePortlet)

@@ -10,8 +10,8 @@
     <include package="plone.app.portlets" />
 
     <plone:portlet
-    name="cip.spImagePortlet"
-    interface=".spImage.IspImagePortlet"
+     name="cip.spImagePortlet"
+     interface=".spImage.IspImagePortlet"
      assignment=".spImage.spImageAssignment"
      view_permission="zope2.View"
      edit_permission="cmf.ManagePortal"
@@ -21,17 +21,15 @@
      />
 
     <plone:portlet
-    name="cip.spGalleriesPortlet"
-    interface=".spGalleries.IspGalleriesPortlet"
-     assignment=".spGalleries.spGalleriesAssignment"
-     view_permission="zope2.View"
-     edit_permission="cmf.ManagePortal"
-     renderer=".spGalleries.spGalleriesRenderer"
-     addview=".spGalleries.spGalleriesAddForm"
-     editview="plone.portlet.static.static.EditForm"
+     name="cip.GalleriesPortlet"
+     interface=".spGalleries.IGalleriesPortlet"
+     assignment=".spGalleries.Assignment"
+     renderer=".spGalleries.Renderer"
+     addview=".spGalleries.AddForm"
+     editview=".spGalleries.EditForm"
      />
 
-    <plone:portlet
+    <!--plone:portlet
      name="cip.spProjectsPortlet"
      interface=".spProjects.IspProjectsPortlet"
      assignment=".spProjects.spProjectsAssignment"
@@ -40,7 +38,20 @@
      renderer=".spProjects.spProjectsRenderer"
      addview=".spProjects.spProjectsAddForm"
      editview="plone.portlet.static.static.EditForm"
+     /-->
+
+    <plone:portlet
+     name="cip.MembersPortlet"
+     interface=".spMembers.IMembersPortlet"
+     assignment=".spMembers.Assignment"
+     renderer=".spMembers.Renderer"
+     addview=".spMembers.AddForm"
+     editview=".spMembers.EditForm"
      />
+
+
+
+
 
     <!-- customized collection portlet -->
     <!--include package="plone.portlet.collection" />

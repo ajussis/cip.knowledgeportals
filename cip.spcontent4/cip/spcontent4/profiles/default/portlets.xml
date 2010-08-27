@@ -4,8 +4,137 @@
     i18n:domain="plone">
 
 
+ <portlet
+     addview="cip.spImagePortlet"
+     title="Potato Image portlet"
+     description="Portlet with light grey background"
+     />
+
+ <portlet
+     addview="cip.MembersPortlet"
+     title="Most Active Members"
+     description="This portlet displays the most active portal members."
+     />
+
+ <portlet
+     addview="cip.GalleriesPortlet"
+     title="SP Galleries portlet"
+     description="Portlet with light grey background"
+     />
+
+
  <!-- Assign the standard portlets -->
-<!--portlet title="Google  Analytics"
+
+ <assignment
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="portlets.Navigation"
+     name="navigation">
+     <property name="topLevel">0</property>
+ </assignment>
+
+ <assignment
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="portlets.Calendar"
+     name="calendar"
+     />
+
+ <assignment
+     manager="plone.leftcolumn"
+     category="context"
+     key="/"
+     type="cip.spImagePortlet"
+     name="spImage2"
+     />
+
+ <assignment name="latest-projects" category="context" key="/"
+     manager="plone.leftcolumn" type="plone.portlet.collection.Collection"
+     visible="True">
+        <property name="show_more">True</property>
+        <property name="header">Latest Projects</property>
+        <property name="limit">3</property>
+        <property name="target_collection">/gpProjects</property>
+        <property name="random">False</property>
+        <property name="show_dates">True</property>
+ </assignment>
+
+ <assignment
+     manager="plone.leftcolumn"
+     category="context"
+     key="/"
+     type="cip.GalleriesPortlet"
+     name="spGalleries"
+     />
+
+ <!--portlet
+     addview="cip.spGalleriesPortlet"
+     title="Galleries portlet"
+     description="Portlet with light grey background"
+     />
+
+ <assignment
+     manager="plone.leftcolumn"
+     category="context"
+     key="/"
+     type="cip.spGalleriesPortlet"
+     name="spGalleries"
+     /-->
+
+ <!--assignment
+     manager="plone.leftcolumn"
+     category="context"
+     key="/"
+     type="cip.GalleriesPortlet"
+     name="GalleriesPortlet"
+     /-->
+
+ <assignment
+     manager="plone.leftcolumn"
+     category="context"
+     key="/"
+     type="portlets.Login"
+     name="login"
+     />
+
+ <assignment
+     manager="plone.leftcolumn"
+     category="context"
+     key="/"
+     type="portlets.Review"
+     name="review"
+     />
+
+ <assignment
+     manager="plone.leftcolumn"
+     category="context"
+     key="/"
+     type="portlets.News"
+     name="news"
+     />
+
+ <assignment
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="portlets.News"
+     name="news"
+     visible="1"
+     />
+
+ <assignment
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="cip.MembersPortlet"
+     name="MembersHere"
+     />
+
+
+ <!-- Assign the standard portlets -->
+<portlet title="Google  Analytics"
     addview="collective.googleanalytics.AnalyticsPortlet"
     description="A portlet that pulls information from Google Analytics."/>
 
@@ -17,23 +146,8 @@
   <property name="reports">
    <element>page-pageviews-sparkline</element>
    <element>page-timeonpage-sparkline</element>
-   <element>page-top-sources-table</element>
-   <element>page-top-keywords-table</element>
    <element>page-top-previouspages-table</element>
-   <element>page-top-nextpages-table</element>
   </property>
- </assignment-->
-
-
- <!--assignment name="latest-projects" category="context" key="/"
-     manager="plone.leftcolumn" type="plone.portlet.collection.Collection"
-     visible="True">
-    <property name="show_more">True</property>
-    <property name="header">Latest Projects</property>
-    <property name="limit"/>
-    <property name="target_collection">/gpProjects</property>
-    <property name="random">False</property>
-    <property name="show_dates">False</property>
  </assignment-->
 
 </portlets>

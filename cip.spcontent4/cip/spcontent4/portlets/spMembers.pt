@@ -2,41 +2,44 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       tal:omit-tag="">
-
     <dl class="portlet portletRecent"
         i18n:domain="plone">
-
         <dt class="portletHeader">
             <span class="portletTopLeft"></span>
             <a href="#"
                 tal:attributes="href view/recently_modified_link"
-                i18n:translate="box_recent_changes">Latest Galleries</a>
+                i18n:translate="box_recent_changes">Most active members</a>
             <span class="portletTopRight"></span>
         </dt>
-
-        <!--tal:defineThis define="users view/mostactivemembers">
+        <tal:defineThis define="users view/mostactivemembers">
             <tal:block tal:repeat="user users">
                 <tal:defineAgain define="userName python:user[0];
                                          userObjects python:user[1];
                                          userImage python:user[2];">
-                    <img src="#" tal:attributes="src userImage" width="30" style="margin-right:10px; float:left;" />
+                    <img src="#" tal:attributes="src userImage" width="30" style="margin:10px; float:left;" />
                     <h4 tal:content="userName"></h4>
                     <p>
                         Items created: <tal:contentThis content="userObjects"/>
                     </p>
+                    <div style="clear:both;"></div>
                 </tal:defineAgain>
             </tal:block>
-        </tal:defineThis-->
+        </tal:defineThis>
+    <dd class="portletItem"
+        tal:condition="not: view/recent_items"
+        i18n:translate="box_recent_no_items">
+        No items changed yet.
+    </dd>
+    <dd class="portletFooter">
+        <a href="#"
+           class="tile"
+           tal:attributes="href view/recently_modified_link"
+           i18n:translate="box_more_recently_changed">
+           All members&hellip;
+        </a>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
 
-        <dd class="portletFooter">
-            <a href="#"
-               class="tile"
-               tal:attributes="href view/recently_modified_link"
-               i18n:translate="box_more_recently_changed">
-               All galleries&hellip;
-            </a>
-            <span class="portletBottomLeft"></span>
-            <span class="portletBottomRight"></span>
-        </dd>
-    </dl>
+</dl>
 </html>

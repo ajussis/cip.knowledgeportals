@@ -15,7 +15,7 @@ from plone.app.portlets.cache import render_cachekey
 from plone.app.portlets.portlets import base
 from Products.CMFCore.utils  import getToolByName
 
-class IGalleriesPortlet(IPortletDataProvider):
+class IMembersPortlet(IPortletDataProvider):
 
     count = schema.Int(title=_(u'Number of items to display'),
                        description=_(u'How many items to list.'),
@@ -23,14 +23,14 @@ class IGalleriesPortlet(IPortletDataProvider):
                        default=5)
 
 class Assignment(base.Assignment):
-    implements(IGalleriesPortlet)
+    implements(IMembersPortlet)
 
     def __init__(self, count=5):
         self.count = count
 
     @property
     def title(self):
-        return _(u"Latest Galleries")
+        return _(u"most Active Members")
 
 def _render_cachekey(fun, self):
     if self.anonymous:
@@ -38,7 +38,7 @@ def _render_cachekey(fun, self):
     return render_cachekey(fun, self)
 
 class Renderer(base.Renderer):
-    _template = ViewPageTemplateFile('spGalleries.pt')
+    _template = ViewPageTemplateFile('spMembers.pt')
 
     def __init__(self, *args):
         base.Renderer.__init__(self, *args)
@@ -60,6 +60,53 @@ class Renderer(base.Renderer):
     @property
     def available(self):
         return not self.anonymous and len(self._data())
+    
+    def mostactivemembers(self):
+        """
+        """
+        buffer = ""
+        contentAll = []
+        # Returns list of site usernames
+        #users = self.context.acl_users.getUserNames()
+        contentlenght = []
+        users = self.context.acl_users.getUserIds()
+
+#        for userId in users:
+#            author_content = len(self.context.author_find_content(userId))
+#            pImg = self.context.portal_membership.getPersonalPortrait(userId).tag()
+#            kk = pImg.find('" alt')
+#            returnImg = pImg[10:kk]
+#            contentAll.append([userId,author_content, returnImg])
+#            print contentAll"""
+
+        userLoad = []
+        contentAll = []
+        for userId in users:
+            author_content = len(self.context.author_find_content(userId))
+            userLoad.append([userId, author_content])
+#        import ipdb; ipdb.set_trace()
+        sorted(userLoad, key=lambda user: user[1], reverse=True)
+        usersAll = []
+        usersAll = userLoad[:5]
+        for userId in usersAll:
+            userName = userId[0]
+            pImg = self.context.portal_membership.getPersonalPortrait(userName).tag()
+            kk = pImg.find('" alt')
+            returnImg = pImg[10:kk]
+            contentAll.append([userId[0],userId[1], returnImg])
+        return contentAll
+
+        # alternative: get user objects
+        #users = context.acl_users.getUsers()
+
+        #mt = getToolByName(self.context, 'portal_membership')
+        #if mt.isAnonymousUser(): # the user has not logged in
+        #    return "ei oo kuule"
+        #else:
+        #    member = mt.getAuthenticatedMember()
+        #    username = member.getUserName()
+        return contentAll
+
 
     def recent_items(self):
         return self._data()
@@ -78,15 +125,16 @@ class Renderer(base.Renderer):
                             sort_order='reverse',
                             sort_limit=limit)[:limit]
 
+
 class AddForm(base.AddForm):
-    form_fields = form.Fields(IGalleriesPortlet)
-    label = _(u"Add Galleries Portlet")
-    description = _(u"This portlet displays the latest galleries.")
+    form_fields = form.Fields(IMembersPortlet)
+    label = _(u"Add Recent Portlet")
+    description = _(u"This portlet displays recently modified content.")
 
     def create(self, data):
         return Assignment(count=data.get('count', 5))
 
 class EditForm(base.EditForm):
-    form_fields = form.Fields(IGalleriesPortlet)
-    label = _(u"Edit Galleries Portlet")
-    description = _(u"This portlet displays the latest galleries.")
+    form_fields = form.Fields(IMembersPortlet)
+    label = _(u"Edit Recent Portlet")
+    description = _(u"This portlet displays recently modified content.")
