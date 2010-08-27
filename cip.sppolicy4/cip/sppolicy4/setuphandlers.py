@@ -1,3 +1,14 @@
+from cStringIO import StringIO
+
+from zope.component import getUtility
+from zope.component import getMultiAdapter
+from zope.app.container.interfaces import INameChooser
+
+from plone.portlets.interfaces import IPortletManager
+from plone.portlets.interfaces import IPortletAssignmentMapping, ILocalPortletAssignmentManager
+from plone.portlet.collection.collection import Assignment
+from plone.app.portlets.portlets import navigation
+
 from Products.CMFPlone.utils import _createObjectByType
 from Products.CMFCore.utils import getToolByName
 
@@ -72,10 +83,22 @@ def updateCatalog(context, clear=True):
         IStatusMessage(request).addStatusMessage(_(u"Could not create the user:") + unicode(e), "error")
         return None"""
 
+def createGroups(portal):
+    gr = portal.portal_groups
+    group_ids = ['germplasm','seedsystem','addingvalue','cropmanagement','useconsumption']
+    for testGroup in group_ids:
+        if not testGroup in gr.getGroupIds():
+            gr.addGroup(testGroup)
+
 def importPAS(portal):
     users_here = ['jussi;jussi;Jussi;Savolainen;ajussis@gmail.com','john;john1;John;Smith;john@mail.com','jens;jens;Jens;Riis;jens@mail.com','charles;charles;Charles;Day;charles@mail.com','michael;michael;Michael;Johnson;michael@mail.com','barbara;barbara;Barbara;Macintosh;barbara@mail.com','adelayde;adelayde;Adelayde;Rivas;adelayde@mailcom','vanessa;vanessa;Vanessa;Lopez;vanessa@mail.com']
 #    users = users_here.data.split('\n')
     users = users_here
+# add members to group
+#    portal_groups = portal.portal_groups
+# Add user to group "companies"
+#portal_groups = site.portal_groups
+#portal_groups.addPrincipalToGroup(member.getUserName(), "companies")
     regtool = getToolByName(portal, 'portal_registration')
     index = 1
     imported_count = 0
@@ -305,13 +328,13 @@ def createFolderStructure(portal):
 
     biotechnology_children = [
         {   'id': 'marker-assisted-selection',
-            'title': 'Marker assisted selection',
+            'title': 'Marker Assisted Selection',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
         {   'id': 'wevil-resistance',
-            'title': 'Wevil resistance',
+            'title': 'Wevil Resistance',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -356,7 +379,7 @@ def createFolderStructure(portal):
             'children': germplasmExchange_children,
             },
         {   'id': 'pre-breeding',
-            'title': 'Pre-breeding',
+            'title': 'Pre-Breeding',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -384,13 +407,13 @@ def createFolderStructure(portal):
             'children': biotechnology_children,
             },
         {   'id': 'research-methods',
-            'title': 'Research Methods and Tools',
+            'title': 'Research Methods & Tools',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
         {   'id': 'training-communication',
-            'title': 'Training and Communication',
+            'title': 'Training & Communication Material',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -426,7 +449,7 @@ def createFolderStructure(portal):
             'layout': 'folder_listing',
             },
         {   'id': 'rapid-multiplication-techniques',
-            'title': 'Rapid multiplication techniques',
+            'title': 'Rapid Multiplication Techniques',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -441,7 +464,7 @@ def createFolderStructure(portal):
             'layout': 'folder_listing',
             },
         {   'id': 'root-based',
-            'title': 'Root based',
+            'title': 'Root Based',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -451,27 +474,27 @@ def createFolderStructure(portal):
 
     seedProgation_children= [
         {   'id': 'seed-biology',
-            'title': 'Seed biology',
+            'title': 'Seed Biology',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
         {   'id': 'foundation-seed',
-            'title': 'Foundation seed',
+            'title': 'Foundation Seed',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             'children': foundationSeed_children,
             },
         {   'id': 'field-multiplication',
-            'title': 'Field multiplication',
+            'title': 'Field Multiplication',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             'children': fieldMultiplication_children,
             },
         {   'id': 'vine-handling',
-            'title': 'Vine handling',
+            'title': 'Vine Handling',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -487,13 +510,13 @@ def createFolderStructure(portal):
 
     onFarm2_children = [
         {   'id': 'self-supply',
-            'title': 'Self-supply',
+            'title': 'Self-Supply',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
         {   'id': 'informal-supply',
-            'title': 'Informal supply',
+            'title': 'Informal Supply',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -508,7 +531,7 @@ def createFolderStructure(portal):
             'layout': 'folder_listing',
             },
         {   'id': '1-2-3-system',
-            'title': '1, 2, 3 system',
+            'title': '1, 2, 3 System',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -526,46 +549,46 @@ def createFolderStructure(portal):
 
     seedSystemOrganization_children = [
         {   'id': 'on-farm',
-            'title': 'On farm',
+            'title': 'On Farm',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             'children': onFarm2_children,
             },
         {   'id': 'supply-driven',
-            'title': 'Supply driven',
+            'title': 'Supply Driven',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             'children': supplyDriven_children,
             },
         {   'id': 'demand-driven',
-            'title': 'Demand driven',
+            'title': 'Demand Driven',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             'children': demandDriven_children,
 	    },
         {   'id': 'commercial-formal',
-            'title': 'Commercial formal',
+            'title': 'Commercial Formal',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
 	    },
         {   'id': 'quality-control',
-            'title': 'Quality control',
+            'title': 'Quality Control',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
 	    },
         {   'id': 'policy-legal-frameworks',
-            'title': 'Policy & legal frameworks',
+            'title': 'Policy & Legal Frameworks',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
 	    },
         {   'id': 'gender-in-seed-systems',
-            'title': 'Gender in seed systems',
+            'title': 'Gender In Seed Systems',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -574,7 +597,7 @@ def createFolderStructure(portal):
 
     caseStudies_children = [
         {   'id': 'farmers-seed-acquisition',
-            'title': 'Farmers seed acquisition',
+            'title': 'Farmers Seed Acquisition',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -591,27 +614,27 @@ def createFolderStructure(portal):
             'children': seedProgation_children,
             },
         {   'id': 'seed-system-organization',
-            'title': 'Seed system organization',
+            'title': 'Seed System Organization',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             'children': seedSystemOrganization_children,
             },
         {   'id': 'case-studies',
-            'title': 'Case studies',
+            'title': 'Case Studies',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             'children': caseStudies_children,
             },
         {   'id': 'research-methods-tools',
-            'title': 'Research methods & tools',
+            'title': 'Research Methods & Tools',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
         {   'id': 'training-communication-material',
-            'title': 'Training & communication material',
+            'title': 'Training & Communication Material',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -621,19 +644,19 @@ def createFolderStructure(portal):
 
     socio_children = [
         {   'id': 'Farming-strategies',
-            'title': 'Farming strategies',
+            'title': 'Farming Strategies',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
         {   'id': 'Cultural-aspects',
-            'title': 'Cultural aspects',
+            'title': 'Cultural Aspects',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
         {   'id': 'Returns-on-investment',
-            'title': 'Returns on investment',
+            'title': 'Returns on Investment',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -656,13 +679,13 @@ def createFolderStructure(portal):
     ]
     physiology_children = [
         {   'id': 'plant-phenology',
-            'title': 'Plant phenology',
+            'title': 'Plant Phenology',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
         {   'id': 'maturity-indicators',
-            'title': 'Maturity indicators',
+            'title': 'Maturity Indicators',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -671,19 +694,19 @@ def createFolderStructure(portal):
 
     soil_children = [
         {   'id': 'nutrient-requirements',
-            'title': 'Nutrient requirements',
+            'title': 'Nutrient Requirements',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
         {   'id': 'oraganic-fertilizers',
-            'title': 'Oraganic fertilizers',
+            'title': 'Oraganic Fertilizers',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
         {   'id': 'inorganic-fertilizers',
-            'title': 'Inorganic fertilizers',
+            'title': 'Inorganic Fertilizers',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -692,7 +715,7 @@ def createFolderStructure(portal):
 
     agronomy_children = [
         {   'id': 'site-selection',
-            'title': 'Site selection',
+            'title': 'Site Selection',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -704,7 +727,7 @@ def createFolderStructure(portal):
             'layout': 'folder_listing',
             },
         {   'id': 'seed-vines-and-vareity-selection',
-            'title': 'Seed vines and vareity selection',
+            'title': 'Seed Vines & Vareity Selection',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -722,13 +745,13 @@ def createFolderStructure(portal):
             'layout': 'folder_listing',
             },
         {   'id': 'crop-rotation',
-            'title': 'Crop rotation',
+            'title': 'Crop Rotation',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
         {   'id': 'weed-management',
-            'title': 'Weed management',
+            'title': 'Weed Management',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -758,13 +781,13 @@ def createFolderStructure(portal):
 
     pests_children = [
         {   'id': 'inset-pests',
-            'title': 'Inset pests',
+            'title': 'Insect Pests',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
         {   'id': 'vertebrate-pests',
-            'title': 'Vertebrate pests',
+            'title': 'Vertebrate Pests',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -782,7 +805,7 @@ def createFolderStructure(portal):
             'layout': 'folder_listing',
             },
         {   'id': 'other-pests',
-            'title': 'Other pests',
+            'title': 'Other Pests',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -818,7 +841,7 @@ def createFolderStructure(portal):
             'children': agronomy_children,
             },
         {   'id': 'soil-fertility-management',
-            'title': 'Soil fertility management',
+            'title': 'Soil Fertility Management',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -839,26 +862,26 @@ def createFolderStructure(portal):
             'children': harvesting_children,
             },
         {   'id': 'socio-economic-issues',
-            'title': 'Socio-economic issues',
+            'title': 'Socio-Economic Issues',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             'children': socio_children,
             },
         {   'id': 'case-studies',
-            'title': 'Case studies',
+            'title': 'Case Studies',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
         {   'id': 'research-methods-tools',
-            'title': 'Research methods & tools',
+            'title': 'Research Methods & Tools',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
         {   'id': 'training-communication-material',
-            'title': 'Training & communication material',
+            'title': 'Training & Communication Material',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -866,25 +889,52 @@ def createFolderStructure(portal):
     ]
 
     africa_children = [
-        {   'id': 'ssa',
-            'title': 'SSA',
+        {   'id': 'sub-saharan-africa',
+            'title': 'Sub-Saharan Africa',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing'
             },
-        {   'id': 'ea',
-            'title': 'EA',
+        {   'id': 'east-africa',
+            'title': 'East Africa',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing'
             },
-        {   'id': 'wa',
-            'title': 'WA',
+        {   'id': 'west-africa',
+            'title': 'West Africa',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
-        {   'id': 'sa',
+        {   'id': 'south-africa',
+            'title': 'South Africa',
+            'description': '',
+            'type': 'Folder',
+            'layout': 'folder_listing',
+            },
+        ]
+
+    test_project_children = [
+        {   'id': 'news',
+            'title': 'First News from Sasha Project',
+            'description': 'This is the first news item',
+            'type': 'News Item',
+            'layout': 'newsitem_view'
+            },
+        {   'id': 'news2',
+            'title': 'Second News from Sasha Project',
+            'description': 'This is the news item from',
+            'type': 'News Item',
+            'layout': 'newsitem_view'
+            },
+        {   'id': 'folderone',
+            'title': 'Project Documents',
+            'description': 'Here you can find Global Project Test documents',
+            'type': 'Folder',
+            'layout': 'folder_listing'
+            },
+        {   'id': 'internal-project',
             'title': 'SA',
             'description': '',
             'type': 'Folder',
@@ -898,6 +948,7 @@ def createFolderStructure(portal):
             'description': '',
             'type': 'Project Folder',
             'layout': 'folder_listing',
+            'children': test_project_children,
             },
         {   'id': 'test-project2',
             'title': 'Global Project Test',
@@ -1259,8 +1310,8 @@ def createFolderStructure(portal):
         ]
 
     postharvestissues_children = [
-        {   'id': 'insects',
-            'title': 'Insects',
+        {   'id': 'insect-pests',
+            'title': 'Insect Pests',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -1319,12 +1370,23 @@ def createFolderStructure(portal):
             },
         ]
 
+    vaintro_children = [
+        {   'id': 'value-chain-approach-to-sp',
+            'title': 'Value Chain Approach to Sweetpotato',
+            'description': '',
+            'type': 'Folder',
+            'layout': 'folder_listing',
+            },
+        ]
+
+
     valueadding_children = [
         {   'id': 'introduction',
             'title': 'Introduction',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
+            'children': vaintro_children,
             },
         {   'id': 'port-harvest-handling',
             'title': 'Post-harvest Handling',
@@ -1354,13 +1416,13 @@ def createFolderStructure(portal):
             'layout': 'folder_listing',
             },
         {   'id': 'research-methods',
-            'title': 'Research Methods',
+            'title': 'Research Methods & Tools',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
             },
         {   'id': 'training-communication',
-            'title': 'Training & Communication',
+            'title': 'Training & Communication Material',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -1436,8 +1498,8 @@ def createFolderStructure(portal):
             'layout': 'folder_listing',
             'children': crop_children,
             },
-        {   'id': 'value-adding',
-            'title': 'Value Adding',
+        {   'id': 'adding-value',
+            'title': 'Adding value',
             'description': '',
             'type': 'Folder',
             'layout': 'folder_listing',
@@ -1503,6 +1565,44 @@ def createObjects(parent, children):
                 if len(children) > 0:
                     createObjects(obj, children)
 
+def setupPortlets(site, out):
+    # Register some portlets for this club's context.
+    # Copied mostly from plone.portlets' README doctests.
+    right = getUtility(IPortletManager, name='plone.rightcolumn')
+    left = getUtility(IPortletManager, name='plone.leftcolumn')
+    rightColumnInThisContext = getMultiAdapter((site, right), IPortletAssignmentMapping)
+    leftColumnInThisContext = getMultiAdapter((site, left), IPortletAssignmentMapping)
+
+
+    urltool  = getToolByName(site, 'portal_url')
+
+    projectCollectionPortlet = Assignment(header=u"Latest Projects 2",
+                                          limit=2,
+                                          target_collection = '/'.join(urltool.getRelativeContentPath(site.gpProjects)),
+                                          random=False,
+                                          show_more=True,
+                                          show_dates=False)
+
+#    webmasterPortlet = Assignment(header=u"Control Panel",)
+
+    def saveAssignment(mapping, assignment):
+        chooser = INameChooser(mapping)
+        mapping[chooser.chooseName(None, assignment)] = assignment
+
+    saveAssignment(leftColumnInThisContext, projectCollectionPortlet)
+#    saveAssignment(leftColumnInThisContext, webmasterPortlet)
+
+def setupAddableTypes(portal):
+    # make root folder
+    existing = portal.keys()
+    if 'roofolder' not in existing:
+        portal.invokeFactory('Folder', id='rootfolder', title='Home')
+        portal.rootfolder.setConstrainTypesMode(1) # restrict what this folder can contain
+        portal.rootfolder.setImmediatelyAddableTypes(['Folder'])
+    #    portal.setLocallyAllowedTypes(['Folder'])
+        portal.rootfolder.setLayout('frontpage')
+        portal.rootfolder.reindexObject()
+
 def setupVarious(context):
 
     # Ordinarily, GenericSetup handlers check for the existence of XML files.
@@ -1515,45 +1615,91 @@ def setupVarious(context):
     if context.readDataFile('cip.sppolicy4_various.txt') is None:
         return
 
-    existing = portal.objectIds()
+    existing = portal.keys()
 
     if 'gpNews' not in existing:
         _createObjectByType('Topic', portal, id='gpNews', title='Latest on Germplasm',
                             description='Show the latest objects from Germplasm Category')
-        gpNews = portal.gpNews
-        type_crit = gpNews.addCriterion('Type','ATPortalTypeCriterion')
+        theCollection = portal.gpNews
+        theCollection.setLimitNumber(True)
+        theCollection.setItemCount(4)
+        path_crit = theCollection.addCriterion('path','ATRelativePathCriterion')
+        path_crit.setRelativePath('../germplasm')
+        theCriteria = theCollection.addCriterion('effective','ATSortCriterion')
+        theCriteria.setReversed('getId')
+        type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
         type_crit.setValue(['News Item', 'Document', 'Folder'])
 
     if 'ssNews' not in existing:
         _createObjectByType('Topic', portal, id='ssNews', title='Latest on Seedsystem',
                             description='Show the latest objects from Germplasm Category')
-        ssNews = portal.ssNews
-        type_crit = ssNews.addCriterion('Type','ATPortalTypeCriterion')
+        theCollection = portal.ssNews
+        theCollection.setLimitNumber(True)
+        theCollection.setItemCount(4)
+        path_crit = theCollection.addCriterion('path','ATRelativePathCriterion')
+        path_crit.setRelativePath('../seedsystem')
+        theCriteria = theCollection.addCriterion('effective','ATSortCriterion')
+        theCriteria.setReversed('getId')
+        type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
         type_crit.setValue(['News Item', 'Document', 'Folder'])
 
     if 'cmnNews' not in existing:
         _createObjectByType('Topic', portal, id='cmnNews', title='Latest on Crop Management',
                             description='Show the latest objects from Crop Management Category')
-        cmnNews = portal.cmnNews
-        type_crit = cmnNews.addCriterion('Type','ATPortalTypeCriterion')
+        theCollection = portal.cmnNews
+        theCollection.setLimitNumber(True)
+        theCollection.setItemCount(4)
+        path_crit = theCollection.addCriterion('path','ATRelativePathCriterion')
+        path_crit.setRelativePath('../crop-management')
+        theCriteria = theCollection.addCriterion('effective','ATSortCriterion')
+        theCriteria.setReversed('getId')
+        type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
         type_crit.setValue(['News Item', 'Document', 'Folder'])
 
     if 'vaNews' not in existing:
         _createObjectByType('Topic', portal, id='vaNews', title='Latest on Crop Management',
                             description='Show the latest objects from Crop Management Category')
-        vaNews = portal.vaNews
-        type_crit = vaNews.addCriterion('Type','ATPortalTypeCriterion')
+        theCollection = portal.vaNews
+        theCollection.setLimitNumber(True)
+        theCollection.setItemCount(4)
+        path_crit = theCollection.addCriterion('path','ATRelativePathCriterion')
+        path_crit.setRelativePath('../adding-value')
+        theCriteria = theCollection.addCriterion('effective','ATSortCriterion')
+        theCriteria.setReversed('getId')
+        type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
+        type_crit.setValue(['News Item', 'Document', 'Folder'])
+
+    if 'ucNews' not in existing:
+        _createObjectByType('Topic', portal, id='ucNews', title='Latest on Crop Management',
+                            description='Show the latest objects from Crop Management Category')
+        theCollection = portal.ucNews
+        theCollection.setLimitNumber(True)
+        theCollection.setItemCount(4)
+        path_crit = theCollection.addCriterion('path','ATRelativePathCriterion')
+        path_crit.setRelativePath('../use-consumption')
+        theCriteria = theCollection.addCriterion('effective','ATSortCriterion')
+        theCriteria.setReversed('getId')
+        type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
         type_crit.setValue(['News Item', 'Document', 'Folder'])
 
     if 'gpProjects' not in existing:
         _createObjectByType('Topic', portal, id='gpProjects', title='Latest Proejcts',
                             description='Show the latest Sweetpotato Projects')
-        gpProjects = portal.gpProjects
-        type_crit = gpProjects.addCriterion('Type','ATPortalTypeCriterion')
+        theCollection = portal.gpProjects
+        theCollection.setLimitNumber(True)
+        theCollection.setItemCount(4)
+        theCriteria = theCollection.addCriterion('effective','ATSortCriterion')
+        theCriteria.setReversed('getId')
+        type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
         type_crit.setValue('Project Folder')
+
 
     # Add additional setup code here
 #    deletePloneFolders(portal)
 #    disableDocument(portal)
+    out = StringIO()
     createFolderStructure(portal)
-#    importPAS(portal)
+    setupPortlets(portal, out)
+    setupAddableTypes(portal)
+    createGroups(portal)
+    importPAS(portal)

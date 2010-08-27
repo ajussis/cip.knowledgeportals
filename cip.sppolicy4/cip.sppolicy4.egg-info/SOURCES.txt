@@ -22,6 +22,7 @@ cip/sppolicy4/setuphandlers.py
 cip/sppolicy4/tests.py
 cip/sppolicy4/userdataschema.py
 cip/sppolicy4/userdataschema.pyc
+cip/sppolicy4/profiles/default/actions.xml
 cip/sppolicy4/profiles/default/cip.sppolicy4_various.txt
 cip/sppolicy4/profiles/default/controlpanel.xml
 cip/sppolicy4/profiles/default/import_steps.xml

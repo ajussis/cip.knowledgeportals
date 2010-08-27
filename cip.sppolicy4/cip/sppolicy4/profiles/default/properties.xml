@@ -2,7 +2,7 @@
 <site>
  <property name="title">Sweetpotato Knowledge Portal</property>
  <property name="description">Welcome to Sweetpotato Knowledge Portal</property>
- <property name="layout" type="string">frontpage</property>
+ <property name="layout" type="string">rootfolder</property>
  <property name="selectable_views" type="lines">
   <element value="folder_listing"/>
   <element value="news_listing"/>
