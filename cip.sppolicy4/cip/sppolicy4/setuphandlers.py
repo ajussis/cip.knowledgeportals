@@ -357,11 +357,11 @@ def createFolderStructure(portal):
         ]
 
     germplasm_children = [
-        {   'id': 'germplasm-noticias',
-            'title': 'Germplasm Noticias',
+        {   'id': 'news',
+            'title': 'Germplasm News',
             'description': '',
             'type': 'Folder',
-            'layout': 'folder_listing',
+            'layout': 'folder_summary_view',
             'children': gp_children,
             },
         {   'id': 'germplasm-collection',
@@ -947,20 +947,20 @@ def createFolderStructure(portal):
             'title': 'Global Project',
             'description': '',
             'type': 'Project Folder',
-            'layout': 'folder_listing',
+            'layout': 'projectFolder',
             'children': test_project_children,
             },
         {   'id': 'test-project2',
             'title': 'Global Project Test',
             'description': '',
             'type': 'Project Folder',
-            'layout': 'folder_listing',
+            'layout': 'projectFolder',
             },
         {   'id': 'test-project3',
             'title': 'Global Project Another test',
             'description': '',
             'type': 'Project Folder',
-            'layout': 'folder_listing',
+            'layout': 'projectFolder',
             },
         ]
 
@@ -1429,30 +1429,46 @@ def createFolderStructure(portal):
             },
         ]
 
+    instint_children = [
+        {   'id': 'cips',
+            'title': 'International Center of Potato',
+            'description': 'International Center of Potato International Center of Potato International Center of Potato International Center of Potato International Center of Potato International Center of Potato',
+            'type': 'Institution',
+            'layout': 'institution_view',
+            },
+        {   'id': 'cips2',
+            'title': 'Another International Institute',
+            'description': 'Another International InstituteAnother International Institute Another International Institute Another International Institute Another International Institute Another International Institute Another International Institute ',
+            'type': 'Institution',
+            'layout': 'institution_view',
+            },
+        ]
+
     institutions_children = [
         {   'id': 'international-research',
             'title': 'International Research',
             'description': '',
-            'type': 'Folder',
-            'layout': 'folder_listing',
+            'type': 'Institutions Holder',
+            'layout': 'folder_listing_institutions',
+            'children': instint_children,
             },
         {   'id': 'national-research',
             'title': 'National Research',
             'description': '',
-            'type': 'Folder',
-            'layout': 'folder_listing',
+            'type': 'Institutions Holder',
+            'layout': 'folder_listing_institutions',
             },
         {   'id': 'ngo',
             'title': 'NGO',
             'description': '',
-            'type': 'Folder',
-            'layout': 'folder_listing',
+            'type': 'Institutions Holder',
+            'layout': 'folder_listing_institutions',
             },
         {   'id': 'private-sector',
             'title': 'Private Sector',
             'description': '',
-            'type': 'Folder',
-            'layout': 'folder_listing',
+            'type': 'Institutions Holder',
+            'layout': 'folder_listing_institutions',
             },
         ]
 
@@ -1514,16 +1530,16 @@ def createFolderStructure(portal):
             },
         {   'id': 'institutions',
             'title': 'Institutions',
-            'description': '',
+            'description': 'There are several institutions and organizations globally which work closely with the sweetpotato. Here you can find a listing of these categorized by international research, national research, NGOs and private sector.',
             'type': 'Folder',
-            'layout': 'folder_listing',
+            'layout': 'folder_listing_institution',
             'children': institutions_children,
             },
         {   'id': 'projects-initiatives',
             'title': 'Projects and Initiatives',
             'description': '',
             'type': 'Folder',
-            'layout': 'folder_listing',
+            'layout': 'folder_listing_projectmain',
             'children': projects_children,
             },
         {   'id': 'about',
@@ -1595,7 +1611,7 @@ def setupPortlets(site, out):
 def setupAddableTypes(portal):
     # make root folder
     existing = portal.keys()
-    if 'roofolder' not in existing:
+    if 'rootfolder' not in existing:
         portal.invokeFactory('Folder', id='rootfolder', title='Home')
         portal.rootfolder.setConstrainTypesMode(1) # restrict what this folder can contain
         portal.rootfolder.setImmediatelyAddableTypes(['Folder'])
