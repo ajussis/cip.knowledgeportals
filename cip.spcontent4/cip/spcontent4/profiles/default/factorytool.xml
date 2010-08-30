@@ -10,6 +10,7 @@
 <object name="portal_factory" meta_type="Plone Factory Tool">
   <factorytypes>
     <!-- -*- extra stuff goes here -*- -->
+    <type portal_type="Institutions Holder" />
     <type portal_type="Gallery Folder" />
     <type portal_type="Projects Holder" />
     <type portal_type="Institution" />

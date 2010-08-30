@@ -9,6 +9,36 @@ class IInstitution(Interface):
     """Institution Content Type"""
 
     # -*- schema definition goes here -*-
+    image = schema.Bytes(
+        title=_(u"Institution Logo"),
+        required=False,
+        description=_(u"Logo or representative image of the institution"),
+    )
+#
+    email = schema.TextLine(
+        title=_(u"Email"),
+        required=False,
+        description=_(u"Contact email address of the institution"),
+    )
+#
+    number = schema.TextLine(
+        title=_(u"Telephone"),
+        required=False,
+        description=_(u"Institution contact telephone number"),
+    )
+#
+    city = schema.TextLine(
+        title=_(u"City"),
+        required=False,
+        description=_(u"City of the headquarters"),
+    )
+#
+    country = schema.TextLine(
+        title=_(u"Country"),
+        required=False,
+        description=_(u"Country of the headquarters"),
+    )
+#
     info = schema.TextLine(
         title=_(u"New Field"),
         required=False,

@@ -26,6 +26,23 @@
  <!-- Assign the standard portlets -->
 
  <assignment
+     manager="plone.leftcolumn"
+     category="context"
+     key="/"
+     type="cip.spImagePortlet"
+     name="spImage2"
+     />
+
+ <assignment
+     manager="plone.leftcolumn"
+     category="context"
+     key="/"
+     type="cip.GalleriesPortlet"
+     name="spGalleries"
+     />
+
+
+ <assignment
      manager="plone.rightcolumn"
      category="context"
      key="/"
@@ -42,32 +59,6 @@
      name="calendar"
      />
 
- <assignment
-     manager="plone.leftcolumn"
-     category="context"
-     key="/"
-     type="cip.spImagePortlet"
-     name="spImage2"
-     />
-
- <assignment name="latest-projects" category="context" key="/"
-     manager="plone.leftcolumn" type="plone.portlet.collection.Collection"
-     visible="True">
-        <property name="show_more">True</property>
-        <property name="header">Latest Projects</property>
-        <property name="limit">3</property>
-        <property name="target_collection">/gpProjects</property>
-        <property name="random">False</property>
-        <property name="show_dates">True</property>
- </assignment>
-
- <assignment
-     manager="plone.leftcolumn"
-     category="context"
-     key="/"
-     type="cip.GalleriesPortlet"
-     name="spGalleries"
-     />
 
  <!--portlet
      addview="cip.spGalleriesPortlet"
@@ -134,7 +125,7 @@
 
 
  <!-- Assign the standard portlets -->
-<portlet title="Google  Analytics"
+<!--portlet title="Google  Analytics"
     addview="collective.googleanalytics.AnalyticsPortlet"
     description="A portlet that pulls information from Google Analytics."/>
 

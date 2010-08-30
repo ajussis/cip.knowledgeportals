@@ -22,9 +22,37 @@ InstitutionSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         storage=atapi.AnnotationStorage(),
         widget=atapi.StringWidget(
             label=_(u"Headquarters"),
-            description=_(u"Address, City, Country"),
+            description=_(u"Address of the headquarters"),
+        ),),
+    atapi.StringField(
+        'city',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.StringWidget(
+            label=_(u"City"),
+            description=_(u"City of the headquarters"),
+        ),),
+    atapi.StringField(
+        'country',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.StringWidget(
+            label=_(u"Country"),
+            description=_(u"Country of the headquarters"),
         ),
     ),
+    atapi.StringField(
+        'email',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.StringWidget(
+            label=_(u"Email"),
+            description=_(u"Contact email address of the institution"),
+        ),),
+    atapi.StringField(
+        'number',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.StringWidget(
+            label=_(u"Telephone"),
+            description=_(u"Institution contact telephone number"),
+        ),),
     atapi.StringField(
         'website',
         storage=atapi.AnnotationStorage(),
@@ -33,7 +61,7 @@ InstitutionSchema = folder.ATFolderSchema.copy() + atapi.Schema((
             description=_(u"Website of the Institution"),
         ),
     ),
-    atapi.ReferenceField(
+    atapi.StringField(
         'area',
         vocabulary="getAreas",
         storage=atapi.AnnotationStorage(),
@@ -53,8 +81,15 @@ InstitutionSchema = folder.ATFolderSchema.copy() + atapi.Schema((
             description=_(u"More information about the institution"),
         ),
     ),
-
-
+    atapi.ImageField(
+        'image',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.ImageWidget(
+            label=_(u"Institution Logo"),
+            description=_(u"Logo or representative image of the institution"),
+        ),
+        validators=('isNonEmptyFile'),
+    ),
 
 ))
 
@@ -82,6 +117,16 @@ class Institution(folder.ATFolder):
     description = atapi.ATFieldProperty('description')
 
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
+    image = atapi.ATFieldProperty('image')
+
+    email = atapi.ATFieldProperty('email')
+
+    number = atapi.ATFieldProperty('number')
+
+    city = atapi.ATFieldProperty('city')
+
+    country = atapi.ATFieldProperty('country')
+
     info = atapi.ATFieldProperty('info')
 
     headquarters = atapi.ATFieldProperty('headquarters')

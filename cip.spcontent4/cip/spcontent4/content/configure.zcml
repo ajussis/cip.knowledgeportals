@@ -6,6 +6,12 @@
   <!-- configure your content components here -->
   
   <!-- -*- extra stuff goes here -*- -->
+  <class class=".institutionsholder.InstitutionsHolder">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IInstitutionsHolder"
+        />
+  </class>
   <class class=".galleryfolder.GalleryFolder">
     <require
         permission="zope2.View"
