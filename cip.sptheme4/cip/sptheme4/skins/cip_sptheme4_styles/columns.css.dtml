@@ -63,13 +63,13 @@ div.position-15 { margin-left:  -5.125% }
 
 /* Convenience classes — ¼, ½, ¾ widths and ¼, ½, ¾ positions.
    Not strictly necessary. */
-div.width-1\3a 2 { width:    55.75%; } /* .width-1:2 */
+div.width-1\3a 2 { width:    57.75%; } /* .width-1:2 */
 div.width-1\3a 4 { width:    19.15%; } /* .width-1:4 */
-div.width-3\3a 4 { width:    72.75%; } /* .width-3:4 */
+div.width-3\3a 4 { width:    77.75%; padding-left:15px; } /* .width-3:4 */
 div.width-full   { width:    97.75%  }
-div.position-1\3a 4 {margin-left:    -80.275%;} /* .position-1:4 */
+div.position-1\3a 4 {margin-left:    -78.275%;} /* .position-1:4 */
 div.position-1\3a 2 {margin-left:    -55.75%;} /* .position-1:2 */
-div.position-3\3a 4 {margin-left:    -19.275%;} /* .position-3:4 */
+div.position-3\3a 4 {margin-left:    -19.1%;} /* .position-3:4 */
 
 
 /* Special classes for ⅓, ⅔ widths and ⅓, ⅔ positions.
@@ -79,8 +79,8 @@ div.width-2\3a 3 { width: 64.42%; } /* .width-2:3 */
 div.position-1\3a 3 {margin-left: -65.545%;} /* .position-1:3 */
 div.position-2\3a 3 {margin-left: -32.205%;} /* .position-2:3 */
 
-#portal-column-one { width:200px; }
-
+#portal-column-one { width:200px; background:#FFEF98; position:absolute; top:0; bottom:0; }
+#portal-column-two { background:#FFEF98; position:relative; top:0; bottom:0; }
 
 /*----------------COLUMNS----------------------*/
 

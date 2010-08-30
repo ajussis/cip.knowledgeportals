@@ -5,8 +5,7 @@
 
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main">
-
-            <div>
+            <div tal:define="img python:context.getImage()">
                 <img class="titleBall" src="frontpageball.jpg" />
                 <h1 class="titleSweetpotato">Project:</h1>
                 <h1 class="titleKnowledge" tal:content="context/Title">Sweetpotato</h1>
@@ -14,9 +13,9 @@
                 <div class="titleLine1"></div>
                 <div class="titleLine2"></div>
                 <div class="lineBreak"></div>
-                <p tal:content="context/Description"/>
+                <img src="image" style="float:left; width:100px; margin:7px 20px 7px 20px;" tal:condition="img" />
+                <p style="margin: 7px 20px;" tal:content="context/Description"/>
             </div>
-
             <div class="lineBreak"></div>
 
             <h1>Information about the project</h1>
@@ -26,7 +25,10 @@
 
                 <div class="lineBreak"></div>
 
-                <div tal:define="areas python:context.getArea()" class="projectColumns">
+                <div tal:define="areas python:context.getArea();
+                                 areasL python:len(areas);
+                                 areas python:areas[:areasL-1];"
+                     class="projectColumns">
                     <h2 class="projectH2">Area</h2>
                     <ol>
                         <tal:block tal:repeat="area areas">
@@ -34,23 +36,27 @@
                         </tal:block>
                     </ol>
                 </div>
-
+            </div>
+            <div style="width:475px; float:left;">
                 <div class="projectMembers projectColumns">
                     <h2 class="projectH2">Project Group</h2>
-                    <p>Leader:
+                    <p><b>Leader:</b>
                         <tal:leaderHere condition="python:context.getLeader()" replace="python:context.getLeader()" />
                         <tal:leaderHere condition="python:context.getLeaderText()" replace="python:context.getLeaderText()" />
                     </p>
-                    <p>Members: <span>
+                    <p><b>Members:</b> <span>
                 </div>
 
                 <div class="projectMembers projectColumns">
-                    <h2 class="projectH2">Financing</h2>
-                    <p tal:content="python:context.getSomething()"/>
+                    <h2 class="projectH2">Financing sources</h2>
+                    <p tal:content="python:context.getFinancing()"/>
                 </div>
 
                 <!--div class="projectInfoBottom"></div-->
             </div>
+            <div class="lineBreak"></div>
+
+            <h1>Project documentation</h1>
 
             <tal:foldercontents define="contentFilter contentFilter|request/contentFilter|nothing;
                                         limit_display limit_display|request/limit_display|nothing;
@@ -62,31 +68,112 @@
                                         batch folderContents;
                                         b_size python:12;
                                         b_start python:0;
-                                        b_start request/b_start | b_start;">
-                <tal:listing condition="folderContents">
-                    <h2>Project files</h2>
-                    <tal:block tal:repeat="item folderContents">
-                        <div class="projectContents" tal:define="item_url item/getURL|item/absolute_url;
-                                       item_id item/getId|item/id;
-                                       item_title_or_id item/pretty_title_or_id;
-                                       item_description item/Description;
-                                       item_type item/portal_type;
-                                       item_type_title item/Type;
-                                       item_modified item/ModificationDate;
-                                       item_created item/CreationDate;
-                                       item_object item/getObject;"
-                            tal:condition="python:item_type=='Folder'">
-                            <div>
-                                <h2 style="width:230px">
-                                    <a href="#" tal:attributes="href item_url">
-                                        <tal:block replace="item_title_or_id" />
-                                    </a>
-                                </h2>
+                                        b_start request/b_start | b_start;
+                                        member here/id;
+                                        cFolder python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Folder';
+                                        cEvent python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Event';
+                                        cDoc python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Document';
+                                        cGallery python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Gallery+Folder';
+                                        cFile python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=File';
+        ">
+                <div tal:condition="member">
+                    <p style="float:left;">Add public content:</p>
+                    <ul style="float:left; list-style:none outside none;">
+                        <li class="projectLi"><a href="#" tal:attributes="href cDoc">Document</a></li>
+                        <li class="projectLi"><a href="#" tal:attributes="href cFolder">Folder</a></li>
+                        <li class="projectLi"><a href="#" tal:attributes="href cEvent">Event</a></li>
+                        <li class="projectLi"><a href="#" tal:attributes="href cGallery">Gallery</a></li>
+                        <li class="projectLi"><a href="#" tal:attributes="href cFile">File</a></li>
+                    </ul>
+                </div>
+                <div class="lineBreak"></div>
+                <tal:listing condition="folderContents"
+                             define="path python:'/'.join(here.getPhysicalPath());
+                                     folds python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Folder');
+                                     docs python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Document');
+                                     news python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'News Item');">
+                    <div class="projectContents">
+                        <div style="margin-left:20px;">
+                            <div tal:condition="folds" style="margin-top:10px;">
+                                <img style="float:left; padding:5px 50px 0 20px; width:100px;" src="spfolder2.jpg"/>
+                                <h2>Folders</h2>
+                                <div tal:repeat="item folds">
+                                    <tal:defs define="item_url item/getURL|item/absolute_url;
+                                                             item_id item/getId|item/id;
+                                                             item_title_or_id item/pretty_title_or_id;
+                                                             item_description item/Description;
+                                                             item_type item/portal_type;
+                                                             item_type_title item/Type;
+                                                             item_modified item/ModificationDate;
+                                                             item_created item/CreationDate;
+                                                             item_object item/getObject;
+                                                             item_icon python:plone_view.getIcon(item);">
+                                        <img tal:replace="structure item_icon/html_tag" />
+                                        <a href="#" tal:attributes="href item_url"
+                                           tal:content="item_title_or_id">
+                                            <tal:block replace="item_title_or_id" />
+                                        </a>
+                                    </tal:defs>
+                                </div>
                             </div>
+                            <div class="lineBreak"></div>
+                            <div tal:condition="news" style="margin-top:10px;">
+                                <img style="float:left; padding:5px 50px 0 20px; width:100px;" src="spnews.png"/>
+                                <h2>News</h2>
+                                <div tal:repeat="item news">
+                                    <tal:defs define="item_url item/getURL|item/absolute_url;
+                                                             item_id item/getId|item/id;
+                                                             item_title_or_id item/pretty_title_or_id;
+                                                             item_description item/Description;
+                                                             item_type item/portal_type;
+                                                             item_type_title item/Type;
+                                                             item_modified item/ModificationDate;
+                                                             item_created item/CreationDate;
+                                                             item_object item/getObject;
+                                                             item_icon python:plone_view.getIcon(item);">
+                                        <img tal:replace="structure item_icon/html_tag" />
+                                        <a href="#" tal:attributes="href item_url"
+                                           tal:content="item_title_or_id">
+                                            <tal:block replace="item_title_or_id" />
+                                        </a>
+                                    </tal:defs>
+                                </div>
+                            </div>
+                            <div class="lineBreak"></div>
+                            <div tal:condition="docs" style="margin-top:10px;">
+                                <img style="float:left; padding:5px 50px 0 20px; width:100px;" src="spdocument.png"/>
+                                <h2>Documents</h2>
+                                <div tal:repeat="item docs">
+                                    <tal:defs define="item_url item/getURL|item/absolute_url;
+                                                             item_id item/getId|item/id;
+                                                             item_title_or_id item/pretty_title_or_id;
+                                                             item_description item/Description;
+                                                             item_type item/portal_type;
+                                                             item_type_title item/Type;
+                                                             item_modified item/ModificationDate;
+                                                             item_created item/CreationDate;
+                                                             item_object item/getObject;
+                                                             item_icon python:plone_view.getIcon(item);">
+                                        <img tal:replace="structure item_icon/html_tag" />
+                                        <a href="#" tal:attributes="href item_url"
+                                           tal:content="item_title_or_id">
+                                            <tal:block replace="item_title_or_id" />
+                                        </a>
+                                    </tal:defs>
+                                </div>
+                            </div>
+                            <div class="lineBreak"></div>
                         </div>
-                    </tal:block>
+                    </div>
                 </tal:listing>
             </tal:foldercontents>
+            <div class="lineBreak"></div>
+            <tal:getInfo define="info python:context.getInfo();">
+                <div tal:condition="info">
+                    <h1>More information</h1>
+                    <tal:infoHere replace="info" />
+                </div>
+            </tal:getInfo>
         </metal:main>
     </metal:main_macro>
 </html>

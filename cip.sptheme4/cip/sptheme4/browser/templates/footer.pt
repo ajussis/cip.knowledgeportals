@@ -8,7 +8,7 @@
                 <h2>Site use</h2>
                 <ul class="portal-footer-list">
                     <li>
-                        Sitemap
+                        <a href="#">Sitemap</a>
                     </li>
                     <li>
                         Accessability
@@ -20,18 +20,37 @@
                         How to use the portal
                     </li>
                 </ul>
+
+    <!--tal:actions tal:repeat="action view/user_actions">
+        <li tal:define="icon action/icon | nothing;
+                        icon python:icon is not None and icon or view.getIconFor(action['category'], action['id'], None);
+                        class_name string:visualIcon actionicon-${action/category}-${action/id};
+                        class_name python:icon is not None and class_name or nothing;"
+            tal:attributes="class class_name">
+            <a href=""
+               tal:attributes="href action/url;
+                               class python:icon is not None and 'visualIconPadding' or nothing;"
+            ><tal:actionname i18n:translate=""
+                             tal:content="action/title">dummy</tal:actionname
+            ></a>
+        </li>
+    </tal:actions-->
+
             </div>
             <div class="portal-footer-column">
                 <h2>Membership</h2>
                 <ul class="portal-footer-list">
                     <li>
+                        Membership Benefits
+                    </li>
+                    <li>
                         Become Member
                     </li>
                     <li>
-                        Add an institution
+                        Add an Institution
                     </li>
                     <li>
-                        All members
+                        All Members
                     </li>
                 </ul>
             </div>

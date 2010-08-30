@@ -1,0 +1,65 @@
+<html metal:use-macro="here/main_template/macros/master">
+
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main">
+
+            <div>
+                <img class="titleBall" src="frontpageball.jpg" />
+                <h1 class="titleSweetpotato">Institution:</h1>
+                <h1 class="titleKnowledge" tal:content="context/Title">Sweetpotato</h1>
+                <div class="lineBreak"></div>
+                <div class="titleLine1"></div>
+                <div class="titleLine2"></div>
+                <div class="lineBreak"></div>
+                <p tal:content="context/Description"/>
+            </div>
+
+            <div class="lineBreak"></div>
+
+            <h1>Information about the institution</h1>
+            <div class="projectInfo">
+                <p><span class="projectStart">Headquarters address:</span> <span tal:content="python:context.getHeadquarters()"></span></p>
+                <p><span class="projectStart">City:</span> <span tal:content="python:context.getCity()"></span></p>
+                <p><span class="projectStart">Country:</span> <span tal:content="python:context.getCountry()"></span></p>
+                <p><span class="projectEnd">Website:</span> <span tal:content="python:context.getWebsite()"></span></p>
+                <p><span class="projectEnd">Telephone:</span> <span tal:content="python:context.getNumber()"></span></p>
+                <div class="lineBreak"></div>
+
+                <!--div class="projectInfoBottom"></div-->
+            </div>
+            <div style="width:230px; float:left;">
+                <div class="projectMembers projectColumns">
+                    <div tal:define="areas python:context.getArea();
+                                     areasL python:len(areas);
+                                     areas python:areas[:areasL-1];"
+                         class="projectColumns">
+                        <h2 class="projectH2">Area</h2>
+                        <ol>
+                            <tal:block tal:repeat="area areas">
+                                <li tal:content="area" />
+                            </tal:block>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div style="width:250px; float:left;">
+                <div class="projectMembers projectColumns">
+                    <div tal:define="areas python:context.getArea()" class="projectColumns">
+                        <h2 class="projectH2">Members</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lineBreak"></div>
+
+            <h2 class="projectH2">More information</h2>
+            <p>
+                <span tal:content="python:context.getInfo()"></span>
+            </p>
+
+        </metal:main>
+    </metal:main_macro>
+</html>

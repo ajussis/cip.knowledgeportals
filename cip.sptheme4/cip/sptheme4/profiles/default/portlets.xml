@@ -25,15 +25,38 @@
  </assignment-->
 
 
- <!--assignment name="latest-projects" category="context" key="/"
-     manager="plone.leftcolumn" type="plone.portlet.collection.Collection"
-     visible="True">
+ <!--portlet
+     addview="plone.portlet.collection.Collection"
+     title="SP Galleries portlet"
+     description="Portlet with light grey background"
+     />
+
+ <assignment
+    name="latest-projects"
+    category="context"
+    key="/"
+    manager="plone.leftcolumn"
+    type="plone.portlet.collection.Collection"
+    visible="True">
     <property name="show_more">True</property>
     <property name="header">Latest Projects</property>
     <property name="limit"/>
     <property name="target_collection">/gpProjects</property>
     <property name="random">False</property>
-    <property name="show_dates">False</property>
+    <property name="show_dates">True</property>
  </assignment-->
+
+ <assignment name="latest-projects" category="context" key="/"
+     manager="plone.leftcolumn" type="plone.portlet.collection.Collection"
+     visible="True">
+        <property name="show_more">True</property>
+        <property name="header">Latest Projects</property>
+        <property name="limit">3</property>
+        <property name="target_collection">/gpProjects</property>
+        <property name="random">False</property>
+        <property name="show_dates">True</property>
+        <property name="insert-after">spImage2</property>
+ </assignment>
+
 
 </portlets>

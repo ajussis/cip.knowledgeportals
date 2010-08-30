@@ -103,4 +103,27 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="*"
+      name="institutionView"
+      template="templates/institution.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
+<!-- Customize the navigation portlet -->
+       <plone:portletRenderer
+       portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"
+       layer=".interfaces.IThemeSpecific"
+       class=".navigation.MyNavRenderer"
+       />
+
+    <browser:viewlet
+        name="plone.belowcontenttitle.documentbyline"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        layer=".interfaces.IThemeSpecific"
+        class=".documentbyline.DocumentBylineViewlet"
+        permission="zope2.View"
+        />
+
 </configure>

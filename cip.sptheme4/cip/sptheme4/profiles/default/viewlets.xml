@@ -32,12 +32,22 @@
     <viewlet name="cip.someviewlet"
              insert-before="*" />
 -->
+
+
+  </order>
+  <order manager="plone.belowcontenttitle" skinname="Custom Theme"
+         based-on="Plone Default">
+      <viewlet name="cip.documentbyline"
+               insert-before="*" />
   </order>
 
   <hidden manager="plone.portalheader" skinname="Custom Theme">
 <!-- EXAMPLE (UNCOMMENT TO MAKE AVAILABLE):
     <viewlet name="plone.global_sections" />
 -->
+  </hidden>
+  <hidden manager="plone.belowcontenttitle" skinname="Custom Theme">
+      <viewlet name="plone.belowcontenttitle.documentbyline" />
   </hidden>
 
 </object>

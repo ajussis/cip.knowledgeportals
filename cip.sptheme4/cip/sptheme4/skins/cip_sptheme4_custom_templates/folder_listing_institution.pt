@@ -1,0 +1,134 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+
+<body>
+    <div metal:fill-slot="main">
+        <metal:main-macro define-macro="main"
+                          tal:define="kssClassesView context/@@kss_field_decorator_view;
+                                      getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                                      templateId template/getId">
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+            <div tal:replace="structure provider:plone.belowcontenttitle" />
+            <h1 tal:content="context/Title" style="font-size:2em;" />
+            <img src="institution.png" style="float:left; padding: 5px 10px 10px 20px; width:100px;" />
+            <p metal:use-macro="here/kss_generic_macros/macros/generic_description_view">
+                Description
+            </p>
+            <div class="visualClear"></div>
+            <div tal:replace="structure provider:plone.abovecontentbody" />
+            <div metal:define-macro="text-field-view"
+                 id="parent-fieldname-text" class="stx"
+                 tal:define="kss_class python:getKssClasses('text',
+                             templateId=templateId, macro='text-field-view');
+                             text here/aq_explicit/getText|nothing"
+                 tal:condition="text"
+                 tal:attributes="class python:test(here.Format() in ('text/structured',
+                                                       'text/x-rst', ), 'stx' + kss_class, 'plain' + kss_class)">
+                <div metal:define-slot="inside" tal:replace="structure text">The body</div>
+            </div>
+            <metal:listingmacro define-macro="listing">
+                <tal:foldercontents define="contentFilter contentFilter|request/contentFilter|nothing;
+                                    limit_display limit_display|request/limit_display|nothing;
+                                    more_url more_url|request/more_url|string:folder_contents;
+                                    is_a_topic python:context.portal_type=='Topic';
+                                    folderContents python:here.portal_type=='Topic' and here.queryCatalog(contentFilter, batch=True) or here.getFolderContents(contentFilter, batch=True, b_size=limit_display or 100);
+                                    folderContents python:folderContents or is_a_topic and context.queryCatalog(batch=True, **contentFilter) or context.getFolderContents(contentFilter, batch=True, b_size=limit_display or 100);
+                                    use_view_action site_properties/typesUseViewActionInListings|python:();
+                                    over_limit python: limit_display and len(folderContents) > limit_display;
+                                    folderContents python: (over_limit and folderContents[:limit_display]) or folderContents;
+                                    batch folderContents;
+                                    top_id python:here.getId;">
+                    <tal:listing condition="folderContents">
+                        <tal:block tal:repeat="item folderContents">
+                            <div tal:define="item_url item/getURL|item/absolute_url;
+                                                   item_id item/getId|item/id;
+                                                   item_title_or_id item/pretty_title_or_id;
+                                                   item_description item/Description;
+                                                   item_type item/portal_type;
+                                                   item_type_title item/Type;
+                                                   item_modified item/ModificationDate;
+                                                   item_created item/CreationDate;
+                                                   item_creator item/Creator;
+                                                   item_start item/start/ISO|item/StartDate|nothing;
+                                                   item_end item/end/ISO|item/EndDate|nothing;
+                                                   item_object item/getObject;">
+                                <div>
+                                    <a href="#" tal:attributes="href item_url">
+                                        <h1 tal:content="item_title_or_id"
+                                            tal:condition="python:item_type != 'Image'"
+                                            style="border-bottom:2px solid #581A74" />
+                                    </a>
+                                    <div class="tileItem visualIEFloatFix vevent">
+                                        <a href="" tal:attributes="href item/getURL">
+                                            <img style="float:left; padding:0px 50px 0 40px; width:100px;" src="institution.png"
+                                                 tal:condition="python:item_type=='Folder' and item_id != 'news' or item_type=='Project Folder' or item_type=='Projects Holder'" />
+                                        </a>
+                                    </div>
+                                    <div style="width:730px; margin-right:10px; float:left; padding-bottom:10px;"
+                                         tal:define="limit_display python:8;
+                                                     more_url more_url|request/more_url|string:folder_contents;
+                                                     folderContents3 python:here.portal_type=='Topic' and here.queryCatalog(contentFilter = {'sort_on' : 'Date', 'sort_order' : 'reverse' }, batch=True) or item_object.getFolderContents(contentFilter = {'sort_on' : 'Date', 'sort_order' : 'reverse' }, batch=True, b_size=limit_display or 100);
+                                                     use_view_action site_properties/typesUseViewActionInListings|python:();
+                                                     over_limit python: limit_display and len(folderContents3) > limit_display;
+                                                     folderContents3 python: (over_limit and folderContents3[:limit_display]) or folderContents3;">
+                                        <div tal:repeat="obj folderContents3" style="margin-top:10px; border-bottom:1px solid grey;">
+                                            <tal:defs2 tal:define="sub_obj obj/getObject;
+                                                                   sub_title obj/pretty_title_or_id;
+                                                                   sub_desc obj/Description;
+                                                                   sub_url obj/getURL|obj/absolute_url;
+                                                                   sub_type obj/portal_type;
+                                                                   item_type item/portal_type;
+                                                                   item_url obj/getURL|item/absolute_url;
+                                                                   sub_id obj/getId|item/id;
+                                                                   item_icon python:plone_view.getIcon(obj);
+                                                                   path python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + sub_id;
+                                                                   brains python:context.portal_catalog(path={'query' : path, 'depth' : 3});
+                                                                   brains2 python:len(brains);">
+                                                <div style="width:470px; float:left; margin-right:10px;" tal:define="img sub_obj/getImage">
+                                                    <img src="#" tal:condition="img" tal:attributes="src img" style="margin-right:4px; float:left;"/>
+                                                    <a href="#"
+                                                        style="font-size:13px; font-weight:bold; margin-left:4px;"
+                                                        tal:content="sub_title"
+                                                        tal:attributes="href sub_url" /> 
+                                                    <p tal:content="sub_desc" />
+                                                    <a href="#" tal:attributes="href sub_url" style="float:right;">
+                                                        Read more...
+                                                    </a>
+                                                </div>
+                                                <div style="width:250px; float:left;" tal:define="hq sub_obj/getCity; country sub_obj/getCountry; web sub_obj/getWebsite;">
+                                                    <p tal:condition="hq"><b>Hearquarters:</b> <tal:hq replace="hq" /><tal:hq replace="country" /></p>
+                                                    <p tal:condition="web"><b>Website:</b> <tal:hq replace="web" /></p>
+                                                </div>
+                                                <div class="visualClear"></div>
+                                            </tal:defs2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="visualClear"></div>
+                            </div>
+                        </tal:block>
+                        <div metal:use-macro="here/batch_macros/macros/navigation" />
+                    </tal:listing>
+                    <metal:empty metal:define-slot="no_items_in_listing">
+                        <p class="discreet"
+                           tal:condition="not: folderContents"
+                           i18n:translate="description_no_items_in_folder">
+                            There are currently no items in this folder.
+                        </p>
+                    </metal:empty>
+                </tal:foldercontents>
+            </metal:listingmacro>
+            <metal:subtopics use-macro="here/atct_topic_view/macros/folderlisting_macro" />
+            <div tal:replace="structure provider:plone.belowcontentbody" />
+        </metal:main-macro>
+    </div>
+</body>
+</html>
