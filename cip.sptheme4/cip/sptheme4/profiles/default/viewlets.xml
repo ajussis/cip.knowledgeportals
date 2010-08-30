@@ -46,8 +46,5 @@
     <viewlet name="plone.global_sections" />
 -->
   </hidden>
-  <hidden manager="plone.belowcontenttitle" skinname="Custom Theme">
-      <viewlet name="plone.belowcontenttitle.documentbyline" />
-  </hidden>
 
 </object>
