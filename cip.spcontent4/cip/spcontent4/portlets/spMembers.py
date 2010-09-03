@@ -94,6 +94,9 @@ class Renderer(base.Renderer):
             kk = pImg.find('" alt')
             returnImg = pImg[10:kk]
             contentAll.append([userId[0],userId[1], returnImg])
+#        import pdb
+#        pdb.set_trace()
+#        creator = self.context.Creator()
         return contentAll
 
         # alternative: get user objects

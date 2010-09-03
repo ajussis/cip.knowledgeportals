@@ -11,8 +11,8 @@
                 i18n:translate="box_recent_changes">Most active members</a>
             <span class="portletTopRight"></span>
         </dt>
-        <tal:defineThis define="users view/mostactivemembers;
-                                users users[:4]">
+
+        <tal:defineThis define="users view/mostactivemembers">
             <tal:block tal:repeat="user users">
                 <tal:defineAgain define="userName python:user[0];
                                          userObjects python:user[1];
