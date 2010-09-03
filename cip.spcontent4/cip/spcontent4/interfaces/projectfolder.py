@@ -27,11 +27,11 @@ class IProjectFolder(Interface):
         description=_(u"More information about the project"),
     )
 #
-    leader = schema.TextLine(
-        title=_(u"Project Leader"),
-        required=False,
-        description=_(u"The name of the project leader"),
-    )
+#    leader = schema.TextLine(
+#        title=_(u"Project Leader"),
+#        required=False,
+#        description=_(u"The name of the project leader"),
+#    )
 #
     financing = schema.Text(
         title=_(u"Financing"),
