@@ -126,4 +126,12 @@
         permission="zope2.View"
         />
 
+    <browser:page
+        for="borg.project.interfaces.IProject"
+        name="view"
+        template="templates/borgProject.pt"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        />
+
 </configure>

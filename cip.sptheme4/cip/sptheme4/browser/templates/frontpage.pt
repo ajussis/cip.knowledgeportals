@@ -1,7 +1,7 @@
 <html metal:use-macro="here/main_template/macros/master">
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
-                    tal:define="news python:context.portal_catalog(portal_type='News Item', sort_on='Date', sort_order='Reverse')[:4];
+                    tal:define="news python:context.portal_catalog(portal_type='News Item', sort_on='Date', sort_order='Reverse')[:2];
                                 gp python:context.portal_catalog(id='gpNews');
                                 ss python:context.portal_catalog(id='ssNews');
                                 cmn python:context.portal_catalog(id='cmNews');

@@ -256,10 +256,37 @@ dl.portlet ul.navTreeLevel1 .navTreeItem {
 line-height:1.5em;
 padding-left:0.5em;
 }
-#content li, dl.portlet li {
+
+/*#content li, dl.portlet li {
 display:list-item;
 line-height:1.5em;
 margin-bottom:0.1em;
+}*/
+#content li, dl.portlet li {
+display:block;
+line-height:1.5em;
+margin-bottom:0.1em;
+margin-right:10px;
+}
+.wysiwygTab-link-0 {
+color:#DB214C !important;
+}
+#content ul {
+list-style-type:disc;
+margin-left:0;
+}
+element.style  {
+display:block;
+}
+div.pane-container div.pane {
+background-color:#FFFFFF;
+border-color:-moz-use-text-color #999999 #999999;
+border-right:1px solid #999999;
+border-style:none solid solid;
+border-width:0 1px 1px;
+display:none;
+font-size:14px;
+padding:10px 10px 10px;
 }
 .portletNavigationTree .portletItem {
 border:0 none;
@@ -871,10 +898,23 @@ background-color:#ea2050;
 width:180px;
 float:left;
 }
+.titleLine1Project {
+background-color:#EA2050;
+float:left;
+height:4px;
+width:129px;
+}
+
 .titleLine2 {
 height:4px;
 background-color:#551b68;
 width:360px;
+float:left;
+}
+.titleLine2Project {
+height:4px;
+background-color:#551b68;
+width:606px;
 float:left;
 }
 
@@ -1022,7 +1062,20 @@ font-size:11px;
 padding:4px;
 background: #75AD0A;
 float:left;
-margin-right:5px;
+margin-right:5px !important;
+-moz-border-radius-topright:0.2em;
+-moz-border-radius-topleft:0.2em;
+-moz-border-radius-bottomleft:0.2em;
+-moz-border-radius-bottomright:0.2em;
+}
+.projectLi2 {
+color: white;
+font-size:12px;
+padding:4px;
+background: #DB214C;
+float:left;
+margin-top:-2px;
+margin-right:5px !important;
 -moz-border-radius-topright:0.2em;
 -moz-border-radius-topleft:0.2em;
 -moz-border-radius-bottomleft:0.2em;

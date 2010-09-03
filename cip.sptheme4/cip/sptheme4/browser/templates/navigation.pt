@@ -10,7 +10,6 @@
            tal:content="view/title">Navigation</a>
         <span class="portletTopRight"></span>
     </dt>
-
     <dd class="portletItem lastItem">
         <ul class="navTree navTreeLevel0">
             <li tal:define="selectedClass view/root_item_class;

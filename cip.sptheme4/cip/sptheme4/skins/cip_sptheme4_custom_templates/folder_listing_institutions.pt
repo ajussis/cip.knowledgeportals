@@ -18,11 +18,11 @@
             <div tal:replace="structure provider:plone.abovecontenttitle" />
             <div tal:replace="structure provider:plone.belowcontenttitle" />
             <h1 tal:content="context/Title" style="font-size:2em;" />
-            <img src="#" tal:attributes="src context/Title" style="float:left; padding: 5px 10px 10px 0; width:100px;" />
+            <img src="institution.png" style="float:left; padding: 5px 10px 10px 20px; width:100px;" />
             <p metal:use-macro="here/kss_generic_macros/macros/generic_description_view">
                 Description
             </p>
-askldfjlaksjdflañskdjfñlasdkjfñlk
+
             <div class="visualClear"></div>
             <div tal:replace="structure provider:plone.abovecontentbody" />
             <div metal:define-macro="text-field-view"
@@ -63,8 +63,8 @@ askldfjlaksjdflañskdjfñlasdkjfñlk
                                                    item_end item/end/ISO|item/EndDate|nothing;
                                                    item_object item/getObject;">
                                 <div tal:condition="python:item_id == 'news'">
-                                    <a href="" tal:attributes="href item/getURL">
-                                        <img style="float:left; padding:0px 50px 0 40px; width:100px;" src="spnews.png"
+                                    <a href="" tal:attributes="href item/getURL">adsfa
+                                        <img style="float:left; padding:0px 50px 0 40px; width:100px;" src="institution.png"
                                              tal:condition="python:item_id=='news'" />
                                     </a>
                                     <div style="width:550px;float:left; padding-bottom:10px;"
