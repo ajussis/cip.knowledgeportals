@@ -54,22 +54,22 @@ ProjectFolderSchema = folder.ATFolderSchema.copy() + atapi.Schema((
             description=_(u"Geographical area of the project"),),
         multiValued=True,
         ),
-    atapi.ReferenceField(
-        'leader',
-        relationship='projectfolder_leader',
-        storage=atapi.AnnotationStorage(),
-        vocabulary="getMembers",
+#    atapi.ReferenceField(
+#        'leader',
+#        relationship='projectfolder_leader',
+#        storage=atapi.AnnotationStorage(),
+#        vocabulary="getMembers",
 #        enforceVocabulary=True,
-        widget=atapi.StringWidget(
-            label=_(u"Project Leader"),
-            description=_(u"The name of the project leader"),
-        )),
+#        widget=atapi.StringWidget(
+#            label=_(u"Project Leader"),
+#            description=_(u"The name of the project leader"),
+#        )),
     atapi.StringField(
         'leaderText',
         storage=atapi.AnnotationStorage(),
         widget=atapi.StringWidget(
-            label=_(u"Leader (not a member of portal)"),
-            description=_(u"Fill this field only if the project leader is not a member in this portal"),
+            label=_(u"Project leader name"),
+            description=_(u"Project leader"),
         )),
     atapi.TextField(
         'financing',
@@ -83,7 +83,7 @@ ProjectFolderSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         'member',
         storage=atapi.AnnotationStorage(),
         widget=ReferenceBrowserWidget(
-            label=_(u"Proejct Members"),
+            label=_(u"Project Members"),
             description=_(u"Members in of the project which are also in members of this portal"),
         ),
         required=False,
@@ -141,7 +141,7 @@ class ProjectFolder(folder.ATFolder):
 
     info = atapi.ATFieldProperty('info')
 
-    leader = atapi.ATReferenceFieldProperty('leader')
+#    leader = atapi.ATReferenceFieldProperty('leader')
 
     financing = atapi.ATFieldProperty('financing')
 
