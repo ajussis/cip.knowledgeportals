@@ -37,19 +37,16 @@ class IEnhancedUserDataSchema(IUserDataSchema):
     gender = schema.Choice(
         title=_(u'label_gender', default=u'Gender'),
         description=_(u'help_gender',
-                      default=u"Are you a girl or a boy?"),
-        values = [
-            _(u'Male'), 
-            _(u'Female'),
-            ],
+                      default=u"Male / Female?"),
+        values = ['Male', 'Female'],
         required=True,
         )
-    birthdate = schema.Date(
-        title=_(u'label_birthdate', default=u'birthdate'),
-        description=_(u'help_birthdate', 
-            default=u'Your date of birth, in the format dd-mm-yyyy'),
-        required=False,
-        )
+#    birthdate = schema.Date(
+#        title=_(u'label_birthdate', default=u'birthdate'),
+#        description=_(u'help_birthdate',
+#            default=u'Your date of birth, in the format dd-mm-yyyy'),
+#        required=False,
+#        )
     city = schema.TextLine(
         title=_(u'label_city', default=u'City'),
         description=_(u'help_city',
@@ -68,19 +65,19 @@ class IEnhancedUserDataSchema(IUserDataSchema):
                       default=u"Leave your phone number so we can reach you."),
         required=False,
         )
-    newsletter = schema.Bool(
-        title=_(u'label_newsletter', default=u'Subscribe to newsletter'),
-        description=_(u'help_newsletter',
-                      default=u"If you tick this box, we'll subscribe you to "
-                        "our newsletter."),
-        required=False,
-        )
-    accept = schema.Bool(
-        title=_(u'label_accept', default=u'Accept terms of use'),
-        description=_(u'help_accept',
-                      default=u"Tick this box to indicate that you have found,"
-                      " read and accepted the terms of use for this site. "),
-        required=True,
-        constraint=validateAccept,
-        )
+#    newsletter = schema.Bool(
+#        title=_(u'label_newsletter', default=u'Subscribe to newsletter'),
+#        description=_(u'help_newsletter',
+#                      default=u"If you tick this box, we'll subscribe you to "
+#                        "our newsletter."),
+#        required=False,
+#        )
+#    accept = schema.Bool(
+#        title=_(u'label_accept', default=u'Accept terms of use'),
+#        description=_(u'help_accept',
+#                      default=u"Tick this box to indicate that you have found,"
+#                      " read and accepted the terms of use for this site. "),
+#        required=True,
+#        constraint=validateAccept,
+#        )
 

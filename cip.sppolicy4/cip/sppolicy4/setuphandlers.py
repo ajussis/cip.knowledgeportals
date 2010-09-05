@@ -892,25 +892,25 @@ def createFolderStructure(portal):
         {   'id': 'sub-saharan-africa',
             'title': 'Sub-Saharan Africa',
             'description': '',
-            'type': 'Project Folder',
+            'type': 'Projects Holder',
             'layout': 'projectFolder'
             },
         {   'id': 'east-africa',
             'title': 'East Africa',
             'description': '',
-            'type': 'Project Folder',
+            'type': 'Projects Holder',
             'layout': 'projectFolder'
             },
         {   'id': 'west-africa',
             'title': 'West Africa',
             'description': '',
-            'type': 'Project Folder',
+            'type': 'Projects Holder',
             'layout': 'projectFolder',
             },
         {   'id': 'south-africa',
             'title': 'South Africa',
             'description': '',
-            'type': 'Project Folder',
+            'type': 'Projects Holder',
             'layout': 'projectFolder',
             },
         ]
@@ -1452,13 +1452,13 @@ def createFolderStructure(portal):
             'title': 'International Center of Potato',
             'description': 'International Center of Potato International Center of Potato International Center of Potato International Center of Potato International Center of Potato International Center of Potato',
             'type': 'Institution',
-            'layout': 'folder_listing_institution',
+            'layout': 'institutionView',
             },
         {   'id': 'cips2',
             'title': 'Another International Institute',
             'description': 'Another International InstituteAnother International Institute Another International Institute Another International Institute Another International Institute Another International Institute Another International Institute ',
             'type': 'Institution',
-            'layout': 'folder_listing_institution',
+            'layout': 'institutionView',
             },
         ]
 
@@ -1650,6 +1650,15 @@ def setupPortlets(site, out):
     saveAssignment(leftColumnInThisContext, projectCollectionPortlet)
 #    saveAssignment(leftColumnInThisContext, webmasterPortlet)
 
+def setSecuritySettings(portal):
+    from plone.app.controlpanel.security import SecurityControlPanelAdapter
+    settings = SecurityControlPanelAdapter(portal)
+    settings.set_enable_self_reg(True)
+    settings.set_allow_anon_views_about(True)
+    settings.set_enable_user_folders(True)
+    settings.set_enable_user_pwd_choice(True)
+
+
 def setupAddableTypes(portal):
     # make root folder
     existing = portal.keys()
@@ -1759,5 +1768,6 @@ def setupVarious(context):
     createFolderStructure(portal)
     setupPortlets(portal, out)
     setupAddableTypes(portal)
+    setSecuritySettings(portal)
     createGroups(portal)
     importPAS(portal)
