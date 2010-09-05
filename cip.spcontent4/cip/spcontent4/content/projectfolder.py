@@ -52,7 +52,7 @@ ProjectFolderSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         widget=atapi.InAndOutWidget(
             label=_(u"Geographical Area"),
             description=_(u"Geographical area of the project"),),
-        multiValued=True,
+        multiValued=False,
         ),
 #    atapi.ReferenceField(
 #        'leader',
