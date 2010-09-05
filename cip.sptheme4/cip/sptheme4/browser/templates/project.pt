@@ -41,7 +41,7 @@
                 <div class="projectMembers projectColumns">
                     <h2 class="projectH2">Project Group</h2>
                     <p><b>Leader:</b>
-                        <tal:leaderHere condition="python:context.getLeader()" replace="python:context.getLeader()" />
+                        <!--tal:leaderHere condition="python:context.getLeader()" replace="python:context.getLeader()" /-->
                         <tal:leaderHere condition="python:context.getLeaderText()" replace="python:context.getLeaderText()" />
                     </p>
                     <p><b>Members:</b> <span>
@@ -94,6 +94,7 @@
                              define="path python:'/'.join(here.getPhysicalPath());
                                      folds python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Folder');
                                      docs python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Document');
+                                     galleries python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Gallery Folder');
                                      news python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'News Item');
                                      files python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'File');">
                     <div class="projectContents" style="width:720px;">
@@ -125,6 +126,29 @@
                                 <img style="float:left; padding:5px 50px 0 20px; width:100px;" src="spnews.png"/>
                                 <h2>News</h2>
                                 <div tal:repeat="item news">
+                                    <tal:defs define="item_url item/getURL|item/absolute_url;
+                                                             item_id item/getId|item/id;
+                                                             item_title_or_id item/pretty_title_or_id;
+                                                             item_description item/Description;
+                                                             item_type item/portal_type;
+                                                             item_type_title item/Type;
+                                                             item_modified item/ModificationDate;
+                                                             item_created item/CreationDate;
+                                                             item_object item/getObject;
+                                                             item_icon python:plone_view.getIcon(item);">
+                                        <img tal:replace="structure item_icon/html_tag" />
+                                        <a href="#" tal:attributes="href item_url"
+                                           tal:content="item_title_or_id">
+                                            <tal:block replace="item_title_or_id" />
+                                        </a>
+                                    </tal:defs>
+                                </div>
+                            </div>
+                            <div class="lineBreak"></div>
+                            <div tal:condition="galleries" style="margin-top:10px;">
+                                <img style="float:left; padding:5px 50px 0 20px; width:100px;" src="spgallery.png"/>
+                                <h2>Image Galleries</h2>
+                                <div tal:repeat="item galleries">
                                     <tal:defs define="item_url item/getURL|item/absolute_url;
                                                              item_id item/getId|item/id;
                                                              item_title_or_id item/pretty_title_or_id;

@@ -28,6 +28,7 @@ cip/sptheme4/browser/institution.py
 cip/sptheme4/browser/interfaces.py
 cip/sptheme4/browser/navigation.py
 cip/sptheme4/browser/project.py
+cip/sptheme4/browser/upload.py
 cip/sptheme4/browser/viewlet.pt
 cip/sptheme4/browser/viewlets.py
 cip/sptheme4/browser/images/README.txt
@@ -46,6 +47,7 @@ cip/sptheme4/browser/templates/newsitem_view.pt.metadata
 cip/sptheme4/browser/templates/project.pt
 cip/sptheme4/browser/templates/project.py
 cip/sptheme4/browser/templates/site_actions.pt
+cip/sptheme4/browser/templates/upload.pt
 cip/sptheme4/locales/README.txt
 cip/sptheme4/profiles/default/cip.sptheme4_various.txt
 cip/sptheme4/profiles/default/cssregistry.xml
@@ -60,6 +62,7 @@ cip/sptheme4/profiles/default/viewlets.xml
 cip/sptheme4/profiles/default/types/Project_Folder.xml
 cip/sptheme4/skins/cip_sptheme4_custom_images/CONTENT.txt
 cip/sptheme4/skins/cip_sptheme4_custom_images/action.jpg
+cip/sptheme4/skins/cip_sptheme4_custom_images/arrow_right.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/bullet.gif
 cip/sptheme4/skins/cip_sptheme4_custom_images/bullets.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/ceja-blue.png
@@ -80,6 +83,7 @@ cip/sptheme4/skins/cip_sptheme4_custom_images/spfile.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/spfolder.jpg
 cip/sptheme4/skins/cip_sptheme4_custom_images/spfolder2.jpg
 cip/sptheme4/skins/cip_sptheme4_custom_images/spfolder2.png
+cip/sptheme4/skins/cip_sptheme4_custom_images/spgallery.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/spnews.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/spproject.png
 cip/sptheme4/skins/cip_sptheme4_custom_templates/CONTENT.txt
@@ -101,6 +105,9 @@ cip/sptheme4/skins/cip_sptheme4_custom_templates/folder_listing_institutions.pt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/folder_listing_institutions.pt.metadata
 cip/sptheme4/skins/cip_sptheme4_custom_templates/folder_listing_projectmain.pt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/folder_listing_projectmain.pt.metadata
+cip/sptheme4/skins/cip_sptheme4_custom_templates/main_template.pt
+cip/sptheme4/skins/cip_sptheme4_custom_templates/prefs_main_template.pt
+cip/sptheme4/skins/cip_sptheme4_custom_templates/prefs_main_template.pt.metadata
 cip/sptheme4/skins/cip_sptheme4_styles/CONTENT.txt
 cip/sptheme4/skins/cip_sptheme4_styles/IEFixes.css.dtml
 cip/sptheme4/skins/cip_sptheme4_styles/base_properties.props

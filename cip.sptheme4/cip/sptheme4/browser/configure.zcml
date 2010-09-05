@@ -134,4 +134,12 @@
         layer=".interfaces.IThemeSpecific"
         />
 
+    <browser:page
+        for="collective.uploadify.browser.interfaces.IUploadingCapable"
+        name="upload"
+        template="templates/upload.pt"
+        permission="cmf.ModifyPortalContent"
+        layer=".interfaces.IThemeSpecific"
+        />
+
 </configure>

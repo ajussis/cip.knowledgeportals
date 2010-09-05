@@ -14,7 +14,7 @@
                 <div class="titleLine1"></div>
                 <div class="titleLine2"></div>
                 <div class="lineBreak"></div>
-                <p tal:content="context/Description"/>
+                <p style="margin-top:10px;" tal:content="context/Description"/>
             </div>
 
             <div class="lineBreak"></div>
@@ -57,7 +57,7 @@
 
             <h2 class="projectH2">More information</h2>
             <p>
-                <span tal:content="python:context.getInfo()"></span>
+                <span tal:replace="nocall: python:context.getText()"></span>
             </p>
 
         </metal:main>
