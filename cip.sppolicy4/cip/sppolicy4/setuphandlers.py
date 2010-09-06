@@ -34,7 +34,7 @@ def updateCatalog(context, clear=True):
 #            p.manage_delObjects(item)
 
 """def createCompany(request, site, username, title, email, passwd=None):
- 
+
     prepareMemberProperties(site)
 
     # portal_registrations manages new user creation
@@ -85,7 +85,7 @@ def updateCatalog(context, clear=True):
 
 def createGroups(portal):
     gr = portal.portal_groups
-    group_ids = ['germplasm','seedsystem','addingvalue','cropmanagement','useconsumption']
+    group_ids = ['sweetpotatoMembers', 'germplasm','seedsystem','addingvalue','cropmanagement','useconsumption']
     for testGroup in group_ids:
         if not testGroup in gr.getGroupIds():
             gr.addGroup(testGroup)
@@ -1446,7 +1446,6 @@ def createFolderStructure(portal):
             'layout': 'folder_listing',
             },
         ]
-
     instint_children = [
         {   'id': 'cips',
             'title': 'International Center of Potato',
@@ -1461,22 +1460,84 @@ def createFolderStructure(portal):
             'layout': 'institutionView',
             },
         ]
-
-    institMap_children = [
-        {   'id': 'cips',
-            'title': 'International Center of Potato',
-            'description': 'International Center of Potato International Center of Potato International Center of Potato International Center of Potato International Center of Potato International Center of Potato',
+    instint2_children = [
+        {   'id': 'ong-example',
+            'title': 'Example ONG Institution',
+            'description': 'Veniam dolorum aliquyam ei sea, ad has omnes saperet, ne usu rationibus argumentum instructior. Sea et brute conceptam comprehensam. Altera dolorem reformidans eu quo, cum velit graecis gloriatur et. Quod perpetua ex sea.',
             'type': 'Institution',
-            'layout': 'folder_listing_institution',
+            'layout': 'institutionView',
             },
-        {   'id': 'cips2',
-            'title': 'Another International Institute',
-            'description': 'Another International InstituteAnother International Institute Another International Institute Another International Institute Another International Institute Another International Institute Another International Institute ',
+        {   'id': 'ong-example-2',
+            'title': 'Another Example ONG Institution',
+            'description': 'Lorem ipsum mei consul tamquam no, aeque invenire mea id. Probatus takimata at nam, ei sea falli iudico inciderint. Mea vero justo voluptaria id. Vel ea alterum docendi hendrerit. Ei tollit aeterno eos, omnes numquam eam cu, tempor sadipscing ex duo.',
             'type': 'Institution',
-            'layout': 'folder_listing_institution',
+            'layout': 'institutionView',
+            },
+        {   'id': 'ong-example-3',
+            'title': 'Yet Another Example ONG Institution',
+            'description': 'Eam cu probatus maiestatis adipiscing, utinam intellegam in his. Vis id nisl necessitatibus, nulla vivendo gubergren qui ut. Ei ipsum laudem impedit vim, usu ut elit mazim nemore. Usu cu utroque nostrum invidunt.',
+            'type': 'Institution',
+            'layout': 'institutionView',
             },
         ]
-
+    instint3_children = [
+        {   'id': 'private-example',
+            'title': 'A company working with Sweetpotato',
+            'description': 'Aliquid pertinacia no vix, malis audire no his. Id vel odio noluisse disputando. His ut ferri nobis, duo et nominavi conclusionemque. Soluta epicurei ea vim, mel dolor molestie postulant ea. Error putant invidunt eam no. Pri stet dicunt legendos id, ut tantas bonorum mandamus pri.',
+            'type': 'Institution',
+            'layout': 'institutionView',
+            },
+        {   'id': 'private-example2',
+            'title': 'Another private actor ',
+            'description': 'Pri at duis legimus. At esse zzril qui, usu posse error ei. Ne sea fierent interesset. Ex inermis sadipscing vis, no brute reprehendunt quo, meis vocent signiferumque pri no.',
+            'type': 'Institution',
+            'layout': 'institutionView',
+            },
+        ]
+    institMapNat_children = [
+        {   'id': 'agr',
+            'title': 'AGR Potato Research Center',
+            'description': 'Google Map Marker for AGR',
+            'type': 'TTGoogleMapMarker',
+            'layout': 'TTGoogleMarkerView',
+            },
+        ]
+    institMapIntl_children = [
+        {   'id': 'cip-map-marker',
+            'title': 'CIP Map Markers',
+            'description': 'Google Map Marker for CIP',
+            'type': 'TTGoogleMapMarker',
+            'layout': 'TTGoogleMarkerView',
+            },
+        ]
+    institMap_children = [
+        {   'id': 'international-research-map-markers',
+            'title': 'International Research Map Markers',
+            'description': 'Google Map Markers for International Research',
+            'type': 'TTGoogleMapCategory',
+            'layout': 'base_view',
+            'children': institMapIntl_children,
+            },
+        {   'id': 'national-research-map-markers',
+            'title': 'National Research Map Markers',
+            'description': 'Google Map Markers for National Research',
+            'type': 'TTGoogleMapCategory',
+            'layout': 'base_view',
+            'children': institMapNat_children,
+            },
+        {   'id': 'ong-research-map-markers',
+            'title': 'ONG Research Map Makers',
+            'description': 'Google Map Markers for ONG Research',
+            'type': 'TTGoogleMapCategory',
+            'layout': 'base_view',
+            },
+        {   'id': 'private-research-map-markers',
+            'title': 'Private Research Map Markers',
+            'description': 'Google Map Markers for Private Research',
+            'type': 'TTGoogleMapCategory',
+            'layout': 'base_view',
+            },
+        ]
     institutions_children = [
         {   'id': 'international-research',
             'title': 'International Research',
@@ -1496,22 +1557,23 @@ def createFolderStructure(portal):
             'description': '',
             'type': 'Institutions Holder',
             'layout': 'folder_listing_institutions',
+            'children': instint2_children,
             },
         {   'id': 'private-sector',
             'title': 'Private Sector',
             'description': '',
             'type': 'Institutions Holder',
             'layout': 'folder_listing_institutions',
+            'children': instint3_children,
             },
         {   'id': 'institution-maps',
             'title': 'Institution Maps',
             'description': '',
             'type': 'TTGoogleMapCategoryContainer',
             'layout': 'base_view',
-             'children': institMap_children,
+            'children': institMap_children,
              },
         ]
-
     about_children = [
         {   'id': 'about-this-portal',
             'title': 'About This Portal',
@@ -1520,7 +1582,6 @@ def createFolderStructure(portal):
             'layout' : 'document_view',
             },
         ]
-
     top_folders = [
         {   'id': 'fp-introduction',
             'title': 'Welcome to Sweetpotato Knowledge Portal',
@@ -1769,5 +1830,5 @@ def setupVarious(context):
     setupPortlets(portal, out)
     setupAddableTypes(portal)
     setSecuritySettings(portal)
-    createGroups(portal)
+#    createGroups(portal)
     importPAS(portal)
