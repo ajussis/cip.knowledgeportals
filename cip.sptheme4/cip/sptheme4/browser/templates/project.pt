@@ -75,6 +75,7 @@
                                         cDoc python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Document';
                                         cGallery python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Gallery+Folder';
                                         cFile python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=File';
+                                        cPrivate python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=b-org+Project';
                                         upload python:'/'.join(here.getPhysicalPath()) + '/' + '@@upload';">
                 <div tal:condition="python: user.getUserName() != 'Anonymous User'">
                     <p class="projectLi2">Add content</p>
@@ -88,6 +89,10 @@
                     <ul style="float:left; list-style:none outside none; margin-left:15px;">
                         <li class="projectLi"><a href="#" tal:attributes="href upload">Upload many files</a></li>
                     </ul>
+                    <ul style="float:left; list-style:none outside none; margin-left:15px;">
+                        <li class="projectLi"><a href="#" tal:attributes="href cPrivate">Private Project Space</a></li>
+                    </ul>
+
                 </div>
                 <div class="lineBreak"></div>
                 <tal:listing condition="folderContents"
@@ -95,6 +100,7 @@
                                      folds python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Folder');
                                      docs python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Document');
                                      galleries python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Gallery Folder');
+                                     private python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'b-org Project');
                                      news python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'News Item');
                                      files python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'File');">
                     <div class="projectContents" style="width:720px;">
@@ -214,15 +220,39 @@
                                 </div>
                             </div>
                             <div class="lineBreak"></div>
+                            <div tal:condition="private" style="margin-top:10px;">
+                                <img style="float:left; padding:5px 50px 0 20px; width:100px;" src="spprivate.png"/>
+                                <h2>Private Workspaces</h2>
+                                <div tal:repeat="item private" style="margin-left:172px;">
+                                    <tal:defs define="item_url item/getURL|item/absolute_url;
+                                                             item_id item/getId|item/id;
+                                                             item_title_or_id item/pretty_title_or_id;
+                                                             item_description item/Description;
+                                                             item_type item/portal_type;
+                                                             item_type_title item/Type;
+                                                             item_modified item/ModificationDate;
+                                                             item_created item/CreationDate;
+                                                             item_object item/getObject;
+                                                             item_icon python:plone_view.getIcon(item);">
+                                        <img tal:replace="structure item_icon/html_tag" />
+                                        <a href="#" tal:attributes="href item_url"
+                                           tal:content="item_title_or_id">
+                                            <tal:block replace="item_title_or_id" />
+                                        </a>
+                                    </tal:defs>
+                                </div>
+                            </div>
+                            <div class="lineBreak"></div>
                         </div>
                     </div>
                 </tal:listing>
             </tal:foldercontents>
             <div class="lineBreak"></div>
+
             <tal:getInfo define="info python:context.getInfo();">
                 <div tal:condition="info">
                     <h1>More information</h1>
-                    <tal:infoHere replace="info" />
+                    <tal:infoHere replace="structure info" />
                 </div>
             </tal:getInfo>
         </metal:main>

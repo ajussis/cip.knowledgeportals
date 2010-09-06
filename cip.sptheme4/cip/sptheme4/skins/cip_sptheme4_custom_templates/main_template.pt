@@ -3,7 +3,12 @@
   &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
   &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;" />
 
-<tal:block tal:define="foo python:request.set('disable_plone.leftcolumn', 1)"/>
+<tal:defs define="idHere here/id">
+    <tal:block tal:condition="python:idHere != 'rootfolder'">
+        <tal:remove tal:define="foo python:request.set('disable_plone.leftcolumn', 1)"/>
+    </tal:block>
+</tal:defs>
+
 <html xmlns="http://www.w3.org/1999/xhtml" 
     tal:define="portal_state context/@@plone_portal_state;
         context_state context/@@plone_context_state;

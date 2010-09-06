@@ -12,13 +12,16 @@
     
     <div tal:replace="structure provider:plone.abovecontenttitle" />
   
-    <h1 class="documentFirstHeading" tal:content="context/title" />
-    
-    <div class="documentDescription" tal:content="context/description" />
+    <!--h1 class="documentFirstHeading" tal:content="context/title" /-->
+    <p style="border-left: 3px solid #5C1B77; border-right:  3px solid #5C1B77; padding-left: 10px; margin: 20px; color: #DB214C; font-size:14px;">
+        This is a private workspace of <b style="color:#5C1B77;"><tal:wsTitle replace="context/Title" /></b>. All the documents and pages added to this section
+        are only available to assigned project members.
+    </p>
+    <!--div class="documentDescription" tal:content="context/description" /-->
 
     <div tal:replace="structure provider:plone.abovecontentbody" />
     
-    <div metal:use-macro="context/folder_listing/macros/listing" />
+    <div metal:use-macro="context/folder_listing_private/macros/main" />
 
     <div tal:replace="structure provider:plone.belowcontentbody" />
      

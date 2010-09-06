@@ -142,4 +142,12 @@
         layer=".interfaces.IThemeSpecific"
         />
 
+	<browser:page
+		for="collective.plonetruegallery.interfaces.IGallery"
+        name="galleryview"
+        template="templates/subgallery.pt"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+	/>
+
 </configure>

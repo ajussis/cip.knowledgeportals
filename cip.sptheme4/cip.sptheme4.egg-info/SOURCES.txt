@@ -47,6 +47,7 @@ cip/sptheme4/browser/templates/newsitem_view.pt.metadata
 cip/sptheme4/browser/templates/project.pt
 cip/sptheme4/browser/templates/project.py
 cip/sptheme4/browser/templates/site_actions.pt
+cip/sptheme4/browser/templates/subgallery.pt
 cip/sptheme4/browser/templates/upload.pt
 cip/sptheme4/locales/README.txt
 cip/sptheme4/profiles/default/cip.sptheme4_various.txt

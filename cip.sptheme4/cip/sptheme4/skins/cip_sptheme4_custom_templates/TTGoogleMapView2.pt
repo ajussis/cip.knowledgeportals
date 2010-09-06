@@ -118,14 +118,14 @@
                                             </div>
                                             <div style="width:250px; float:left;" tal:define="hq sub_obj/getCity; country sub_obj/getCountry; web sub_obj/getWebsite;">
                                                 <span tal:condition="hq" class="color:grey;"><b>Hearquarters:</b> <tal:hq replace="hq" /> <tal:hq replace="country" /></span>
-                                                <span tal:condition="web" class="color:grey;"><b>Website:</b> <tal:hq replace="web" /></span>
+                                                <!--span tal:condition="web" class="color:grey;"><b>Website:</b> <tal:hq replace="web" /></span-->
                                             </div>
                                             <div class="visualClear"></div>
                                         </tal:conds>
                                     </tal:defs2>
                                 </div>
                             </div>
-                            <p style="text-align:right;"><a href="#" tal:attributes="href item_url">View all...</a></p>
+                            <p style="text-align:right; margin-right:30px;"><a href="#" tal:attributes="href item_url">View all...</a></p>
                         </div>
                         <div class="visualClear"></div>
                     </div>
@@ -145,6 +145,22 @@
 		<!-- Top text -->
 		<div tal:replace="structure python:context.getText()"></div>
 
+        <h1>Institutions on map</h1>
+
+        <tal:defs tal:define="cInt python:'/'.join(here.getPhysicalPath()) + '/institution-maps/international-research-map-markers/' + 'createObject?type_name=TTGoogleMapMarker';
+                              cNat python:'/'.join(here.getPhysicalPath()) + '/institution-maps/national-research-map-markers/' + 'createObject?type_name=TTGoogleMapMarker';
+                              cOrg python:'/'.join(here.getPhysicalPath()) + '/institution-maps/ong-research-map-markers/' + 'createObject?type_name=TTGoogleMapMarker';
+                              cPri python:'/'.join(here.getPhysicalPath()) + '/institution-maps/private-research-map-markers/' + 'createObject?type_name=TTGoogleMapMarker';">
+            <div style="float:right; margin-top:-40px;" tal:condition="python: user.getUserName() != 'Anonymous User'">
+                <p style="float:left; margin-right:7px; margin-top:3px;">Add an institution to the map:</p>
+                <ul style="float:left; list-style:none outside none;">
+                    <li class="projectLi"><a href="#" tal:attributes="href cInt">International</a></li>
+                    <li class="projectLi"><a href="#" tal:attributes="href cNat">National</a></li>
+                    <li class="projectLi"><a href="#" tal:attributes="href cOrg">OGN</a></li>
+                    <li class="projectLi"><a href="#" tal:attributes="href cPri">Private Sector</a></li>
+                </ul>
+            </div>
+        </tal:defs>
 
 		<!-- Map HTML  -->
 		<div class="TTMapContainer">
@@ -217,10 +233,8 @@
 			JavaScript must be enabled in order for you to use Google Maps.However, it seems JavaScript is either disabled or not supported by your browser. To view Google Maps, enable JavaScript by changing your browser options, and then try again.
 	    </noscript>
 
-		<!-- load map js -->
 		<div metal:use-macro="here/TTGoogleMapMacro/macros/MapJS"></div>
 
-		<!-- print js main -->
 		<div tal:replace="structure python:here.TTGoogleMapMain(context,categories,contentFilterCategories,catcontainers,polylines,polygons)"></div>
 
 
