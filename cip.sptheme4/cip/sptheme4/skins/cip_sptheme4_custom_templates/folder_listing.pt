@@ -17,14 +17,14 @@
                                       templateId template/getId">
             <div tal:replace="structure provider:plone.abovecontenttitle" />
             <div tal:replace="structure provider:plone.belowcontenttitle" />
-            <tal:defs tal:define="userName request/userName|nothing; member here/id;
+            <tal:defs tal:define="canEdit python:checkPermission('Modify portal content', here);
                                   cFolder python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Folder';
                                   cEvent python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Event';
                                   cDoc python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Document';
                                   cGallery python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Gallery+Folder';
                                   cFile python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=File';
                                   upload python:'/'.join(here.getPhysicalPath()) + '/' + '@@upload';">
-                <div style="float:right; margin-top:26px;" tal:condition="python: user.getUserName() != 'Anonymous User'">
+                <div style="float:right; margin-top:26px;" tal:condition="canEdit">
                     <p style="float:left; margin-right:7px; margin-top:3px;">Add content:</p>
                     <ul style="float:left; list-style:none outside none;">
                         <li class="projectLi"><a href="#" tal:attributes="href cDoc">Page</a></li>
@@ -222,9 +222,10 @@
 
                                     <tal:getsubs define="path python:'/'.join(here.getPhysicalPath()) + '/' + item_id;
                                                          folderContents3 python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type='Folder', contentFilter = {'sort_on' : 'Date', 'sort_order' : 'reverse' });
-                                                         cFolder python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + 'createObject?type_name=Folder';">
+                                                         cFolder python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + 'createObject?type_name=Folder';
+                                                         canEdit python:checkPermission('Modify portal content', here);">
                                         <h2 class="default-content-tab">Subfolders</h2>
-                                        <div style="float:right; margin-top:-4px; margin-right:-8px;" tal:condition="python: user.getUserName() != 'Anonymous User'">
+                                        <div style="float:right; margin-top:-4px; margin-right:-8px;" tal:condition="canEdit">
                                             <!--p style="float:left; margin-right:7px; font-size:13px; margin-bottom:0;margin-top:3px;">Add </p-->
                                             <ul style="float:left; list-style:none outside none;">
                                                 <li class="projectLi"><a href="#" tal:attributes="href cFolder">Add Folder</a></li>

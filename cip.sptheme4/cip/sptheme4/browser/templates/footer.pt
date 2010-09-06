@@ -8,13 +8,13 @@
                 <h2>Site use</h2>
                 <ul class="portal-footer-list">
                     <li>
-                        <a href="#">Sitemap</a>
+                        <a href="sitemap">Sitemap</a>
                     </li>
                     <li>
-                        Accessability
+                        <a href="accessibility-info">Accessability</a>
                     </li>
                     <li>
-                        Contact
+                        <a href="contact-info">Contact</a>
                     </li>
                     <li>
                         How to use the portal
@@ -54,7 +54,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="portal-footer-column">
+            <!--div class="portal-footer-column">
                 <h2>Site use</h2>
                 <ul class="portal-footer-list">
                     <li>
@@ -70,7 +70,7 @@
                         Control Panel
                     </li>
                 </ul>
-            </div>
+            </div-->
         </div>
     </div>
 </div>

@@ -88,11 +88,10 @@
                                                    item_start item/start/ISO|item/StartDate|nothing;
                                                    item_end item/end/ISO|item/EndDate|nothing;
                                                    item_object item/getObject;
-                                                   userName request/userName|nothing; member here/id;
-                                                   cProject python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + 'createObject?type_name=Project+Folder';
+                                                   canEdit python:checkPermission('Modify portal content', here);                                                   cProject python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + 'createObject?type_name=Project+Folder';
                                                    upload python:'/'.join(here.getPhysicalPath()) + '/' + '@@upload';">
                                 <div tal:condition="python:item_type=='Projects Holder' and item_id != 'africa'">
-                                    <div tal:condition="python: user.getUserName() != 'Anonymous User'">
+                                    <div tal:condition="canEdit">
                                         <ul style="float:right; margin-top:24px; list-style:none outside none;">
                                             <li class="projectLi"><a href="#" tal:attributes="href cProject">Add a project to <span tal:replace="item_title_or_id" /></a></li>
                                         </ul>

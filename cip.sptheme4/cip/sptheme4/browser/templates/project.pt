@@ -70,6 +70,7 @@
                                         b_start python:0;
                                         b_start request/b_start | b_start;
                                         member here/id;
+                                        canEdit python:checkPermission('Modify portal content', here);
                                         cFolder python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Folder';
                                         cEvent python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Event';
                                         cDoc python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Document';
@@ -77,7 +78,7 @@
                                         cFile python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=File';
                                         cPrivate python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=b-org+Project';
                                         upload python:'/'.join(here.getPhysicalPath()) + '/' + '@@upload';">
-                <div tal:condition="python: user.getUserName() != 'Anonymous User'">
+                <div tal:condition="canEdit">
                     <p class="projectLi2">Add content</p>
                     <ul style="float:left; list-style:none outside none;">
                         <li class="projectLi"><a href="#" tal:attributes="href cDoc">Page</a></li>
