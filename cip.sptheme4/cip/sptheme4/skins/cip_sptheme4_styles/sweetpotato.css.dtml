@@ -1095,6 +1095,7 @@ padding:4px;
 background: #75AD0A;
 float:left;
 margin-right:5px !important;
+-webkit-border-radius:0.2em;
 -moz-border-radius-topright:0.2em;
 -moz-border-radius-topleft:0.2em;
 -moz-border-radius-bottomleft:0.2em;
@@ -1108,6 +1109,7 @@ background: #DB214C;
 float:left;
 margin-top:-2px;
 margin-right:5px !important;
+-webkit-border-radius:0.2em;
 -moz-border-radius-topright:0.2em;
 -moz-border-radius-topleft:0.2em;
 -moz-border-radius-bottomleft:0.2em;
@@ -1123,42 +1125,49 @@ text-style:underline;
 }
 
 .fpUpdates .tabs {
+-webkit-border-radius:0.5em;
 -moz-border-radius:0.5em 0.5em 0.5em 0.5em;
 background-color:#F0F0F0;
 width:514px;
 }
 
 .comments .tabs {
+-webkit-border-radius:0.5em;
 -moz-border-radius:0.5em 0.5em 0.5em 0.5em;
 background-color:#F0F0F0;
 width:200px;
 }
 
 .latestNews .tabs {
+-webkit-border-radius:0.5em;
 -moz-border-radius:0.5em 0.5em 0.5em 0.5em;
 background-color:#F0F0F0;
 width:200px;
 }
 
 .projects .tabs {
+-webkit-border-radius:0.5em;
 -moz-border-radius:0.5em 0.5em 0.5em 0.5em;
 background-color:#F0F0F0;
 width:300px;
 }
 
 .fpgalleries .tabs {
+-webkit-border-radius:0.5em;
 -moz-border-radius:0.5em 0.5em 0.5em 0.5em;
 background-color:#F0F0F0;
 width:265px;
 }
 
 .latestNews .tabs {
+-webkit-border-radius:0.5em;
 -moz-border-radius:0.5em 0.5em 0.5em 0.5em;
 background-color:#F0F0F0;
 width:730px;
 }
 
 .latestNews h2 {
+-webkit-border-radius:0.5em;
 -moz-border-radius:0.5em 0.5em 0.5em 0.5em;
 background:none repeat scroll 0 0 #5C1B77;
 color:white !important;
@@ -1180,6 +1189,7 @@ width:200px;
 }
 
 .latestNews {
+-webkit-border-radius:0.5em;
 -moz-border-radius:0.5em 0.5em 0.5em 0.5em;
 background-color:#F0F0F0;
 float:left;
@@ -1236,6 +1246,7 @@ div.fpUpdates div.pane-container ul.tabs li.current {
 background:#5c1b77;
 border-width:0;
 margin-right:0 !important;
+-webkit-border-radius:0.5em;
 -moz-border-radius:0.5em 0.5em 0.5em 0.5em;
 }
 
@@ -1247,6 +1258,7 @@ float:left;
 font-weight:bold;
 padding:5px 5px 4px 5px;
 text-decoration:none;
+-webkit-border-radius:0.5em;
 -moz-border-radius:0.5em 0.5em 0.5em 0.5em;
 }
 div.fpUpdates div.pane-container ul.tabs a {
@@ -1288,6 +1300,7 @@ color:white !important;
 padding:5px 5px 4px 5px;
 text-decoration:none;
 -moz-border-radius:0.5em 0.5em 0.5em 0.5em;
+-webkit-border-radius:0.5em;
 }
 
 .carousel {
@@ -1318,6 +1331,7 @@ background:#5c1b77;
 color:white !important;
 padding:5px 5px 4px 5px;
 text-decoration:none;
+-webkit-border-radius:0.5em;
 -moz-border-radius:0.5em 0.5em 0.5em 0.5em;
 }
 /* </dtml-with> */

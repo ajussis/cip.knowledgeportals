@@ -219,7 +219,7 @@
                 </div>
             </div>
             <div class="fpgalleries">
-                <div class="fpUpdates" tal:define="fpGalleries python: getattr(context, 'galleries');">
+                <div class="fpUpdates" tal:define="fpGalleries python: getattr(context, 'siteGalleries');">
                     <h2 class="default-content-tab">Latest Galleries</h2>
                     <img src="fpGallery.png" style="width:70px; float:left; margin-right:10px;" />
                     <tal:defs define="n fpGalleries/queryCatalog">
@@ -235,6 +235,7 @@
                             </tal:rep>
                         </p>
                     </tal:defs>
+                    <a href="../galleries" class="seeAll">See all...</a>
                 </div>
             </div>
 
