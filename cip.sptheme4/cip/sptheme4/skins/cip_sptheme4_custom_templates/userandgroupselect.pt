@@ -72,8 +72,7 @@
                <select multiple="multiple"
                        tal:attributes="name string:${fieldName}:list;
                                        id string:$fieldId;
-                                       size size | python: 8;
-                                       tabindex tabindex/next;">
+                                       size size | python: 8;">
 
                 <tal:repeat repeat="guid value">
                   <tal:notnone tal:condition="python: guid">
@@ -87,7 +86,7 @@
                </select>
             </tal:multi>
 
-            <div>
+            <div tal:define="here_url context/@@plone_context_state/object_url;">
               <input type="button"
                    class="searchButton"
                    value="Browse..."
