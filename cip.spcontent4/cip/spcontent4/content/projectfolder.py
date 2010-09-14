@@ -9,12 +9,12 @@ from Products.Archetypes.atapi import ReferenceField
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
 from zope.component import getMultiAdapter
-
+from Products.UserField.field import UserField
 
 #from archetypes.referencebrowserwidget.interfaces import IFieldRelation
 #from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from archetypes.referencebrowserwidget.widget import ReferenceBrowserWidget
-
+from Products.UserAndGroupSelectionWidget.widget import UserAndGroupSelectionWidget
 # -*- Message Factory Imported Here -*-
 from cip.spcontent4 import spcontent4MessageFactory as _
 
@@ -79,19 +79,21 @@ ProjectFolderSchema = folder.ATFolderSchema.copy() + atapi.Schema((
             label=_(u"Financing"),
             description=_(u"The financing sources of the project"),
         )),
-    atapi.ReferenceField(
-        'member',
-        storage=atapi.AnnotationStorage(),
-        widget=ReferenceBrowserWidget(
-            label=_(u"Project Members"),
-            description=_(u"Members in of the project which are also in members of this portal"),
-        ),
-        required=False,
-        relationship='projectfolder_members',
+    UserField(
+        'users',
+#        storage=atapi.AnnotationStorage(),
+#        widget=UserAndGroupSelectionWidget(
+#            label=_(u"Project Members"),
+#            description=_(u"Members in of the project which are also members of this portal"),
+#            size=9,
+#        ),
+#        required=False,
+#        relationship='projectfolder_members',
 #        allowed_types=(), # specify portal type names here ('Example Type',)
         multiValued=True,
-        vocabulary="getMembers",
+#        vocabulary="getMembers",
     ),
+#    UserField('users', multiValued=True),
     atapi.TextField(
         'info',
         storage=atapi.AnnotationStorage(),
@@ -156,10 +158,10 @@ class ProjectFolder(folder.ATFolder):
         return dl
 
     def getMembers(self):
-        users = self.acl_users.getUserIds()
+        users2 = self.acl_users.getUserIds()
 #        return memberIds
 #        users = self.acl_users.getUsers()
-        return users
+        return users2
 #        for user in users:
 #            print"Got username:"+user
 

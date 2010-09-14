@@ -87,7 +87,7 @@ class Renderer(base.Renderer):
 #        import ipdb; ipdb.set_trace()
         sorted(userLoad, key=lambda user: user[1], reverse=True)
         usersAll = []
-        usersAll = userLoad[:5]
+        usersAll = userLoad[:3]
         for userId in usersAll:
             userName = userId[0]
             pImg = self.context.portal_membership.getPersonalPortrait(userName).tag()

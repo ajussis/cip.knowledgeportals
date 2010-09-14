@@ -4,9 +4,9 @@
       tal:omit-tag="">
     <dl class="portlet portletRecent"
         i18n:domain="plone">
-        <dt class="portletHeader">
+        <dt class="portletHeaderMember">
             <span class="portletTopLeft"></span>
-            <a href="#"
+            <a class="memberPortletTitle" href="#"
                 tal:attributes="href view/recently_modified_link"
                 i18n:translate="box_recent_changes">Most active members</a>
             <span class="portletTopRight"></span>
@@ -32,12 +32,12 @@
         No items changed yet.
     </dd>
     <dd class="portletFooter">
-        <a href="#"
+        <!--a href="#"
            class="tile"
            tal:attributes="href view/recently_modified_link"
            i18n:translate="box_more_recently_changed">
            All members&hellip;
-        </a>
+        </a-->
         <span class="portletBottomLeft"></span>
         <span class="portletBottomRight"></span>
     </dd>
