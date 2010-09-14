@@ -1802,10 +1802,10 @@ def setupVarious(context):
         type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
         type_crit.setValue(['News Item'])
 
-    if 'siteComments' not in existing:
-        _createObjectByType('Topic', portal, id='siteComments', title='Latest Comments',
+    if 'comments' not in existing:
+        _createObjectByType('Topic', portal, id='comments', title='Latest Comments',
                             description='Show the latest comments')
-        theCollection = portal.siteComments
+        theCollection = portal.comments
         theCollection.setLimitNumber(True)
         theCollection.setItemCount(4)
         path_crit = theCollection.addCriterion('path','ATRelativePathCriterion')
@@ -1815,7 +1815,7 @@ def setupVarious(context):
         type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
         type_crit.setValue(['News Item'])
 
-    if 'siteGalleries' not in existing:
+    if 'galleries' not in existing:
         _createObjectByType('Topic', portal, id='siteGalleries', title='Latest Galleries',
                             description='Show the latest galleries')
         theCollection = portal.siteGalleries
