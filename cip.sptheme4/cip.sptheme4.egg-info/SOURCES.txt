@@ -73,6 +73,9 @@ cip/sptheme4/profiles/default/viewlets.xml
 cip/sptheme4/profiles/default/types/Project_Folder.xml
 cip/sptheme4/skins/cip_sptheme4_custom_images/CONTENT.txt
 cip/sptheme4/skins/cip_sptheme4_custom_images/action.jpg
+cip/sptheme4/skins/cip_sptheme4_custom_images/arrowDown.gif
+cip/sptheme4/skins/cip_sptheme4_custom_images/arrowLeft.gif
+cip/sptheme4/skins/cip_sptheme4_custom_images/arrowRight.gif
 cip/sptheme4/skins/cip_sptheme4_custom_images/arrow_right.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/banner-facebook.jpg
 cip/sptheme4/skins/cip_sptheme4_custom_images/banner-sasha.jpg
@@ -81,8 +84,11 @@ cip/sptheme4/skins/cip_sptheme4_custom_images/bullets.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/ceja-blue.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/ceja-main.jpg
 cip/sptheme4/skins/cip_sptheme4_custom_images/ceja-pink.png
+cip/sptheme4/skins/cip_sptheme4_custom_images/comment.png
+cip/sptheme4/skins/cip_sptheme4_custom_images/config.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/current.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/favicon.ico
+cip/sptheme4/skins/cip_sptheme4_custom_images/file2.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/footerbottom.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/fpGallery.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/frontpageball.jpg
@@ -102,6 +108,9 @@ cip/sptheme4/skins/cip_sptheme4_custom_images/spgallery.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/spnews.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/spprivate.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/spproject.png
+cip/sptheme4/skins/cip_sptheme4_custom_images/sweetpotato.gif
+cip/sptheme4/skins/cip_sptheme4_custom_images/tool.png
+cip/sptheme4/skins/cip_sptheme4_custom_images/userconfig.png
 cip/sptheme4/skins/cip_sptheme4_custom_templates/CONTENT.txt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/TTGoogleMapView2.pt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/TTGoogleMapView2.pt.metadata
@@ -126,6 +135,8 @@ cip/sptheme4/skins/cip_sptheme4_custom_templates/folder_listing_projectmain.pt.m
 cip/sptheme4/skins/cip_sptheme4_custom_templates/main_template.pt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/prefs_main_template.pt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/prefs_main_template.pt.metadata
+cip/sptheme4/skins/cip_sptheme4_custom_templates/userandgroupselect.pt
+cip/sptheme4/skins/cip_sptheme4_custom_templates/userandgroupselect.pt.metadata
 cip/sptheme4/skins/cip_sptheme4_styles/CONTENT.txt
 cip/sptheme4/skins/cip_sptheme4_styles/IEFixes.css.dtml
 cip/sptheme4/skins/cip_sptheme4_styles/base_properties.props
