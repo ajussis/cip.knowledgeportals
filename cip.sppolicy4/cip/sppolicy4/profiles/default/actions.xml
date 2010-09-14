@@ -60,7 +60,7 @@
    <property name="permissions">
     <element value="View"/>
    </property>
-   <property name="visible">False</property>
+   <property name="visible">True</property>
   </object>
   <object name="extedit" meta_type="CMF Action" i18n:domain="plone">
    <property name="title"
@@ -72,19 +72,6 @@
    <property name="available_expr">object/externalEditorEnabled</property>
    <property name="permissions">
     <element value="Modify portal content"/>
-   </property>
-   <property name="visible">True</property>
-  </object>
-  <object name="gloworm_inspect" meta_type="CMF Action">
-   <property name="title">Inspect this page</property>
-   <property name="description"></property>
-   <property name="url_expr">string:$object_url/@@inspect</property>
-   <property name="link_target"></property>
-   <property name="icon_expr"></property>
-   <property
-      name="available_expr">python: not request['URL'].endswith('@@inspect')</property>
-   <property name="permissions">
-    <element value="Manage portal"/>
    </property>
    <property name="visible">True</property>
   </object>

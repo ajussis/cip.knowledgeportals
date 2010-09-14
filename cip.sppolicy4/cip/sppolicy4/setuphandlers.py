@@ -1581,10 +1581,28 @@ def createFolderStructure(portal):
             'type': 'Document',
             'layout' : 'document_view',
             },
+        {   'id': 'manual',
+            'title': 'Manual',
+            'description': '',
+            'type': 'Document',
+            'layout' : 'document_view',
+            },
+        {   'id': 'membership-benefits',
+            'title': 'Membership Benefits',
+            'description': '',
+            'type': 'Document',
+            'layout' : 'document_view',
+            },
         ]
     top_folders = [
         {   'id': 'fp-introduction',
             'title': 'Welcome to Sweetpotato Knowledge Portal',
+            'description': '',
+            'type': 'Document',
+            'layout' : 'document_view',
+            },
+        {   'id': 'fpbanners',
+            'title': 'Frontpage Banners',
             'description': '',
             'type': 'Document',
             'layout' : 'document_view',
@@ -1744,6 +1762,71 @@ def setupVarious(context):
         return
 
     existing = portal.keys()
+
+    if 'fpProjects' not in existing:
+        _createObjectByType('Topic', portal, id='fpProjects', title='Latest Projects',
+                            description='Show the latest projects')
+        theCollection = portal.fpProjects
+        theCollection.setLimitNumber(True)
+        theCollection.setItemCount(4)
+        path_crit = theCollection.addCriterion('path','ATRelativePathCriterion')
+        path_crit.setRelativePath('../')
+        theCriteria = theCollection.addCriterion('effective','ATSortCriterion')
+        theCriteria.setReversed('getId')
+        type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
+        type_crit.setValue(['Project Folder'])
+
+    if 'fpInstitutions' not in existing:
+        _createObjectByType('Topic', portal, id='fpInstitutions', title='Latest Institutions',
+                            description='Show the latest institutions')
+        theCollection = portal.fpInstitutions
+        theCollection.setLimitNumber(True)
+        theCollection.setItemCount(4)
+        path_crit = theCollection.addCriterion('path','ATRelativePathCriterion')
+        path_crit.setRelativePath('../')
+        theCriteria = theCollection.addCriterion('effective','ATSortCriterion')
+        theCriteria.setReversed('getId')
+        type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
+        type_crit.setValue(['Institution'])
+
+    if 'siteNews' not in existing:
+        _createObjectByType('Topic', portal, id='siteNews', title='Latest News',
+                            description='Show the latest news')
+        theCollection = portal.siteNews
+        theCollection.setLimitNumber(True)
+        theCollection.setItemCount(4)
+        path_crit = theCollection.addCriterion('path','ATRelativePathCriterion')
+        path_crit.setRelativePath('../')
+        theCriteria = theCollection.addCriterion('effective','ATSortCriterion')
+        theCriteria.setReversed('getId')
+        type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
+        type_crit.setValue(['News Item'])
+
+    if 'siteComments' not in existing:
+        _createObjectByType('Topic', portal, id='siteComments', title='Latest Comments',
+                            description='Show the latest comments')
+        theCollection = portal.siteComments
+        theCollection.setLimitNumber(True)
+        theCollection.setItemCount(4)
+        path_crit = theCollection.addCriterion('path','ATRelativePathCriterion')
+        path_crit.setRelativePath('../')
+        theCriteria = theCollection.addCriterion('effective','ATSortCriterion')
+        theCriteria.setReversed('getId')
+        type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
+        type_crit.setValue(['News Item'])
+
+    if 'siteGalleries' not in existing:
+        _createObjectByType('Topic', portal, id='siteGalleries', title='Latest Galleries',
+                            description='Show the latest galleries')
+        theCollection = portal.siteGalleries
+        theCollection.setLimitNumber(True)
+        theCollection.setItemCount(4)
+        path_crit = theCollection.addCriterion('path','ATRelativePathCriterion')
+        path_crit.setRelativePath('../')
+        theCriteria = theCollection.addCriterion('effective','ATSortCriterion')
+        theCriteria.setReversed('getId')
+        type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
+        type_crit.setValue(['Gallery Folder'])
 
     if 'gpNews' not in existing:
         _createObjectByType('Topic', portal, id='gpNews', title='Latest on Germplasm',
