@@ -1,5 +1,11 @@
 from plone.theme.interfaces import IDefaultPloneLayer
 from plone.portlets.interfaces import IPortletManager
+from zope.interface import Interface
+from plone.app.portlets.interfaces import IColumn
+
+class ICollectiveCarouselLayer(Interface):
+    """ A layer specific to collective.carousel
+    """
 
 class IThemeSpecific(IDefaultPloneLayer):
     """Marker interface that defines a Zope 3 browser layer.

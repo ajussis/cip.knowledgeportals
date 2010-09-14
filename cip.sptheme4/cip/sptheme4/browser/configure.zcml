@@ -142,12 +142,39 @@
         layer=".interfaces.IThemeSpecific"
         />
 
-	<browser:page
+	<!--browser:page
 		for="collective.plonetruegallery.interfaces.IGallery"
         name="galleryview"
-        template="templates/subgallery.pt"
+        permission="zope2.View"
+		class=".galleryview.GalleryView"
+        layer=".interfaces.IThemeSpecific"
+    	/-->
+
+  <browser:page
+        name="page-turner"
+        for="Products.ATContentTypes.interface.file.IFileContent"
+        class="wc.pageturner.views.PageTurnerView"
+        template="templates/pageturner.pt"
         permission="zope2.View"
         layer=".interfaces.IThemeSpecific"
-	/>
+        />
+
+  <!--browser:viewlet
+        name="plone.carousel"
+        for="*"
+        view="plone.app.layout.globals.interfaces.IViewView"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+        class=".carouselViewlet.CarouselViewlet"
+        permission="zope2.View"
+        layer=".interfaces.ICollectiveCarouselLayer"
+        /-->
+
+    <browser:viewlet
+        name="plone.path_bar"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+        class=".pathbar.PathBarViewlet"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        />
 
 </configure>

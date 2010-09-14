@@ -44,7 +44,18 @@
                         <!--tal:leaderHere condition="python:context.getLeader()" replace="python:context.getLeader()" /-->
                         <tal:leaderHere condition="python:context.getLeaderText()" replace="python:context.getLeaderText()" />
                     </p>
-                    <p><b>Members:</b> <span>
+                    <p><b>Members:</b></p>
+                    <div tal:define="members python:context.getUsers()">
+                        <div tal:repeat="members">
+                            <div tal:define="osoite python:'/sweetpotato3/author' + '/' + jes">
+                                <a href="#" tal:attributes="href osoite">joojoo</a>
+                            </div>
+                        </div>
+                    </div
+
+
+
+>
                 </div>
     
                 <div class="projectMembers projectColumns">

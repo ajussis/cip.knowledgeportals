@@ -5,7 +5,8 @@
 
         <div id="portal-footer">
             <div class="portal-footer-column">
-                <h2>Site use</h2>
+                <h2 class="footerTitle">Site use</h2>
+                <img src="config.png" style="float:left; width:50px; margin: 5px 10px 0 0; " />
                 <ul class="portal-footer-list">
                     <li>
                         <a href="sitemap">Sitemap</a>
@@ -15,9 +16,6 @@
                     </li>
                     <li>
                         <a href="contact-info">Contact</a>
-                    </li>
-                    <li>
-                        How to use the portal
                     </li>
                 </ul>
 
@@ -38,39 +36,32 @@
 
             </div>
             <div class="portal-footer-column">
-                <h2>Membership</h2>
+                <h2 class="footerTitle">Membership</h2>
+                <img src="userconfig.png" style="float:left; width:50px; margin: 5px 10px 0 0; " />
                 <ul class="portal-footer-list">
-                    <li>
-                        Membership Benefits
+                    <li tal:define="dir python:'/'.join(here.getPhysicalPath())+'/about/membership-benefits'">
+                        <a href="#" tal:attributes="href dir">Membership Benefits</a>
                     </li>
                     <li>
-                        Become Member
+                        <a href="register">Become Member</a>
                     </li>
-                    <li>
-                        Add an Institution
-                    </li>
-                    <li>
-                        All Members
+                    <li tal:define="allM python:'/'.join(here.getPhysicalPath())+'/register'">
+                       <a href="#" tal:attributes="href allM">All Members</a>
                     </li>
                 </ul>
             </div>
-            <!--div class="portal-footer-column">
-                <h2>Site use</h2>
+            <div class="portal-footer-column">
+                <h2 class="footerTitle">Sweetpotato Basics</h2>
+                <img src="sweetpotato.gif" style="float:left; width:50px; margin: 5px 10px 0 0; " />
                 <ul class="portal-footer-list">
-                    <li>
-                        Sitemap
+                    <li tal:define="dir python:'/'.join(here.getPhysicalPath())+'/about/'">
+                        <a href="#" tal:attributes="href dir">What is sweetpotato?</a>
                     </li>
-                    <li>
-                        Accessability
-                    </li>
-                    <li>
-                        Contact
-                    </li>
-                    <li>
-                        Control Panel
+                    <li tal:define="dir python:'/'.join(here.getPhysicalPath())+'/about/'">
+                        <a href="#" tal:attributes="href dir">For what does sweetpotato serve?</a>
                     </li>
                 </ul>
-            </div-->
+            </div>
         </div>
     </div>
 </div>

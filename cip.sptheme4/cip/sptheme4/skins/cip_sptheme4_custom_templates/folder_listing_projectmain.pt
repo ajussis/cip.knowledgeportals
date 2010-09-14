@@ -197,23 +197,36 @@
                                                                    path python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + sub_id;
                                                                    brains python:context.portal_catalog(path={'query' : path, 'depth' : 3});
                                                                    brains2 python:len(brains);
+                                                                   canEdit python:checkPermission('Modify portal content', here);
                                                                    cProject python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + sub_id + '/' + 'createObject?type_name=Project+Folder';">
                                                 <!--img tal:replace="structure item_icon/html_tag" style="margin-right:4px; float:left;"/-->
 
                                                 <h2 class="content-tab"><tal:block replace="sub_title" />
                                                     <!--span tal:condition="python:sub_type != 'News Item'" style="color:grey;">(<tal:publics replace="brains2"/>)</span-->
                                                 </h2>
-                                                <tal:notExist condition="not:foldBrain">
-                                                    <p style="margin-top:20px; margin-left:20px;">
-                                                        <i>
-                                                            There are no projects in this category 
-                                                        </i>
-                                                    </p>
-                                                </tal:notExist>
-                                                <div tal:condition="python: user.getUserName() != 'Anonymous User'">
-                                                    <ul style="float:right; margin-top:-133px; margin-right:-50px; list-style:none outside none;">
+                                                <div tal:condition="canEdit">
+                                                    <ul style="float:right; margin-top:-108px; margin-right:-50px; list-style:none outside none;">
                                                         <li class="projectLi"><a href="#" tal:attributes="href cProject">Add a project to <span tal:replace="sub_title" /></a></li>
                                                     </ul>
+                                                </div>
+                                                <div style="padding-top:10px;">
+                                                    <tal:notExist condition="not:foldBrain">
+                                                        <p style="margin-left:20px;">
+                                                            <i>
+                                                                There are no projects in this category
+                                                            </i>
+                                                        </p>
+                                                    </tal:notExist>
+                                                    <div tal:condition="foldBrain">
+                                                        <tal:rep repeat="fold foldBrain">
+                                                            <img tal:replace="structure item_icon/html_tag" style="margin-right:4px; float:left;"/>
+                                                            <tal:defs define="sub_url python:fold.getURL();
+                                                                              sub_title python:fold.Title">
+                                                                <a href="#" tal:content="sub_title" tal:attributes="href sub_url" />
+                                                                <div class="visualClear"></div>
+                                                            </tal:defs>
+                                                        </tal:rep>
+                                                    </div>
                                                 </div>
                                                 <div class="visualClear"></div>
                                                <p style="margin-left:40px;" tal:content="sub_desc" />

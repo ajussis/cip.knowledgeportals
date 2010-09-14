@@ -24,7 +24,7 @@
         <a tal:attributes="href python:item_url;
                            title node/Description;
                            class string:$item_class${li_class}${li_extr_class}${li_folder_class}">
-            <img src="spIcon.png" style="display:inline !important;" />
+            <img src="spIcon.png" style="display:inline !important; margin-left:-21px;" />
             <span tal:content="node/Title">Selected Item Title</span>
         </a>
     <ul tal:attributes="class python:'navTree navTreeLevel'+str(level)"

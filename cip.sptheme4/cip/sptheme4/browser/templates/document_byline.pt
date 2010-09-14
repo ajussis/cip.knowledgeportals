@@ -1,73 +1,88 @@
 <div class="documentByLine"
-     id="plone-document-byline"
-     i18n:domain="plone"
-     tal:condition="view/show">
-  <span id="lock-icon"
-        tal:define="lock_icon view/locked_icon"
-        tal:condition="python:lock_icon">
-      <img tal:replace="structure lock_icon" />
-  </span>
-  <tal:creator tal:define="creator_short_form view/creator;"
-               tal:condition="creator_short_form">
-  <tal:name tal:define="creator_long_form string:?author=${creator_short_form};
-                        creator_is_openid python:'/' in creator_short_form;
-                        creator_id python:(creator_short_form, creator_long_form)[creator_is_openid];">
-    <span class="documentAuthor"
-          i18n:translate="label_by_author">
-      by
-      <a href="#"
-         tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${creator_id}"
-         tal:content="view/authorname"
-         tal:omit-tag="python:view.author() is None"
-         i18n:name="author">
-        Bob Dobalina
-      </a>
-
+    id="plone-document-byline"
+    i18n:domain="plone"
+    tal:condition="view/show">
+    <span id="lock-icon"
+          tal:define="lock_icon view/locked_icon"
+          tal:condition="python:lock_icon">
+        <img tal:replace="structure lock_icon" />
     </span>
-  </tal:name>
-  </tal:creator>
 
-  <span class="documentModified">
+    <tal:block repeat="creator context/Creators|python:[]">
+        <tal:creator tal:define="creator_short_form creator;"
+                     tal:condition="creator_short_form">
+            <tal:name tal:define="creator_long_form string:?author=${creator_short_form};
+                                  creator_is_openid python:'/' in creator_short_form;
+                                  creator_id python:(creator_short_form, creator_long_form)[creator_is_openid];">
+                <span class="documentAuthor"
+                      tal:define="memberObj python:here.portal_membership.getMemberById(creator_id);
+                                  prop nocall: memberObj/getProperty;">
+                    <span style="float:left; font-weight:bold; margin-right:15px;" tal:content="python:repeat['creator'].start and 'created by' or ''"></span>
+                        <div style="float:left; margin-right:10px;">
+                            <a href="#" tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${creator_id}">
+                                <img width="30" style="float:left; margin-right:4px;" src="#" tal:attributes="src python:view.getUserImage(creator_id)" />
+                            </a>
+                            <p style="float:left;">
+                                <a href="#"
+                                   tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${creator_id}"
+                                   tal:content="creator_id"
+                                   tal:omit-tag="python:view.author() is None">
+                                    Bob Dobalina
+                                </a><br />
+                                <span tal:content="python: prop('city')" />
+                            </p>
+                        </div>
+                    <span tal:content="python:not repeat['creator'].end and '' or ''"></span>
+                </span>
+            </tal:name>
+        </tal:creator>
+    </tal:block>
+
+
+
+    <span class="documentModified">
+        &mdash;
+        <span i18n:translate="box_last_modified">
+            last modified
+        </span>
+        <span tal:replace="python:view.toLocalizedTime(context.ModificationDate(),long_format=1)">
+            August 16, 2001 at 23:35:59
+        </span>
+    </span>
+
+    <tal:expired tal:condition="view/isExpired">
     &mdash;
-    <span i18n:translate="box_last_modified">
-      last modified
+        <span class="state-expired"
+            i18n:translate="time_expired">expired</span>
+    </tal:expired>
+
+    <span class="contentHistory" id="content-history"
+          tal:condition="view/show_history">
+        &mdash;
+        <a href="#"
+           tal:attributes="href string:${here/absolute_url}/@@historyview"
+           i18n:translate="label_history">History
+        </a>
     </span>
-    <span tal:replace="python:view.toLocalizedTime(context.ModificationDate(),long_format=1)">
-      August 16, 2001 at 23:35:59
-    </span>
-  </span>
 
-  <tal:expired tal:condition="view/isExpired">
-    &mdash;
-    <span class="state-expired"
-          i18n:translate="time_expired">expired</span>
-  </tal:expired>
-
-  <span class="contentHistory" id="content-history"
-        tal:condition="view/show_history">
-    &mdash;
-    <a href="#"
-       tal:attributes="href string:${here/absolute_url}/@@historyview"
-       i18n:translate="label_history">History</a>
-  </span>
-
-  <div class="documentContributors"
-       tal:define="contributors context/Contributors"
-       tal:condition="contributors"
-       i18n:translate="text_contributors">
-    Contributors:
-    <span i18n:name="name"
-          tal:omit-tag=""
-          tal:content="python: ', '.join(contributors)">
-      Mary
-    </span>
-  </div>
-
-  <tal:rights tal:define="rights context/Rights"
-              tal:condition="rights">
-    <div tal:replace="rights">
-      Copyleft NiceCorp Inc.
+    <div class="documentContributors"
+         tal:define="contributors context/Contributors"
+         tal:condition="contributors"
+         i18n:translate="text_contributors">
+        Contributors:
+        <span i18n:name="name"
+              tal:omit-tag=""
+              tal:content="python: ', '.join(contributors)">
+            Mary
+        </span>
     </div>
-  </tal:rights>
+
+    <tal:rights tal:define="rights context/Rights"
+                tal:condition="rights">
+        <div tal:replace="rights">
+            Copyleft NiceCorp Inc.
+        </div>
+    </tal:rights>
+    <div class="lineBreak"></div>
 
 </div>
