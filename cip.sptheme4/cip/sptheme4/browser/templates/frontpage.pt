@@ -31,7 +31,7 @@
                     <div style="width:100px; margin-right:20px; float:left;">
                         <img src="germplasmIcon.jpg" width="100"/>
                     </div>
-                    <div style="width:380px; float:left;">
+                    <div style="width:600px; float:left;">
                         <tal:defs define="n gpLatest/queryCatalog">
                             <p class="frontP" tal:repeat="m n">
                                 <tal:rep define="pType m/portal_type;
@@ -119,31 +119,6 @@
                     </tal:defs>
                 </div>
             </div>
-            <div class="comments">
-                <div class="fpUpdates" tal:define="comments python: getattr(context, 'comments');">
-                    <h2 class="default-content-tab">Comments</h2>
-                    <img src="comment.png" style="float:left; margin: 5px 10px 0 0; " />
-                    <tal:defs define="n comments/queryCatalog">
-                        <p class="frontP" tal:repeat="m n">
-                            <tal:rep define="pType m/portal_type;
-                                             author m/Creator">
-                                <a href="#" tal:attributes="href m/getURL">
-                                    <span tal:replace="m/pretty_title_or_id"/>
-                                </a><br />
-                                <span class="frontDate">
-                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
-                                    <span class="frontDate3" tal:content="author" />
-                                </span>
-                            </tal:rep>
-                        </p>
-                        <a href="../comments" class="seeAll">See all...</a>
-                    </tal:defs>
-                </div>
-            </div>
-
-            <div style="width:150px; float:left;" tal:define="fpbanners nocall:here/fpbanners">
-                <p tal:replace="structure fpbanners/getText"></p>
-            </div>
 
             <div class="projects">
                 <div class="fpUpdates" tal:define="projects python: getattr(context, 'fpProjects');
@@ -202,6 +177,27 @@
                         </p>
                     </tal:defs>
                     <a href="../galleries" class="seeAll">See all...</a>
+                </div>
+            </div>
+            <div class="comments">
+                <div class="fpUpdates" tal:define="comments python: getattr(context, 'comments');">
+                    <h2 class="default-content-tab">Comments</h2>
+                    <img src="comment.png" style="float:left; margin: 5px 10px 0 0; " />
+                    <tal:defs define="n comments/queryCatalog">
+                        <p class="frontP" tal:repeat="m n">
+                            <tal:rep define="pType m/portal_type;
+                                             author m/Creator">
+                                <a href="#" tal:attributes="href m/getURL">
+                                    <span tal:replace="m/pretty_title_or_id"/>
+                                </a><br />
+                                <span class="frontDate">
+                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                    <span class="frontDate3" tal:content="author" />
+                                </span>
+                            </tal:rep>
+                        </p>
+                        <a href="../comments" class="seeAll">See all...</a>
+                    </tal:defs>
                 </div>
             </div>
 
