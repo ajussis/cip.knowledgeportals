@@ -1,6 +1,6 @@
 """Definition of the Institution content type
 """
-
+from Products.UserField.field import UserField
 from zope.interface import implements
 
 from Products.Archetypes import atapi
@@ -38,6 +38,20 @@ InstitutionSchema = folder.ATFolderSchema.copy() + atapi.Schema((
             label=_(u"Country"),
             description=_(u"Country of the headquarters"),
         ),
+    ),
+    UserField(
+        'users',
+#        storage=atapi.AnnotationStorage(),
+#        widget=UserAndGroupSelectionWidget(
+#            label=_(u"Project Members"),
+#            description=_(u"Members in of the project which are also members of this portal"),
+#            size=9,
+#        ),
+#        required=False,
+#        relationship='projectfolder_members',
+#        allowed_types=(), # specify portal type names here ('Example Type',)
+        multiValued=True,
+#        vocabulary="getMembers",
     ),
     atapi.StringField(
         'email',

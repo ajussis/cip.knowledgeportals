@@ -169,11 +169,12 @@ class ProjectFolder(folder.ATFolder):
 #    security.declarePublic("getMyItems")
     def getSomething(self):
         buffer=""
+        s = ['sdf','sdf']
         # Returns list of site usernames
 #        users=self.acl_users.getUserNames()
         # alternative: get user objects#
 
-        return 99
+        return s
 #        self.portal_state = getMultiAdapter((self, self.request), name=u'plone_portal_state')
 
 
