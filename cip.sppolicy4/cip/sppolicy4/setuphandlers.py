@@ -606,6 +606,12 @@ def createFolderStructure(portal):
 
 
     seedsystem_children = [
+        {   'id': 'news',
+            'title': 'Seedsystem News',
+            'description': '',
+            'type': 'Folder',
+            'layout': 'folder_summary_view',
+            },
         {   'id': 'seed-propagation',
             'title': 'Seed Propagation',
             'description': '',
@@ -813,6 +819,12 @@ def createFolderStructure(portal):
     ]
 
     crop_children = [
+        {   'id': 'news',
+            'title': 'Crop Children News',
+            'description': '',
+            'type': 'Folder',
+            'layout': 'folder_summary_view',
+            },
         {   'id': 'introduction',
             'title': 'Introduction',
             'description': '',
@@ -1189,6 +1201,12 @@ def createFolderStructure(portal):
         ]
 
     useconsumption_children = [
+        {   'id': 'news',
+            'title': 'Use & Consumption News',
+            'description': '',
+            'type': 'Folder',
+            'layout': 'folder_summary_view',
+            },
         {   'id': 'nutritional-information',
             'title': 'Nutritional Information',
             'description': '',
@@ -1399,6 +1417,12 @@ def createFolderStructure(portal):
 
 
     valueadding_children = [
+        {   'id': 'news',
+            'title': 'Value Adding News',
+            'description': '',
+            'type': 'Folder',
+            'layout': 'folder_summary_view',
+            },
         {   'id': 'introduction',
             'title': 'Introduction',
             'description': '',
