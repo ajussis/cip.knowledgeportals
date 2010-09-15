@@ -8,8 +8,14 @@
  <property name="last_login_time" type="date">2000/01/01</property>
  <property name="city" type="string"></property>
  <property name="country" type="string"></property>
- <property name="phone" type="string"></property>
  <property name="gender" type="string"></property>
+ <property name="mobile" type="string"></property>
+ <property name="officen" type="string"></property>
+ <property name="skype" type="string"></property>
+ <property name="institution" type="string"></property>
+ <property name="instadd" type="string"></property>
+ <property name="position" type="string"></property>
+ <property name="profession" type="string"></property>
  <property name="error_log_update" type="float">0.0</property>
  <property name="home_page" type="string"/>
  <!--property name="location" type="string"/-->
