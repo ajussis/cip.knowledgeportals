@@ -199,6 +199,13 @@
    <element value="email"/>
    <element value="city"/>
    <element value="country"/>
+   <element value="mobile"/>
+   <element value="officen"/>
+   <element value="skype"/>
+   <element value="institution"/>
+   <element value="instadd"/>
+   <element value="position"/>
+   <element value="profession"/>
   </property>
  </object>
 </object>
