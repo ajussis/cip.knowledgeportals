@@ -26,13 +26,13 @@ class IEnhancedUserDataSchema(IUserDataSchema):
         title=_(u'label_firstname', default=u'First name'),
         description=_(u'help_firstname',
                       default=u"Fill in your given name."),
-        required=False,
+        required=True,
         )
     lastname = schema.TextLine(
         title=_(u'label_lastname', default=u'Last name'),
         description=_(u'help_lastname',
                       default=u"Fill in your surname or your family name."),
-        required=False,
+        required=True,
         )
     gender = schema.Choice(
         title=_(u'label_gender', default=u'Gender'),
@@ -47,10 +47,22 @@ class IEnhancedUserDataSchema(IUserDataSchema):
 #            default=u'Your date of birth, in the format dd-mm-yyyy'),
 #        required=False,
 #        )
-    city = schema.TextLine(
-        title=_(u'label_city', default=u'City'),
-        description=_(u'help_city',
-                      default=u"Fill in the city you live in."),
+    mobile = schema.TextLine(
+        title=_(u'label_mobile', default=u'Mobile'),
+        description=_(u'help_mobile',
+                      default=u"Fill in your mobile number."),
+        required=False,
+        )
+    officen = schema.TextLine(
+        title=_(u'label_officen', default=u'Office number'),
+        description=_(u'help_officen',
+                      default=u"Fill in your office number."),
+        required=False,
+        )
+    skype = schema.TextLine(
+        title=_(u'label_skype', default=u'Skype account'),
+        description=_(u'help_skype',
+                      default=u"Fill in your skype account."),
         required=False,
         )
     country = schema.TextLine(
@@ -59,10 +71,34 @@ class IEnhancedUserDataSchema(IUserDataSchema):
                       default=u"Fill in the country you live in."),
         required=False,
         )
-    phone = schema.TextLine(
-        title=_(u'label_phone', default=u'Telephone number'),
-        description=_(u'help_phone',
-                      default=u"Leave your phone number so we can reach you."),
+    city = schema.TextLine(
+        title=_(u'label_city', default=u'City'),
+        description=_(u'help_city',
+                      default=u"Fill in the city you live in."),
+        required=False,
+        )
+    institution = schema.TextLine(
+        title=_(u'label_institution', default=u'Institution / Organization'),
+        description=_(u'help_institution',
+                      default=u"Fill in the institution where you work."),
+        required=False,
+        )
+    instadd = schema.TextLine(
+        title=_(u'label_instadd', default=u'Institution address'),
+        description=_(u'help_instadd',
+                      default=u"Fill in the address of the institution where you work."),
+        required=False,
+        )
+    position = schema.TextLine(
+        title=_(u'label_position', default=u'Current position'),
+        description=_(u'help_instadd',
+                      default=u"Fill in the current position."),
+        required=False,
+        )
+    profession = schema.TextLine(
+        title=_(u'label_profession', default=u'Profession'),
+        description=_(u'help_profession',
+                      default=u"Fill in your profession."),
         required=False,
         )
 #    newsletter = schema.Bool(
@@ -81,3 +117,11 @@ class IEnhancedUserDataSchema(IUserDataSchema):
 #        constraint=validateAccept,
 #        )
 
+    def getInst(self):
+        buffer=""
+        s = ['sdf','sdf']
+        # Returns list of site usernames
+#        users=self.acl_users.getUserNames()
+        # alternative: get user objects#
+
+        return s
