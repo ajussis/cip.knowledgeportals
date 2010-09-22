@@ -49,7 +49,7 @@
                             <a href="../gpLatest" class="seeAll">See all...</a>
                         </tal:defs>
                     </div>
-                    <h2 class="content-tab">Seedsystem</h2>
+                    <h2 class="content-tab">Seed System</h2>
                     <tal:defs define="n latest/queryCatalog">
                         <p class="frontP" tal:repeat="m n">
                             <tal:rep define="pType m/portal_type;
@@ -161,7 +161,7 @@
             </div>
             <div class="fpgalleries">
                 <div class="fpUpdates" tal:define="fpGalleries python: getattr(context, 'siteGalleries');">
-                    <h2 class="default-content-tab">Latest Galleries</h2>
+                    <h2 class="default-content-tab">Latest Photo Galleries</h2>
                     <img src="fpGallery.png" style="width:70px; float:left; margin-right:10px;" />
                     <tal:defs define="n fpGalleries/queryCatalog">
                         <p class="frontP" tal:repeat="m n">
