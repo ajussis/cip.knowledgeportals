@@ -85,9 +85,10 @@ class Renderer(base.Renderer):
             author_content = len(self.context.author_find_content(userId))
             userLoad.append([userId, author_content])
 #        import ipdb; ipdb.set_trace()
-        sorted(userLoad, key=lambda user: user[1], reverse=True)
+
+        usersSorted = sorted(userLoad, key=lambda user: user[1], reverse=True)
         usersAll = []
-        usersAll = userLoad[:3]
+        usersAll = usersSorted[:3]
         for userId in usersAll:
             userName = userId[0]
             pImg = self.context.portal_membership.getPersonalPortrait(userName).tag()

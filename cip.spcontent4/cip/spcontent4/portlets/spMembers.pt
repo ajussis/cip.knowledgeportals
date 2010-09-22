@@ -18,7 +18,9 @@
                                          userObjects python:user[1];
                                          userImage python:user[2];">
                     <img src="#" tal:attributes="src userImage" width="30" style="margin:10px; float:left;" />
-                    <h4 tal:content="userName"></h4>
+                    <h4 tal:define="url python:'/'.join(here.getPhysicalPath()) + '/author/'+userName">
+                        <a href="#" tal:attributes="href url"><tal:block replace="userName"/></a>
+                    </h4>
                     <p>
                         Items created: <tal:contentThis content="userObjects"/>
                     </p>

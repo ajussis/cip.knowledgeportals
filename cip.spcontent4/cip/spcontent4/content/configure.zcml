@@ -6,6 +6,12 @@
   <!-- configure your content components here -->
   
   <!-- -*- extra stuff goes here -*- -->
+  <class class=".researchpaper.ResearchPaper">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IResearchPaper"
+        />
+  </class>
   <class class=".institutionsholder.InstitutionsHolder">
     <require
         permission="zope2.View"
@@ -36,5 +42,9 @@
         interface="..interfaces.IProjectFolder"
         />
   </class>
+
+  <include package="archetypes.schemaextender" />
+  <adapter factory=".extender.FileExtender" />
+
 
 </configure>
