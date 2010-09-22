@@ -69,23 +69,23 @@
         />
 
     <!-- Colophon -->
-    <browser:viewlet
+    <!--browser:viewlet
         name="plone.colophon"
         for="*"
         manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
         template="templates/colophon.pt"
         permission="zope.Public"
         layer=".interfaces.IThemeSpecific"
-        />
+        /-->
 
     <!-- The site actions -->
-    <browser:viewlet
+    <!--browser:viewlet
         name="plone.site_actions"
         manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
         class=".viewlets.SiteActionsViewlet"
         permission="zope2.View"
         layer=".interfaces.IThemeSpecific"
-        />
+        /-->
 
     <!--browser:viewlet
         name="plone.links.navigation"

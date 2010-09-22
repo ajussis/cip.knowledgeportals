@@ -100,7 +100,7 @@
                         </p>
                         <a href="../latest3" class="seeAll">See all...</a>
                     </tal:defs>
-                    <h2 class="content-tab">Use & Consumption</h2>
+                    <h2 class="content-tab">Use and Consumption</h2>
                     <tal:defs define="n latest4/queryCatalog">
                         <p class="frontP" tal:repeat="m n">
                             <tal:rep define="pType m/portal_type;

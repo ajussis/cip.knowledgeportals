@@ -11,11 +11,11 @@
                     <li>
                         <a href="sitemap">Sitemap</a>
                     </li>
-                    <li>
-                        <a href="accessibility-info">Accessability</a>
+                    <li tal:define="url python:'/'.join(here.getPhysicalPath()) + '/accessibility-info'">
+                        <a href="#" tal:attributes="href url">Accessability</a>
                     </li>
-                    <li>
-                        <a href="contact-info">Contact</a>
+                    <li tal:define="url python:'/'.join(here.getPhysicalPath()) + '/contact-info'">
+                        <a href="#" tal:attributes="href url">Contact</a>
                     </li>
                 </ul>
 

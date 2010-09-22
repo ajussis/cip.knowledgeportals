@@ -29,7 +29,7 @@
                                    tal:omit-tag="python:view.author() is None">
                                     Bob Dobalina
                                 </a><br />
-                                <span tal:content="python: prop('city')" />
+                                <span tal:content="python: prop('institution')" />
                             </p>
                         </div>
                     <span tal:content="python:not repeat['creator'].end and '' or ''"></span>
@@ -37,8 +37,6 @@
             </tal:name>
         </tal:creator>
     </tal:block>
-
-
 
     <span class="documentModified">
         &mdash;
@@ -49,6 +47,8 @@
             August 16, 2001 at 23:35:59
         </span>
     </span>
+
+            <div class="visualClear"></div>
 
     <tal:expired tal:condition="view/isExpired">
     &mdash;
