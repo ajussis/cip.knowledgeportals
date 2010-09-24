@@ -61,6 +61,13 @@ class spProjectsRenderer(static.Renderer):
     def available(self):
         return len(self.results())
 
+    def Usernames(self, user):
+        acl_users = getToolByName(self.context, 'acl_users')
+        userid = acl_users.getUserById(user)
+        if userid is not None:
+            member_name = userid.getProperty('fullname')
+        return member_name
+
     def collection_url(self):
         collection = self.collection()
         if collection is None:

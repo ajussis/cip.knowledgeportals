@@ -22,7 +22,7 @@ lakdsfj ladsfkj
         <a href="#"
            class="tile"
            tal:attributes="href obj/getURL;
-                           title obj/Description"> sjdlfkj sdlkfj sdlkfj 
+                           title obj/Description">
             <img tal:replace="structure item_icon/html_tag" />
             <span tal:replace="obj/pretty_title_or_id">
              Title

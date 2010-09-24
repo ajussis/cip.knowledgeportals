@@ -17,15 +17,15 @@ GalleryFolderSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
     # -*- Your Archetypes field definitions here ... -*-
 
-    atapi.StringField(
-        'area',
-        storage=atapi.AnnotationStorage(),
-        widget=atapi.StringWidget(
-            label=_(u"Gallery Area"),
-            description=_(u"Field description"),
-        ),
-        required=True,
-    ),
+#    atapi.StringField(
+#        'area',
+#        storage=atapi.AnnotationStorage(),
+#        widget=atapi.StringWidget(
+#            label=_(u"Gallery Area"),
+#            description=_(u"Field description"),
+#        ),
+#        required=True,
+#    ),
 
 
 ))

@@ -12,14 +12,18 @@
             <span class="portletTopRight"></span>
         </dt>
 
-        <tal:defineThis define="users view/mostactivemembers">
+        <tal:defineThis define="users view/mostactivemembers;
+                                members python:context.getUsers();
+                                membership context/portal_membership;">
             <tal:block tal:repeat="user users">
                 <tal:defineAgain define="userName python:user[0];
                                          userObjects python:user[1];
                                          userImage python:user[2];">
                     <img src="#" tal:attributes="src userImage" width="30" style="margin:10px; float:left;" />
-                    <h4 tal:define="url python:'/'.join(here.getPhysicalPath()) + '/author/'+userName">
-                        <a href="#" tal:attributes="href url"><tal:block replace="userName"/></a>
+                    <h4 tal:define="url python:'/'.join(here.getPhysicalPath()) + '/author/'+userName;
+                                    info python:membership.getMemberInfo(userName);
+                                    fullname info/fullname">
+                        <a href="#" tal:attributes="href url"><tal:block replace="fullname"/></a>
                     </h4>
                     <p>
                         Items created: <tal:contentThis content="userObjects"/>

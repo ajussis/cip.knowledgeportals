@@ -89,8 +89,12 @@ class Renderer(base.Renderer):
         usersSorted = sorted(userLoad, key=lambda user: user[1], reverse=True)
         usersAll = []
         usersAll = usersSorted[:3]
+        acl_users = getToolByName(self.context, 'acl_users')
+
         for userId in usersAll:
-            userName = userId[0]
+#            userid = acl_users.getUserById(userId)
+#            member_name = userid.getProperty('fullname')
+#            userName = userId[0]
             pImg = self.context.portal_membership.getPersonalPortrait(userName).tag()
             kk = pImg.find('" alt')
             returnImg = pImg[10:kk]
@@ -110,7 +114,6 @@ class Renderer(base.Renderer):
         #    member = mt.getAuthenticatedMember()
         #    username = member.getUserName()
         return contentAll
-
 
     def recent_items(self):
         return self._data()
