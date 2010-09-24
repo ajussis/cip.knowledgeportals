@@ -94,7 +94,7 @@ class Renderer(base.Renderer):
         for userId in usersAll:
 #            userid = acl_users.getUserById(userId)
 #            member_name = userid.getProperty('fullname')
-#            userName = userId[0]
+            userName = userId[0]
             pImg = self.context.portal_membership.getPersonalPortrait(userName).tag()
             kk = pImg.find('" alt')
             returnImg = pImg[10:kk]
