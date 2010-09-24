@@ -38,9 +38,8 @@
                         <li class="projectLi"><a href="#" tal:attributes="href cLink">Link</a></li>
                         <li tal:condition="isNews" class="projectLi"><a href="#" tal:attributes="href cNews">News</a></li>
                     </ul>
-                    <p style="float:left; margin-right:7px; margin-top:3px;">Or upload many files:</p>
-                    <ul style="float:left; list-style:none outside none;">
-                        <li class="projectLi"><a href="#" tal:attributes="href upload">Upload</a></li>
+                    <ul style="float:left; list-style:none outside none; margin-left:20px;">
+                        <li class="projectLi"><a href="#" tal:attributes="href upload">Upload many files</a></li>
                     </ul>
 
                 </div>
@@ -74,13 +73,6 @@
                     </div>
                 </div>
             </tal:block>
-
-
-
-
-
-
-
             <tal:checknews define="path python:'/'.join(here.getPhysicalPath());
                                    news python:context.portal_catalog(path={'query' : path, 'depth' : 3}, portal_type='News Item', contentFilter = {'sort_on' : 'modified', 'sort_order' : 'reverse' });
                                    news python:news[:1];
@@ -164,19 +156,15 @@
                         <img src="spgallery.png" class="spIcon" />
                         <div style="margin-top:15px;">
                             <tal:subcontents tal:repeat="obj galleries">
-                                <tal:defs2 tal:define="sub_obj obj/getObject;
-                                                       sub_title obj/pretty_title_or_id;
-                                                       sub_desc obj/Description;
+                                <tal:defs2 tal:define="sub_title obj/pretty_title_or_id;
                                                        sub_url obj/getURL|obj/absolute_url;
-                                                       sub_type obj/portal_type;
-                                                       sub_id obj/getId|item/id;
-                                                       item_created obj/CreationDate;">
+                                                       item_modified obj/ModificationDate;">
                                     <p style="margin-bottom:0;">
                                         <a href="#"
                                             style="font-size:13px; font-weight:bold;"
                                             tal:content="sub_title"
                                             tal:attributes="href sub_url" /><br />
-                                            <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
+                                            <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
                                     </p>
                                 </tal:defs2>
                             </tal:subcontents>
