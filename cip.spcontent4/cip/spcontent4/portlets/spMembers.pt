@@ -12,7 +12,6 @@
         </dt>
 
         <tal:defineThis define="users view/mostactivemembers;
-                                members python:context.getUsers();
                                 membership context/portal_membership;">
             <tal:block tal:repeat="user users">
                 <tal:defineAgain define="userName python:user[0];
