@@ -178,7 +178,7 @@
                     </tal:bb>
                     <tal:bb tal:condition="links">
                         <h2 class="content-tab">Links</h2>
-                        <img src="spgallery.png" class="spIcon" />
+                        <img src="link.png" class="spIcon" />
                         <div style="margin-top:15px;">
                             <tal:subcontents tal:repeat="obj links">
                                 <tal:defs2 tal:define="sub_obj obj/getObject;
