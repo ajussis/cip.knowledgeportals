@@ -11,3 +11,11 @@ class DocumentBylineViewlet(DocumentBylineViewlet):
         cutImg = pImg.find('" alt')
         returnImg = pImg[10:cutImg]
         return returnImg
+
+    def Usernames(self, user):
+        acl_users = getToolByName(self.context, 'acl_users')
+        member_name = acl_users.getUserById(user)
+
+        if member_name is not None:
+            member_name = member_name.getProperty('fullname')
+        return member_name

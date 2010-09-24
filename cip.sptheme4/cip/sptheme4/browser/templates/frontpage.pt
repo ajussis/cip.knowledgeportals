@@ -27,7 +27,7 @@
                                                    latest4 python: getattr(context, 'ucNews');
                                                    fpProjects python: getattr(context, 'fpProjects');
                                                    fpInsitutions python: getattr(context, 'fpInstitutions');">
-                    <h2 class="default-content-tab">Germplasm</h2>
+                    <h2 class="default-content-tab">Germplasm<img src="arrow_grey_right.png" /></h2>
                     <div style="width:100px; margin-right:20px; float:left;">
                         <img src="germplasmIcon.jpg" width="100"/>
                     </div>

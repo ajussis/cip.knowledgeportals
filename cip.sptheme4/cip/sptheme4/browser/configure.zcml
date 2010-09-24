@@ -98,7 +98,7 @@
   <browser:page
       for="*"
       name="projectFolder"
-      template="templates/project.pt"
+      class=".project.ProjectView"
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
@@ -106,7 +106,7 @@
   <browser:page
       for="*"
       name="institutionView"
-      template="templates/institution.pt"
+      class=".institution.InstitutionView"
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />

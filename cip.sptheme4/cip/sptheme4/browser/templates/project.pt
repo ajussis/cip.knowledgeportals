@@ -48,7 +48,7 @@
                     <ul style="margin-left:30px;" tal:define="members python:context.getUsers()">
                         <tal:bb tal:repeat="jes members">
                             <li style="display:list-item; list-style-type:square;" tal:define="osoite python:'/sweetpotato3/author' + '/' + jes">
-                                <a href="#" tal:attributes="href osoite" tal:content="jes">joojoo</a>
+                                <a href="#" tal:attributes="href osoite" tal:content="python:view.Usernames(jes)">Name</a>
                             </li>
                         </tal:bb>
                     </ul>
@@ -85,8 +85,8 @@
                                         cFile python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=File';
                                         cPrivate python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=b-org+Project';
                                         upload python:'/'.join(here.getPhysicalPath()) + '/' + '@@upload';">
-                <div tal:condition="canEdit">
-                    <p class="projectLi2">Add content</p>
+                <div tal:condition="canEdit" style="float:right; margin-top:-41px;">
+                    <p style="float:left; margin:0 10px;">Add content</p>
                     <ul style="float:left; list-style:none outside none;">
                         <li class="projectLi"><a href="#" tal:attributes="href cDoc">Page</a></li>
                         <li class="projectLi"><a href="#" tal:attributes="href cFolder">Folder</a></li>
@@ -100,7 +100,6 @@
                     <ul style="float:left; list-style:none outside none; margin-left:15px;">
                         <li class="projectLi"><a href="#" tal:attributes="href cPrivate">Private Project Space</a></li>
                     </ul>
-
                 </div>
                 <div class="lineBreak"></div>
                 <tal:listing condition="folderContents"
@@ -110,7 +109,8 @@
                                      galleries python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Gallery Folder');
                                      private python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'b-org Project');
                                      news python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'News Item');
-                                     files python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'File');">
+                                     files python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'File');
+                                     toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
                     <div class="projectContents" style="width:720px;">
                         <div style="margin-left:20px;">
                             <div tal:condition="folds" style="margin-top:10px; width:680px;">
@@ -118,20 +118,16 @@
                                 <h2>Folders</h2>
                                 <div tal:repeat="item folds">
                                     <tal:defs define="item_url item/getURL|item/absolute_url;
-                                                             item_id item/getId|item/id;
                                                              item_title_or_id item/pretty_title_or_id;
-                                                             item_description item/Description;
-                                                             item_type item/portal_type;
-                                                             item_type_title item/Type;
                                                              item_modified item/ModificationDate;
                                                              item_created item/CreationDate;
-                                                             item_object item/getObject;
                                                              item_icon python:plone_view.getIcon(item);">
                                         <img tal:replace="structure item_icon/html_tag" />
                                         <a href="#" tal:attributes="href item_url"
                                            tal:content="item_title_or_id">
                                             <tal:block replace="item_title_or_id" />
                                         </a>
+                                        <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
                                     </tal:defs>
                                 </div>
                             </div>
@@ -141,20 +137,15 @@
                                 <h2>News</h2>
                                 <div tal:repeat="item news">
                                     <tal:defs define="item_url item/getURL|item/absolute_url;
-                                                             item_id item/getId|item/id;
                                                              item_title_or_id item/pretty_title_or_id;
-                                                             item_description item/Description;
-                                                             item_type item/portal_type;
-                                                             item_type_title item/Type;
                                                              item_modified item/ModificationDate;
-                                                             item_created item/CreationDate;
-                                                             item_object item/getObject;
                                                              item_icon python:plone_view.getIcon(item);">
                                         <img tal:replace="structure item_icon/html_tag" />
-                                        <a href="#" tal:attributes="href item_url"
+                                        <a href="#" tal:attributes="href item_url" style="margin-right:10px;"
                                            tal:content="item_title_or_id">
                                             <tal:block replace="item_title_or_id" />
                                         </a>
+                                        |<span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
                                     </tal:defs>
                                 </div>
                             </div>
@@ -164,20 +155,15 @@
                                 <h2>Image Galleries</h2>
                                 <div tal:repeat="item galleries">
                                     <tal:defs define="item_url item/getURL|item/absolute_url;
-                                                             item_id item/getId|item/id;
-                                                             item_title_or_id item/pretty_title_or_id;
-                                                             item_description item/Description;
-                                                             item_type item/portal_type;
-                                                             item_type_title item/Type;
-                                                             item_modified item/ModificationDate;
-                                                             item_created item/CreationDate;
-                                                             item_object item/getObject;
-                                                             item_icon python:plone_view.getIcon(item);">
+                                                      item_title_or_id item/pretty_title_or_id;
+                                                      item_modified item/ModificationDate;
+                                                      item_icon python:plone_view.getIcon(item);">
                                         <img tal:replace="structure item_icon/html_tag" />
-                                        <a href="#" tal:attributes="href item_url"
+                                        <a href="#" tal:attributes="href item_url" style="margin-right:10px;"
                                            tal:content="item_title_or_id">
                                             <tal:block replace="item_title_or_id" />
                                         </a>
+                                        |<span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
                                     </tal:defs>
                                 </div>
                             </div>
@@ -187,20 +173,15 @@
                                 <h2>Pages</h2>
                                 <div tal:repeat="item docs">
                                     <tal:defs define="item_url item/getURL|item/absolute_url;
-                                                             item_id item/getId|item/id;
                                                              item_title_or_id item/pretty_title_or_id;
-                                                             item_description item/Description;
-                                                             item_type item/portal_type;
-                                                             item_type_title item/Type;
                                                              item_modified item/ModificationDate;
-                                                             item_created item/CreationDate;
-                                                             item_object item/getObject;
                                                              item_icon python:plone_view.getIcon(item);">
                                         <img tal:replace="structure item_icon/html_tag" />
-                                        <a href="#" tal:attributes="href item_url"
+                                        <a href="#" tal:attributes="href item_url" style="margin-right:10px;"
                                            tal:content="item_title_or_id">
                                             <tal:block replace="item_title_or_id" />
                                         </a>
+                                        |<span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
                                     </tal:defs>
                                 </div>
                             </div>
@@ -210,20 +191,19 @@
                                 <h2>Files</h2>
                                 <div tal:repeat="item files" style="margin-left:172px;">
                                     <tal:defs define="item_url item/getURL|item/absolute_url;
-                                                             item_id item/getId|item/id;
+                                                      item_url2 python:item_url+'/view';
                                                              item_title_or_id item/pretty_title_or_id;
-                                                             item_description item/Description;
-                                                             item_type item/portal_type;
-                                                             item_type_title item/Type;
                                                              item_modified item/ModificationDate;
-                                                             item_created item/CreationDate;
-                                                             item_object item/getObject;
                                                              item_icon python:plone_view.getIcon(item);">
                                         <img tal:replace="structure item_icon/html_tag" />
-                                        <a href="#" tal:attributes="href item_url"
+                                        <a href="#" tal:attributes="href item_url2" style="margin-right:10px;"
                                            tal:content="item_title_or_id">
                                             <tal:block replace="item_title_or_id" />
                                         </a>
+                                        |<span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
+                                        <a style="margin-left:10px;" href="#" tal:attributes="href item_url">
+                                        <img src="arrowDown.gif"/></a><br />
+
                                     </tal:defs>
                                 </div>
                             </div>
@@ -233,17 +213,12 @@
                                 <h2>Private Workspaces</h2>
                                 <div tal:repeat="item private" style="margin-left:172px;">
                                     <tal:defs define="item_url item/getURL|item/absolute_url;
-                                                             item_id item/getId|item/id;
-                                                             item_title_or_id item/pretty_title_or_id;
-                                                             item_description item/Description;
-                                                             item_type item/portal_type;
-                                                             item_type_title item/Type;
-                                                             item_modified item/ModificationDate;
-                                                             item_created item/CreationDate;
-                                                             item_object item/getObject;
-                                                             item_icon python:plone_view.getIcon(item);">
+                                                      item_id item/getId|item/id;
+                                                      item_title_or_id item/pretty_title_or_id;
+                                                      item_modified item/ModificationDate;
+                                                      item_icon python:plone_view.getIcon(item);">
                                         <img tal:replace="structure item_icon/html_tag" />
-                                        <a href="#" tal:attributes="href item_url"
+                                        <a href="#" tal:attributes="href item_url" style="margin-right:10px;"
                                            tal:content="item_title_or_id">
                                             <tal:block replace="item_title_or_id" />
                                         </a>
@@ -257,13 +232,10 @@
             </tal:foldercontents>
             <div class="lineBreak"></div>
 
-
-            <!--p tal:content="structure fpIntro/getText"></p-->
-
             <tal:getInfo define="info context/getInfo">
                 <div tal:condition="info">
                     <h1>More information</h1>
-                    <p tal:content="structure context/getInfo" />
+                    <div tal:replace="structure here/getInfo" />
                 </div>
             </tal:getInfo>
         </metal:main>
