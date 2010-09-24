@@ -6,8 +6,7 @@
         i18n:domain="plone">
         <dt class="portletHeaderMember">
             <span class="portletTopLeft"></span>
-            <a class="memberPortletTitle" href="#"
-                tal:attributes="href view/recently_modified_link"
+            <a class="memberPortletTitle" href="/Members"
                 i18n:translate="box_recent_changes">Most active members</a>
             <span class="portletTopRight"></span>
         </dt>
@@ -37,16 +36,5 @@
         i18n:translate="box_recent_no_items">
         No items changed yet.
     </dd>
-    <dd class="portletFooter">
-        <!--a href="#"
-           class="tile"
-           tal:attributes="href view/recently_modified_link"
-           i18n:translate="box_more_recently_changed">
-           All members&hellip;
-        </a-->
-        <span class="portletBottomLeft"></span>
-        <span class="portletBottomRight"></span>
-    </dd>
-
 </dl>
 </html>
