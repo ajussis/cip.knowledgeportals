@@ -54,7 +54,5 @@ class GalleryFolder(folder.ATFolder):
     description = atapi.ATFieldProperty('description')
 
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
-    area = atapi.ATFieldProperty('area')
-
 
 atapi.registerType(GalleryFolder, PROJECTNAME)
