@@ -74,6 +74,13 @@
                     </div>
                 </div>
             </tal:block>
+
+
+
+
+
+
+
             <tal:checknews define="path python:'/'.join(here.getPhysicalPath());
                                    news python:context.portal_catalog(path={'query' : path, 'depth' : 3}, portal_type='News Item', contentFilter = {'sort_on' : 'modified', 'sort_order' : 'reverse' });
                                    news python:news[:1];
@@ -370,7 +377,7 @@
                 </tal:foldercontents>
             </metal:listingmacro>
 
-             
+
 
 
             <metal:subtopics use-macro="here/atct_topic_view/macros/folderlisting_macro" />
