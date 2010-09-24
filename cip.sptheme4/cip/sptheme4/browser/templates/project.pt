@@ -76,7 +76,7 @@
                                   cGallery python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Gallery+Folder';
                                   cFile python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=File';
                                   cLink python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Link';
-                                  cNews python:'/'.join(here.getPhysicalPath()) + '/news/' + 'createObject?type_name=News+Item';
+                                  cNews python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=News+Item';
                                   upload python:'/'.join(here.getPhysicalPath()) + '/' + '@@upload';
                                   cPrivate python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=b-org+Project';
                                   isNews python:'news' in here.objectIds();">

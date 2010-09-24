@@ -27,7 +27,7 @@
                                   cGallery python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Gallery+Folder';
                                   cFile python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=File';
                                   cLink python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Link';
-                                  cNews python:'/'.join(here.getPhysicalPath()) + '/news/' + 'createObject?type_name=News+Item';
+                                  cNews python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=News+Item';
                                   upload python:'/'.join(here.getPhysicalPath()) + '/' + '@@upload';
                                   isNews python:'news' in here.objectIds();">
                 <div style="float:right; margin-top:19px;" tal:condition="canEdit">
@@ -38,7 +38,7 @@
                         <li class="projectLi"><a href="#" tal:attributes="href cGallery">Gallery</a></li>
                         <li class="projectLi"><a href="#" tal:attributes="href cFile">File</a></li>
                         <li class="projectLi"><a href="#" tal:attributes="href cLink">Link</a></li>
-                        <li tal:condition="isNews" class="projectLi"><a href="#" tal:attributes="href cNews">News</a></li>
+                        <li class="projectLi"><a href="#" tal:attributes="href cNews">News</a></li>
                     </ul>
                 </div>
             </tal:defs>
