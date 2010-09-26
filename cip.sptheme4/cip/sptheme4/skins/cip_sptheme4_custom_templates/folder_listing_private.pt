@@ -30,7 +30,7 @@
                                   cNews python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=News+Item';
                                   upload python:'/'.join(here.getPhysicalPath()) + '/' + '@@upload';
                                   isNews python:'news' in here.objectIds();">
-                <div style="float:right; margin-top:19px;" tal:condition="canEdit">
+                <div style="float:right; margin-top:19px;">
                     <p style="float:left; margin-right:7px; margin-top:3px;">Add content:</p>
                     <ul style="float:left; list-style:none outside none;">
                         <li class="projectLi"><a href="#" tal:attributes="href cDoc">Page</a></li>

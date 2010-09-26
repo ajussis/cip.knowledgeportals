@@ -36,26 +36,26 @@ are here:</span>
          </tal:item>
     </span>
 
-     <!--tal:getSweet tal:define="hereId here/id">
+     <tal:getSweet tal:define="hereId here/id">
         <div tal:condition="python:hereId == 'rootfolder'">
             <div tal:define="fpIntro nocall:here/fp-introduction">
                 <img class="titleBall" src="frontpageball.jpg" />
-                <h1 class="titleSweetpotato">Sweetpotato</h1>
-                <h1 class="titleKnowledge">Knowledge Portal</h1>
+                <h1 class="titleSweetpotato">Latest Updates on</h1>
+                <h1 class="titleKnowledge">Sweetpotato Knowledge Portal</h1>
                 <div class="lineBreak"></div>
                 <div class="titleLine1"></div>
                 <div class="titleLine2"></div>
-                <div class="lineBreak"></div>
-                <p tal:content="structure fpIntro/getText"></p>
+                <!--div class="lineBreak"></div>
+                <p tal:content="structure fpIntro/getText"></p-->
             </div>
-            <div class="lineBreak"></div>
+            <!--div class="lineBreak"></div>
             <div class="latestNews">
                 <div class="fpUpdates">
                     <h2>Latest news</h2>
                 </div>
-            </div>
+            </div-->
         </div>
         <div class="lineBreak"></div>
-     </tal:getSweet-->
+     </tal:getSweet>
 
 </div>
