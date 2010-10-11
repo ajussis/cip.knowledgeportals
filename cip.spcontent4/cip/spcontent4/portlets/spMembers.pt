@@ -31,8 +31,8 @@
                     <div style="clear:both;"></div>
                 </tal:defineAgain>
             </tal:block>
-            <p style="text-align:center">
-                <a href="#" tal:attributes="href url" style="float:right">All members</a>
+            <p style="text-align:center; font-weight:bold; padding-top:10px;">
+                <a href="#" tal:attributes="href url">All members</a>
             </p>
         </tal:defineThis>
     <dd class="portletItem"
