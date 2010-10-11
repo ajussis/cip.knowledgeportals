@@ -96,6 +96,7 @@ ProjectFolderSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 #    UserField('users', multiValued=True),
     atapi.TextField(
         'info',
+        default_output_type = 'text/x-html-safe',
         storage=atapi.AnnotationStorage(),
         widget=atapi.RichWidget(
             label=_(u"More information"),

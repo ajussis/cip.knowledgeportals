@@ -82,7 +82,7 @@ class Renderer(base.Renderer):
         userLoad = []
         contentAll = []
         for userId in users:
-            author_content = len(self.context.author_find_content(userId))
+            author_content = len(self.context.author_find_content(userId)) - 1
             userLoad.append([userId, author_content])
 #        import ipdb; ipdb.set_trace()
 
