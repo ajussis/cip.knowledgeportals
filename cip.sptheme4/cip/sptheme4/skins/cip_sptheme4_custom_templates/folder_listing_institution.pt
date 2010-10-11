@@ -87,20 +87,21 @@
                                                  folderContents3 python: (over_limit and folderContents3[:limit_display]) or folderContents3;">
                                     <div tal:repeat="obj folderContents3" style="margin:10px 0 0 15px; border-left:4px solid #DB214C;">
                                         <tal:defs2 define="sub_obj obj/getObject;
-                                                               sub_title obj/pretty_title_or_id;
-                                                               sub_desc obj/Description;
-                                                               sub_url obj/getURL|obj/absolute_url;
-                                                               sub_type obj/portal_type;
-                                                               item_type item/portal_type;
-                                                               item_url obj/getURL|item/absolute_url;
-                                                               sub_id obj/getId|item/id;
-                                                               item_icon python:plone_view.getIcon(obj);
-                                                               path python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + sub_id;
-                                                               brains python:context.portal_catalog(path={'query' : path, 'depth' : 3});
-                                                               brains2 python:len(brains);">
+                                                           sub_title obj/pretty_title_or_id;
+                                                           sub_desc obj/Description;
+                                                           sub_url obj/getURL|obj/absolute_url;
+                                                           sub_type obj/portal_type;
+                                                           item_type item/portal_type;
+                                                           item_url obj/getURL|item/absolute_url;
+                                                           sub_id obj/getId|item/id;
+                                                           item_icon python:plone_view.getIcon(obj);
+                                                           path python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + sub_id;
+                                                           brains python:context.portal_catalog(path={'query' : path, 'depth' : 3});
+                                                           brains2 python:len(brains);">
                                             <tal:conds condition="python:item_type=='Institutions Holder'">
-                                                <div style="width:410px; float:left; margin-right:10px;" tal:define="img python:sub_url +'/image'">
-                                                    <img src="#" tal:condition="img" tal:attributes="src img" style="width:100px; margin-right:15px; float:left;"/>
+                                                <div style="width:410px; float:left; margin-right:10px;" tal:define="img python:sub_url +'/image';
+                                                                                                                     img2 sub_obj/getImage;">
+                                                    <img src="#" tal:condition="python:len(img2) != 0" tal:attributes="src img" style="width:100px; margin-right:15px; float:left;"/>
                                                     <a href="#"
                                                         style="font-size:15px; font-weight:bold; margin-left:4px;"
                                                         tal:content="sub_title"

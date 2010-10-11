@@ -111,6 +111,14 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="*"
+      name="activeMemberView"
+      class=".activeMember.ActiveMember"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
 <!-- Customize the navigation portlet -->
        <plone:portletRenderer
        portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"

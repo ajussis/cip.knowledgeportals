@@ -1,0 +1,63 @@
+<html metal:use-macro="here/main_template/macros/master">
+
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main" tal:define="kssClassesView context/@@kss_field_decorator_view;
+                                                 getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                                                 templateId template/getId;
+                                                 toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+            <h1 tal:content="context/Title" />
+            <img src="userconfig.png" width="100" style="float:left;" />
+            <p style="margin: 7px 20px; float:left; width:75%; " tal:content="context/Description"/>
+
+            <div style="clear:both;"></div>
+
+
+            <div style="margin:10px 0 0 20px; width:50%; float:left;" tal:define="users view/activemembers;
+                                                                                  membership context/portal_membership;">
+                <div style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:3px 6px;">
+                    <h2>All members</h2>
+                </div>
+
+                <div style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:1px;" tal:repeat="user users">
+                    <tal:defineAgain define="userName python:user[0];
+                                             userObjects python:user[1];
+                                             userImage python:user[2];
+                                             info python:membership.getMemberInfo(userName);
+                                             fullname info/fullname;
+                                             location info/location;">
+                        <img src="#" tal:attributes="src userImage" width="30" style="margin:15px 11px; float:left;" />
+                        <h4 tal:define="url python:'/'.join(here.getPhysicalPath()) + '/author/'+userName;">
+                            <a tal:condition="python:len(fullname) != 0" href="#" tal:attributes="href url"><tal:block replace="fullname"/></a>
+                            <a tal:condition="python:len(fullname) == 0" href="#" tal:attributes="href url"><tal:block replace="userName"/></a>
+                        </h4>
+                        <p>
+                            <span tal:condition="location"><b>Location:</b> <tal:contentThis replace="location" /> | </span>
+                            <b>Items created:</b> <tal:contentThis content="userObjects"/>
+                        </p>
+                    </tal:defineAgain>
+                </div>
+            </div>
+            <div style="margin:10px 0 0 20px; width:40%; float:left">
+                <div style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:3px 6px;">
+                    <h2>Becoming a member</h2>
+                    <p>
+                        Are you working with sweetpotato and would like to contribute to creating information on sweetpotato?
+                    </p>
+                    <p>
+                        If yes, this website is for you.
+                    <p>
+                        Sweetpotato Knowledge Portal is open to anyone: <a href="login">first register here</a>,
+                        and once your profile will be verified, you will be given permissions to start
+                        creating content directly to this portal.
+                    </p>
+                    <p>
+                        Or if you want to learn more about sweetpotato and this portal, <a href="../about">click here</a>.
+                    </p>
+                </div>
+            </div>
+        </metal:main>
+    </metal:main_macro>
+</html>

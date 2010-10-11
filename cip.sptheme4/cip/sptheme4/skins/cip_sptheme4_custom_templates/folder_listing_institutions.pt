@@ -23,10 +23,10 @@
                             cFolder python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Institution';">
                 <li class="projectLi"><a href="#" tal:attributes="href cFolder">Add an institution</a></li>
             </ul>
-            <!--img src="institution.png" style="float:left; padding: 5px 10px 10px 20px; width:100px;" /-->
-            <p metal:use-macro="here/kss_generic_macros/macros/generic_description_view">
+            <img src="institution.png" style="float:left; padding: 5px 10px 10px 20px; width:70px;" />
+            <span metal:use-macro="here/kss_generic_macros/macros/generic_description_view">
                 Description
-            </p>
+            </span>
             <p>In this section you can find information about institutions categorized to <b><tal:mm replace="here/Title" /></b></p>
             <div class="visualClear"></div>
             <div tal:replace="structure provider:plone.abovecontentbody" />
@@ -55,17 +55,17 @@
             <tal:listing condition="folderContents">
                 <tal:block tal:repeat="item folderContents">
                     <div tal:define="item_url item/getURL|item/absolute_url;
-                                           item_id item/getId|item/id;
-                                           item_title_or_id item/pretty_title_or_id;
-                                           item_description item/Description;
-                                           item_type item/portal_type;
-                                           item_type_title item/Type;
-                                           item_modified item/ModificationDate;
-                                           item_created item/CreationDate;
-                                           item_creator item/Creator;
-                                           item_start item/start/ISO|item/StartDate|nothing;
-                                           item_end item/end/ISO|item/EndDate|nothing;
-                                           item_object item/getObject;">
+                                       item_id item/getId|item/id;
+                                       item_title_or_id item/pretty_title_or_id;
+                                       item_description item/Description;
+                                       item_type item/portal_type;
+                                       item_type_title item/Type;
+                                       item_modified item/ModificationDate;
+                                       item_created item/CreationDate;
+                                       item_creator item/Creator;
+                                       item_start item/start/ISO|item/StartDate|nothing;
+                                       item_end item/end/ISO|item/EndDate|nothing;
+                                       item_object item/getObject;">
                         <div tal:condition="python:item_id != 'institution-maps'">
                             <a href="#" tal:attributes="href item_url">
                                 <h2 tal:content="item_title_or_id"
@@ -73,18 +73,17 @@
                                     style="border-bottom:2px solid #581A74">
                                 </h2>
                             </a>
-                            <div style="width:400px; float:left;">
-                                <p tal:content="item_description" />
-                                <div class="tileItem visualIEFloatFix vevent">
+                            <div style="width:400px; float:left;" tal:define="img item_object/getImage">
+                                <div tal:condition="python:len(img) != 0" class="tileItem visualIEFloatFix vevent" style="float:left;" tal:define="img2 python:item_url +'/image'">
                                     <a href="" tal:attributes="href item/getURL">
-                                        <img style="float:left; padding:0px 50px 0 40px; width:100px;" src="institution.png"
-                                             tal:condition="python:item_type=='Folder' and item_id != 'news' or item_type=='Project Folder' or item_type=='Projects Holder'" />
+                                        <img src="#" tal:condition="python:len(img) != 0" tal:attributes="src img2" style="width:100px; margin-right:15px; float:left;"/>
                                     </a>
                                 </div>
+                                <p tal:content="item_description" />
                             </div>
                             <div style="width:250px; margin-left:20px; float:left;" tal:define="hq item_object/getCity; country item_object/getCountry; web item_object/getWebsite;">
                                 <span tal:condition="hq" class="color:grey;"><b>Hearquarters:</b> <tal:hq replace="hq" /> <tal:hq replace="country" /></span><br />
-                                <span tal:condition="web" class="color:grey;"><b>Website:</b> <tal:hq replace="web" /></span>
+                                <span tal:condition="web" class="color:grey;"><b>Website:</b> <a href="#" tal:attributes="href web"><span tal:content="web"></span></a></span>
                                 <p style="margin-top:30px; text-align:left;"><a href="#" tal:attributes="href item_url">Read more...</a></p>
                             </div>
                         </div>

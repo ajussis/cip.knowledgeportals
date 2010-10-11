@@ -115,6 +115,8 @@ cip/sptheme4/skins/cip_sptheme4_custom_images/userconfig.png
 cip/sptheme4/skins/cip_sptheme4_custom_templates/CONTENT.txt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/TTGoogleMapView2.pt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/TTGoogleMapView2.pt.metadata
+cip/sptheme4/skins/cip_sptheme4_custom_templates/author.cpt
+cip/sptheme4/skins/cip_sptheme4_custom_templates/author.cpt.metadata
 cip/sptheme4/skins/cip_sptheme4_custom_templates/base_edit.cpt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/base_edit.cpt.metadata
 cip/sptheme4/skins/cip_sptheme4_custom_templates/base_view.pt

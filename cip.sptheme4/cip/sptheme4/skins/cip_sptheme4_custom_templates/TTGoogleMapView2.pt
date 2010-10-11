@@ -105,10 +105,12 @@
                                                            brains python:context.portal_catalog(path={'query' : path, 'depth' : 3});
                                                            brains2 python:len(brains);">
                                         <tal:conds condition="python:item_type=='Institutions Holder'">
-                                            <div style="width:410px; float:left; margin-right:10px;" tal:define="img python:sub_url +'/image'">
-                                                <img src="#" tal:condition="img" tal:attributes="src img" style="margin-right:15px; float:left;"/>
+                                            <div style="width:410px; float:left; margin-right:10px;" tal:define="img python:sub_url +'/image';
+                                                                                                                 test_img sub_obj/getImage;">
+                                                <!--img src="empty.png" style="float:left;" height="30" tal:condition="python:len(test_img) == 0"/-->
+                                                <img src="#" tal:condition="python:len(test_img) != 0" tal:attributes="src img" style="float:left;"/>
                                                 <a href="#"
-                                                    style="font-size:15px; font-weight:bold; margin-left:4px;"
+                                                    style="font-size:15px; float:left; font-weight:bold; margin-left:20px;"
                                                     tal:content="sub_title"
                                                     tal:attributes="href sub_url" />
                                                 <!--p tal:content="sub_desc" style="padding-left:10px;" /-->
