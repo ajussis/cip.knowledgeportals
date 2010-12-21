@@ -38,11 +38,13 @@
                                 portal_url context/@@plone_portal_state/navigation_root_url;
                                 here_url context/@@plone_context_state/object_url;
                                 member context/@@plone_portal_state/member;
+                                member python:here.getMemberById(author);
                                 portal context/@@plone_portal_state/portal;
                                 birthdate python:member.getProperty('birthdate');
                                 gender python:member.getProperty('gender');
                                 mobile python:member.getProperty('mobile');
                                 officen python:member.getProperty('officen');
+                                skype python:member.getProperty('skype');
                                 skype python:member.getProperty('skype');
                                 country python:member.getProperty('country');
                                 city python:member.getProperty('city');
@@ -50,7 +52,8 @@
                                 instadd python:member.getProperty('instadd');
                                 position python:member.getProperty('position');
                                 profession python:member.getProperty('profession');
-                                email_from_address portal/email_from_address">
+                                email_from_address portal/email_from_address;
+                                email_from_address python:member.getProperty('email');">
 
 <div style="padding:1em">
         <tal:noAuthor condition="not: authorinfo">
@@ -138,14 +141,14 @@
                          style="float: left; margin: 1em;"
                          tal:attributes="src portrait/absolute_url" />
 
-                    <div class="personalInfo" style="float:left;" tal:condition="canEdit">
+                    <div class="personalInfo" style="float:left;">
                         <div style="margin-left:35px; width:100%; float:left;">
                             <!--p tal:condition="python:mtool.getHomeFolder(id=author)">
                                 <a href="#" tal:attributes="href python:mtool.getHomeFolder(id=author).absolute_url()"
                                    i18n:translate="label_author_internal_home_page">Author's home page in this site&hellip;</a>
                             </p-->
                             <table align="center" class="plain" style="width:80%;">
-                                <tr tal:condition="python: not mtool.getHomeFolder(id=author) and authorinfo['home_page']">
+                                <tr>
                                     <td style="color:#5C1B77;">
                                         <span i18n:translate="label_author_external_home_page">Author's external home page&hellip;</span>
                                     </td>
@@ -192,10 +195,10 @@
                                     <td style="color:#5C1B77;">Address of the institution</td>
                                     <td><tal:block replace="instadd"/></td>
                                 </tr>
-                                <tr tal:condition="birthdate">
+                                <!--tr tal:condition="birthdate">
                                     <td style="color:#5C1B77;">Birthdate</td>
                                     <td><tal:block replace="birthdate"/></td>
-                                </tr>
+                                </tr-->
                                 <tr tal:condition="gender">
                                     <td style="color:#5C1B77;">Gender</td>
                                     <td><tal:block replace="gender"/></td>
@@ -352,4 +355,4 @@
 </metal:main>
 
 </body>
-</html>
+</html> 
