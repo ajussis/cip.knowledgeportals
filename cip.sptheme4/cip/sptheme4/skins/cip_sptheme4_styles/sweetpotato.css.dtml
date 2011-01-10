@@ -1,6 +1,45 @@
 /* <dtml-with base_properties> (do not remove this :) */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
+/* MODIFIED TTW */
+
+.portlet-static-discussion-forum .portletHeader {
+-webkit-border-radius:0.5em;
+-moz-border-radius:0.5em 0.5em 0.5em 0.5em !important;
+background:none repeat scroll 0 0 #5C1B77 !important;
+border:medium none !important;
+color:white !important;
+margin:10px !important;
+padding:5px 5px 4px !important;
+text-decoration:none !important;
+}
+
+#portal-sitemap .navTree {
+background-color:white !important;
+}
+
+.navTreeLevel1 .navTreeCurrentNode {
+margin-left:22px;
+}
+
+.wysiwygTab-selector {
+text-decoration:underline;
+}
+
+.galleryUpload {
+-moz-border-radius:0.2em 0.2em 0.2em 0.2em;
+background:none repeat scroll 0 0 #75AD0A;
+color:white;
+float:left;
+font-size:11px;
+margin-right:5px !important;
+padding:4px;
+}
+
+.galleryUpload a {
+color:white !important;
+}
+
 /*---------- GENERAL STYLE ----------*/
 body {
   background-color:#eee;
@@ -12,7 +51,7 @@ body {
   position:static;
   width:963px;
   }
-  
+
 /*---------- PORTAL TOP ----------*/
 #portal-top {
   /*margin:0 10px;*/
@@ -27,7 +66,7 @@ body {
 .notify #portal-header {
   height:auto;
   }
-  
+
 /*---------- PORTAL SITEACTIONS ----------*/
 #portal-siteactions {
   bottom:0;
@@ -83,20 +122,31 @@ padding:0 0 0 1.2em;
 }
 
 #portal-globalnav li {
-border-right:2px solid white;
+border-right:none;
 float:left;
-margin:3px -1px 3px 0;
+min-width: 0;
+margin:3px 40px 3px 0;
+}
+#portal-globalnav li:hover {
+background:#822aa6;
 }
 
 
 #portal-globalnav li.lastItem {
   border-right:0;
-  }
+}
+
 #portal-globalnav li a:hover, #portal-globalnav li.selected a {
 background:none repeat scroll 0 0 transparent;
 border:0 none;
 color:#FFFFFF;
 }
+
+#portal-globalnav .selected a:hover {
+background:#822aa6;
+color:white;
+}
+
 #portal-globalnav .selected a, #portal-globalnav a:hover {
 background:transparent;
 color:White;
@@ -107,9 +157,11 @@ color:#FFFFFF;
 display:block;
 font-weight:bold;
 margin:0;
+min-width:1em;
 padding:0 0;
 text-decoration:none;
 text-transform:none;
+background:none;
 }
 #portal-globalnav li a:hover, #portal-globalnav li.selected a {
 background:none repeat scroll 0 0 transparent;
@@ -120,7 +172,7 @@ color:#FFFFFF;
   left:-9999px;
   position:absolute;
   }
-  
+
 /*---------- PORTAL PERSONAL TOOLS ----------*/
 
 #portal-searchbox {
@@ -405,6 +457,34 @@ color:#581A74;
   width:184px;
   }
 
+.portletStaticText .portletHeader {
+    -moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
+    background: none repeat scroll 0 0 #5C1B77 !important;
+    border: medium none;
+    color: white !important;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 10px;
+    text-align: center;
+    text-transform: none;
+    padding:5px;
+}
+
+.portletWorkflowReview .portletHeader {
+    -moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
+    background: none repeat scroll 0 0 #5C1B77 !important;
+    border: medium none;
+    color: white !important;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 10px;
+    text-align: center;
+    text-transform: none;
+    padding:5px;
+}
+
+
+
 /*---------- PORTLET SEARCH ----------*/
 .portletSearch {
   border:0;
@@ -570,7 +650,7 @@ dd.portletItem .navTreeLevel1 .navTreeItemInPath a {
 
 /* Third Level */
 .navTreeLevel2 {
-  margin:0;
+  margin:0 -10px 0 20px;
   }
 dd.portletItem .navTreeLevel2 .navTreeItem a {
 background-position:0 -594px;
@@ -776,7 +856,7 @@ h4, h5, h6 {
 .description{
   color:#581A74;
   }
-#content h5, 
+#content h5,
 #content h6 {
   color:#000;
   }
@@ -1252,7 +1332,7 @@ margin-bottom:15px;
 }
 
 .areaupdates p {
-width:600px;
+width:400px;
 }
 
 div.fpUpdates div.pane-container ul.tabs li.current {
@@ -1353,5 +1433,11 @@ padding:5px 5px 4px 5px;
 text-decoration:none;
 -webkit-border-radius:0.5em;
 -moz-border-radius:0.5em 0.5em 0.5em 0.5em;
+}
+
+div.listingBar .next {
+background-image:none;
+display:inline-block;
+float:right;
 }
 /* </dtml-with> */
