@@ -483,7 +483,17 @@ color:#581A74;
     padding:5px;
 }
 
+ul.listTypeCircle {
+margin-left:12px;
+}
 
+ul.listTypeCircle li {
+    display: list-item;
+    line-height: 1.5em;
+    list-style: disc outside none;
+    margin-bottom: 0.1em;
+    margin-right: 2px;
+}
 
 /*---------- PORTLET SEARCH ----------*/
 .portletSearch {
