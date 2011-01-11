@@ -75,10 +75,10 @@
             <tal:checknews define="path python:'/'.join(here.getPhysicalPath());
                                    news python:context.portal_catalog(path={'query' : path, 'depth' : 3}, portal_type='News Item', contentFilter = {'sort_on' : 'modified', 'sort_order' : 'reverse' });
                                    news python:news[:1];
-                                   pages python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Document'], contentFilter = {'sort_on' : 'modified', 'sort_order' : 'reverse' });
-                                   links python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Link'], contentFilter = {'sort_on' : 'modified', 'sort_order' : 'reverse' });
-                                   docs python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['File'], contentFilter = {'sort_on' : 'modified', 'sort_order' : 'reverse' });
-                                   galleries python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Gallery Folder'], contentFilter = {'sort_on' : 'modified', 'sort_order' : 'reverse' });">
+                                   pages python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Document'], sort_on = 'sortable_title', sort_order = 'ascending');
+                                   links python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Link'], sort_on = 'sortable_title', sort_order = 'ascending');
+                                   docs python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['File'], sort_on = 'sortable_title', sort_order = 'ascending');
+                                   galleries python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Gallery Folder'], sort_on = 'sortable_title', sort_order = 'ascending');">
                 <div style="width:70%; float:left; margin-top:6px;">
                     <tal:bb tal:condition="news">
                         <h2 class="content-tab">Latest News</h2>
@@ -216,9 +216,40 @@
                                             limit_display limit_display|request/limit_display|nothing;
                                             is_a_topic python:context.portal_type=='Topic';
                                             path python:'/'.join(here.getPhysicalPath());
-                                            folderContents python:is_a_topic and context.queryCatalog(batch=True, **contentFilter) or context.portal_catalog(path={'query': path, 'depth' : 1},portal_type=('Folder', 'Projects Holder'), sort_on='modified', sort_order='Reverse');
+                                            folderContents python:is_a_topic and here.queryCatalog(contentFilter, batch=True) or context.portal_catalog(path={'query': path, 'depth' : 1},portal_type=('Folder', 'Projects Holder'), sort_on='modified', sort_order='Reverse');
+                                            batch folderContents;
+                                            over_limit python: limit_display and len(folderContents) > limit_display;
+                                            folderContents python: (over_limit and folderContents[:limit_display]) or folderContents;
                                             top_id python:here.getId;">
-                    <tal:listing condition="folderContents">
+
+                    <tal:listing condition="python: folderContents and is_a_topic">
+                        <tal:block tal:repeat="item folderContents">
+                            <div tal:define="item_url item/getURL|item/absolute_url;
+                                                   item_id item/getId|item/id;
+                                                   item_title_or_id item/pretty_title_or_id;
+                                                   item_description item/Description;
+                                                   item_type item/portal_type;
+                                                   item_type_title item/Type;
+                                                   item_modified item/ModificationDate;
+                                                   item_created item/CreationDate;
+                                                   item_creator item/Creator;
+                                                   item_start item/start/ISO|item/StartDate|nothing;
+                                                   item_end item/end/ISO|item/EndDate|nothing;
+                                                   item_object item/getObject;"
+                                 style="margin-left:1em;">
+
+                                <div>
+                                    <a href="#" tal:attributes="href item_url">
+                                        <h1 tal:content="item_title_or_id"
+                                            style="border-top:0px solid #DB214C; border-bottom:0; margin-bottom:2px;" />
+                                    </a>
+                                </div>
+                            </div>
+                        </tal:block>
+                    </tal:listing>
+
+
+                    <tal:listing condition="python: folderContents and not is_a_topic">
                         <h1>Content in <!--tal:hmm tal:replace="here/Title" /--> subfolders</h1>
                         <p style="margin-left:30px; text-style:italics;">
                             Here you can find the sections inside <tal:hmm tal:replace="here/Title" />.
@@ -360,8 +391,8 @@
 
 
 
-            <metal:subtopics use-macro="here/atct_topic_view/macros/folderlisting_macro" />
-            <div tal:replace="structure provider:plone.belowcontentbody" />
+            <!--metal:subtopics use-macro="here/atct_topic_view/macros/folderlisting_macro" /-->
+            <!--div tal:replace="structure provider:plone.belowcontentbody" /-->
         </metal:main-macro>
     </div>
 </body>
