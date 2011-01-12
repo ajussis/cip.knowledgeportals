@@ -140,14 +140,63 @@
                     </div>
                 </div>
             </div>
-            <!--div style="margin:10px 0 0 20px; width:44%; float:left">
+            <div style="margin:10px 0 0 20px; width:44%; float:left" tal:define="allcontent view/allContentItems;
+                                                                                 alltotal view/allTotal;
+                                                                                 allcontentbyarea view/allContentByArea;">
                 <div style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:3px 6px;">
                     <h2>Site statistics</h2>
-                    <p>
-                        Are you working with sweetpotato and would like to contribute to creating information on sweetpotato?
-                    </p> 
+                    <div>
+                        All content items:
+                        <span style="width: 37px; background-color:white; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:5px; margin:3px 7px 0 0; font-size:20px; font-style:bold;">
+                            <span tal:content="alltotal" />
+                        </span>
+
+                        <script type="text/javascript">
+                        $(document).ready(function(){
+                            $('#showlink').next('div').hide();
+                            $('#showlink2').next('div').hide();
+                            $("#showlink").click(function(){
+                                $("div#allcontent").slideToggle();
+                                return false;
+                            });
+                            $("#showlink2").click(function(){
+                                $("div#allcontent2").slideToggle();
+                                return false;
+                            });
+                        });
+                        </script>
+
+                        <div style="clear:both;"></div>
+                        <div style="margin:10px;">
+                            <a href="#" id="showlink">Show by type »</a>
+                            <div id="allcontent">
+                                <table style="margin:10px 5px 5px 10px;">
+                                    <tal:block repeat="n allcontent">
+                                        <tr>
+                                            <td style="border-right:20px solid transparent;"><tal:doctype content="n" />:</td>
+                                            <td><span tal:content="python:allcontent[n]"/></td>
+                                        </tr>
+                                    </tal:block>
+                                </table>
+                            </div>
+
+                            <div style="clear:both;"></div>
+
+                            <a href="#" id="showlink2">Show by section »</a>
+                            <div id="allcontent2">
+                                <table style="margin:10px 5px 5px 10px;">
+                                    <tal:block repeat="n allcontentbyarea">
+                                        <tr>
+                                            <td style="border-right:20px solid transparent;"><tal:doctype content="n" />:</td>
+                                            <td><span tal:content="python:allcontentbyarea[n]"/></td>
+                                        </tr>
+                                    </tal:block>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div-->
+            </div>
             <div style="margin:10px 0 0 20px; width:44%; float:left">
                 <div style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:3px 6px;">
                     <h2>Becoming a member</h2>
