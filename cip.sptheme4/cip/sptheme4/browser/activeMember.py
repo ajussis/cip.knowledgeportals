@@ -102,3 +102,48 @@ class ActiveMember(BrowserView):
             returnImg = pImg[10:kk]
             contentAll.append([userId[0],userId[1], returnImg])
         return contentAll
+
+    def allContentItems(self):
+        """
+            Fetch all the content items except the folders
+        """
+        catalog = getToolByName(self.context, 'portal_catalog')
+        portal_types = ['Document','File','Image','News Item','Event','Link','Institution','b-org Project','Gallery Folder','Discussion Item']
+        s = {}
+        for n in portal_types:
+            content_items = catalog.searchResults(portal_type = n)
+            s[n] = len(content_items)
+        return s
+
+    def allTotal(self):
+        """
+            Fetch all the content items except the folders
+        """
+        catalog = getToolByName(self.context, 'portal_catalog')
+        portal_types = ['Document','File','Image','News Item','Event','Link','Institution','b-org Project','Gallery Folder','EasyNewsletter','Discussion Item']
+        allItems = catalog.searchResults(portal_type = portal_types)
+        return len(allItems)
+
+    def allContentByArea(self):
+        """
+            Fetch all the content items except the folders
+        """
+        catalog = getToolByName(self.context, 'portal_catalog')
+        portal_types = ['Document','File','Image','News Item','Event','Link','Institution','b-org Project','Gallery Folder','EasyNewsletter','Discussion Item']
+        areas = ['germplasm','seedsystem','crop-management','adding-value','use-consumption','institutions','projects-initiatives']
+        areas2 = ['Germplasm','Seedsystem','Crop Management','Adding Value','Use Consumption','Institutions','Projects Initiatives']
+        s = {}
+        mm = {}
+        for n in areas:
+            folder_path = '/sweetpotato3/' + n
+            print folder_path
+            content_items = catalog.searchResults(path={'query':folder_path})
+            folders = catalog.searchResults(path={'query':folder_path}, portal_type = 'Folder')
+            s[n] = len(content_items) - len(folders)
+        z = 0
+        for n in areas2:
+            aa = areas[z]
+            v = s[aa]
+            mm[n] = v
+            z = z + 1
+        return mm
