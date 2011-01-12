@@ -71,134 +71,253 @@
                         </div>
                     </div>
                 </div>
-            </tal:block>
-            <tal:checknews define="path python:'/'.join(here.getPhysicalPath());
-                                   news python:context.portal_catalog(path={'query' : path, 'depth' : 3}, portal_type='News Item', contentFilter = {'sort_on' : 'modified', 'sort_order' : 'reverse' });
-                                   news python:news[:1];
-                                   pages python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Document'], sort_on = 'sortable_title', sort_order = 'ascending');
-                                   links python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Link'], sort_on = 'sortable_title', sort_order = 'ascending');
-                                   docs python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['File'], sort_on = 'sortable_title', sort_order = 'ascending');
-                                   galleries python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Gallery Folder'], sort_on = 'sortable_title', sort_order = 'ascending');">
-                <div style="width:70%; float:left; margin-top:6px;">
-                    <tal:bb tal:condition="news">
-                        <h2 class="content-tab">Latest News</h2>
-                        <img src="spnews.png" class="spIcon" />
-                        <div style="margin-top:15px;">
-                            <tal:subcontents tal:repeat="obj news">
-                                <tal:defs2 tal:define="sub_title obj/pretty_title_or_id;
-                                                       sub_desc obj/Description;
-                                                       sub_url obj/getURL|obj/absolute_url;
-                                                       item_created obj/CreationDate">
-                                    <a href="#"
-                                        style="font-size:13px; font-weight:bold; margin-left:4px;"
-                                        tal:content="sub_title"
-                                        tal:attributes="href sub_url" /><br />
-                                        <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
-                                    <p tal:content="sub_desc" />
-                                </tal:defs2>
-                                <div class="visualClear"></div>
-                            </tal:subcontents>
-                            <p style="text-align:right;">
-                                <a href="news">Read all news...</a>
-                            </p>
-                        </div>
-                    </tal:bb>
-                    <h2 tal:condition="docs" class="default-content-tab">Files</h2>
-                    <div tal:define="path python:'/'.join(here.getPhysicalPath());
-                                     folds python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Folder');">
-                        <div>
-                            <div tal:condition="docs" style="margin-top:10px;">
-                                <img class="spIcon" src="file2.png" />
-                                <div tal:repeat="item docs">
-                                    <tal:defs define="item_url item/getURL|item/absolute_url;
-                                                      item_url2 python:item_url + '/view';
-                                                      item_title_or_id item/pretty_title_or_id;
-                                                      author item/Creator;
-                                                      item_modified item/ModificationDate;
-                                                      item_icon python:plone_view.getIcon(item);">
-                                        <img tal:replace="structure item_icon/html_tag" />
-                                        <a href="#" tal:attributes="href item_url2"
-                                           tal:content="item_title_or_id">
-                                            <tal:block replace="item_title_or_id" />
-                                        </a><a style="margin-left:10px;" href="#" tal:attributes="href item_url"><img src="arrowDown.gif"/></a><br />
-                                        <span style="font-size:11px; margin-left:20px; margin-right:10px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
-                                        | <span style="font-size:11px; margin-left:10px;" tal:content="author" />
-                                    </tal:defs>
-                                </div>
-                                <div class="visualClear"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <tal:bb tal:condition="pages">
-                        <h2 class="content-tab">Pages</h2>
-                        <img src="spdocument.png" class="spIcon" />
-                        <div style="margin-top:15px;">
-                            <tal:subcontents tal:repeat="obj pages">
-                                <tal:defs2 tal:define="sub_title obj/pretty_title_or_id;
-                                                       sub_url obj/getURL|obj/absolute_url;
-                                                       sub_id obj/getId|item/id;
-                                                       item_modified obj/ModificationDate;">
-                                    <p style="margin-bottom:0;">
+                <tal:checknews define="path python:'/'.join(here.getPhysicalPath());
+                                       news python:context.portal_catalog(path={'query' : path, 'depth' : 3}, portal_type='News Item', contentFilter = {'sort_on' : 'modified', 'sort_order' : 'reverse' });
+                                       news python:news[:1];
+                                       pages python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Document'], sort_on = 'sortable_title', sort_order = 'ascending');
+                                       links python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Link'], sort_on = 'sortable_title', sort_order = 'ascending');
+                                       docs python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['File'], sort_on = 'sortable_title', sort_order = 'ascending');
+                                       galleries python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Gallery Folder'], sort_on = 'sortable_title', sort_order = 'ascending');">
+                    <div style="width:70%; float:left; margin-top:6px;" tal:condition="python:len(folds) != 0">
+                        <tal:bb tal:condition="news">
+                            <h2 class="content-tab">Latest News (<tal:block replace="python:len(news)" />)</h2>
+                            <img src="spnews.png" class="spIcon" />
+                            <div style="margin-top:15px;">
+                                <tal:subcontents tal:repeat="obj news">
+                                    <tal:defs2 tal:define="sub_title obj/pretty_title_or_id;
+                                                           sub_desc obj/Description;
+                                                           sub_url obj/getURL|obj/absolute_url;
+                                                           item_created obj/CreationDate">
                                         <a href="#"
-                                            style="font-size:13px; font-weight:bold;"
-                                            tal:content="sub_title"
-                                            tal:attributes="href sub_url" /><br />
-                                            <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
-                                    </p>
-                                </tal:defs2>
-                            </tal:subcontents>
-                            <div class="visualClear"></div>
-                        </div>
-                    </tal:bb>
-                    <tal:bb tal:condition="galleries">
-                        <h2 class="content-tab">Galleries</h2>
-                        <img src="spgallery.png" class="spIcon" />
-                        <div style="margin-top:15px;">
-                            <tal:subcontents tal:repeat="obj galleries">
-                                <tal:defs2 tal:define="sub_title obj/pretty_title_or_id;
-                                                       sub_url obj/getURL|obj/absolute_url;
-                                                       item_modified obj/ModificationDate;">
-                                    <p style="margin-bottom:0;">
-                                        <a href="#"
-                                            style="font-size:13px; font-weight:bold;"
-                                            tal:content="sub_title"
-                                            tal:attributes="href sub_url" /><br />
-                                            <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
-                                    </p>
-                                </tal:defs2>
-                            </tal:subcontents>
-                            <div class="visualClear"></div>
-                        </div>
-                    </tal:bb>
-                    <tal:bb tal:condition="links">
-                        <h2 class="content-tab">Links</h2>
-                        <img src="link.png" class="spIcon" />
-                        <div style="margin-top:15px;">
-                            <tal:subcontents tal:repeat="obj links">
-                                <tal:defs2 tal:define="sub_obj obj/getObject;
-                                                       sub_title obj/pretty_title_or_id;
-                                                       sub_desc obj/Description;
-                                                       sub_url obj/getURL|obj/absolute_url;
-                                                       sub_type obj/portal_type;
-                                                       sub_id obj/getId|item/id;
-                                                       item_created obj/CreationDate;">
-                                    <p style="margin-bottom:0;">
-                                        <a href="#"
-                                            style="font-size:13px; font-weight:bold;"
+                                            style="font-size:13px; font-weight:bold; margin-left:4px;"
                                             tal:content="sub_title"
                                             tal:attributes="href sub_url" /><br />
                                             <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
-                                        <!--p tal:content="sub_desc" /-->
-                                    </p>
-                                </tal:defs2>
-                            </tal:subcontents>
-                            <div class="visualClear"></div>
+                                        <p tal:content="sub_desc" />
+                                    </tal:defs2>
+                                    <div class="visualClear"></div>
+                                </tal:subcontents>
+                                <p style="text-align:right;">
+                                    <a href="news">Read all news...</a>
+                                </p>
+                            </div>
+                        </tal:bb>
+                        <h2 tal:condition="docs" class="default-content-tab">Files (<tal:block replace="python:len(docs)" />)</h2>
+                        <div tal:define="path python:'/'.join(here.getPhysicalPath());
+                                         folds python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Folder');">
+                            <div>
+                                <div tal:condition="docs" style="margin-top:10px;">
+                                    <img class="spIcon" src="file2.png" />
+                                    <div tal:repeat="item docs">
+                                        <tal:defs define="item_url item/getURL|item/absolute_url;
+                                                          item_url2 python:item_url + '/view';
+                                                          item_title_or_id item/pretty_title_or_id;
+                                                          author item/Creator;
+                                                          item_modified item/ModificationDate;
+                                                          item_icon python:plone_view.getIcon(item);">
+                                            <img tal:replace="structure item_icon/html_tag" />
+                                            <a href="#" tal:attributes="href item_url2"
+                                               tal:content="item_title_or_id">
+                                                <tal:block replace="item_title_or_id" />
+                                            </a><a style="margin-left:10px;" href="#" tal:attributes="href item_url"><img src="arrowDown.gif"/></a><br />
+                                            <span style="font-size:11px; margin-left:20px; margin-right:10px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
+                                            | <span style="font-size:11px; margin-left:10px;" tal:content="author" />
+                                        </tal:defs>
+                                    </div>
+                                    <div class="visualClear"></div>
+                                </div>
+                            </div>
                         </div>
-                    </tal:bb>
-                </div>
-                <div class="visualClear"></div>
+                        <tal:bb tal:condition="pages">
+                            <h2 class="content-tab">Pages (<tal:block replace="python:len(pages)" />)</h2>
+                            <img src="spdocument.png" class="spIcon" />
+                            <div style="margin-top:15px;">
+                                <tal:subcontents tal:repeat="obj pages">
+                                    <tal:defs2 tal:define="sub_title obj/pretty_title_or_id;
+                                                           sub_url obj/getURL|obj/absolute_url;
+                                                           sub_id obj/getId|item/id;
+                                                           item_modified obj/ModificationDate;">
+                                        <p style="margin-bottom:0;">
+                                            <a href="#"
+                                                style="font-size:13px; font-weight:bold;"
+                                                tal:content="sub_title"
+                                                tal:attributes="href sub_url" /><br />
+                                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
+                                        </p>
+                                    </tal:defs2>
+                                </tal:subcontents>
+                                <div class="visualClear"></div>
+                            </div>
+                        </tal:bb>
+                        <tal:bb tal:condition="galleries">
+                            <h2 class="content-tab">Galleries (<tal:block replace="python:len(galleries)" />)</h2>
+                            <img src="spgallery.png" class="spIcon" />
+                            <div style="margin-top:15px;">
+                                <tal:subcontents tal:repeat="obj galleries">
+                                    <tal:defs2 tal:define="sub_title obj/pretty_title_or_id;
+                                                           sub_url obj/getURL|obj/absolute_url;
+                                                           item_modified obj/ModificationDate;">
+                                        <p style="margin-bottom:0;">
+                                            <a href="#"
+                                                style="font-size:13px; font-weight:bold;"
+                                                tal:content="sub_title"
+                                                tal:attributes="href sub_url" /><br />
+                                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
+                                        </p>
+                                    </tal:defs2>
+                                </tal:subcontents>
+                                <div class="visualClear"></div>
+                            </div>
+                        </tal:bb>
+                        <tal:bb tal:condition="links">
+                            <h2 class="content-tab">Links (<tal:block replace="python:len(links)" />)</h2>
+                            <img src="link.png" class="spIcon" />
+                            <div style="margin-top:15px;">
+                                <tal:subcontents tal:repeat="obj links">
+                                    <tal:defs2 tal:define="sub_obj obj/getObject;
+                                                           sub_title obj/pretty_title_or_id;
+                                                           sub_desc obj/Description;
+                                                           sub_url obj/getURL|obj/absolute_url;
+                                                           sub_type obj/portal_type;
+                                                           sub_id obj/getId|item/id;
+                                                           item_created obj/CreationDate;">
+                                        <p style="margin-bottom:0;">
+                                            <a href="#"
+                                                style="font-size:13px; font-weight:bold;"
+                                                tal:content="sub_title"
+                                                tal:attributes="href sub_url" /><br />
+                                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
+                                            <!--p tal:content="sub_desc" /-->
+                                        </p>
+                                    </tal:defs2>
+                                </tal:subcontents>
+                                <div class="visualClear"></div>
+                            </div>
+                        </tal:bb>
+                    </div>
 
-            </tal:checknews>
+                    <div style="width:100%; float:left; margin-top:6px;" tal:condition="python:len(folds) == 0">
+                        <tal:bb tal:condition="news">
+                            <h2 class="content-tab">Latest News (<tal:block replace="python:len(news)" />)</h2>
+                            <img src="spnews.png" class="spIcon" />
+                            <div style="margin-top:15px;">
+                                <tal:subcontents tal:repeat="obj news">
+                                    <tal:defs2 tal:define="sub_title obj/pretty_title_or_id;
+                                                           sub_desc obj/Description;
+                                                           sub_url obj/getURL|obj/absolute_url;
+                                                           item_created obj/CreationDate">
+                                        <a href="#"
+                                            style="font-size:13px; font-weight:bold; margin-left:4px;"
+                                            tal:content="sub_title"
+                                            tal:attributes="href sub_url" /><br />
+                                            <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
+                                        <p tal:content="sub_desc" />
+                                    </tal:defs2>
+                                    <div class="visualClear"></div>
+                                </tal:subcontents>
+                                <p style="text-align:right;">
+                                    <a href="news">Read all news...</a>
+                                </p>
+                            </div>
+                        </tal:bb>
+                        <h2 tal:condition="docs" class="default-content-tab">Files (<tal:block replace="python:len(docs)" />)</h2>
+                        <div tal:define="path python:'/'.join(here.getPhysicalPath());
+                                         folds python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Folder');">
+                            <div>
+                                <div tal:condition="docs" style="margin-top:10px;">
+                                    <img class="spIcon" src="file2.png" />
+                                    <div tal:repeat="item docs">
+                                        <tal:defs define="item_url item/getURL|item/absolute_url;
+                                                          item_url2 python:item_url + '/view';
+                                                          item_title_or_id item/pretty_title_or_id;
+                                                          author item/Creator;
+                                                          item_modified item/ModificationDate;
+                                                          item_icon python:plone_view.getIcon(item);">
+                                            <img tal:replace="structure item_icon/html_tag" />
+                                            <a href="#" tal:attributes="href item_url2"
+                                               tal:content="item_title_or_id">
+                                                <tal:block replace="item_title_or_id" />
+                                            </a><a style="margin-left:10px;" href="#" tal:attributes="href item_url"><img src="arrowDown.gif"/></a><br />
+                                            <span style="font-size:11px; margin-left:20px; margin-right:10px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
+                                            | <span style="font-size:11px; margin-left:10px;" tal:content="author" />
+                                        </tal:defs>
+                                    </div>
+                                    <div class="visualClear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <tal:bb tal:condition="pages">
+                            <h2 class="content-tab">Pages (<tal:block replace="python:len(pages)" />)</h2>
+                            <img src="spdocument.png" class="spIcon" />
+                            <div style="margin-top:15px;">
+                                <tal:subcontents tal:repeat="obj pages">
+                                    <tal:defs2 tal:define="sub_title obj/pretty_title_or_id;
+                                                           sub_url obj/getURL|obj/absolute_url;
+                                                           sub_id obj/getId|item/id;
+                                                           item_modified obj/ModificationDate;">
+                                        <p style="margin-bottom:0;">
+                                            <a href="#"
+                                                style="font-size:13px; font-weight:bold;"
+                                                tal:content="sub_title"
+                                                tal:attributes="href sub_url" /><br />
+                                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
+                                        </p>
+                                    </tal:defs2>
+                                </tal:subcontents>
+                                <div class="visualClear"></div>
+                            </div>
+                        </tal:bb>
+                        <tal:bb tal:condition="galleries">
+                            <h2 class="content-tab">Galleries (<tal:block replace="python:len(galleries)" />)</h2>
+                            <img src="spgallery.png" class="spIcon" />
+                            <div style="margin-top:15px;">
+                                <tal:subcontents tal:repeat="obj galleries">
+                                    <tal:defs2 tal:define="sub_title obj/pretty_title_or_id;
+                                                           sub_url obj/getURL|obj/absolute_url;
+                                                           item_modified obj/ModificationDate;">
+                                        <p style="margin-bottom:0;">
+                                            <a href="#"
+                                                style="font-size:13px; font-weight:bold;"
+                                                tal:content="sub_title"
+                                                tal:attributes="href sub_url" /><br />
+                                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
+                                        </p>
+                                    </tal:defs2>
+                                </tal:subcontents>
+                                <div class="visualClear"></div>
+                            </div>
+                        </tal:bb>
+                        <tal:bb tal:condition="links">
+                            <h2 class="content-tab">Links (<tal:block replace="python:len(links)" />)</h2>
+                            <img src="link.png" class="spIcon" />
+                            <div style="margin-top:15px;">
+                                <tal:subcontents tal:repeat="obj links">
+                                    <tal:defs2 tal:define="sub_obj obj/getObject;
+                                                           sub_title obj/pretty_title_or_id;
+                                                           sub_desc obj/Description;
+                                                           sub_url obj/getURL|obj/absolute_url;
+                                                           sub_type obj/portal_type;
+                                                           sub_id obj/getId|item/id;
+                                                           item_created obj/CreationDate;">
+                                        <p style="margin-bottom:0;">
+                                            <a href="#"
+                                                style="font-size:13px; font-weight:bold;"
+                                                tal:content="sub_title"
+                                                tal:attributes="href sub_url" /><br />
+                                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
+                                            <!--p tal:content="sub_desc" /-->
+                                        </p>
+                                    </tal:defs2>
+                                </tal:subcontents>
+                                <div class="visualClear"></div>
+                            </div>
+                        </tal:bb>
+                    </div>
+
+                    <div class="visualClear"></div>
+                </tal:checknews>
+            </tal:block>
+
             <div tal:replace="structure provider:plone.abovecontentbody" />
             <div metal:define-macro="text-field-view"
                  id="parent-fieldname-text" class="stx"
@@ -237,7 +356,6 @@
                                                    item_end item/end/ISO|item/EndDate|nothing;
                                                    item_object item/getObject;"
                                  style="margin-left:1em;">
-
                                 <div>
                                     <a href="#" tal:attributes="href item_url">
                                         <h1 tal:content="item_title_or_id"
@@ -267,30 +385,32 @@
                                                    item_creator item/Creator;
                                                    item_start item/start/ISO|item/StartDate|nothing;
                                                    item_end item/end/ISO|item/EndDate|nothing;
-                                                   item_object item/getObject;"
+                                                   item_object item/getObject;
+                                                   path python:'/'.join(here.getPhysicalPath()) + '/' + item_id;
+                                                   folderContents4 python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type=['Document','File','News Item','Event','Link'], contentFilter = {'sort_on' : 'Date', 'sort_order' : 'reverse' });"
                                  style="width:48%; float:left; margin-left:1em;">
 
                                 <div tal:condition="python:item_type == 'Folder' and item_id != 'news' or item_type == 'Project Folder'">
                                     <a href="#" tal:attributes="href item_url">
-                                        <h1 tal:content="item_title_or_id"
-                                            tal:condition="python:item_type != 'Image'"
-                                            style="border-top:0px solid #DB214C; float:left; border-bottom:0; margin-bottom:2px;" />
-                                        <img src="arrow_right.png" style="margin: 5px 0 0 5px;" />
+                                        <h1 class="subfoldtitle" tal:condition="python:item_type != 'Image'"
+                                            style="border-top:0px solid #DB214C; line-height:0.5em; float:left; border-bottom:0; margin-bottom:2px;">
+                                            <tal:block replace="item_title_or_id" /> <span style="font-weight:normal !important">(<tal:block replace="python:len(folderContents4)" />)</span>
+                                            <img src="arrow_right.png" style="margin: 5px 0 0 5px;" />
+                                        </h1>
                                     </a>
                                     <div class="visualClear"></div>
 
-                                    <!--div style="width:220px" class="tileItem visualIEFloatFix vevent">
-                                        <a href="" tal:attributes="href item/getURL">
-                                            <img style="float:left; padding:0px 50px 0 40px; width:100px;" src="spfolder2.jpg"
-                                                 tal:condition="python:item_type=='Folder' and item_id != 'news' or item_type=='Project Folder' or item_type=='Projects Holder'" />
-                                        </a>
-                                    </div-->
-
-                                    <tal:getsubs define="path python:'/'.join(here.getPhysicalPath()) + '/' + item_id;
-                                                         folderContents3 python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type='Folder', contentFilter = {'sort_on' : 'Date', 'sort_order' : 'reverse' });
+                                    <tal:getsubs define="folderContents3 python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type='Folder', contentFilter = {'sort_on' : 'Date', 'sort_order' : 'reverse' });
                                                          cFolder python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + 'createObject?type_name=Folder';
                                                          canEdit python:checkPermission('Modify portal content', here);">
-                                        <h2 class="default-content-tab">Subfolders</h2>
+                                        <div tal:condition="not: folderContents4">
+                                            <p style="margin-bottom:-2px; margin-left:15px; color:grey;">
+                                                <i>
+                                                    There are no files in this folder
+                                                </i>
+                                            </p>
+                                        </div>
+                                        <h2 class="default-content-tab" tal:condition="python:len(folderContents3) != 0">Subfolders</h2>
                                         <div style="float:right; margin-top:-4px; margin-right:-8px;" tal:condition="canEdit">
                                             <!--p style="float:left; margin-right:7px; font-size:13px; margin-bottom:0;margin-top:3px;">Add </p-->
                                             <ul style="float:left; list-style:none outside none;">
@@ -323,13 +443,13 @@
                                                 </tal:defs2>
                                             </tal:subcontents>
                                         </div>
-                                        <div tal:condition="not: folderContents3">
+                                        <!--div tal:condition="not: folderContents3">
                                             <p style="margin-bottom:-2px;">
                                                 <i>
-                                                    There are no items in this folder
+                                                    There are no subfolders in this folder
                                                 </i>
                                             </p>
-                                        </div>
+                                        </div-->
                                     </tal:getsubs>
                                     <tal:block define="limit_display python:3;
                                                        path python:'/'.join(here.getPhysicalPath()) + '/' + item_id;
@@ -341,9 +461,6 @@
                                                        toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
                                         <h2 tal:condition="folderContents3" class="content-tab">Latest updates</h2>
                                         <div tal:condition="folderContents3">
-                                            <!--h2>
-                                                Latest on <tal:latest replace="item_title_or_id" />
-                                            </h2-->
                                             <tal:subcontents tal:repeat="obj folderContents3">
                                                 <tal:defs2 tal:define="sub_obj obj/getObject;
                                                                        sub_title obj/pretty_title_or_id;
