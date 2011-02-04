@@ -17,6 +17,7 @@
 
             <div style="margin:10px 0 0 20px; width:50%; float:left;" tal:define="users view/activemembers;
                                                                                   users2 view/activemembersByName;
+                                                                                  
                                                                                   membership context/portal_membership;">
                 <div>
                     <h2 class="content-tab">Sort by content</h2>
@@ -80,6 +81,46 @@
                                     </td>
                                 </tal:defineAgain>
                             </tr>
+                        </div>
+                    </table>
+                    <h2 class="content-tab" tal:condition="python:context.portal_membership.checkPermission('Manage portal', here)">Reg</h2>
+                    <table tal:condition="python:context.portal_membership.checkPermission('Manage portal', context)"
+                            style="width:100%;">
+                        <div tal:define="users3 view/newMembers;">
+                            <div tal:repeat="user users3">
+                                <tr style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; border-bottom:solid white 2px; padding:1px;">
+                                    <tal:defineAgain define="userName python:user[0];
+                                                             toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                                                             userObjects python:user[1];
+                                                             userReg python:user[2];
+                                                             info python:membership.getMemberInfo(userName);
+                                                             fullname info/fullname;
+                                                             location info/location;
+                                                             member python:here.getMemberById(userName);
+                                                             institution python:member.getProperty('institution');">
+                                        <!--td style="padding-right:8px;">
+                                            <span style="font-weight:normal; font-style:italic;">
+                                                <tal:contentThis content="userObjects"/>
+                                            </span>
+                                        </td-->
+                                        <td style="padding-right:8px;">
+                                            <span style="font-weight:bold; color:#581A74;" tal:define="url python:'/'.join(here.getPhysicalPath()) + '/author/'+userName;">
+                                                <a tal:condition="python:len(fullname) != 0" href="#" tal:attributes="href url"><tal:block replace="fullname"/></a>
+                                                <a tal:condition="python:len(fullname) == 0" href="#" tal:attributes="href url"><tal:block replace="userName"/></a>
+                                            </span>
+                                        </td>
+                                        <td style="padding-right:8px; width:90px;">
+                                            <span style="font-weight:normal; color:black" tal:content="python:here.toLocalizedTime(userReg,long_format=0)">
+                                            </span>
+                                        </td>
+                                        <td style="width:70px; padding-right:8px;">
+                                            <span style="font-weight:normal;" tal:define="url python:'/'.join(here.getPhysicalPath()) + '/author/'+userName;">
+                                                <!--a tal:condition="python:len(institution) != 0" href="#" tal:attributes="href url"--><tal:block replace="institution"/><!--/a-->
+                                            </span>
+                                        </td>
+                                    </tal:defineAgain>
+                                </tr>
+                            </div>
                         </div>
                     </table>
                     <!--div style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:1px;"
@@ -194,6 +235,8 @@
                                 </table>
                             </div>
                         </div>
+
+                        <div style="clear:both;"></div>
                     </div>
                 </div>
             </div>
