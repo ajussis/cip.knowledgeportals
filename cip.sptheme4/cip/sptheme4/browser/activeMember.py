@@ -3,6 +3,7 @@ from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils  import getToolByName
 from Products.CMFPlone.browser.navtree import getNavigationRoot
+from datetime import datetime
 
 class ActiveMember(BrowserView):
     """Default view of a Project Folder
@@ -84,6 +85,7 @@ class ActiveMember(BrowserView):
 
     def activemembers3(self):
         """
+        Getting the users who have contributed more than 20 content items
         """
         buffer = ""
         contentAll = []
@@ -102,6 +104,32 @@ class ActiveMember(BrowserView):
             returnImg = pImg[10:kk]
             contentAll.append([userId[0],userId[1], returnImg])
         return contentAll
+
+    def newMembers(self):
+        """
+        Getting the memberlist in the registration order
+        """
+        portal_catalog = getToolByName(self.context, 'portal_catalog')
+        buffer = ""
+        contentAll = []
+        contentlenght = []
+        users = self.context.acl_users.getUserIds()
+        userLoad = []
+        contentAll = []
+        for userId in users:
+            author_content = self.get_author_content(userId)
+            memfold = portal_catalog.searchResults({'id':userId})
+            for i in memfold:
+                km = i.created
+            userLoad.append([userId, author_content, km])
+        usersSorted = sorted(userLoad, key=lambda user: user[2], reverse=True)
+        acl_users = getToolByName(self.context, 'acl_users')
+        for userId in usersSorted:
+            if userId[1] == -1:
+                userId[1] = 0
+            contentAll.append([userId[0],userId[1],userId[2]])
+        return contentAll
+
 
     def allContentItems(self):
         """
@@ -136,7 +164,7 @@ class ActiveMember(BrowserView):
         mm = {}
         for n in areas:
             folder_path = '/sweetpotato3/' + n
-            print folder_path
+#            print folder_path
             content_items = catalog.searchResults(path={'query':folder_path})
             folders = catalog.searchResults(path={'query':folder_path}, portal_type = 'Folder')
             s[n] = len(content_items) - len(folders)
