@@ -105,7 +105,7 @@
             <div class="visualClear"></div>
 
             <tal:block tal:define="path python:'/'.join(here.getPhysicalPath());
-                                   folds python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Folder');">
+                                   folds python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Folder','b-org Project']);">
                 <div tal:condition="folds" style="width:180px; float:left;">
                     <h1 style="border:0; float:left; margin-bottom:0; padding-bottom:0;">Subfolders</h1>
                     <div tal:condition="folds" style="-webkit-border-radius:0.5em;-moz-border-radius-topleft: 8px; -moz-border-radius-topright: 8px; -moz-border-radius-bottomleft:8px;
@@ -341,7 +341,7 @@
                                                                        sub_id obj/getId|item/id;
                                                                        item_icon python:plone_view.getIcon(obj);
                                                                        path python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + sub_id;
-                                                                       brains python:context.portal_catalog(path={'query' : path, 'depth' : 3}, portal_type=['File', 'Document', 'News Item', 'Gallery Folder']);
+                                                                       brains python:context.portal_catalog(path={'query' : path, 'depth' : 3}, portal_type=['File', 'Document', 'News Item', 'Gallery Folder', 'Link', 'Folder', 'b-org Project']);
                                                                        brains2 python:len(brains);">
                                                     <img tal:replace="structure item_icon/html_tag" style="margin-right:4px; float:left;"/>
                                                     <a href="#"
@@ -366,7 +366,7 @@
                                     <tal:block define="limit_display python:3;
                                                        path python:'/'.join(here.getPhysicalPath()) + '/' + item_id;
                                                        more_url more_url|request/more_url|string:folder_contents;
-                                                       folderContents3 python:context.portal_catalog(path={'query': path, 'depth' : 3}, portal_type=('News Item', 'Event', 'File', 'Document'), sort_on='modified', sort_order='Reverse');
+                                                       folderContents3 python:context.portal_catalog(path={'query': path, 'depth' : 3}, portal_type=('News Item', 'Event', 'File', 'Document', 'Link', 'Gallery Folder', 'b-org Project'), sort_on='modified', sort_order='Reverse');
                                                        use_view_action site_properties/typesUseViewActionInListings|python:();
                                                        over_limit python: limit_display and len(folderContents3) > limit_display;
                                                        folderContents3 python: (over_limit and folderContents3[:limit_display]) or folderContents3;

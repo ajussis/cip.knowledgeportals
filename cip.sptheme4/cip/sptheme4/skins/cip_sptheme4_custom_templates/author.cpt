@@ -141,7 +141,13 @@
                          style="float: left; margin: 1em;"
                          tal:attributes="src portrait/absolute_url" />
 
-                    <div class="personalInfo" style="float:left;">
+                    <div>
+                        <br />
+                        <br />
+                        <p>Log in to see more details on <tal:name tal:content="authorinfo/fullname" /></p>
+                    </div>
+
+                    <div class="personalInfo" style="float:left;" tal:condition="not: isAnon">
                         <div style="margin-left:35px; width:100%; float:left;">
                             <!--p tal:condition="python:mtool.getHomeFolder(id=author)">
                                 <a href="#" tal:attributes="href python:mtool.getHomeFolder(id=author).absolute_url()"

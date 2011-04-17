@@ -14,10 +14,25 @@
                                 ssLatest python:context.portal_catalog(path={'query': '/sweetpotato2/seedsystem'}, sort_on='Date', sort_order='Reverse')[:4];
                                 cmLatest python:context.portal_catalog(path={'query': '/sweetpotato2/crop-management'}, sort_on='Date', sort_order='Reverse')[:4];
                                 vaLatest python:context.portal_catalog(path={'query': '/sweetpotato2/value-adding'}, sort_on='Date', sort_order='Reverse')[:4];
-                                toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
-
+                                toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                                canEdit python:checkPermission('Review portal content', context);
+                                isAnon context/@@plone_portal_state/anonymous;">
 
             <div class="lineBreak"></div>
+
+            <div tal:condition="python: (not isAnon) and (not canEdit)"
+                 style="margin-bottom:10px; background-color:#EEDBEF; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; padding:0 10px 5px;">
+                <h1>Thank you for registering! </h1>
+                <p style="color:black; ">
+                    You still need to be identified to be able to participate in the content creation.
+                    Once you have given permissions, you will be able to add, edit and publish information on this portal.
+                </p>
+
+                <p style="font-size:15px;">
+                    <a href="/sweetpotato3/contact-info" style="color:#EC2453; font-weight:bold;">Click here</a> to ask for permissions!
+                </p>
+
+            </div>
 
             <div class="areaupdates">
                 <div class="fpUpdates" tal:define="gpLatest python: getattr(context, 'gpNews');
@@ -35,10 +50,18 @@
                         <tal:defs define="n gpLatest/queryCatalog">
                             <p class="frontP" tal:repeat="m n">
                                 <tal:rep define="pType m/portal_type;
-                                                 author m/Creator">
-                                    <a href="#" tal:attributes="href m/getURL">
+                                                 author m/Creator;
+                                                 item_icon python:plone_view.getIcon(m);
+                                                 url m/getURL">
+                                    <img tal:replace="structure item_icon/html_tag" />
+                                    <a href="#" tal:attributes="href url" tal:condition="python:pType != 'File'">
                                         <span tal:replace="m/pretty_title_or_id"/>
-                                    </a><br />
+                                    </a>
+                                    <tal:jes condition="python:pType == 'File'" define="fileUrl python:url + '/view'">
+                                        <a href="#" tal:attributes="href fileUrl">
+                                           <span tal:replace="m/pretty_title_or_id"/>
+                                        </a><br />
+                                    </tal:jes>
                                     <span class="frontDate">
                                         <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
                                         <span class="frontDate2" tal:content="pType" />
@@ -51,7 +74,7 @@
                     <div style="width:40px; float:left;">
                         <a href="../germplasm">
                             <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                                Go to section &raquo; 
+                                Go to section &raquo;
                             </p>
                         </a>
                         <a href="../discussion-forum">
@@ -73,7 +96,9 @@
                         <tal:defs define="n latest/queryCatalog">
                             <p class="frontP" tal:repeat="m n">
                                 <tal:rep define="pType m/portal_type;
-                                                 author m/Creator">
+                                                 author m/Creator;
+                                                 item_icon python:plone_view.getIcon(m);">
+                                    <img tal:replace="structure item_icon/html_tag" />
                                     <a href="#" tal:attributes="href m/getURL">
                                         <span tal:replace="m/pretty_title_or_id"/>
                                     </a><br />
@@ -89,7 +114,7 @@
                     <div style="width:40px; float:left;">
                         <a href="../seedsystem">
                             <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                                Go to section &raquo; 
+                                Go to section &raquo;
                             </p>
                         </a>
                         <a href="../discussion-forum">
@@ -111,7 +136,9 @@
                         <tal:defs define="n latest2/queryCatalog">
                             <p class="frontP" tal:repeat="m n">
                                 <tal:rep define="pType m/portal_type;
-                                                 author m/Creator">
+                                                 author m/Creator;
+                                                 item_icon python:plone_view.getIcon(m);">
+                                    <img tal:replace="structure item_icon/html_tag" />
                                     <a href="#" tal:attributes="href m/getURL">
                                         <span tal:replace="m/pretty_title_or_id"/>
                                     </a><br />
@@ -149,7 +176,9 @@
                         <tal:defs define="n latest3/queryCatalog">
                             <p class="frontP" tal:repeat="m n">
                                 <tal:rep define="pType m/portal_type;
-                                                 author m/Creator">
+                                                 author m/Creator;
+                                                 item_icon python:plone_view.getIcon(m);">
+                                    <img tal:replace="structure item_icon/html_tag" />
                                     <a href="#" tal:attributes="href m/getURL">
                                         <span tal:replace="m/pretty_title_or_id"/>
                                     </a><br />
@@ -187,7 +216,9 @@
                         <tal:defs define="n latest4/queryCatalog">
                             <p class="frontP" tal:repeat="m n">
                                 <tal:rep define="pType m/portal_type;
-                                                 author m/Creator">
+                                                 author m/Creator;
+                                                 item_icon python:plone_view.getIcon(m);">
+                                    <img tal:replace="structure item_icon/html_tag" />
                                     <a href="#" tal:attributes="href m/getURL">
                                         <span tal:replace="m/pretty_title_or_id"/>
                                     </a><br />
@@ -238,7 +269,7 @@
                                 </span>
                             </tal:rep>
                         </p>
-                        <a href="../fpProjects" class="seeAll">See all...</a>
+                        <a href="../latest-projects" class="seeAll">See all...</a>
                     </tal:defs>
                     <h2 class="content-tab">New Institutions</h2>
                     <tal:defs define="n institutions/queryCatalog">
