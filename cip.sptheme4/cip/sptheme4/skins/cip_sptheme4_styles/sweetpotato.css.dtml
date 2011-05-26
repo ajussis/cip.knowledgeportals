@@ -40,6 +40,16 @@ padding:4px;
 color:white !important;
 }
 
+
+
+dl.portletNavigationTree span.toggleNode {
+    background-image: url("twistie-closed.gif");
+}
+
+dl.portletNavigationTree span.expandedNode {
+    background-image: url("twistie-open.gif");
+}
+
 /*---------- GENERAL STYLE ----------*/
 body {
   background-color:#eee;

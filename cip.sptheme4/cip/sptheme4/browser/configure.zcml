@@ -120,11 +120,11 @@
       />
 
 <!-- Customize the navigation portlet -->
-       <plone:portletRenderer
+       <!--plone:portletRenderer
        portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"
        layer=".interfaces.IThemeSpecific"
        class=".navigation.MyNavRenderer"
-       />
+       /-->
 
     <browser:viewlet
         name="plone.belowcontenttitle.documentbyline"
