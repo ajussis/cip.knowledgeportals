@@ -20,6 +20,7 @@
 
             <div class="lineBreak"></div>
 
+
             <div tal:condition="python: (not isAnon) and (not canEdit)"
                  style="margin-bottom:10px; background-color:#EEDBEF; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; padding:0 10px 5px;">
                 <h1>Thank you for registering! </h1>
@@ -51,13 +52,12 @@
                             <p class="frontP" tal:repeat="m n">
                                 <tal:rep define="pType m/portal_type;
                                                  author m/Creator;
-                                                 item_icon python:plone_view.getIcon(m);
                                                  url m/getURL">
-                                    <img tal:replace="structure item_icon/html_tag" />
                                     <a href="#" tal:attributes="href url" tal:condition="python:pType != 'File'">
                                         <span tal:replace="m/pretty_title_or_id"/>
                                     </a>
                                     <tal:jes condition="python:pType == 'File'" define="fileUrl python:url + '/view'">
+
                                         <a href="#" tal:attributes="href fileUrl">
                                            <span tal:replace="m/pretty_title_or_id"/>
                                         </a><br />
@@ -97,11 +97,16 @@
                             <p class="frontP" tal:repeat="m n">
                                 <tal:rep define="pType m/portal_type;
                                                  author m/Creator;
-                                                 item_icon python:plone_view.getIcon(m);">
-                                    <img tal:replace="structure item_icon/html_tag" />
-                                    <a href="#" tal:attributes="href m/getURL">
+                                                 url m/getURL">
+                                    <a href="#" tal:attributes="href url" tal:condition="python:pType != 'File'">
                                         <span tal:replace="m/pretty_title_or_id"/>
-                                    </a><br />
+                                    </a>
+                                    <tal:jes condition="python:pType == 'File'" define="fileUrl python:url + '/view'">
+
+                                        <a href="#" tal:attributes="href fileUrl">
+                                           <span tal:replace="m/pretty_title_or_id"/>
+                                        </a><br />
+                                    </tal:jes>
                                     <span class="frontDate">
                                         <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
                                         <span class="frontDate2" tal:content="pType" />
@@ -137,11 +142,16 @@
                             <p class="frontP" tal:repeat="m n">
                                 <tal:rep define="pType m/portal_type;
                                                  author m/Creator;
-                                                 item_icon python:plone_view.getIcon(m);">
-                                    <img tal:replace="structure item_icon/html_tag" />
-                                    <a href="#" tal:attributes="href m/getURL">
+                                                 url m/getURL">
+                                    <a href="#" tal:attributes="href url" tal:condition="python:pType != 'File'">
                                         <span tal:replace="m/pretty_title_or_id"/>
-                                    </a><br />
+                                    </a>
+                                    <tal:jes condition="python:pType == 'File'" define="fileUrl python:url + '/view'">
+
+                                        <a href="#" tal:attributes="href fileUrl">
+                                           <span tal:replace="m/pretty_title_or_id"/>
+                                        </a><br />
+                                    </tal:jes>
                                     <span class="frontDate">
                                         <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
                                         <span class="frontDate2" tal:content="pType" />
@@ -177,11 +187,16 @@
                             <p class="frontP" tal:repeat="m n">
                                 <tal:rep define="pType m/portal_type;
                                                  author m/Creator;
-                                                 item_icon python:plone_view.getIcon(m);">
-                                    <img tal:replace="structure item_icon/html_tag" />
-                                    <a href="#" tal:attributes="href m/getURL">
+                                                 url m/getURL">
+                                    <a href="#" tal:attributes="href url" tal:condition="python:pType != 'File'">
                                         <span tal:replace="m/pretty_title_or_id"/>
-                                    </a><br />
+                                    </a>
+                                    <tal:jes condition="python:pType == 'File'" define="fileUrl python:url + '/view'">
+
+                                        <a href="#" tal:attributes="href fileUrl">
+                                           <span tal:replace="m/pretty_title_or_id"/>
+                                        </a><br />
+                                    </tal:jes>
                                     <span class="frontDate">
                                         <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
                                         <span class="frontDate2" tal:content="pType" />
@@ -217,11 +232,16 @@
                             <p class="frontP" tal:repeat="m n">
                                 <tal:rep define="pType m/portal_type;
                                                  author m/Creator;
-                                                 item_icon python:plone_view.getIcon(m);">
-                                    <img tal:replace="structure item_icon/html_tag" />
-                                    <a href="#" tal:attributes="href m/getURL">
+                                                 url m/getURL">
+                                    <a href="#" tal:attributes="href url" tal:condition="python:pType != 'File'">
                                         <span tal:replace="m/pretty_title_or_id"/>
-                                    </a><br />
+                                    </a>
+                                    <tal:jes condition="python:pType == 'File'" define="fileUrl python:url + '/view'">
+
+                                        <a href="#" tal:attributes="href fileUrl">
+                                           <span tal:replace="m/pretty_title_or_id"/>
+                                        </a><br />
+                                    </tal:jes>
                                     <span class="frontDate">
                                         <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
                                         <span class="frontDate2" tal:content="pType" />

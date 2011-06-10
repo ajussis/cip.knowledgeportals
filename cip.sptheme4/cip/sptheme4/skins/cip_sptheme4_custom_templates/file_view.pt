@@ -36,6 +36,7 @@
                         </h2>
                     </div>
                     <div tal:define="ssubject python:here.getField('pubsubject').getAccessor(context)();
+                                     pubdate python:here.getField('pubdate').getAccessor(context)();
                                      pubcreators python:here.getField('pubcreators').getAccessor(context)();
                                      pubpublisher python:here.getField('pubpublisher').getAccessor(context)();
                                      pubcontributors python:here.getField('pubcontributors').getAccessor(context)();
@@ -46,7 +47,8 @@
                                      publanguage python:here.getField('publanguage').getAccessor(context)();
                                      pubrelation python:here.getField('pubrelation').getAccessor(context)();
                                      pubcoverage python:here.getField('pubcoverage').getAccessor(context)();
-                                     pubrights python:here.getField('pubrights').getAccessor(context)();">
+                                     pubrights python:here.getField('pubrights').getAccessor(context)();
+                                     toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
                         <div style="margin-left:35px; width:100%; float:left;">
 
                             <table align="center" class="plain" style="width:80%;">
@@ -63,6 +65,10 @@
                                 <tr tal:condition="ssubject">
                                     <td style="color:#5C1B77;">Subject</td>
                                     <td><tal:block replace="ssubject"/></td>
+                                </tr>
+                                <tr tal:condition="pubdate">
+                                    <td style="color:#5C1B77;">Publication date</td>
+                                    <td><span tal:content="python:toLocalizedTime(pubdate)"/></td>
                                 </tr>
                                 <tr tal:condition="pubpublisher">
                                     <td style="color:#5C1B77;">Publisher</td>

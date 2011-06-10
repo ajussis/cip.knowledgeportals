@@ -27,4 +27,13 @@
  <javascript cacheable="True" compression="none" cookable="True"
       enabled="True" expression="" id="gettingStarted.js" inline="False"/>
 
+
+ <!--javascript cacheable="True"
+         compression="safe"
+         cookable="True"
+         enabled="True"
+         id="sptheme-navigationtoggle.js"
+         insert-after="++resource++collective.navigationtoggle.js"
+         inline="False" /-->
+
 </object>

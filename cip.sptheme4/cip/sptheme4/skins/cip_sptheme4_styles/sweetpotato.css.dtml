@@ -193,15 +193,23 @@ margin:48px 0 76px !important;
 position:inherit;
 text-align:left;
 }
-
-#portal-personaltools-wrapper  {
-background-color:transparent;
-float:right;
-height:20px;
-margin:0;
-padding:0;
-position:relative;
-width:90px;
+div.pane-container ul {
+    list-style-type: disc;
+    margin-left: 0 !important;
+}
+#portal-personaltools-wrapper {
+    background-color: transparent;
+    float: right;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 154px;
+}
+.loginClass {
+border-right: 1px solid white;
+padding-right: 10px;
+margin-right: 10px !important;
 }
 #portal-personaltools {
 background:none repeat scroll 0 0 #6D3080;
@@ -324,18 +332,34 @@ display:list-item;
 line-height:1.5em;
 margin-bottom:0.1em;
 }*/
-#content li, dl.portlet li {
+dl.portlet li {
 display:block;
 line-height:1.5em;
 margin-bottom:0.1em;
 margin-right:2px;
 }
+#content li {
+    display: list-item;
+    line-height: 1.5em;
+    margin-bottom: 0.1em;
+    margin-left: 1em;
+}
+#content ul li {
+    list-style:disc outside none;
+}
+#content ol li {
+    list-style:decimal outside none;
+}
+#content ul.tabs li {
+    list-style-type: none;
+    margin-left: 1em;
+}
 .wysiwygTab-link-0 {
 color:#DB214C !important;
 }
 #content ul {
-list-style-type:disc;
-margin-left:0;
+    list-style-type: disc;
+    margin-left: 2em;
 }
 element.style  {
 display:block;
@@ -1214,19 +1238,29 @@ width:350px;
 border-bottom:1px solid #581A74;
 }
 
-.projectLi {
-color: white;
-font-size:11px;
-padding:4px;
-background: #75AD0A;
-float:left;
-margin-right:5px !important;
--webkit-border-radius:0.2em;
--moz-border-radius-topright:0.2em;
--moz-border-radius-topleft:0.2em;
--moz-border-radius-bottomleft:0.2em;
--moz-border-radius-bottomright:0.2em;
+#content a:hover, dl.portlet a:hover {
+    border-bottom: medium none !important;
+    color: #581A74 !important;
+    background-color:yellow;
 }
+.projectLi {
+    background: none repeat scroll 0 0 #75AD0A;
+    margin-right:5px !important;
+    -webkit-border-radius:0.2em;
+    -moz-border-radius-topright:0.2em;
+    -moz-border-radius-topleft:0.2em;
+    -moz-border-radius-bottomleft:0.2em;
+    -moz-border-radius-bottomright:0.2em;
+    color: white;
+    float: left;
+    font-size: 11px;
+    list-style: none outside none !important;
+    margin-left: 0 !important;
+    margin-right: 5px !important;
+    padding: 4px;
+}
+
+
 .projectLi2 {
 color: white;
 font-size:12px;
