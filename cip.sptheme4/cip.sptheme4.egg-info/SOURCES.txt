@@ -57,6 +57,7 @@ cip/sptheme4/browser/templates/project.pt
 cip/sptheme4/browser/templates/project.py
 cip/sptheme4/browser/templates/site_actions.pt
 cip/sptheme4/browser/templates/subgallery.pt
+cip/sptheme4/browser/templates/test
 cip/sptheme4/browser/templates/upload.pt
 cip/sptheme4/browser/templates/resources/FlexPaperViewer.swf
 cip/sptheme4/browser/templates/resources/swfobject.js
@@ -89,6 +90,7 @@ cip/sptheme4/skins/cip_sptheme4_custom_images/ceja-pink.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/comment.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/config.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/current.png
+cip/sptheme4/skins/cip_sptheme4_custom_images/dummy.gif
 cip/sptheme4/skins/cip_sptheme4_custom_images/empty.png
 cip/sptheme4/skins/cip_sptheme4_custom_images/favicon.ico
 cip/sptheme4/skins/cip_sptheme4_custom_images/file2.png
@@ -147,9 +149,11 @@ cip/sptheme4/skins/cip_sptheme4_custom_templates/folder_listing_projectmain.pt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/folder_listing_projectmain.pt.metadata
 cip/sptheme4/skins/cip_sptheme4_custom_templates/getMemberById.py
 cip/sptheme4/skins/cip_sptheme4_custom_templates/getMemberById.py.metadata
+cip/sptheme4/skins/cip_sptheme4_custom_templates/gettingStarted.js
 cip/sptheme4/skins/cip_sptheme4_custom_templates/main_template.pt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/prefs_main_template.pt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/prefs_main_template.pt.metadata
+cip/sptheme4/skins/cip_sptheme4_custom_templates/sptheme-navigationtoggle.js
 cip/sptheme4/skins/cip_sptheme4_custom_templates/testing.pt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/userandgroupselect.pt
 cip/sptheme4/skins/cip_sptheme4_styles/.sweetpotato.css.dtml.swp
@@ -157,6 +161,7 @@ cip/sptheme4/skins/cip_sptheme4_styles/CONTENT.txt
 cip/sptheme4/skins/cip_sptheme4_styles/IEFixes.css.dtml
 cip/sptheme4/skins/cip_sptheme4_styles/base_properties.props
 cip/sptheme4/skins/cip_sptheme4_styles/columns.css.dtml
+cip/sptheme4/skins/cip_sptheme4_styles/dialog.css.dtml
 cip/sptheme4/skins/cip_sptheme4_styles/sweetpotato.css.dtml
 docs/HISTORY.txt
 docs/INSTALL.txt

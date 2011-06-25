@@ -11,14 +11,11 @@
             <h1 tal:content="context/Title" />
             <img src="userconfig.png" width="100" style="float:left;" />
             <p style="margin: 7px 20px; float:left; width:75%; " tal:content="context/Description"/>
-
             <div style="clear:both;"></div>
-
-
-            <div style="margin:10px 0 0 20px; width:50%; float:left;" tal:define="users view/activemembers;
-                                                                                  users2 view/activemembersByName;
-                                                                                  
-                                                                                  membership context/portal_membership;">
+            <div style="margin:10px 0 0 20px; width:50%; float:left;"
+                 tal:define="users view/activemembers;
+                             users2 view/activemembersByName;
+                             membership context/portal_membership;">
                 <div>
                     <h2 class="content-tab">Sort by content</h2>
                     <table style="width:100%;">

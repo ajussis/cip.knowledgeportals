@@ -112,16 +112,25 @@
                                         <tal:defs define="item_url item/getURL|item/absolute_url;
                                                           item_url2 python:item_url + '/view';
                                                           item_title_or_id item/pretty_title_or_id;
-                                                          author item/Creator;
+                                                          creator item/Creator;
                                                           item_modified item/ModificationDate;
-                                                          item_icon python:plone_view.getIcon(item);">
+                                                          item_icon python:plone_view.getIcon(item);
+                                                          mtool context/portal_membership;
+                                                          author python:mtool.getMemberInfo(creator)">
                                             <img tal:replace="structure item_icon/html_tag" />
                                             <a href="#" tal:attributes="href item_url2"
                                                tal:content="item_title_or_id">
                                                 <tal:block replace="item_title_or_id" />
                                             </a><a style="margin-left:10px;" href="#" tal:attributes="href item_url"><img src="arrowDown.gif"/></a><br />
                                             <span style="font-size:11px; margin-left:20px; margin-right:10px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
-                                            | <span style="font-size:11px; margin-left:10px;" tal:content="author" />
+                                            | 
+                                            <tal:name tal:condition="item/Creator">
+                                                <a style="font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+                                                            tal:content="python:author and author['fullname'] or creator"
+                                                            tal:omit-tag="not:author">
+                                                    Bob Dobalina
+                                                </a>
+                                            </tal:name>
                                         </tal:defs>
                                     </div>
                                     <div class="visualClear"></div>
@@ -142,7 +151,18 @@
                                                 style="font-size:13px; font-weight:bold;"
                                                 tal:content="sub_title"
                                                 tal:attributes="href sub_url" /><br />
-                                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
+                                            <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
+                                            |
+                                            <tal:name tal:condition="obj/Creator"
+                                                      tal:define="mtool context/portal_membership;
+                                                                  creator obj/Creator;
+                                                                  author python:mtool.getMemberInfo(creator);">
+                                                <a style="font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+                                                            tal:content="python:author and author['fullname'] or creator"
+                                                            tal:omit-tag="not:author">
+                                                    Bob Dobalina
+                                                </a>
+                                            </tal:name>
                                         </p>
                                     </tal:defs2>
                                 </tal:subcontents>
@@ -162,7 +182,18 @@
                                                 style="font-size:13px; font-weight:bold;"
                                                 tal:content="sub_title"
                                                 tal:attributes="href sub_url" /><br />
-                                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
+                                            <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
+                                            |
+                                            <tal:name tal:condition="obj/Creator"
+                                                      tal:define="mtool context/portal_membership;
+                                                                  creator obj/Creator;
+                                                                  author python:mtool.getMemberInfo(creator);">
+                                                <a style="font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+                                                            tal:content="python:author and author['fullname'] or creator"
+                                                            tal:omit-tag="not:author">
+                                                    Bob Dobalina
+                                                </a>
+                                            </tal:name>
                                         </p>
                                     </tal:defs2>
                                 </tal:subcontents>
@@ -186,8 +217,18 @@
                                                 style="font-size:13px; font-weight:bold;"
                                                 tal:content="sub_title"
                                                 tal:attributes="href sub_url" /><br />
-                                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
-                                            <!--p tal:content="sub_desc" /-->
+                                            <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
+                                            |
+                                            <tal:name tal:condition="obj/Creator"
+                                                      tal:define="mtool context/portal_membership;
+                                                                  creator obj/Creator;
+                                                                  author python:mtool.getMemberInfo(creator);">
+                                                <a style="font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+                                                            tal:content="python:author and author['fullname'] or creator"
+                                                            tal:omit-tag="not:author">
+                                                    Bob Dobalina
+                                                </a>
+                                            </tal:name>
                                         </p>
                                     </tal:defs2>
                                 </tal:subcontents>
@@ -211,6 +252,17 @@
                                             tal:content="sub_title"
                                             tal:attributes="href sub_url" /><br />
                                             <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
+                                            |
+                                            <tal:name tal:condition="obj/Creator"
+                                                      tal:define="mtool context/portal_membership;
+                                                                  creator obj/Creator;
+                                                                  author python:mtool.getMemberInfo(creator);">
+                                                <a style="font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+                                                            tal:content="python:author and author['fullname'] or creator"
+                                                            tal:omit-tag="not:author">
+                                                    Bob Dobalina
+                                                </a>
+                                            </tal:name>
                                         <p tal:content="sub_desc" />
                                     </tal:defs2>
                                     <div class="visualClear"></div>
@@ -239,7 +291,17 @@
                                                 <tal:block replace="item_title_or_id" />
                                             </a><a style="margin-left:10px;" href="#" tal:attributes="href item_url"><img src="arrowDown.gif"/></a><br />
                                             <span style="font-size:11px; margin-left:20px; margin-right:10px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
-                                            | <span style="font-size:11px; margin-left:10px;" tal:content="author" />
+                                            |
+                                            <tal:name tal:condition="obj/Creator"
+                                                      tal:define="mtool context/portal_membership;
+                                                                  creator obj/Creator;
+                                                                  author python:mtool.getMemberInfo(creator);">
+                                                <a style="font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+                                                            tal:content="python:author and author['fullname'] or creator"
+                                                            tal:omit-tag="not:author">
+                                                    Bob Dobalina
+                                                </a>
+                                            </tal:name>
                                         </tal:defs>
                                     </div>
                                     <div class="visualClear"></div>
@@ -260,7 +322,19 @@
                                                 style="font-size:13px; font-weight:bold;"
                                                 tal:content="sub_title"
                                                 tal:attributes="href sub_url" /><br />
-                                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
+                                            <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
+                                            |
+                                            <tal:name tal:condition="obj/Creator"
+                                                      tal:define="mtool context/portal_membership;
+                                                                  creator obj/Creator;
+                                                                  author python:mtool.getMemberInfo(creator);">
+                                                <a style="font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+                                                            tal:content="python:author and author['fullname'] or creator"
+                                                            tal:omit-tag="not:author">
+                                                    Bob Dobalina
+                                                </a>
+                                            </tal:name>
+
                                         </p>
                                     </tal:defs2>
                                 </tal:subcontents>
@@ -280,7 +354,18 @@
                                                 style="font-size:13px; font-weight:bold;"
                                                 tal:content="sub_title"
                                                 tal:attributes="href sub_url" /><br />
-                                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
+                                            <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
+                                            |
+                                            <tal:name tal:condition="obj/Creator"
+                                                      tal:define="mtool context/portal_membership;
+                                                                  creator obj/Creator;
+                                                                  author python:mtool.getMemberInfo(creator);">
+                                                <a style="font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+                                                            tal:content="python:author and author['fullname'] or creator"
+                                                            tal:omit-tag="not:author">
+                                                    Bob Dobalina
+                                                </a>
+                                            </tal:name>
                                         </p>
                                     </tal:defs2>
                                 </tal:subcontents>
@@ -304,8 +389,18 @@
                                                 style="font-size:13px; font-weight:bold;"
                                                 tal:content="sub_title"
                                                 tal:attributes="href sub_url" /><br />
-                                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
-                                            <!--p tal:content="sub_desc" /-->
+                                            <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
+                                            |
+                                            <tal:name tal:condition="obj/Creator"
+                                                      tal:define="mtool context/portal_membership;
+                                                                  creator obj/Creator;
+                                                                  author python:mtool.getMemberInfo(creator);">
+                                                <a style="font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+                                                            tal:content="python:author and author['fullname'] or creator"
+                                                            tal:omit-tag="not:author">
+                                                    Bob Dobalina
+                                                </a>
+                                            </tal:name>
                                         </p>
                                     </tal:defs2>
                                 </tal:subcontents>
@@ -480,7 +575,16 @@
                                                     <span class="frontDateProject">
                                                         <span class="frontDate2" tal:content="python:toLocalizedTime(obj.Date)" />
                                                         <span class="frontDate2" tal:content="sub_type" />
-                                                        <span class="frontDate3" tal:content="author" />
+                                                        <tal:name tal:condition="obj/Creator"
+                                                                  tal:define="mtool context/portal_membership;
+                                                                              creator obj/Creator;
+                                                                              author python:mtool.getMemberInfo(creator);">
+                                                            <a style="margin-left:5px; font-style:normal; font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+                                                                        tal:content="python:author and author['fullname'] or creator"
+                                                                        tal:omit-tag="not:author">
+                                                                Bob Dobalina
+                                                            </a>
+                                                        </tal:name>
                                                     </span>
                                                     <div class="visualClear"></div>
                                                 </tal:defs2>

@@ -65,7 +65,16 @@
                                     <span class="frontDate">
                                         <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
                                         <span class="frontDate2" tal:content="pType" />
-                                        <span class="frontDate3" tal:content="author" />
+                                        |
+                                        <tal:name tal:condition="m/Creator;
+                                                                 mtool context/portal_membership;
+                                                                 author python:mtool.getMemberInfo(creator)">
+                                            <a style="font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+                                                        tal:content="python:author and author['fullname'] or creator"
+                                                        tal:omit-tag="not:author">
+                                                Bob Dobalina
+                                            </a>
+                                        </tal:name>
                                     </span>
                                 </tal:rep>
                             </p>
@@ -110,7 +119,6 @@
                                     <span class="frontDate">
                                         <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
                                         <span class="frontDate2" tal:content="pType" />
-                                        <span class="frontDate3" tal:content="author" />
                                     </span>
                                 </tal:rep>
                             </p>
