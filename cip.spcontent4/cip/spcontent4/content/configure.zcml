@@ -45,6 +45,7 @@
 
   <include package="archetypes.schemaextender" />
   <adapter factory=".extender.FileExtender" />
+  <adapter factory=".extender.LinkExtender" />
 
 
 </configure>

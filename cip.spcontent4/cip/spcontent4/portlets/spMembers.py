@@ -42,58 +42,40 @@ class Renderer(base.Renderer):
 
     def __init__(self, *args):
         base.Renderer.__init__(self, *args)
-
         context = aq_inner(self.context)
         portal_state = getMultiAdapter((context, self.request), name=u'plone_portal_state')
         self.anonymous = portal_state.anonymous()
         self.navigation_root_url = portal_state.navigation_root_url()
         self.typesToShow = portal_state.friendly_types()
         self.navigation_root_path = portal_state.navigation_root_path()
-
         plone_tools = getMultiAdapter((context, self.request), name=u'plone_tools')
         self.catalog = plone_tools.catalog()
 
-    @ram.cache(_render_cachekey)
-    def render(self):
-        return xhtml_compress(self._template())
+#    @ram.cache(_render_cachekey)
+#    def render(self):
+#        return xhtml_compress(self._template())
 
     @property
     def available(self):
         return not self.anonymous and len(self._data())
     
     def mostactivemembers(self):
-        """
-        """
         buffer = ""
         contentAll = []
-        # Returns list of site usernames
-        #users = self.context.acl_users.getUserNames()
         contentlenght = []
         users = self.context.acl_users.getUserIds()
-
-#        for userId in users:
-#            author_content = len(self.context.author_find_content(userId))
-#            pImg = self.context.portal_membership.getPersonalPortrait(userId).tag()
-#            kk = pImg.find('" alt')
-#            returnImg = pImg[10:kk]
-#            contentAll.append([userId,author_content, returnImg])
-#            print contentAll"""
-
         userLoad = []
         contentAll = []
         for userId in users:
             author_content = len(self.context.author_find_content(userId)) - 1
             userLoad.append([userId, author_content])
-#        import ipdb; ipdb.set_trace()
-
         usersSorted = sorted(userLoad, key=lambda user: user[1], reverse=True)
+        print userLoad
+
         usersAll = []
         usersAll = usersSorted[:3]
         acl_users = getToolByName(self.context, 'acl_users')
-
         for userId in usersAll:
-#            userid = acl_users.getUserById(userId)
-#            member_name = userid.getProperty('fullname')
             userName = userId[0]
             pImg = self.context.portal_membership.getPersonalPortrait(userName).tag()
             kk = pImg.find('" alt')
@@ -101,18 +83,6 @@ class Renderer(base.Renderer):
             contentAll.append([userId[0],userId[1], returnImg])
 #        import pdb
 #        pdb.set_trace()
-#        creator = self.context.Creator()
-        return contentAll
-
-        # alternative: get user objects
-        #users = context.acl_users.getUsers()
-
-        #mt = getToolByName(self.context, 'portal_membership')
-        #if mt.isAnonymousUser(): # the user has not logged in
-        #    return "ei oo kuule"
-        #else:
-        #    member = mt.getAuthenticatedMember()
-        #    username = member.getUserName()
         return contentAll
 
     def recent_items(self):
@@ -121,7 +91,7 @@ class Renderer(base.Renderer):
     def recently_modified_link(self):
         return '%s/recently_modified' % self.navigation_root_url
 
-    @memoize
+#    @memoize
     def _data(self):
         context = aq_inner(self.context)
         limit = self.data.count

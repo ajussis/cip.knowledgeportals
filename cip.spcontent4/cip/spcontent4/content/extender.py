@@ -4,7 +4,7 @@ from archetypes.schemaextender.interfaces import ISchemaExtender
 from Products.Archetypes.public import StringWidget
 from Products.Archetypes.public import LinesWidget
 from Products.Archetypes.public import CalendarWidget
-from Products.ATContentTypes.interface import IATFile
+from Products.ATContentTypes.interface import IATFile, IATLink
 
 from Products.Archetypes.public import BooleanField
 from Products.Archetypes.public import StringField
@@ -20,6 +20,59 @@ class MyLinesField(ExtensionField, LinesField):
 
 class MyDateTimeField(ExtensionField, DateTimeField):
     """A trivial field."""
+
+class LinkExtender(object):
+    adapts(IATLink)
+    implements(ISchemaExtender)
+
+    fields = [
+        MyLinesField("pubcreators",
+            widget = LinesWidget(
+                label="Creators (one per line)")),
+        MyStringField("pubsubject",
+            widget = StringWidget(
+                label="Subject")),
+        MyStringField("pubpublisher",
+            widget = StringWidget(
+                label="Publisher name")),
+        MyLinesField("pubcontributors",
+            widget = LinesWidget(
+                label="Contributors (one per line)")),
+        MyDateTimeField("pubdate",
+            widget = CalendarWidget(
+                label="Publication date")),
+        MyStringField("pubtype",
+            widget = StringWidget(
+                label="Type")),
+        MyStringField("pubformat",
+            widget = StringWidget(
+                label="Format")),
+        MyStringField("pubidentifier",
+            widget = StringWidget(
+                label="Identifier")),
+        MyStringField("pubsource",
+            widget = StringWidget(
+                label="Source")),
+        MyStringField("publanguage",
+            widget = StringWidget(
+                label="Language")),
+        MyStringField("pubrelation",
+            widget = StringWidget(
+                label="Relation")),
+        MyStringField("pubcoverage",
+            widget = StringWidget(
+                label="Coverage")),
+        MyStringField("pubrights",
+            widget = StringWidget(
+                label="Rights")),
+        ]
+
+    def __init__(self, context):
+        self.context = context
+
+    def getFields(self):
+        return self.fields
+    
 
 class FileExtender(object):
     adapts(IATFile)
