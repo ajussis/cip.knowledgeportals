@@ -156,7 +156,6 @@ cip/sptheme4/skins/cip_sptheme4_custom_templates/prefs_main_template.pt.metadata
 cip/sptheme4/skins/cip_sptheme4_custom_templates/sptheme-navigationtoggle.js
 cip/sptheme4/skins/cip_sptheme4_custom_templates/testing.pt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/userandgroupselect.pt
-cip/sptheme4/skins/cip_sptheme4_styles/.sweetpotato.css.dtml.swp
 cip/sptheme4/skins/cip_sptheme4_styles/CONTENT.txt
 cip/sptheme4/skins/cip_sptheme4_styles/IEFixes.css.dtml
 cip/sptheme4/skins/cip_sptheme4_styles/base_properties.props
