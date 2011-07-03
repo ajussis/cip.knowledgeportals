@@ -1,17 +1,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      tal:omit-tag="">
-    <dl class="portlet portletRecent"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+    <dl class="portlet"
         i18n:domain="plone">
         <dt class="portletHeaderMember">
             <span class="portletTopLeft"></span>
-            <a class="memberPortletTitle" href="/Members"
-                i18n:translate="box_recent_changes">Most active members</a>
+            <a class="memberPortletTitle" href="allmembers"
+                i18n:translate="box_recent_changes">Members</a>
             <span class="portletTopRight"></span>
         </dt>
 
-        <tal:defineThis define="users view/mostactivemembers;
+        <!--tal:defineThis define="users view/mostactivemembers;
                                 membership context/portal_membership;
                                 url python:'/'.join(here.getPhysicalPath()) + '/allmembers';">
             <tal:block tal:repeat="user users">
@@ -34,11 +33,18 @@
             <p style="text-align:center; font-weight:bold; padding-top:10px;">
                 <a href="#" tal:attributes="href url">All members</a>
             </p>
-        </tal:defineThis>
+        </tal:defineThis-->
     <dd class="portletItem"
         tal:condition="not: view/recent_items"
         i18n:translate="box_recent_no_items">
         No items changed yet.
     </dd>
+<ul class="listTypeCircle">
+<li><a href="allmembers"><b>Find</b></a> the sweetpotato professionals</li>
+<li><a href="allmembers"><b>Know</b></a> who are the most active members</li>
+<li><a href="allmembers"><b>Learn</b></a> how to be a member</li>
+</ul>
+<p style="text-align: right; margin:10px;"><a href="http://sweetpotatoknowledge.org/allmembers">Click for more »</a></p>
+
 </dl>
 </html>
