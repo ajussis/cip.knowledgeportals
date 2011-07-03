@@ -50,13 +50,13 @@ class IEnhancedUserDataSchema(IUserDataSchema):
     mobile = schema.TextLine(
         title=_(u'label_mobile', default=u'Mobile'),
         description=_(u'help_mobile',
-                      default=u"Fill in your mobile number."),
+                      default=u"Fill in your mobile number starting with + and country code."),
         required=False,
         )
     officen = schema.TextLine(
         title=_(u'label_officen', default=u'Office number'),
         description=_(u'help_officen',
-                      default=u"Fill in your office number."),
+                      default=u"Fill in your office number starting with + and country code."),
         required=False,
         )
     skype = schema.TextLine(

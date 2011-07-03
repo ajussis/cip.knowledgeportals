@@ -1839,7 +1839,7 @@ def setupVarious(context):
         type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
         type_crit.setValue(['News Item'])
 
-    if 'galleries' not in existing:
+    if 'siteGalleries' not in existing:
         _createObjectByType('Topic', portal, id='siteGalleries', title='Latest Galleries',
                             description='Show the latest galleries')
         theCollection = portal.siteGalleries
@@ -1932,10 +1932,10 @@ def setupVarious(context):
     # Add additional setup code here
 #    deletePloneFolders(portal)
 #    disableDocument(portal)
-    out = StringIO()
-    createFolderStructure(portal)
-    setupPortlets(portal, out)
-    setupAddableTypes(portal)
-    setSecuritySettings(portal)
+#    out = StringIO()
+#    createFolderStructure(portal)
+#    setupPortlets(portal, out)
+#    setupAddableTypes(portal)
+#    setSecuritySettings(portal)
 #    createGroups(portal)
-    importPAS(portal)
+#    importPAS(portal)
