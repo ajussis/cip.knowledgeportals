@@ -12,9 +12,11 @@ def setupVarious(context):
 
     # Set frontpage template
 
-    portal_url = getToolByName(context, "portal_url")
-    portal = portal_url.getPortalObject()
-    
+    #import pdb; pdb.set_trace()
+    site = context.getSite()
+    fpage = getattr(site, 'front-page')
+    template = '@@frontpageView'
+    template = fpage.restrictedTraverse(str(template))
     
 
     # Add additional setup code here

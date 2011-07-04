@@ -35,9 +35,8 @@
   </order>
 
   <hidden manager="plone.portalheader" skinname="Potato Portal Theme">
-<!-- EXAMPLE (UNCOMMENT TO MAKE AVAILABLE):
-    <viewlet name="plone.global_sections" />
--->
+    <viewlet name="plone.colophon" />
+    <viewlet name="plone.site_actions" />
   </hidden>
 
 </object>

@@ -1,0 +1,48 @@
+<div metal:define-macro="portal_footer"
+     i18n:domain="plone"
+     class="row">
+    <div class="cell width-full position-0">
+
+        <div id="portal-footer">
+            <div class="portal-footer-column1">
+                <h2 class="footerTitle">Site use</h2>
+                <ul class="portal-footer-list">
+                    <li>
+                        <a href="sitemap">Sitemap</a>
+                    </li>
+                    <li tal:define="url python:'/'.join(here.getPhysicalPath()) + '/accessibility-info'">
+                        <a href="#" tal:attributes="href url">Accessability</a>
+                    </li>
+                    <li tal:define="url python:'/'.join(here.getPhysicalPath()) + '/contact-info'">
+                        <a href="#" tal:attributes="href url">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portal-footer-column">
+                <h2 class="footerTitle">Membership</h2>
+                <ul class="portal-footer-list">
+                    <li tal:define="dir python:'/'.join(here.getPhysicalPath())+'/about/membership-benefits'">
+                        <a href="#" tal:attributes="href dir">Membership Benefits</a>
+                    </li>
+                    <li>
+                        <a href="register">Become Member</a>
+                    </li>
+                    <li tal:define="allM python:'/'.join(here.getPhysicalPath())+'/register'">
+                       <a href="#" tal:attributes="href allM">All Members</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portal-footer-column">
+                <h2 class="footerTitle">Sweetpotato Basics</h2>
+                <ul class="portal-footer-list">
+                    <li tal:define="dir python:'/'.join(here.getPhysicalPath())+'/about/'">
+                        <a href="#" tal:attributes="href dir">What is sweetpotato?</a>
+                    </li>
+                    <li tal:define="dir python:'/'.join(here.getPhysicalPath())+'/about/'">
+                        <a href="#" tal:attributes="href dir">For what does sweetpotato serve?</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

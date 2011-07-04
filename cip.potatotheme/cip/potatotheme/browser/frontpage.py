@@ -12,3 +12,7 @@ class FrontpageView(BrowserView):
 
     def testing(self):
         import pdb; pdb.set_trace()
+        
+    def latestUpdates(self):
+        pubpath = (self.context.portal_url.getPortalPath()+'/germplasm/')
+        return self.context.portal_catalog.searchResults(sort_on="Date", sort_order="reverse")[:5]
