@@ -13,10 +13,10 @@ def setupVarious(context):
     # Set frontpage template
 
     #import pdb; pdb.set_trace()
-    site = context.getSite()
-    fpage = getattr(site, 'front-page')
-    template = '@@frontpageView'
-    template = fpage.restrictedTraverse(str(template))
+    #site = context.getSite()
+    #fpage = getattr(site, 'front-page')
+    #template = '@@frontpageView'
+    #template = fpage.restrictedTraverse(str(template))
     
 
     # Add additional setup code here
