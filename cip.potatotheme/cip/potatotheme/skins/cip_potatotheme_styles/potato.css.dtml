@@ -17,9 +17,8 @@ background-color:white !important;
 }
 
 .navTreeLevel1 .navTreeCurrentNode {
-margin-left:22px;
+    margin-left: 10px;
 }
-
 .wysiwygTab-selector {
 text-decoration:underline;
 }
@@ -211,14 +210,14 @@ padding-right: 10px;
 margin-right: 10px !important;
 }
 #portal-personaltools {
-background:none repeat scroll 0 0 #6D3080;
-border:0 none;
-bottom:2px;
-float:right;
-margin:0 10px;
-position:relative;
-text-align:right;
-z-index:54;
+    background: none repeat scroll 0 0 #DB640A;
+    border: 0 none;
+    bottom: 2px;
+    float: right;
+    margin: 0 10px;
+    position: relative;
+    text-align: right;
+    z-index: 54;
 }
 #portal-personaltools li {
   margin:0;
@@ -231,6 +230,7 @@ z-index:54;
   }
 #portal-personaltools li a:hover {
   text-decoration:underline;
+  background-color:transparent;
   }
 dl.actionMenu a, dl.actionMenu div {
 color:white;
@@ -238,14 +238,13 @@ display:block !important;
 white-space:nowrap;
 }
 #portal-personaltools dd {
-background-color:#6D3080;
-border:1px solid #551B68;
-min-width:90px !important;
-padding-bottom:0.5em;
-z-index:999;
-margin-top:4px;
+    background-color: #DB640A;
+    border: 1px solid #7D321F;
+    margin-top: 3px;
+    min-width: 90px !important;
+    padding-bottom: 0.5em;
+    z-index: 999;
 }
-
 /*---------- PORTAL BREAD CRUMBS ----------*/
 #portal-breadcrumbs {
 padding:3px 15px 0 0;
@@ -380,8 +379,8 @@ padding:0;
 }
 
 dl.portletNavigationTree .navTreeLevel1 .navTreeItem a.navTreeCurrentItem {
-  background: #6495b6;
-  padding-left:0px;
+    background: none repeat scroll 0 0 transparent;
+    padding-left: 0;
 }
 div.managePortletsLink, a.managePortletsFallback {
 -moz-border-radius:0 0 0 0;
@@ -682,6 +681,9 @@ margin-right:140px;
 dd.portletItem .navTreeItemInPath a {
   background-position:0 -201px;
   }
+#viewlet-above-content {
+margin-top:10px;
+}
 
 /* Second Level */
 .navTreeLevel1 {
@@ -701,8 +703,8 @@ dd.portletItem .navTreeLevel1 .navTreeItemInPath a {
 
 /* Third Level */
 .navTreeLevel2 {
-  margin:0 -10px 0 20px;
-  }
+    margin: 0 -10px 0 5px;
+}
 dd.portletItem .navTreeLevel2 .navTreeItem a {
 background-position:0 -594px;
 padding:0;
@@ -1181,7 +1183,7 @@ margin-bottom:0;
 padding:0;
 }
 .navTree {
-padding:5px;
+    padding: 4px 0 3px;
 }
 dl.portletNavigationTree .navTreeItem a {
 background-color:none;
@@ -1412,7 +1414,7 @@ width:400px;
 
 .areaupdates {
     float: left;
-    width: 480px;
+    width: 440px;
 }
 .areaupdates-box {
 background-color:#fed201;
