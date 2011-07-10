@@ -1,0 +1,15 @@
+README.txt
+setup.cfg
+setup.py
+cip/__init__.py
+cip.potatopolicy.egg-info/PKG-INFO
+cip.potatopolicy.egg-info/SOURCES.txt
+cip.potatopolicy.egg-info/dependency_links.txt
+cip.potatopolicy.egg-info/entry_points.txt
+cip.potatopolicy.egg-info/namespace_packages.txt
+cip.potatopolicy.egg-info/not-zip-safe
+cip.potatopolicy.egg-info/paster_plugins.txt
+cip.potatopolicy.egg-info/requires.txt
+cip.potatopolicy.egg-info/top_level.txt
+cip/potatopolicy/__init__.py
+cip/potatopolicy/tests.py
