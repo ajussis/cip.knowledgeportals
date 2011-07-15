@@ -1,6 +1,56 @@
 /* <dtml-with base_properties> (do not remove this :) */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
+
+/* ---------------- DISCUSSION ----------------- */
+
+.discussion-line {
+float:left;
+width:280px;
+}
+.discussion-line2 {
+float:left;
+width:300px;
+}
+.discussion-line img {
+float:left;
+margin:5px;
+}
+.discussion-line2 img {
+float:left;
+margin:5px;
+}
+.discussion-item-block {
+    float: left;
+    padding: 0 5px 0 5px;
+    width: 200px;
+}
+
+.discussion-comments {
+float:right; 
+margin:10px;
+}
+
+.discussion-odd {
+background-image:url("frontdiscbg.gif");
+}
+
+.discussion-item-owner {
+color:#7b6c65;
+}
+
+.discussion-box table {
+border:0;
+margin-bottom:0 !important;
+}
+
+.discussion-td {
+    width: 228px;
+}
+.discussion-td2 {
+    width: 215px;
+}
+
 .portlet-static-discussion-forum .portletHeader {
 -webkit-border-radius:0.5em;
 -moz-border-radius:0.5em 0.5em 0.5em 0.5em !important;
@@ -500,9 +550,10 @@ border-bottom:none !important;
   }
 
 #portal-column-two {
-background-image:url("navigationbg.gif");
+    background-color: transparent;
+    background-image: url("navigationbg.gif");
+    background-repeat: repeat-x;
 }
-
 
 .portletStaticText .portletHeader {
     -moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
@@ -670,11 +721,14 @@ padding-left:22px;
 font-size:10px !important;
 }
 
-#portal-languageselector  {
-background:none repeat scroll 0 0 #6D3080 !important;
-margin-right:140px;
+#portal-languageselector {
+    background: none repeat scroll 0 0 transparent !important;
+    float: left;
+    margin-left: 11px;
 }
-
+#portal-languageselector li :hover {
+margin-bottom:1px;
+}
 /*dd.portletItem .navTreeItem a:visited {
   color:#000;
   }*/
@@ -1142,7 +1196,7 @@ padding-right:8px;
 }
 
 .frontP {
-margin-bottom:0 !important;
+margin-bottom:5px !important;
 }
 
 
@@ -1409,22 +1463,25 @@ margin-bottom:15px;
 }
 
 .areaupdates p {
-width:400px;
+width:390px;
 }
 
 .areaupdates {
     float: left;
     width: 440px;
+    margin-bottom:20px;
 }
 .areaupdates-box {
-background-color:#fed201;
--moz-border-radius:10px;
-float:left;
-padding:10px;
+    background-color: #FED201;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 6px 6px 8px grey;
+    float: left;
+    padding: 10px;
+	margin-top:15px;
 }
-
 .discussion {
     float: left;
+    width: 280px;
 }
 .discussion-title {
 color:#8EAE1D;
@@ -1439,6 +1496,17 @@ color:#8EAE1D;
     margin-bottom: 4px;
     padding-left: 21px;
 }
+
+.gallery {
+width:400px;
+float:left;
+}
+
+.active-users {
+width:325px;
+float:left;
+}
+
 
 
 div.fpUpdates div.pane-container ul.tabs li.current {

@@ -33,9 +33,12 @@
                 <div class="areaupdates-box">
                     <tal:defs define="n view/latestUpdates">
                         <p class="frontP" tal:repeat="m n">
-                            <tal:rep define="pType m/portal_type;
+                            <tal:rep define="section python:m[1];
+                            				 m python:m[0];
+                            				 pType m/portal_type;
                                              author m/Creator;
-                                             url m/getURL">
+                                             url m/getURL;
+                                             ">
 			                    <!--div style="width:120px; margin-right:20px; float:left;">
 			                        <img src="icon_germp.gif" style="margin:15px 10px 30px 0;" />
 			                    </div-->
@@ -46,20 +49,21 @@
                                     <a href="#" tal:attributes="href fileUrl">
                                        <span tal:replace="m/pretty_title_or_id"/>
                                     </a><br />
-                                </tal:jes><br />
+                                </tal:jes>
                                 <span class="areaupdates-moreinfo">
-                                	<span class="areaupdates-area">Germlasm</span>
+                                	<span class="areaupdates-area" tal:content="section"></span>
                                     <span class="areaupdates-type" tal:content="pType" />
                                     <span class="areaupdates-date" tal:content="python:toLocalizedTime(m.Date)" />                                        
-                                    <!--tal:name tal:condition="m/Creator;
+									|
+                                    <tal:name tal:condition="m/Creator;
                                                              mtool context/portal_membership;
-                                                             author python:mtool.getMemberInfo(creator)">
+                                                             author python:mtool.getMemberInfo(creator) | python:''">
                                         <a style="font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
                                                     tal:content="python:author and author['fullname'] or creator"
                                                     tal:omit-tag="not:author">
                                             Bob Dobalina
                                         </a>
-                                    </tal:name-->
+                                    </tal:name>
                                 </span>
                             </tal:rep>
                         </p>
@@ -70,42 +74,89 @@
             <div class="discussion">
 	            <h2 class="front-h2-titles"><img src="arrow_grey_right.png" />Discussion</h2>
                 <div class="discussion-box">
-					<h3 class="discussion-title">Forum & Topics</h3>
-                    <tal:defs define="n view/latestUpdates">
-                        <p class="frontP" tal:repeat="m n">
-                            <tal:rep define="pType m/portal_type;
-                                             author m/Creator;
-                                             url m/getURL">
-			                    <!--div style="width:120px; margin-right:20px; float:left;">
-			                        <img src="icon_germp.gif" style="margin:15px 10px 30px 0;" />
-			                    </div-->
-                                <a href="#" tal:attributes="href url" tal:condition="python:pType != 'File'">
-                                    <span tal:replace="m/pretty_title_or_id"/>
-                                </a>
-                                <tal:jes condition="python:pType == 'File'" define="fileUrl python:url + '/view'">
-                                    <a href="#" tal:attributes="href fileUrl">
-                                       <span tal:replace="m/pretty_title_or_id"/>
-                                    </a><br />
-                                </tal:jes><br />
-                                <span class="areaupdates-moreinfo">
-                                	<span class="areaupdates-area">Germlasm</span>
-                                    <span class="areaupdates-type" tal:content="pType" />
-                                    <span class="areaupdates-date" tal:content="python:toLocalizedTime(m.Date)" />                                        
-                                    <!--tal:name tal:condition="m/Creator;
-                                                             mtool context/portal_membership;
-                                                             author python:mtool.getMemberInfo(creator)">
-                                        <a style="font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
-                                                    tal:content="python:author and author['fullname'] or creator"
-                                                    tal:omit-tag="not:author">
-                                            Bob Dobalina
-                                        </a>
-                                    </tal:name-->
-                                </span>
-                            </tal:rep>
-                        </p>
+					<table>
+						<tr>
+							<td class="discussion-td">
+								<h3 class="discussion-title">Forum & Topics</h3>
+							</td>
+							<td>
+								<h3 class="discussion-title">Replies</h3>								
+							</td>
+						</tr>
+					</table>
+                    <tal:defs define="n view/latestDiscussion">
+                    	<tal:repdisc tal:repeat="m n">
+	                        <div class="discussion-line" tal:define="oddrow repeat/m/odd;"
+  	                        	 tal:attributes="class python:oddrow and 'discussion-line' or 'discussion-line discussion-odd'">
+	                            <tal:rep define="title python:m[0];
+	                                             fullname python:m[1];
+	                                             img python:m[2];
+	                                             comments python:m[3];
+	                                             url python:m[4];">
+									<img src="#" tal:attributes="src img" width="30" />
+									<div class="discussion-item-block">
+					                    <a href="#" tal:attributes="href url">
+					                   		<span class="discussion-item-title" tal:content="title" />
+					                   	</a>
+					                   	<br />
+					                    <span class="discussion-item-owner" tal:content="fullname" />
+	 								</div>
+	 								<div class="discussion-comments">
+	 									<span tal:replace="comments" />
+	 								</div>
+	                            </tal:rep>
+	                        </div>
+		                </tal:repdisc>
                     </tal:defs>
                 </div>
             </div>
+
+			<div class="gallery">
+	            <h2 class="front-h2-titles"><img src="arrow_grey_right.png" />Galleries</h2>
+
+				
+			</div>
+
+			<div class="active-users">
+	            <h2 class="front-h2-titles"><img src="arrow_grey_right.png" />Active users</h2>
+				<table>
+					<tr>
+						<td class="discussion-td2">
+							<h3 class="discussion-title">Most active users</h3>
+						</td>
+						<td>
+							<h3 class="discussion-title">Last 30d / total</h3>
+						</td>
+					</tr>
+				</table>
+				
+				<tal:defs define="n view/activeUsers">
+                	<tal:repdisc tal:repeat="m n">
+                        <div class="active-users" tal:define="oddrow repeat/m/odd;"
+                        	 tal:attributes="class python:oddrow and 'discussion-line2' or 'discussion-line2 discussion-odd'">
+                            <tal:rep define="itemsmonth python:m[0];
+                                             itemsall python:m[1];
+                                             fullname python:m[2];
+                                             img python:m[3];
+                                             url python:m[4];
+                                             institution python:m[5];">
+								<img src="#" tal:attributes="src img" width="30" />
+								<div class="discussion-item-block">
+				                    <a href="#" tal:attributes="href url">
+				                   		<span class="discussion-item-title" tal:content="fullname" />
+				                   	</a>
+				                   	<br />
+				                    <span class="discussion-item-owner" tal:content="institution" />
+ 								</div>
+ 								<div class="discussion-comments">
+ 									<span tal:replace="itemsmonth" /> /
+ 									<span tal:replace="itemsall" />
+ 								</div>
+                            </tal:rep>
+                        </div>
+	                </tal:repdisc>
+                </tal:defs>
+			</div>
 
             <!--div class="projects">
                 <div class="fpUpdates" tal:define="projects python: getattr(context, 'fpProjects');
