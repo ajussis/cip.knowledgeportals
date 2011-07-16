@@ -1,0 +1,256 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="tecnoteca.googlemap">
+<body>
+
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+
+<div metal:fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+                    tal:define="kssClassesView context/@@kss_field_decorator_view;
+                                getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+								contentFilterCategories python:{'portal_type':'TTGoogleMapCategory', 'review_state':'published'};
+								catcontainers python:context.getFolderContents(contentFilter={'portal_type':'TTGoogleMapCategoryContainer', 'review_state':'published'});
+								polylines python:context.getFolderContents({'portal_type':'TTGoogleMapPolyline', 'review_state':'published'});
+								polygons python:context.getFolderContents({'portal_type':'TTGoogleMapPolygon', 'review_state':'published'});
+                                categories python:context.getFolderContents(contentFilter=contentFilterCategories);
+								config context/@@ttgooglemap_config">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading" style="font-size:2em;">
+            <metal:field use-macro="python:here.widget('title', mode='view')">
+            Title
+            </metal:field>
+        </h1>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <img src="institution.png" style="float:left; margin-right:5px; width:70px;" />
+        <p class="documentDescription" style="margin-bottom:30px; margin-right:20px;">
+            <metal:field use-macro="python:here.widget('description', mode='view')">
+            Description
+            </metal:field>
+        </p>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+
+        <tal:foldercontents define="contentFilter contentFilter|request/contentFilter|nothing;
+                            limit_display limit_display|request/limit_display|nothing;
+                            more_url more_url|request/more_url|string:folder_contents;
+                            is_a_topic python:context.portal_type=='Topic';
+                            folderContents python:here.portal_type=='Topic' and here.queryCatalog(contentFilter, batch=True) or here.getFolderContents(contentFilter, batch=True, b_size=limit_display or 100);
+                            folderContents python:folderContents or is_a_topic and context.queryCatalog(batch=True, **contentFilter) or context.getFolderContents(contentFilter, batch=True, b_size=limit_display or 100);
+                            use_view_action site_properties/typesUseViewActionInListings|python:();
+                            over_limit python: limit_display and len(folderContents) > limit_display;
+                            folderContents python: (over_limit and folderContents[:limit_display]) or folderContents;
+                            batch folderContents;
+                            top_id python:here.getId;">
+            <tal:listing condition="folderContents">
+                <tal:block tal:repeat="item folderContents">
+                    <div tal:define="item_url item/getURL|item/absolute_url;
+                                           item_id item/getId|item/id;
+                                           item_title_or_id item/pretty_title_or_id;
+                                           item_description item/Description;
+                                           item_type item/portal_type;
+                                           item_type_title item/Type;
+                                           item_modified item/ModificationDate;
+                                           item_created item/CreationDate;
+                                           item_creator item/Creator;
+                                           item_start item/start/ISO|item/StartDate|nothing;
+                                           item_end item/end/ISO|item/EndDate|nothing;
+                                           item_object item/getObject;">
+                        <div tal:condition="python:item_id != 'institution-maps'">
+                            <a href="#" tal:attributes="href item_url">
+                                <h1 tal:content="item_title_or_id"
+                                    tal:condition="python:item_type != 'Image'"
+                                    style="border-bottom:2px solid #581A74">
+                                </h1>
+                            </a>
+                            <ul style="text-align:right; margin-top:-38px; float:right; list-style:none outside none;"
+                                tal:define="path python:'/'.join(here.getPhysicalPath()) + '/' + item_id;
+                                            cFolder python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + 'createObject?type_name=Institution';">
+                                <li class="projectLi"><a href="#" tal:attributes="href cFolder">Add an institution</a></li>
+                            </ul>
+                            <div class="tileItem visualIEFloatFix vevent">
+                                <a href="" tal:attributes="href item/getURL">
+                                    <img style="float:left; padding:0px 50px 0 40px; width:100px;" src="institution.png"
+                                         tal:condition="python:item_type=='Folder' and item_id != 'news' or item_type=='Project Folder' or item_type=='Projects Holder'" />
+                                </a>
+                            </div>
+                            <div style="width:730px; margin-right:10px; float:left; padding-bottom:10px;"
+                                 tal:define="limit_display python:8;
+                                             more_url more_url|request/more_url|string:folder_contents;
+                                             folderContents3 python:here.portal_type=='Topic' and here.queryCatalog(contentFilter = {'sort_on' : 'Date', 'sort_order' : 'reverse' }, batch=True) or item_object.getFolderContents(contentFilter = {'sort_on' : 'Date', 'sort_order' : 'reverse' }, batch=True, b_size=limit_display or 100);
+                                             use_view_action site_properties/typesUseViewActionInListings|python:();
+                                             over_limit python: limit_display and len(folderContents3) > limit_display;
+                                             folderContents3 python: (over_limit and folderContents3[:limit_display]) or folderContents3;">
+                                <div tal:repeat="obj folderContents3" style="margin:10px 0 0 15px; border-left:4px solid #DB214C;">
+                                    <tal:defs2 define="sub_obj obj/getObject;
+                                                           sub_title obj/pretty_title_or_id;
+                                                           sub_desc obj/Description;
+                                                           sub_url obj/getURL|obj/absolute_url;
+                                                           sub_type obj/portal_type;
+                                                           item_type item/portal_type;
+                                                           item_url obj/getURL|item/absolute_url;
+                                                           sub_id obj/getId|item/id;
+                                                           item_icon python:plone_view.getIcon(obj);
+                                                           path python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + sub_id;
+                                                           brains python:context.portal_catalog(path={'query' : path, 'depth' : 3});
+                                                           brains2 python:len(brains);">
+                                        <tal:conds condition="python:item_type=='Institutions Holder'">
+                                            <div style="width:410px; float:left; margin-right:10px;" tal:define="img python:sub_url +'/image';
+                                                                                                                 test_img sub_obj/getImage;">
+                                                <!--img src="empty.png" style="float:left;" height="30" tal:condition="python:len(test_img) == 0"/-->
+                                                <img src="#" tal:condition="python:len(test_img) != 0" tal:attributes="src img" style="float:left;"/>
+                                                <a href="#"
+                                                    style="font-size:15px; float:left; font-weight:bold; margin-left:20px;"
+                                                    tal:content="sub_title"
+                                                    tal:attributes="href sub_url" />
+                                                <!--p tal:content="sub_desc" style="padding-left:10px;" /-->
+                                                <!--a href="#" tal:attributes="href sub_url" style="float:right;">
+                                                    Read more...
+                                                </a-->
+                                            </div>
+                                            <div style="width:250px; float:left;" tal:define="hq sub_obj/getCity; country sub_obj/getCountry; web sub_obj/getWebsite;">
+                                                <span tal:condition="hq" class="color:grey;"><b>Hearquarters:</b> <tal:hq replace="hq" /> <tal:hq replace="country" /></span>
+                                                <!--span tal:condition="web" class="color:grey;"><b>Website:</b> <tal:hq replace="web" /></span-->
+                                            </div>
+                                            <div class="visualClear"></div>
+                                        </tal:conds>
+                                    </tal:defs2>
+                                </div>
+                            </div>
+                            <p style="text-align:right; margin-right:30px;"><a href="#" tal:attributes="href item_url">View all...</a></p>
+                        </div>
+                        <div class="visualClear"></div>
+                    </div>
+                </tal:block>
+                <div metal:use-macro="here/batch_macros/macros/navigation" />
+            </tal:listing>
+            <metal:empty metal:define-slot="no_items_in_listing">
+                <p class="discreet"
+                   tal:condition="not: folderContents"
+                   i18n:translate="description_no_items_in_folder">
+                    There are currently no items in this folder.
+                </p>
+            </metal:empty>
+        </tal:foldercontents>
+
+
+		<!-- Top text -->
+		<div tal:replace="structure python:context.getText()"></div>
+
+        <h1>Institutions on map</h1>
+
+        <tal:defs tal:define="cInt python:'/'.join(here.getPhysicalPath()) + '/institution-maps/international-research-map-markers/' + 'createObject?type_name=TTGoogleMapMarker';
+                              cNat python:'/'.join(here.getPhysicalPath()) + '/institution-maps/national-research-map-markers/' + 'createObject?type_name=TTGoogleMapMarker';
+                              cOrg python:'/'.join(here.getPhysicalPath()) + '/institution-maps/ong-research-map-markers/' + 'createObject?type_name=TTGoogleMapMarker';
+                              cPri python:'/'.join(here.getPhysicalPath()) + '/institution-maps/private-research-map-markers/' + 'createObject?type_name=TTGoogleMapMarker';">
+            <div style="float:right; margin-top:-40px;" tal:condition="python: user.getUserName() != 'Anonymous User'">
+                <p style="float:left; margin-right:7px; margin-top:3px;">Add an institution to the map:</p>
+                <ul style="float:left; list-style:none outside none;">
+                    <li class="projectLi"><a href="#" tal:attributes="href cInt">International</a></li>
+                    <li class="projectLi"><a href="#" tal:attributes="href cNat">National</a></li>
+                    <li class="projectLi"><a href="#" tal:attributes="href cOrg">OGN</a></li>
+                    <li class="projectLi"><a href="#" tal:attributes="href cPri">Private Sector</a></li>
+                </ul>
+            </div>
+        </tal:defs>
+
+		<!-- Map HTML  -->
+		<div class="TTMapContainer">
+			<div class="TTMapColLeft">
+				<div id="map" class="TTMap" tal:attributes="style python:'width:'+str(context.getMapWidth())+'px;; height:'+str(context.getMapHeight())+'px;;'"></div>
+			</div>
+			<div class="TTMapColRight" tal:attributes="style string:margin-left:${here/getMapWidth}px;">
+
+				<tal:if tal:condition="python:len(polygons)>0">
+					<div class="TTMapCollapsiblePanel">
+					  <div class="TTMapCollapsiblePanelTab">
+					  	<div class="TTMapPanelLabel" i18n:translate="Frontend Polygons">Areas</div>
+						<div class="TTMapPanelOpenClose" tal:attributes="style python:context.getOpenBoxes() and 'display:none' or ''; " i18n:translate="Open panel">Open panel</div>
+						<div class="TTMapPanelOpenClose" tal:attributes="style python:not context.getOpenBoxes() and 'display:none' or ''; " i18n:translate="Close panel">Close panel</div>
+					  </div>
+					  <div class="TTMapCollapsiblePanelContent">
+						<div metal:use-macro="here/TTGoogleMapMacro/macros/Polygons"></div>
+					  </div>
+					</div>
+					<br/>
+				</tal:if>
+
+				<tal:if tal:condition="python:len(polylines)>0">
+					<div class="TTMapCollapsiblePanel">
+					  <div class="TTMapCollapsiblePanelTab">
+					  	<div class="TTMapPanelLabel" i18n:translate="Frontend Polylines">Paths</div>
+						<div class="TTMapPanelOpenClose" tal:attributes="style python:context.getOpenBoxes() and 'display:none' or ''; " i18n:translate="Open panel">Open panel</div>
+						<div class="TTMapPanelOpenClose" tal:attributes="style python:not context.getOpenBoxes() and 'display:none' or ''; " i18n:translate="Close panel">Close panel</div>
+					  </div>
+					  <div class="TTMapCollapsiblePanelContent">
+						<div metal:use-macro="here/TTGoogleMapMacro/macros/Polylines"></div>
+					  </div>
+					</div>
+					<br/>
+				</tal:if>
+
+				<tal:if tal:condition="python: (len(categories)>0) or (len(catcontainers)>0)">
+					<div class="TTMapCollapsiblePanel">
+					  <div class="TTMapCollapsiblePanelTab">
+					  	<div class="TTMapPanelLabel" i18n:translate="Frontend Categories">Categories</div>
+						<div class="TTMapPanelOpenClose" tal:attributes="style python:context.getOpenBoxes() and 'display:none' or ''; " i18n:translate="Open panel">Open panel</div>
+						<div class="TTMapPanelOpenClose" tal:attributes="style python:not context.getOpenBoxes() and 'display:none' or ''; " i18n:translate="Close panel">Close panel</div>
+					  </div>
+					  <div class="TTMapCollapsiblePanelContent" tal:attributes="style python:'max-height:'+str(context.getCatBoxHeight())+'px;; overflow:auto;;'">
+						<div metal:use-macro="here/TTGoogleMapMacro/macros/Categories"></div>
+						<div metal:use-macro="here/TTGoogleMapMacro/macros/MacroCategories"></div>
+					  </div>
+					</div>
+					<br/>
+				</tal:if>
+
+				<tal:if tal:condition="python: (len(categories)>0) or (len(catcontainers)>0)">
+					<div class="TTMapCollapsiblePanel">
+					  <div class="TTMapCollapsiblePanelTab">
+					  	<div class="TTMapPanelLabel" i18n:translate="Frontend Markers">Markers</div>
+						<div class="TTMapPanelOpenClose" tal:attributes="style python:context.getOpenBoxes() and 'display:none' or ''; " i18n:translate="Open panel">Open panel</div>
+						<div class="TTMapPanelOpenClose" tal:attributes="style python:not context.getOpenBoxes() and 'display:none' or ''; " i18n:translate="Close panel">Close panel</div>
+					  </div>
+					  <div class="TTMapCollapsiblePanelContent" tal:attributes="style python:'max-height:'+str(context.getMarkerBoxHeight())+'px;; overflow:auto;;'">
+						<div id="side_bar"></div>
+					  </div>
+					</div>
+				</tal:if>
+
+			</div>
+			<div class="visualClear"></div>
+		</div>
+
+		<noscript i18n:translate="Frontend NoJavascript">
+			JavaScript must be enabled in order for you to use Google Maps.However, it seems JavaScript is either disabled or not supported by your browser. To view Google Maps, enable JavaScript by changing your browser options, and then try again.
+	    </noscript>
+
+		<div metal:use-macro="here/TTGoogleMapMacro/macros/MapJS"></div>
+
+		<div tal:replace="structure python:here.TTGoogleMapMain(context,categories,contentFilterCategories,catcontainers,polylines,polygons)"></div>
+
+
+
+
+
+
+        <div metal:use-macro="here/document_relateditems/macros/relatedItems">
+            show related items if they exist
+        </div>
+
+		<div tal:replace="structure provider:plone.belowcontentbody" />
+
+    </tal:main-macro>
+</div>
+</body>
+</html>

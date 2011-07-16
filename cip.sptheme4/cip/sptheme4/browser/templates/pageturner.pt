@@ -1,0 +1,196 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<metal:js fill-slot="javascript_head_slot">
+  <script type="text/javascript" tal:attributes="src string:${context/absolute_url}/++resource++pageturner.resources/swfobject.js"></script>
+  <script type="text/javascript">
+  jq(document).ready(function(){
+		if(window.addEventListener)
+		window.addEventListener('DOMMouseScroll', handleWheel, false);
+		window.onmousewheel = document.onmousewheel = handleWheel;
+
+		if (window.attachEvent)
+		window.attachEvent("onmousewheel", handleWheel);
+
+		function handleWheel(event){
+			try{
+				if(!window.document.FlexPaperViewer.hasFocus()){return true;}
+				window.document.FlexPaperViewer.setViewerFocus(true);
+				window.document.FlexPaperViewer.focus();
+
+				if(navigator.appName == "Netscape"){
+					if (event.detail)
+						delta = 0;
+					if (event.preventDefault){
+						event.preventDefault();
+						event.returnValue = false;
+						}
+				}
+				return false;
+			}catch(err){return true;}
+		}
+	});
+	</script>
+
+  <script type="text/javascript" tal:content="structure view/javascript"></script>
+</metal:js>
+<metal:css fill-slot="style_slot">
+	  <style type="text/css" media="screen">
+	    #pageturner { display:none; }
+    </style>
+</metal:css>
+
+<body>
+
+<div metal:fill-slot="main" style="text-align:center;">
+    <tal:main-macro metal:define-macro="main"
+           tal:define="size python:here.getObjSize(here);
+                       content_type here/get_content_type|here/Format;
+                       kssClassesView context/@@kss_field_decorator_view;
+                       getKssClasses nocall:kssClassesView/getKssClassesInlineEditable">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading">
+            <metal:field use-macro="python:here.widget('title', mode='view')">
+            Title
+            </metal:field>
+        </h1>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription">
+            <metal:field use-macro="python:here.widget('description', mode='view')">
+            Description
+            </metal:field>
+        </p>
+
+        <div class="lineBreak"></div>
+        <div align="center">
+            <p style="background: #EC2453; font-weight: bold; width:100px; font-size:15px; color: white; padding:10px; -moz-border-radius: 0.4em 0.4em 0.4em 0.4em">
+                <a href="#" style="color:white">Download</a>
+            </p>
+        </div>
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+
+        <div id="pageturner" tal:condition="python: view.installed and view.is_pdf and view.settings.successfully_converted">
+          <p> To view this page ensure that Adobe Flash Player version 9.0.124 or greater is installed.</p>
+        </div>
+
+        <p>
+            <metal:field use-macro="python:here.widget('file', mode='view')">
+            File
+            </metal:field>
+        </p>
+
+        <div style="text-align:center;" tal:condition="python: content_type.startswith('text')">
+            <h2 i18n:translate="heading_file_contents">File contents</h2>
+            <pre tal:content="here/get_data|here/data|nothing">
+            </pre>
+        </div>
+
+                <div style="margin-top:20px; margin-right:10px; ">
+                    <div align="center">
+                        <h2 align="center" style="-webkit-border-radius:0.5em; background: #EC2453; font-weight: bold; text-align:center; font-size:15px; color: white; padding:3px; -moz-border-radius: 0.4em 0.4em 0.4em 0.4em">
+                            More Information
+                        </h2>
+                    </div>
+                    <div tal:define="ssubject python:here.getField('pubsubject').getAccessor(context)();
+                                     pubcreators python:here.getField('pubcreators').getAccessor(context)();
+                                     pubpublisher python:here.getField('pubpublisher').getAccessor(context)();
+                                     pubcontributors python:here.getField('pubcontributors').getAccessor(context)();
+                                     pubtype python:here.getField('pubtype').getAccessor(context)();
+                                     pubformat python:here.getField('pubformat').getAccessor(context)();
+                                     pubidentifier python:here.getField('pubidentifier').getAccessor(context)();
+                                     pubsource python:here.getField('pubsource').getAccessor(context)();
+                                     publanguage python:here.getField('publanguage').getAccessor(context)();
+                                     pubrelation python:here.getField('pubrelation').getAccessor(context)();
+                                     pubcoverage python:here.getField('pubcoverage').getAccessor(context)();
+                                     pubrights python:here.getField('pubrights').getAccessor(context)();">
+                        <div style="margin-left:35px; width:100%; float:left;">
+
+                            <table align="center" class="plain" style="width:80%;">
+                                <tr tal:condition="pubcreators">
+                                    <td style="color:#5C1B77;">Creators</td>
+                                    <td>
+                                        <ul style="list-style-type: disc; margin-left:15px;">
+                                            <li style="display:list-item;" tal:repeat="pubcreator pubcreators">
+                                                <tal:block replace="pubcreator" />
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr tal:condition="ssubject">
+                                    <td style="color:#5C1B77;">Subject</td>
+                                    <td><tal:block replace="ssubject"/></td>
+                                </tr>
+                                <tr tal:condition="pubpublisher">
+                                    <td style="color:#5C1B77;">Publisher</td>
+                                    <td><tal:block replace="pubpublisher"/></td>
+                                </tr>
+                                <tr tal:condition="pubcontributors">
+                                    <td style="color:#5C1B77;">Contributors</td>
+                                    <td>
+                                        <ul style="list-style-type: disc; margin-left:15px;">
+                                            <li style="display:list-item;" tal:repeat="pubcontributor pubcontributors">
+                                                <tal:block replace="pubcontributor" />
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr tal:condition="pubtype">
+                                    <td style="color:#5C1B77;">Type</td>
+                                    <td><tal:block replace="pubtype"/></td>
+                                </tr>
+                                <tr tal:condition="pubformat">
+                                    <td style="color:#5C1B77;">Format</td>
+                                    <td><tal:block replace="pubformat"/></td>
+                                </tr>
+                                <tr tal:condition="pubidentifier">
+                                    <td style="color:#5C1B77;">Identifier</td>
+                                    <td><tal:block replace="pubidentifier"/></td>
+                                </tr>
+                                <tr tal:condition="pubsource">
+                                    <td style="color:#5C1B77;">Source</td>
+                                    <td><tal:block replace="pubsource"/></td>
+                                </tr>
+                                <tr tal:condition="publanguage">
+                                    <td style="color:#5C1B77;">Language</td>
+                                    <td><tal:block replace="publanguage"/></td>
+                                </tr>
+                                <tr tal:condition="pubrelation">
+                                    <td style="color:#5C1B77;">Relation</td>
+                                    <td><tal:block replace="pubrelation"/></td>
+                                </tr>
+                                <tr tal:condition="pubcoverage">
+                                    <td style="color:#5C1B77;">Coverage</td>
+                                    <td><tal:block replace="pubcoverage"/></td>
+                                </tr>
+                                <tr tal:condition="pubrights">
+                                    <td style="color:#5C1B77;">Rights</td>
+                                    <td><tal:block replace="pubrights"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+        <div metal:use-macro="here/document_relateditems/macros/relatedItems">
+            show related items if they exist
+        </div>
+
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+    </tal:main-macro>
+</div>
+
+</body>
+
+</html>
