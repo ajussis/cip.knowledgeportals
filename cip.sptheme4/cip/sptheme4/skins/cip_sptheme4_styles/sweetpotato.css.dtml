@@ -50,6 +50,83 @@ dl.portletNavigationTree span.expandedNode {
     background-image: url("twistie-open.gif");
 }
 
+/* --------- FOR FADING_TABS.JS --------------- */
+
+.tabs2-hide {
+display:none; /* hide non-active tabs */
+}
+.tabs2-container {
+background:#fff; /* kills fadding in/out IE text bug */
+}
+#tabnav li {
+    border-bottom: 0.2em dotted #DDDDDD;
+    color: white;
+    list-style: none outside none !important;
+    margin-left: 0 !important;
+    padding: 8px 0;
+}
+
+#tabnav li a {
+	width:190px;
+	padding:10px 5px !important;
+}
+
+#tabnav {
+	position:relative;
+	z-index:10;
+}
+li.tabs2-selected {
+    width: 218px;
+    z-index: 999;
+    border-bottom:0 !important;
+}
+li.tabs2-selected a {
+    font-weight: bold;
+    padding-right: 40px;
+    width: 170px !important;
+}
+#tabnav li.tabs2-selected:hover {
+	background-color:transparent !important;
+}
+#tabnav li:hover {
+	background-color:#B72245;
+}
+#tabnav li a:hover {
+	background-color:transparent;
+	color:white !important;
+}
+.tabs2-selected {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("subpointer.gif");
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+}
+
+.tabs2-container {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 10px 10px 10px 10px;
+}
+.tabs2 {
+width:500px;
+float:left;
+}
+
+.tabnav_styles {
+margin-left:0 !important; -webkit-border-radius:0.5em;-moz-border-radius-topleft: 8px; -moz-border-radius-topright: 8px; -moz-border-radius-bottomleft:8px;
+-moz-border-radius-bottomright:8px; margin-right:10px; padding:10px; width:180px; float:left; background-color:#DB214C;
+}
+
+.tabnav_contents {
+float:left; z-index:1; position:relative; width:500px; margin-left:3px; background:none repeat scroll 0 0 #EEE8F4; padding:5px 10px 16px 10px;
+}
+.tabnav_contents {
+border-top:0px solid #DB214C; float:left; border-bottom:0; margin-bottom:2px;
+}
+
+
 /*---------- GENERAL STYLE ----------*/
 body {
   background-color:#eee;

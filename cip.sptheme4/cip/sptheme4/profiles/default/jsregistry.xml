@@ -27,6 +27,9 @@
  <javascript cacheable="True" compression="none" cookable="True"
       enabled="True" expression="" id="gettingStarted.js" inline="False"/>
 
+ <javascript cacheable="True" compression="none" cookable="True"
+      enabled="True" expression="" id="fading_tabs.js" inline="False"/>
+
 
  <!--javascript cacheable="True"
          compression="safe"
