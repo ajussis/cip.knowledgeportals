@@ -427,7 +427,7 @@
 	                                        </div-->
                                             <p tal:condition="python:len(folderContents3) != 0" style="margin-bottom:10px; margin-left:15px; color:grey;">
                                                 <i>
-                                                    Number of in parenthesis tells how many items are in the folder
+                                                    TIP: The number of items in the folder is shown in parenthesis.
                                                 </i>
                                             </p>
 	                                        <div tal:condition="folderContents3">
