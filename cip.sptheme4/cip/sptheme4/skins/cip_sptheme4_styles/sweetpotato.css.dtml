@@ -1448,6 +1448,7 @@ margin-bottom:0 !important;
 .discussion {
     float: left;
     width: 200px;
+	margin-top:10px;
 }
 .discussion-title {
 color:#8EAE1D;
@@ -1613,6 +1614,7 @@ z-index:2;
     margin-left: -10px;
     margin-right: 14px;
     width: 511px;
+    margin-top:10px;
 }
 .areaupdates p {
 width:265px;
