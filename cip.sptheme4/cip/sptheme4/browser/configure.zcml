@@ -27,12 +27,10 @@
   <browser:page
       for="*"
       name="frontpage"
-      template="templates/frontpage.pt"
+      class=".frontpage.FrontpageView"
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
-
-
 
   <!-- Zope 3 browser resources -->
 

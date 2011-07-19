@@ -272,7 +272,8 @@
                     <tal:listing condition="python: folderContents and is_a_topic">
                         <tal:block tal:repeat="item folderContents">
                             <div tal:define="item_url item/getURL|item/absolute_url;
-                                             item_id item/getId|item/id;"
+                                             item_id item/getId|item/id;
+                                             item_title_or_id item/pretty_title_or_id;"
                                  style="margin-left:1em;">
                                 <div>
                                     <a href="#" tal:attributes="href item_url">
