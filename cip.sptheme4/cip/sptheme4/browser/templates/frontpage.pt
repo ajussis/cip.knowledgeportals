@@ -312,7 +312,9 @@
             </div>
 
             <div class="discussion">
-	            <h2 class="front-h2-titles">Discussion</h2>
+            	<a href="discussion">
+		            <h2 class="front-h2-titles">Latest discussions</h2>
+		        </a>
                 <div class="discussion-box">
 					<table>
 						<tr>
@@ -426,8 +428,8 @@
 			</script>
 
             <div class="fpgalleries">
-                <div id="tabwrap" tal:define="galleries python:context.portal_catalog.searchResults(portal_type='Gallery Folder', sort_order='reverse', sort_on='Date')[:6]">
-                    <h2>Latest Photo Galleries</h2>
+                <div id="tabwrap" tal:define="galleries python:context.portal_catalog.searchResults(portal_type='Gallery Folder', sort_order='reverse', sort_on='Date')[:4]">
+                    <h2>Latest photo galleries</h2>
 
                     <tal:defs>
                         <tal:defs2 tal:repeat="m galleries">

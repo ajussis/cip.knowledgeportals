@@ -13,7 +13,7 @@ class FrontpageView(BrowserView):
 
 
     def latestDiscussion(self):
-        conversations = self.context.portal_catalog.searchResults(sort_on="Date", sort_order="Reverse", portal_type="PloneboardConversation")[:4]
+        conversations = self.context.portal_catalog.searchResults(sort_on="Date", sort_order="Reverse", portal_type="PloneboardConversation")[:3]
         infos = []
         for i in conversations: 
             cob = i.getObject()
@@ -25,6 +25,6 @@ class FrontpageView(BrowserView):
             try:
                 img = self.context.portal_membership.getPersonalPortrait(userId).absolute_url()
             except:
-                img = "generalPortrait.jpg"
+                img = "defaultUser.gif"
             infos.append([cob.title, fullname, img, cob.getNumberOfComments()-1, cob.absolute_url()])
         return infos

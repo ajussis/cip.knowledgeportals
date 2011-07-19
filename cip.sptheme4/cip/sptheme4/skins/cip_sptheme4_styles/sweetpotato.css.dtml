@@ -1398,8 +1398,8 @@ width:245px;
 /* ------------ DISCUSSION --------------- */
 
 .discussion-line {
-float:left;
-width:280px;
+    float: left;
+    width: 233px;
 }
 .discussion-line2 {
 float:left;
@@ -1416,7 +1416,7 @@ margin:5px;
 .discussion-item-block {
     float: left;
     padding: 0 5px;
-    width: 155px;
+    width: 152px;
 }
 .discussion-comments {
 float:right; 
