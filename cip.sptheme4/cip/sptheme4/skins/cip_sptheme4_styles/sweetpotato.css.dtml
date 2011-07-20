@@ -430,7 +430,6 @@ margin-right:2px;
 #content ul.tabs li {
     list-style-type: none;
     margin-left: 1em;
-    margin-top: 7px !important;
 }
 .wysiwygTab-link-0 {
 color:#DB214C !important;
@@ -442,14 +441,92 @@ color:#DB214C !important;
     background-repeat: no-repeat !important;
     padding-right: 22px !important;
 }
+#content .fpUpdates ul.tabs a:hover {
+    background-color: #EEE8F4;
+    border-bottom: medium none !important;
+    color: #581A74 !important;
+	-moz-border-radius:8px;
+	border:0;
+}
 
+#content ul.tabs a:hover {
+    background-color: #EEE8F4;
+    border: 1px solid gray;
+    border-radius: 8px 8px 0 0;
+    color: #581A74 !important;
+    padding-bottom: 2px;
+}
+#content ul.tabs a.current:hover {
+    background-color: #EEE8F4;
+    border: 0 none;
+    border-radius: 8px 8px 0 0;
+    color: #581A74 !important;
+    padding-bottom: 2px;
+    padding-top: 5px;
+}
+#content .fpUpdates ul.tabs li {
+    list-style-type: none;
+    margin-left: 1em;
+    padding-bottom: 4px;
+}
+#content .fpUpdates ul.tabs li:hover {
+    padding-bottom: 4px;
+}
+#content .fpUpdates ul.tabs a:hover {
+    background-color: #EEE8F4;
+    color: #581A74 !important;
+	padding-bottom:4px;
+}
+#content .fpUpdates ul.tabs a.current:hover {
+    background-color: #EEE8F4;
+    border: 0;
+    border-radius: 8px;
+    color: #581A74 !important;
+    padding-bottom: 4px;
+}
+.fpUpdates div.pane-container ul.tabs li.current {
+    background: none repeat scroll 0 0 #EEE8F4;
+    border-width: 0;
+}
+div.pane-container ul.tabs li.current {
+    background: none repeat scroll 0 0 #EEE8F4;
+    border: 1px solid grey;
+}
 #content ul {
     list-style-type: disc;
     margin-left: 2em;
 }
-element.style  {
-display:block;
+div.pane-container ul.tabs li.current a {
+    background-position: 100% -150px;
+    border-width: 0;
+    color: #333333;
+    padding-bottom: 2px;
 }
+div.pane-container ul.tabs li {
+    background: none repeat scroll 0 0 transparent;
+    border-radius: 8px 8px 0 0;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+.fpUpdates div.pane-container ul.tabs li {
+    float: left;
+    margin: 0;
+    padding: 0 0 0 9px;
+}
+
+.fpUpdates div.pane-container ul.tabs li:hover {
+    border-radius: 8px;
+}
+
+div.pane-container ul.tabs li:hover {
+	background:#EEE8F4;
+    border-radius: 8px 8px 0 0;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
 div.pane-container div.pane {
 background-color:#FFFFFF;
 border-color:-moz-use-text-color #999999 #999999;
@@ -973,7 +1050,7 @@ border-bottom:0 none;
 border-top:0 solid #F1F1F1;
 color:#EC2453;
 font-size:1.2em;
-font-weight:bold;
+font-weight:600;
 margin-top:0.25em;
 padding:2px 0 0;
 }
@@ -1280,9 +1357,9 @@ display:block;
 }
 
 .spIcon {
-float:left;
-padding: 5px 30px 10px 20px;
-width:100px;"
+    float: right;
+    padding: 5px 30px 10px 20px;
+    width: 100px;
 }
 
 .portal-footer-list {

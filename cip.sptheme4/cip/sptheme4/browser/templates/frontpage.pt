@@ -427,6 +427,14 @@
 			});
 			</script>
 
+			<script type="text/javascript">
+			$(document).ready(function() {
+				var rand = Math.floor(Math.random()*5);
+				$('.tabs a').eq(rand).click();
+			});
+			</script>
+
+
             <div class="fpgalleries">
                 <div id="tabwrap" tal:define="galleries python:context.portal_catalog.searchResults(portal_type='Gallery Folder', sort_order='reverse', sort_on='Date')[:4]">
                     <h2>Latest photo galleries</h2>

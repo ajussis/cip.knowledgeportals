@@ -63,7 +63,7 @@ class ActiveMember(BrowserView):
         for userId in users:
             author_content = self.get_author_content(userId)
             userLoad.append([userId, author_content])
-        import pdb; pdb.set_trace()
+        #import pdb; pdb.set_trace()
         usersSorted = sorted(userLoad, key=lambda user: user[0], reverse=True)
         acl_users = getToolByName(self.context, 'acl_users')
         for userId in usersSorted:
