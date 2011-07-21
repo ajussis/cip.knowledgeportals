@@ -1,0 +1,130 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+    <!--metal:header fill-slot="header">
+        <dl class="portalMessage info"
+            tal:define="redirect_links context/portal_properties/site_properties/redirect_links|nothing"
+            tal:condition="python: redirect_links and checkPermission('Modify portal content', context)">
+            <dt i18n:translate="">Info</dt>
+            <dd i18n:translate="message_permissions_blocking_link_redirect">
+              You see this page because you have permission to edit this link.
+              Others will be immediately redirected to the link's target URL.
+            </dd>
+        </dl>
+    </metal:header-->
+
+    <metal:content-core fill-slot="content-core">
+        <metal:block define-macro="content-core">
+        <h2>
+        	<span i18n:translate="link_address">The link address is:</span>
+       	</h2>
+
+        <p>
+            <a href="#" tal:attributes="href context/remote_url"
+                        tal:content="context/remote_url">remote url</a>
+        </p>
+
+        <div style="margin-top:20px; margin-right:10px; ">
+            <div align="center">
+                <h2 align="center" style="-webkit-border-radius:0.5em; background: #EC2453; font-weight: bold; text-align:center; font-size:15px; color: white; padding:3px; -moz-border-radius: 0.4em 0.4em 0.4em 0.4em">
+                    More Information
+                </h2>
+            </div>
+            <div tal:define="ssubject python:here.getField('pubsubject').getAccessor(context)();
+                             pubdate python:here.getField('pubdate').getAccessor(context)();
+                             pubcreators python:here.getField('pubcreators').getAccessor(context)();
+                             pubpublisher python:here.getField('pubpublisher').getAccessor(context)();
+                             pubcontributors python:here.getField('pubcontributors').getAccessor(context)();
+                             pubtype python:here.getField('pubtype').getAccessor(context)();
+                             pubformat python:here.getField('pubformat').getAccessor(context)();
+                             pubidentifier python:here.getField('pubidentifier').getAccessor(context)();
+                             pubsource python:here.getField('pubsource').getAccessor(context)();
+                             publanguage python:here.getField('publanguage').getAccessor(context)();
+                             pubrelation python:here.getField('pubrelation').getAccessor(context)();
+                             pubcoverage python:here.getField('pubcoverage').getAccessor(context)();
+                             pubrights python:here.getField('pubrights').getAccessor(context)();
+                             toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+                <div style="margin-left:35px; width:100%; float:left;">
+
+                    <table align="center" class="plain" style="width:80%;">
+                        <tr tal:condition="pubcreators">
+                            <td style="color:#5C1B77;">Creators</td>
+                            <td>
+                                <ul style="list-style-type: disc; margin-left:15px;">
+                                    <li style="display:list-item;" tal:repeat="pubcreator pubcreators">
+                                        <tal:block replace="pubcreator" />
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr tal:condition="ssubject">
+                            <td style="color:#5C1B77;">Subject</td>
+                            <td><tal:block replace="ssubject"/></td>
+                        </tr>
+                        <tr tal:condition="pubdate">
+                            <td style="color:#5C1B77;">Publication date</td>
+                            <td><span tal:content="python:toLocalizedTime(pubdate)"/></td>
+                        </tr>
+                        <tr tal:condition="pubpublisher">
+                            <td style="color:#5C1B77;">Publisher</td>
+                            <td><tal:block replace="pubpublisher"/></td>
+                        </tr>
+                        <tr tal:condition="pubcontributors">
+                            <td style="color:#5C1B77;">Contributors</td>
+                            <td>
+                                <ul style="list-style-type: disc; margin-left:15px;">
+                                    <li style="display:list-item;" tal:repeat="pubcontributor pubcontributors">
+                                        <tal:block replace="pubcontributor" />
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr tal:condition="pubtype">
+                            <td style="color:#5C1B77;">Type</td>
+                            <td><tal:block replace="pubtype"/></td>
+                        </tr>
+                        <tr tal:condition="pubformat">
+                            <td style="color:#5C1B77;">Format</td>
+                            <td><tal:block replace="pubformat"/></td>
+                        </tr>
+                        <tr tal:condition="pubidentifier">
+                            <td style="color:#5C1B77;">Identifier</td>
+                            <td><tal:block replace="pubidentifier"/></td>
+                        </tr>
+                        <tr tal:condition="pubsource">
+                            <td style="color:#5C1B77;">Source</td>
+                            <td><tal:block replace="pubsource"/></td>
+                        </tr>
+                        <tr tal:condition="publanguage">
+                            <td style="color:#5C1B77;">Language</td>
+                            <td><tal:block replace="publanguage"/></td>
+                        </tr>
+                        <tr tal:condition="pubrelation">
+                            <td style="color:#5C1B77;">Relation</td>
+                            <td><tal:block replace="pubrelation"/></td>
+                        </tr>
+                        <tr tal:condition="pubcoverage">
+                            <td style="color:#5C1B77;">Coverage</td>
+                            <td><tal:block replace="pubcoverage"/></td>
+                        </tr>
+                        <tr tal:condition="pubrights">
+                            <td style="color:#5C1B77;">Rights</td>
+                            <td><tal:block replace="pubrights"/></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        </metal:block>
+    </metal:content-core>
+
+</body>
+</html>
