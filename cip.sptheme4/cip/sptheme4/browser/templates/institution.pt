@@ -27,7 +27,7 @@
                 <p><span class="projectStart">Headquarters address:</span> <span tal:content="python:context.getHeadquarters()"></span></p>
                 <p><span class="projectStart">City:</span> <span tal:content="python:context.getCity()"></span></p>
                 <p><span class="projectStart">Country:</span> <span tal:content="python:context.getCountry()"></span></p>
-                <p tal:define="web python:context.getWebsite()"><span class="projectEnd">Website:</span> <a href="#" tal:attributes="href web"><span tal:content="web"></span></a></p>
+                <p tal:define="web python:context.getWebsite(); web python:'http://'+web"><span class="projectEnd">Website:</span> <a href="#" tal:attributes="href web"><span tal:content="web"></span></a></p>
                 <p><span class="projectEnd">Telephone:</span> <span tal:content="python:context.getNumber()"></span></p>
                 <div class="lineBreak"></div>
 

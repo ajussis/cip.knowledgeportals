@@ -294,7 +294,7 @@
                     <h1 style="border:0; margin-bottom:0; padding-bottom:0;">Subfolders under <span tal:replace="context/Title" /></h1>
                     <p style="margin-bottom:10px; margin-left:15px; color:grey;">
                         <i>
-                            On the right hand side you can find the folders under <span tal:replace="context/Title" />. 
+                            Folders under this section (<span tal:replace="context/Title" />) are listed below. 
                             Click on the folder name to see more information.
                         </i>
                     </p>
@@ -357,15 +357,18 @@
 	                                    </a>
 	                                    <div class="visualClear"></div>
 
-	                                    <tal:block define="limit_display python:10;
+	                                    <tal:block define="limit_display python:3;
 	                                                       path python:'/'.join(here.getPhysicalPath()) + '/' + item_id;
 	                                                       more_url more_url|request/more_url|string:folder_contents;
-	                                                       folderContents3 python:context.portal_catalog(path={'query': path, 'depth' : 1}, portal_type=('News Item', 'Event', 'File', 'Document'), sort_on='modified', sort_order='Reverse');
+	                                                       folderContents3 python:context.portal_catalog(path={'query': path, 'depth' : 1}, portal_type=('News Item', 'Event', 'File', 'Document', 'Window', 'Gallery Folder'), sort_on='modified', sort_order='Reverse');
 	                                                       use_view_action site_properties/typesUseViewActionInListings|python:();
 	                                                       over_limit python: limit_display and len(folderContents3) > limit_display;
 	                                                       folderContents3 python: (over_limit and folderContents3[:limit_display]) or folderContents3;
 	                                                       toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 	                                        <div tal:condition="folderContents3">
+							                    <p class="folderListingInfo">
+						                            Latest three updates on this folder:
+							                    </p>
 	                                            <tal:subcontents tal:repeat="obj folderContents3">
 	                                                <tal:defs2 tal:define="sub_obj obj/getObject;
 	                                                                       sub_title obj/pretty_title_or_id;
@@ -378,38 +381,39 @@
 	                                                                       sub_id obj/getId|item/id;
 	                                                                       author obj/Creator;
 	                                                                       item_icon python:plone_view.getIcon(obj);">
-	                                                    <img tal:replace="structure item_icon/html_tag" style="margin-right:4px; float:left;"/>
-	                                                    <a tal:condition="python:sub_type != 'File'" href="#"
-	                                                        style="font-size:13px; margin-left:4px;"
-	                                                        tal:content="sub_title"
-	                                                        tal:attributes="href sub_url" />
-	                                                    <tal:block condition="python:sub_type == 'File'">
-		                                                    <a href="#"
+	                                                    <div class="folderListingSubItem">
+		                                                    <img tal:replace="structure item_icon/html_tag" style="margin-right:4px; float:left;"/>
+		                                                    <a tal:condition="python:sub_type != 'File'" href="#"
 		                                                        style="font-size:13px; margin-left:4px;"
 		                                                        tal:content="sub_title"
-		                                                        tal:attributes="href sub_url_file" /> 
-				                                            <a style="margin-left:10px;" href="#" tal:attributes="href item_url">
-				                                            	<img alt="Download file directly" src="arrowDown.gif"/>
-				                                        	</a><br />
-				                                       	</tal:block>
-	                                                    <span class="frontDateProject">
-	                                                        <span class="frontDate2" tal:content="python:toLocalizedTime(obj.Date)" />
-	                                                        <span class="frontDate2" tal:content="sub_type" />
-	                                                        <tal:name tal:condition="obj/Creator"
-	                                                                  tal:define="mtool context/portal_membership;
-	                                                                              creator obj/Creator;
-	                                                                              author python:mtool.getMemberInfo(creator);">
-	                                                            <a style="margin-left:5px; font-style:normal; font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
-	                                                                        tal:content="python:author and author['fullname'] or creator"
-	                                                                        tal:omit-tag="not:author">
-	                                                                Bob Dobalina
-	                                                            </a>
-	                                                        </tal:name>
-	                                                    </span>
-	                                                    <div class="visualClear"></div>
+		                                                        tal:attributes="href sub_url" />
+		                                                    <tal:block condition="python:sub_type == 'File'">
+			                                                    <a href="#"
+			                                                        style="font-size:13px; margin-left:4px;"
+			                                                        tal:content="sub_title"
+			                                                        tal:attributes="href sub_url_file" /> 
+					                                            <a style="margin-left:10px;" href="#" tal:attributes="href item_url">
+					                                            	<img alt="Download file directly" src="arrowDown.gif"/>
+					                                        	</a>
+					                                       	</tal:block><br />
+		                                                    <span class="frontDateProject">
+		                                                        <span class="frontDate2" tal:content="python:toLocalizedTime(obj.Date)" />
+		                                                        <span class="frontDate2" tal:content="sub_type" />
+		                                                        <tal:name tal:condition="obj/Creator"
+		                                                                  tal:define="mtool context/portal_membership;
+		                                                                              creator obj/Creator;
+		                                                                              author python:mtool.getMemberInfo(creator);">
+		                                                            <a style="margin-left:5px; font-style:normal; font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+		                                                                        tal:content="python:author and author['fullname'] or creator"
+		                                                                        tal:omit-tag="not:author">
+		                                                                Bob Dobalina
+		                                                            </a>
+		                                                        </tal:name>
+		                                                    </span>
+		                                                </div>
 	                                                </tal:defs2>
 	                                            </tal:subcontents>
-	                                            <p style="text-align:right; font-size:12px; margin-right:10px; margin-bottom:-5px;">
+	                                            <p class="folderListingSeeall">
 	                                                <a href="#" tal:attributes="href item_url">See all...</a>
 	                                            </p>
 	                                        </div>
@@ -419,22 +423,24 @@
 	                                                         cFolder python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + 'createObject?type_name=Folder';
 	                                                         canEdit python:checkPermission('Modify portal content', here);">
 	                                        <div tal:condition="not: folderContents4">
-	                                            <p style="margin-bottom:20px; margin-left:15px; color:grey;">
-	                                                <i>
-	                                                    There are no files in this folder
-	                                                </i>
+	                                            <p class="folderListingInfo">
+                                                    There are no files in this folder
 	                                            </p>
 	                                        </div>
-	                                        <h2 tal:condition="python:len(folderContents3) != 0">Folders under <i><span tal:replace="item_title_or_id" /></i></h2>
+
+						                    <p tal:condition="python:len(folderContents3) == 0" class="folderListingInfo">
+					                            There are no folders under <span tal:replace="item_title_or_id" />.
+						                    </p>
+
+
+	                                        <h2 tal:condition="python:len(folderContents3) != 0">Folders under <span tal:replace="item_title_or_id" /></h2>
 	                                        <!--div style="float:right; margin-top:-4px; margin-right:-8px;" tal:condition="canEdit">
 	                                            <ul style="float:left; list-style:none outside none;">
 	                                                <li class="projectLi"><a href="#" tal:attributes="href cFolder">Add Folder</a></li>
 	                                            </ul>
 	                                        </div-->
-                                            <p tal:condition="python:len(folderContents3) != 0" style="margin-bottom:10px; margin-left:15px; color:grey;">
-                                                <i>
-                                                    TIP: The number of items in the folder is shown in parenthesis.
-                                                </i>
+                                            <p tal:condition="python:len(folderContents3) != 0" class="folderListingInfo">
+                                                TIP: The number of items in the folder is shown in parenthesis.
                                             </p>
 	                                        <div tal:condition="folderContents3">
 	                                            <tal:subcontents tal:repeat="obj folderContents3">
@@ -451,8 +457,7 @@
 	                                                                       brains python:context.portal_catalog(path={'query' : path, 'depth' : 3}, portal_type=['File', 'Document', 'News Item', 'Gallery Folder']);
 	                                                                       brains2 python:len(brains);">
 	                                                    <img tal:replace="structure item_icon/html_tag" style="margin-right:4px; float:left;"/>
-	                                                    <a href="#"
-	                                                        style="font-size:13px; font-weight:bold; margin-left:4px;"
+	                                                    <a href="#" class="folderListingFolderIcon"
 	                                                        tal:content="sub_title"
 	                                                        tal:attributes="href sub_url" />
 	                                                        <span tal:condition="python:sub_type != 'News Item'" style="color:grey;">

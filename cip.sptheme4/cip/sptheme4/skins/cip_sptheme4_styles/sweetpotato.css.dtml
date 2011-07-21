@@ -25,7 +25,28 @@ margin-left:22px;
 .wysiwygTab-selector {
 text-decoration:underline;
 }
-
+.folderListingInfo {
+    color: grey;
+    margin: 15px 0 20px 15px !important;
+}
+.folderListingSubItem {
+    border-bottom: 1px dotted grey;
+    clear: both;
+    float: left;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    width: 490px;
+}
+.folderListingSeeall {
+    clear: both;
+    float: right;
+    font-size: 14px;
+    margin-bottom: -5px;
+    margin-right: 26px;
+    margin-top: 20px;
+    text-align: right;
+    width: 475px;
+}
 .galleryUpload {
 -moz-border-radius:0.2em 0.2em 0.2em 0.2em;
 background:none repeat scroll 0 0 #75AD0A;
@@ -1285,13 +1306,18 @@ margin:0;
 text-transform:capitalize;
 }
 .frontDateProject {
-color:grey;
-font-size:0.7em;
-font-style:italic;
-margin:0 0 0 15px;
-text-transform:capitalize;
+    color: grey;
+    font-size: 0.8em;
+    margin: 0 0 0 15px;
+    text-transform: capitalize;
 }
 
+.folderListingFolderIcon {
+    background: url("contenttypes-sprite.png") no-repeat scroll 0 -650px transparent !important;
+    font-size: 13px;
+    font-weight: bold;
+    padding-left: 20px !important;
+}
 .frontNewsDate {
 color:grey;
 font-size:0.9em;
