@@ -19,7 +19,11 @@ background-color:white !important;
 }
 
 .navTreeLevel1 .navTreeCurrentNode {
-margin-left:22px;
+    margin-left: 0;
+}
+
+.navTreeLevel2 {
+    margin: 0 -10px 0 5px;
 }
 
 .wysiwygTab-selector {
@@ -878,9 +882,7 @@ dd.portletItem .navTreeLevel1 .navTreeItemInPath a {
   }
 
 /* Third Level */
-.navTreeLevel2 {
-  margin:0 -10px 0 20px;
-  }
+
 dd.portletItem .navTreeLevel2 .navTreeItem a {
 background-position:0 -594px;
 padding:0;
