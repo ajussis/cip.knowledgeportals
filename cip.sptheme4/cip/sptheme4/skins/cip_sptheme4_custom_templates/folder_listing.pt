@@ -60,7 +60,7 @@
                 <tal:checknews define="path python:'/'.join(here.getPhysicalPath());
                                        news python:context.portal_catalog(path={'query' : path, 'depth' : 3}, portal_type='News Item', contentFilter = {'sort_on' : 'modified', 'sort_order' : 'reverse' });
                                        news python:news[:1];
-                                       pages python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Document'], sort_on = 'sortable_title', sort_order = 'ascending');
+                                       pages python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Document', 'Window'], sort_on = 'sortable_title', sort_order = 'ascending');
                                        links python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Link'], sort_on = 'sortable_title', sort_order = 'ascending');
                                        docs python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['File'], sort_on = 'sortable_title', sort_order = 'ascending');
                                        galleries python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Gallery Folder'], sort_on = 'sortable_title', sort_order = 'ascending');">
@@ -145,14 +145,20 @@
                             <div style="margin-top:15px;">
                                 <tal:subcontents tal:repeat="obj pages">
                                     <tal:defs2 tal:define="sub_title obj/pretty_title_or_id;
+                                    					   sub_title_embed python:sub_title+' (Embedded site)';
+                                    					   sub_type obj/portal_type;
                                                            sub_url obj/getURL|obj/absolute_url;
                                                            sub_id obj/getId|item/id;
                                                            item_modified obj/ModificationDate;
                                                            creator obj/Creator;">
                                         <p style="margin-bottom:0;">
-                                            <a href="#"
+                                            <a href="#" tal:condition="python:sub_type != 'Window'"
                                                 style="font-size:13px; font-weight:bold;"
                                                 tal:content="sub_title"
+                                                tal:attributes="href sub_url" />
+                                            <a href="#"  tal:condition="python:sub_type == 'Window'"
+                                                style="font-size:13px; font-weight:bold;"
+                                                tal:content="sub_title_embed"
                                                 tal:attributes="href sub_url" /><br />
                                             <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_modified,long_format=0)" />
                                             |
