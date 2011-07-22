@@ -881,6 +881,41 @@ dd.portletItem .navTreeLevel1 .navTreeItemInPath a {
   background-position:0 -494px;
   }
 
+.member_row {
+background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; border-bottom:solid white 2px; padding:1px;
+}
+.memberList {
+    float: left;
+    margin: 10px 0 0 0;
+    width: 60%;
+}
+.memberList ul.tabs li {
+    list-style-type: none;
+    margin-left: 0 !important;
+    margin-right: 5px !important;
+}
+.members_mostactive {
+    float: left;
+    margin: 10px 0 0 15px;
+    width: 36%;
+}
+.member_column {
+padding-right:8px;
+}
+.member_column_institution {
+padding-right:8px; width:160px;
+}
+.memberList ul.tabs {
+    border-bottom: 1px solid #666666;
+    height: 27px;
+    list-style: none outside none;
+    margin-bottom: 0;
+    margin-left: 0 !important;
+    margin-right: 0;
+    margin-top: 0;
+    padding: 10px 0 0 !important;
+}
+
 /* Third Level */
 
 dd.portletItem .navTreeLevel2 .navTreeItem a {

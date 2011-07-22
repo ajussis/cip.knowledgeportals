@@ -137,7 +137,7 @@ class ActiveMember(BrowserView):
             Fetch all the content items except the folders
         """
         catalog = getToolByName(self.context, 'portal_catalog')
-        portal_types = ['Document','File','Image','News Item','Event','Link','Institution','b-org Project','Gallery Folder','Discussion Item']
+        portal_types = ['Document','File','Image','News Item','Event','Link','Institution','b-org Project','Gallery Folder','Discussion Item','Window']
         s = {}
         for n in portal_types:
             content_items = catalog.searchResults(portal_type = n)
@@ -176,3 +176,40 @@ class ActiveMember(BrowserView):
             mm[n] = v
             z = z + 1
         return mm
+
+
+    def allMembers(self):
+        """
+        The initial member list creation, sorted by first name
+        """
+        mems = self.context.portal_membership.listMembers()
+        mem_infos = []
+        for m1 in mems:
+            fn = m1.getProperty("firstname").capitalize()
+            ln = m1.getProperty("lastname").capitalize()
+            if fn == '':
+                fun = m1.getProperty("fullname")
+                fn = fun.split(" ")[0].capitalize()
+            if ln == '':
+                fun = m1.getProperty("fullname")
+                ln = fun.split(" ")[-1].capitalize()
+            mem_infos.append([fn, ln, m1.getProperty("institution"), m1.absolute_url(), self.get_author_content(m1.id), m1.getProperty("location")])
+        return sorted(mem_infos, key=lambda user: user[0], reverse=False)
+
+    def sortByContent(self, memberlist):
+        """
+        Getting the memberlist created in allMembers section. Then sort the list by content created.
+        """
+        return sorted(memberlist, key=lambda user: user[4], reverse=True)
+
+    def sortByLastname(self, memberlist):
+        """
+        Getting the memberlist created in allMembers section. Then sort the list by lastname.
+        """
+        return sorted(memberlist, key=lambda user: user[1], reverse=True)
+
+    def sortByInstitution(self, memberlist):
+        """
+        Getting the memberlist created in allMembers section. Then sort the list by institution.
+        """
+        return sorted(memberlist, key=lambda user: user[2], reverse=True)

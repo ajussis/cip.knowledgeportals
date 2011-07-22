@@ -498,7 +498,7 @@
             </div>
             <div class="comments">
                 <div tal:define="comments python: getattr(context, 'comments');">
-                    <h2>Comments</h2>
+                    <h2>Comments on content</h2>
                     <tal:defs define="n comments/queryCatalog">
                         <p class="frontP" tal:repeat="m n">
                             <tal:rep define="pType m/portal_type;

@@ -12,80 +12,150 @@
             <img src="userconfig.png" width="100" style="float:left;" />
             <p style="margin: 7px 20px; float:left; width:75%; " tal:content="context/Description"/>
             <div style="clear:both;"></div>
-            <div style="margin:10px 0 0 20px; width:50%; float:left;"
-                 tal:define="users view/activemembers;
-                             users2 view/activemembersByName;
-                             membership context/portal_membership;">
-                <div>
-                    <h2 class="content-tab">Sort by content</h2>
-                    <table style="width:100%;">
+            <div class="memberList" tal:define="membership context/portal_membership;">
+                <div tal:define="allMembers view/allMembers">
+		            <h2>Portal members</h2>
+		            <p>
+		                Find members categorized by the number of content items created, first name, last name, institution or the registration date to portal.
+		            </p>
+                    <h2 class="content-tab">Content</h2>
+                    <table style="width:100%;" tal:define="users python:view.sortByContent(allMembers)">
                         <div tal:repeat="user users">
-                            <tr style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; border-bottom:solid white 2px; padding:1px;">
-                                <tal:defineAgain define="userName python:user[0];
-                                                         userObjects python:user[1];
-                                                         info python:membership.getMemberInfo(userName);
-                                                         fullname info/fullname;
-                                                         location info/location;
-                                                         member python:here.getMemberById(userName);
-                                                         institution python:member.getProperty('institution');">
-                                    <!--img src="#" tal:attributes="src userImage" width="30" style="margin:15px 11px; float:left;" /-->
-                                    <td style="padding-right:8px;">
+                            <tr class="member_row">
+                                <tal:defineAgain define="firstName python:user[0];
+                                                         lastName python:user[1];
+														 institution python:user[2];
+                                						 userUrl python:user[3];
+                                                         userObjects python:user[4];
+                                                         location python:user[5];">
+                                    <td class="member_column">
                                         <span style="font-weight:normal; font-style:italic;">
                                             <tal:contentThis content="userObjects"/>
                                         </span>
                                     </td>
-                                    <td style="padding-right:8px;">
-                                        <span style="font-weight:bold; color:#581A74;" tal:define="url python:'/'.join(here.getPhysicalPath()) + '/author/'+userName;">
-                                            <a tal:condition="python:len(fullname) != 0" href="#" tal:attributes="href url"><tal:block replace="fullname"/></a>
-                                            <a tal:condition="python:len(fullname) == 0" href="#" tal:attributes="href url"><tal:block replace="userName"/></a>
+                                    <td class="member_column">
+                                        <span style="font-weight:bold; color:#581A74;">
+                                        	<a href="#" tal:attributes="href userUrl">
+	                                            <tal:block replace="firstName"/>
+	                                            <tal:block replace="lastName"/>
+											</a>
                                         </span>
                                     </td>
-                                    <td style="width:70px; padding-right:8px;">
-                                        <span style="font-weight:normal;" tal:define="url python:'/'.join(here.getPhysicalPath()) + '/author/'+userName;">
-                                            <!--a tal:condition="python:len(institution) != 0" href="#" tal:attributes="href url"--><tal:block replace="institution"/><!--/a-->
+                                    <td class="member_column_institution">
+                                        <span style="font-weight:normal;" >
+                                            <tal:block replace="institution"/>
                                         </span>
                                     </td>
                                 </tal:defineAgain>
                             </tr>
                         </div>
                     </table>
-                    <h2 class="content-tab">Sort by name</h2>
+                    <h2 class="content-tab">First name</h2>
                     <table style="width:100%;">
-                        <div tal:repeat="user users2">
-                            <tr style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; border-bottom:solid white 2px; padding:1px;">
-                                <tal:defineAgain define="userName python:user[0];
-                                                         userObjects python:user[1];
-                                                         info python:membership.getMemberInfo(userName);
-                                                         fullname info/fullname;
-                                                         location info/location;
-                                                         member python:here.getMemberById(userName);
-                                                         institution python:member.getProperty('institution');">
-                                    <td style="padding-right:8px;">
+                        <div tal:repeat="user allMembers">
+                            <tr class="member_row">
+                                <tal:defineAgain define="firstName python:user[0];
+                                						 lastName python:user[1];
+                                						 institution python:user[2];
+                                						 userUrl python:user[3];
+                                                         userObjects python:user[4];
+                                                         location python:user[5];">
+                                    <td class="member_column">
                                         <span style="font-weight:normal; font-style:italic;">
                                             <tal:contentThis content="userObjects"/>
                                         </span>
                                     </td>
-                                    <td style="padding-right:8px;">
-                                        <span style="font-weight:bold; color:#581A74;" tal:define="url python:'/'.join(here.getPhysicalPath()) + '/author/'+userName;">
-                                            <a tal:condition="python:len(fullname) != 0" href="#" tal:attributes="href url"><tal:block replace="fullname"/></a>
-                                            <a tal:condition="python:len(fullname) == 0" href="#" tal:attributes="href url"><tal:block replace="userName"/></a>
+                                    <td class="member_column">
+                                        <span style="font-weight:bold; color:#581A74;">
+                                        	<a href="#" tal:attributes="href userUrl">
+	                                            <tal:block replace="firstName"/>
+	                                            <tal:block replace="lastName"/>
+											</a>
                                         </span>
                                     </td>
-                                    <td style="width:70px; padding-right:8px;">
-                                        <span style="font-weight:normal;" tal:define="url python:'/'.join(here.getPhysicalPath()) + '/author/'+userName;">
-                                            <!--a tal:condition="python:len(institution) != 0" href="#" tal:attributes="href url"--><tal:block replace="institution"/><!--/a-->
+                                    <td class="member_column_institution">
+                                        <span style="font-weight:normal;" >
+                                            <tal:block replace="institution"/>
                                         </span>
                                     </td>
                                 </tal:defineAgain>
                             </tr>
                         </div>
                     </table>
+                    <h2 class="content-tab">Last name</h2>
+                    <table style="width:100%;">
+                        <div tal:repeat="user python:view.sortByLastname(allMembers)">
+                            <tr class="member_row">
+                                <tal:defineAgain define="firstName python:user[0];
+                                						 lastName python:user[1];
+                                						 institution python:user[2];
+                                						 userUrl python:user[3];
+                                                         userObjects python:user[4];
+                                                         location python:user[5];">
+                                    <td class="member_column">
+                                        <span style="font-weight:normal; font-style:italic;">
+                                            <tal:contentThis content="userObjects"/>
+                                        </span>
+                                    </td>
+                                    <td class="member_column">
+                                        <span style="font-weight:bold; color:#581A74;">
+                                        	<a href="#" tal:attributes="href userUrl">
+	                                            <tal:block replace="lastName"/>
+	                                            <tal:block replace="firstName"/>
+											</a>
+                                        </span>
+                                    </td>
+                                    <td class="member_column_institution">
+                                        <span style="font-weight:normal;" >
+                                            <tal:block replace="institution"/>
+                                        </span>
+                                    </td>
+                                </tal:defineAgain>
+                            </tr>
+                        </div>
+                    </table>
+                    <h2 class="content-tab">Institution</h2>
+                    <table style="width:100%;">
+                        <div tal:repeat="user python:view.sortByInstitution(allMembers)">
+                            <tr class="member_row">
+                                <tal:defineAgain define="firstName python:user[0];
+                                						 lastName python:user[1];
+                                						 institution python:user[2];
+                                						 userUrl python:user[3];
+                                                         userObjects python:user[4];
+                                                         location python:user[5];">
+                                    <td class="member_column">
+                                        <span style="font-weight:normal; font-style:italic;">
+                                            <tal:contentThis content="userObjects"/>
+                                        </span>
+                                    </td>
+                                    <td class="member_column">
+                                        <span style="font-weight:bold; color:#581A74;">
+                                        	<a href="#" tal:attributes="href userUrl">
+	                                            <tal:block replace="firstName"/>
+	                                            <tal:block replace="lastName"/>
+											</a>
+                                        </span>
+                                    </td>
+                                    <td class="member_column_institution">
+                                        <span style="font-weight:normal;" >
+                                            <tal:block replace="institution"/>
+                                        </span>
+                                    </td>
+                                </tal:defineAgain>
+                            </tr>
+                        </div>
+                    </table>
+
+
+
+
                     <h2 class="content-tab" tal:condition="python:context.portal_membership.checkPermission('Manage portal', here)">Reg</h2>
                     <table tal:condition="python:context.portal_membership.checkPermission('Manage portal', context)"
                             style="width:100%;">
                         <div tal:define="users3 view/newMembers;">
                             <div tal:repeat="user users3">
-                                <tr style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; border-bottom:solid white 2px; padding:1px;">
+                                <tr class="member_row">
                                     <tal:defineAgain define="userName python:user[0];
                                                              toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                                                              userObjects python:user[1];
@@ -120,34 +190,16 @@
                             </div>
                         </div>
                     </table>
-                    <!--div style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:1px;"
-                         tal:repeat="user users2">
-                        <tal:defineAgain define="userName python:user[0];
-                                                 userObjects python:user[1];
-                                                 userImage python:user[2];
-                                                 info python:membership.getMemberInfo(userName);
-                                                 fullname info/fullname;
-                                                 location info/location;">
-                            <img src="#" tal:attributes="src userImage" width="30" style="margin:15px 11px; float:left;" />
-                            <h4 tal:define="url python:'/'.join(here.getPhysicalPath()) + '/author/'+userName;">
-                                <a tal:condition="python:len(fullname) != 0" href="#" tal:attributes="href url"><tal:block replace="fullname"/></a>
-                                <a tal:condition="python:len(fullname) == 0" href="#" tal:attributes="href url"><tal:block replace="userName"/></a>
-                            </h4>
-                            <p>
-                                <span tal:condition="location"><b>Location:</b> <tal:contentThis replace="location" /></span>
-                            </p>
-                        </tal:defineAgain>
-                        <div style="clear:both;"></div>
-                    </div-->
                 </div>
             </div>
-            <div style="margin:10px 0 0 20px; width:44%; float:left" tal:define="users view/activemembers3;
-                                                                                 membership context/portal_membership;">
+
+            <div class="members_mostactive" tal:define="users view/activemembers3;
+                                                       membership context/portal_membership;">
+                <h2>Most active members</h2>
+                <p>
+                    The following members have contributed more than 20 content items:
+                </p>
                 <div style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:3px 6px;">
-                    <h2>Most active members</h2>
-                    <p>
-                        The following members have contributed more than 20 content items:
-                    </p>
                     <div style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:1px;"
                          tal:repeat="user users">
                         <tal:defineAgain define="userName python:user[0];
