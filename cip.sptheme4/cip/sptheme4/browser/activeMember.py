@@ -79,15 +79,35 @@ class ActiveMember(BrowserView):
         found = {}
         if path is None:
             path = getNavigationRoot(self.context)
-        content = catalog.searchResults(Creator = userId,
-                                        portal_type = friendly_types,
-                                        path = path)
-        return len(content) - 1
+        lencontent = len(catalog.searchResults(Creator = userId,
+                                               portal_type = friendly_types,
+                                               path = path)) - 1
+        if lencontent < 0:
+            lencontent = 0;
+        return lencontent
 
     def activemembers3(self):
         """
-        Getting the users who have contributed more than 20 content items
+        Getting the ten most active members
         """
+        buffer = ""
+        contentAll = []
+        contentlenght = []
+        users = self.context.acl_users.getUserIds()
+        userLoad = []
+        for userId in users:
+            userLoad.append([userId, self.get_author_content(userId)])
+        usersSorted = sorted(userLoad, key=lambda user: user[1], reverse=True)[:10]
+        for userId in usersSorted:
+            userName = userId[0]
+            pImg = self.context.portal_membership.getPersonalPortrait(userName).tag()
+            kk = pImg.find('" alt')
+            returnImg = pImg[10:kk]
+            contentAll.append([userId[0],userId[1], returnImg])
+        return contentAll
+        """
+        Getting the members that have contributed more than 20 content items
+        
         buffer = ""
         contentAll = []
         contentlenght = []
@@ -105,6 +125,9 @@ class ActiveMember(BrowserView):
             returnImg = pImg[10:kk]
             contentAll.append([userId[0],userId[1], returnImg])
         return contentAll
+        """
+
+
 
     def newMembers(self):
         """
@@ -187,13 +210,14 @@ class ActiveMember(BrowserView):
         for m1 in mems:
             fn = m1.getProperty("firstname").capitalize()
             ln = m1.getProperty("lastname").capitalize()
+            id = m1.id
             if fn == '':
                 fun = m1.getProperty("fullname")
                 fn = fun.split(" ")[0].capitalize()
             if ln == '':
                 fun = m1.getProperty("fullname")
                 ln = fun.split(" ")[-1].capitalize()
-            mem_infos.append([fn, ln, m1.getProperty("institution"), m1.absolute_url(), self.get_author_content(m1.id), m1.getProperty("location")])
+            mem_infos.append([fn, ln, m1.getProperty("institution"), '/author/'+id, self.get_author_content(id), m1.getProperty("location")])
         return sorted(mem_infos, key=lambda user: user[0], reverse=False)
 
     def sortByContent(self, memberlist):

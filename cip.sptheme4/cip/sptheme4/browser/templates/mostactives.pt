@@ -194,13 +194,13 @@
             </div>
 
             <div class="members_mostactive" tal:define="users view/activemembers3;
-                                                       membership context/portal_membership;">
+                                                        membership context/portal_membership;">
                 <h2>Most active members</h2>
                 <p>
-                    The following members have contributed more than 20 content items:
+                    Ten most active members all time:
                 </p>
                 <div style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:3px 6px;">
-                    <div style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:1px;"
+                    <div style="background:#f8f8f8; border-bottom:1px dotted grey; margin-bottom:5px; padding:1px;"
                          tal:repeat="user users">
                         <tal:defineAgain define="userName python:user[0];
                                                  userObjects python:user[1];
@@ -212,13 +212,13 @@
                                                  position python:member.getProperty('position');
                                                  institution python:member.getProperty('institution');">
                             <img src="#" tal:attributes="src userImage" width="30" style="margin:0px 11px; float:left;" />
-                            <div style="width: 37px; background-color:white; float:left; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:5px; margin:3px 7px 0 0; font-size:20px; font-style:bold;">
+                            <div class="memberitems">
                                 <tal:jes content="userObjects"></tal:jes>
                             </div>
                             <span style="font-weight:bold; color:#581A74;" tal:define="url python:'/'.join(here.getPhysicalPath()) + '/author/'+userName;">
                                 <a tal:condition="python:len(fullname) != 0" href="#" tal:attributes="href url"><tal:block replace="fullname"/></a>
                                 <a tal:condition="python:len(fullname) == 0" href="#" tal:attributes="href url"><tal:block replace="userName"/></a>
-                            </span>
+                            </span><br />
                             <span tal:condition="python:location or institution">
                                 <span tal:condition="location"><tal:contentThis replace="institution" /></span>,
                                 <span tal:condition="location"><tal:contentThis replace="location" /></span>
@@ -230,7 +230,7 @@
                     </div>
                 </div>
             </div>
-            <div style="margin:10px 0 0 20px; width:44%; float:left" tal:define="allcontent view/allContentItems;
+            <div class="members_mostactive" tal:define="allcontent view/allContentItems;
                                                                                  alltotal view/allTotal;
                                                                                  allcontentbyarea view/allContentByArea;">
                 <div style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:3px 6px;">
@@ -289,7 +289,7 @@
                     </div>
                 </div>
             </div>
-            <div style="margin:10px 0 0 20px; width:44%; float:left">
+            <div class="members_mostactive">
                 <div style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:3px 6px;">
                     <h2>Becoming a member</h2>
                     <p>

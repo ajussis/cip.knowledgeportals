@@ -886,8 +886,8 @@ background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; borde
 }
 .memberList {
     float: left;
-    margin: 10px 0 0 0;
-    width: 60%;
+    margin: 10px 0 0;
+    width: 445px;
 }
 .memberList ul.tabs li {
     list-style-type: none;
@@ -897,7 +897,40 @@ background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; borde
 .members_mostactive {
     float: left;
     margin: 10px 0 0 15px;
-    width: 36%;
+    width: 280px;
+}
+.gallerytopic {
+float:left;
+}
+.galleryRow {
+    background-color: #F0F0F0;
+    border-radius: 11px 10px 10px 10px;
+    box-shadow: 4px 4px grey;
+    float: left;
+    margin: 10px 23px 10px 88px;
+    padding: 1px 7px;
+    width: 67%;
+}
+.galleryRow img {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    float: left;
+    margin: 7px 10px 7px 3px;
+}
+.galleryInfosP {
+    border-bottom: 1px dotted grey;
+    float: left;
+    padding-bottom: 5px;
+    width: 351px;
+}
+.galleryInfos {
+    color: grey;
+    font-size: 0.8em;
+    margin: 0 0 0 2px;
+    text-transform: capitalize;
+}
+.galleryRow h2 {
+	width:345px;
 }
 .member_column {
 padding-right:8px;
@@ -1778,6 +1811,19 @@ div.fpUpdates div.pane-container ul.tabs a.current {
     padding: 5px 5px 4px;
     text-decoration: none;
 }
+div.fpUpdates div.pane-container ul.tabs a:visited {
+text-decoration: none !important;
+}
+.memberitems {
+    background-color: white;
+    border-radius: 0.4em 0.4em 0.4em 0.4em;
+    float: left;
+    font-size: 16px;
+    margin: 5px 7px 0 0;
+    padding: 3px;
+    width: 29px;
+}
+
 div.fpgalleries #tabnav li {
     border-bottom: 0 none;
     color: white;
