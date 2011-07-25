@@ -17,7 +17,16 @@ text-decoration:none !important;
 #portal-sitemap .navTree {
 background-color:white !important;
 }
+.mailinglist {
+padding: 5px;
 
+}
+.mailinglist input {
+margin-top:10px;
+}
+.mailinglist p {
+    margin: 7px 6px 0 !important;
+}
 .navTreeLevel1 .navTreeCurrentNode {
     margin-left: 0;
 }
