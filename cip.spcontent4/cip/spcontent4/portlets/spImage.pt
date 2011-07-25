@@ -2,9 +2,34 @@
      tal:attributes="class string:portletStaticText ${view/css_class}"
      tal:content="structure view/data/text" />
 <dl tal:condition="not:view/data/omit_border"
-    tal:attributes="class string:portlet portletStaticText portletGrey ${view/css_class} spImagePortlet"
+    tal:attributes="class string:portlet portletStaticText portletGrey ${view/css_class}"
     i18n:domain="plone">
 
-    <img src="potatos.jpg" width="200" />
+	<table border=0 style="padding: 5px;" cellspacing=0>
+		<tr>
+			<td>
+				<img src="http://groups.google.com/intl/en/images/logos/groups_logo_sm.gif"
+					 height=30 width=140 alt="Google Groups">
+			</td>
+		</tr>
+		<tr>
+			<td style="padding-left: 5px">
+				<b>Subscribe to Sweetpotato research</b>
+			</td>
+		</tr>
+		<form action="http://groups.google.com/group/sweetpotato-research/boxsubscribe">
+			<tr>
+				<td style="padding-left: 5px;">
+					Email: <input type=text name=email>
+					<input type=submit name="sub" value="Subscribe">
+				</td>
+			</tr>
+		</form>
+		<tr>
+			<td align=right>
+				<a href="http://groups.google.com/group/sweetpotato-research">Visit this group</a>
+			</td>
+		</tr>
+	</table>
 
 </dl>
