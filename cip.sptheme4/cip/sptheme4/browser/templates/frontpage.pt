@@ -365,7 +365,7 @@
 	                                             author m/Creator;
                                        			 gobj python:m.getObject();
                                        			 url m/getURL;
-                                  				 path python:gobj.getPhysicalPath()[2].replace('-', ' ').capitalize();">
+                                  				 path python:gobj.getPhysicalPath()[3].replace('-', ' ').capitalize();">
 	                                <a href="#" tal:attributes="href url">
 	                                    <span tal:replace="m/pretty_title_or_id"/>
 	                                </a><br />
