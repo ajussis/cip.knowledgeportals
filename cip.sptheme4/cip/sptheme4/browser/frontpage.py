@@ -28,3 +28,26 @@ class FrontpageView(BrowserView):
                 img = "defaultUser.gif"
             infos.append([cob.title, fullname, img, cob.getNumberOfComments()-1, cob.absolute_url()])
         return infos
+
+    def activeUsers(self):
+        users = self.context.acl_users.getUserIds()
+        now = DateTime()
+        month = DateTime() - 30
+        activelist = []
+        for user in users:
+            activelist.append([len(self.context.portal_catalog.searchResults(created = { "query": [month, now],"range": "minmax" }, Creator=user)),len(self.context.portal_catalog.searchResults(Creator=user)),user])
+        activelist.sort()
+        activelist.reverse()
+        activelist = activelist[:4]
+        finals = []
+        for user in activelist:
+            try:
+                fullname = self.context.portal_membership.getMemberById(user[2]).getProperty("fullname")
+            except:
+                fullname = "Administrator"
+            try:
+                img = self.context.portal_membership.getPersonalPortrait(user[2]).absolute_url()
+            except:
+                img = "defaultUser.gif"
+            finals.append([user[0], user[1], fullname, img, '/potato/Members/'+user[2],self.context.portal_membership.getMemberById(user[2]).getProperty("institution")])
+        return finals

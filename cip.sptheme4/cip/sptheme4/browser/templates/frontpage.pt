@@ -49,7 +49,6 @@
                 <h2 class="default-content-tab" id="front_icon_germp">
             		Germplasm
         		</h2>
-        		<!--img src="arrow_grey_right.png" /-->
 
                 <div class="areaupdates_contents">
                 	<h2>Latest from germplasm</h2>
@@ -84,23 +83,6 @@
                         </p>
                     </tal:defs>
                 </div>
-                <!--div style="width:40px; float:left;">
-                    <a href="../germplasm">
-                        <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                            Go to section &raquo;
-                        </p>
-                    </a>
-                    <a href="../discussion-forum">
-                        <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                            Germplasm Discussion &raquo;
-                        </p>
-                    </a>
-                    <a href="../gpLatest">
-                        <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                            All latest updates &raquo;
-                        </p>
-                    </a>
-                </div-->
                 <h2 class="content-tab">Seed System</h2>
                 <div class="areaupdates_contents">
                 	<h2>Latest from seed system</h2>
@@ -136,23 +118,6 @@
                         </p>
                     </tal:defs>
                 </div>
-                <!--div style="width:40px; float:left;">
-                    <a href="../seedsystem">
-                        <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                            Go to section &raquo;
-                        </p>
-                    </a>
-                    <a href="../discussion-forum">
-                        <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                            Seed System <br />Discussion &raquo;
-                        </p>
-                    </a>
-                    <a href="../ssLatest">
-                        <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                            All latest updates &raquo;
-                        </p>
-                    </a>
-                </div-->
                 <h2 class="content-tab">Crop Management</h2>
                 <div class="areaupdates_contents">
                 	<h2>Latest from crop management</h2>
@@ -188,23 +153,6 @@
                         </p>
                     </tal:defs>
                 </div>
-                <!--div class="areaupdates_contents">
-                    <a href="../crop-management">
-                        <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                            Go to section &raquo;
-                        </p>
-                    </a>
-                    <a href="../discussion-forum">
-                        <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                            Crop Management Discussion &raquo;
-                        </p>
-                    </a>
-                    <a href="../cmLatest">
-                        <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                            All latest updates &raquo;
-                        </p>
-                    </a>
-                </div-->
                 <h2 class="content-tab">Adding Value</h2>
                 <div class="areaupdates_contents">
                 	<h2>Latest from adding value</h2>
@@ -240,23 +188,6 @@
                         </p>
                     </tal:defs>
                 </div>
-                <!--div style="width:40px; float:left;">
-                    <a href="../adding-value">
-                        <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                            Go to section &raquo;
-                        </p>
-                    </a>
-                    <a href="../discussion-forum">
-                        <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                            Adding Value <br />Discussion &raquo;
-                        </p>
-                    </a>
-                    <a href="../avLatest">
-                        <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                            All latest updates &raquo;
-                        </p>
-                    </a>
-                </div-->
                 <h2 class="content-tab">Use and Consumption</h2>
                 <div class="areaupdates_contents">
                 	<h2>Latest from use and consumption</h2>
@@ -292,23 +223,6 @@
                         </p>
                     </tal:defs>
                 </div>
-                <!--div style="width:40px; float:left;">
-                    <a href="../use-consumption">
-                        <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                            Go to section &raquo;
-                        </p>
-                    </a>
-                    <a href="../discussion-forum">
-                        <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                            Use and Consumption Discussion &raquo;
-                        </p>
-                    </a>
-                    <a href="../ucLatest">
-                        <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
-                            All latest updates &raquo;
-                        </p>
-                    </a>
-                </div-->
             </div>
 
             <div class="discussion">
@@ -356,75 +270,89 @@
   			<div class="lineBreak"></div>
 
 			<div class="projectinstitutionline">
-	            <div class="projects">
-	                <div tal:define="projects python: getattr(context, 'fpProjects');">
-	                    <h2>Latest from projects</h2>
-	                    <tal:defs define="n projects/queryCatalog">
-	                        <p class="frontP" tal:repeat="m n">
-	                            <tal:rep define="pType m/portal_type;
-	                                             author m/Creator;
-                                       			 gobj python:m.getObject();
-                                       			 url m/getURL;
-                                  				 path python:gobj.getPhysicalPath()[3].replace('-', ' ').capitalize();">
-	                                <a href="#" tal:attributes="href url">
-	                                    <span tal:replace="m/pretty_title_or_id"/>
-	                                </a><br />
-	                                <span class="frontDate">
-										<span class="frontDate3">
-											Project: <a href="#" tal:attributes="href url">
-												<span tal:replace="path" />
-											</a>
-										</span><br />
-	                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
-	                                    <span class="frontDate2" tal:content="pType" />
-	                                        <tal:defineAuthor define="creator m/Creator;">
-	                                            <tal:name tal:condition="creator"
-	                                                      tal:define="author python:mtool.getMemberInfo(creator);">
-	                                                <a style="font-size:11px; margin-left:5px; font-style:normal;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
-	                                                            tal:content="python:author and author['fullname'] or creator"
-	                                                            tal:omit-tag="not:author">
-	                                                    Bob Dobalina
-	                                                </a>
-	                                            </tal:name>
-	                                        </tal:defineAuthor>
-	                                </span>
+				<div class="projectsHolder">
+	                <h2>Latest from projects</h2>
+		            <div class="projects">
+		                <div tal:define="projects python: getattr(context, 'fpProjects');">
+		                    <tal:defs define="n projects/queryCatalog">
+		                        <p class="frontP" tal:repeat="m n">
+		                            <tal:rep define="pType m/portal_type;
+		                                             author m/Creator;
+	                                       			 gobj python:m.getObject();
+	                                       			 url m/getURL;
+	                                  				 path python:gobj.getPhysicalPath()[3].replace('-', ' ').capitalize();">
+		                                <a href="#" tal:attributes="href url">
+		                                    <span tal:replace="m/pretty_title_or_id"/>
+		                                </a><br />
+		                                <span class="frontDate">
+											<span class="frontDate3">
+												Project: <a href="#" tal:attributes="href url">
+													<span tal:replace="path" />
+												</a>
+											</span><br />
+		                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+		                                    <span class="frontDate2" tal:content="pType" />
+		                                        <tal:defineAuthor define="creator m/Creator;">
+		                                            <tal:name tal:condition="creator"
+		                                                      tal:define="author python:mtool.getMemberInfo(creator);">
+		                                                <a style="font-size:11px; margin-left:5px; font-style:normal;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+		                                                            tal:content="python:author and author['fullname'] or creator"
+		                                                            tal:omit-tag="not:author">
+		                                                    Bob Dobalina
+		                                                </a>
+		                                            </tal:name>
+		                                        </tal:defineAuthor>
+		                                </span>
+		                            </tal:rep>
+		                        </p>
+		                        <a href="../latest-projects" class="seeAll">See all...</a>
+		                    </tal:defs>
+		                </div>
+		            </div>
+				</div>
+				<div class="active-users">
+		            <h2 class="front-h2-titles">Most active users recently</h2>
+					<table>
+						<tr>
+							<td class="discussion-td2">
+								<h3 class="discussion-title">Member</h3>
+							</td>
+							<td>
+								<h3 class="discussion-title">Last 30d</h3>
+							</td>
+						</tr>
+					</table>
+					
+					<tal:defs define="n view/activeUsers">
+	                	<tal:repdisc tal:repeat="m n">
+	                        <div class="active-users" tal:define="oddrow repeat/m/odd;"
+	                        	 tal:attributes="class python:oddrow and 'discussion-line2' or 'discussion-line2 discussion-odd'">
+	                            <tal:rep define="itemsmonth python:m[0];
+	                                             itemsall python:m[1];
+	                                             fullname python:m[2];
+	                                             img python:m[3];
+	                                             url python:m[4];
+	                                             institution python:m[5];">
+									<img src="#" tal:attributes="src img" width="30" />
+									<div class="discussion-item-block">
+					                    <a href="#" tal:attributes="href url">
+					                   		<span class="discussion-item-title" tal:content="fullname" />
+					                   	</a>
+					                   	<br />
+					                    <span class="discussion-item-owner" tal:content="institution" />
+	 								</div>
+	 								<div class="discussion-comments">
+	 									<span style="margin-left:8px;" tal:content="itemsmonth" /><br />
+	 									<span class="frontDate">
+	 										<tal:jou replace="itemsall" /> in total
+	 									</span> 
+	 								</div>
 	                            </tal:rep>
-	                        </p>
-	                        <a href="../latest-projects" class="seeAll">See all...</a>
-	                    </tal:defs>
-	                </div>
-	            </div>
-	
-				<div class="projects">
-	                <div tal:define="institutions python: getattr(context, 'fpInstitutions');">
-	                    <h2>New institutions</h2>
-	                    <tal:defs define="n institutions/queryCatalog">
-	                        <p class="frontP" tal:repeat="m n">
-	                            <tal:rep define="pType m/portal_type;
-	                                             author m/Creator">
-	                                <a href="#" tal:attributes="href m/getURL">
-	                                    <span tal:replace="m/pretty_title_or_id"/>
-	                                </a><br />
-	                                <span class="frontDate">
-	                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
-	                                    <span class="frontDate2" tal:content="pType" />
-	                                        <tal:defineAuthor define="creator m/Creator;">
-	                                            <tal:name tal:condition="creator"
-	                                                      tal:define="author python:mtool.getMemberInfo(creator);">
-	                                                <a style="font-size:11px; margin-left:5px; font-style:normal;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
-	                                                            tal:content="python:author and author['fullname'] or creator"
-	                                                            tal:omit-tag="not:author">
-	                                                    Bob Dobalina
-	                                                </a>
-	                                            </tal:name>
-	                                        </tal:defineAuthor>
-	                                </span>
-	                            </tal:rep>
-	                        </p>
-	                        <a href="../fpInstitutions" class="seeAll">See all...</a>
-	                    </tal:defs>
-	                </div>
-	            </div>
+	                        </div>
+		                </tal:repdisc>
+	                </tal:defs>
+                    <a href="allmembers" class="seeAll">More about members...</a>
+				</div>
 			</div>
 
   			<div class="lineBreak"></div>
@@ -539,8 +467,8 @@
 				<h2>Featured project</h2>
 				SASHA is a 5-year initiative designed to improve the food security and livelihoods of poor families in Sub-Saharan Africa by exploiting the untapped potential of sweetpotato.
 				<br />
-				<a href="http://sweetpotatoknowledge.org/projects-initiatives/global/sasha" class="seeAll">Read more...</a>
-				<a href="http://sweetpotatoknowledge.org/projects-initiatives/global/sasha">
+				<a href="http://sweetpotatoknowledge.org/projects-initiatives/sasha" class="seeAll">Read more...</a>
+				<a href="http://sweetpotatoknowledge.org/projects-initiatives/sasha">
 					<img src="banner-sasha.jpg" style="margin-left:14px;" />
 				</a>
 			</div>

@@ -34,6 +34,10 @@ margin-top:10px;
 .navTreeLevel2 {
     margin: 0 -10px 0 5px;
 }
+.projectsHolder {
+    float: left;
+    width: 440px;
+}
 
 .wysiwygTab-selector {
 text-decoration:underline;
@@ -1589,8 +1593,9 @@ width:245px;
     width: 233px;
 }
 .discussion-line2 {
-float:left;
-width:300px;
+    float: left;
+    padding: 3px 0;
+    width: 300px;
 }
 .discussion-line img {
 float:left;
@@ -1606,10 +1611,9 @@ margin:5px;
     width: 152px;
 }
 .discussion-comments {
-float:right; 
-margin:10px;
+    float: right;
+    margin: 0 10px;
 }
-
 .discussion-odd {
 background-color:#F0F0F0;
 }
@@ -1630,7 +1634,10 @@ margin-bottom:0 !important;
     margin-top:0 !important;
 }
 .discussion-td2 {
-    width: 215px;
+    width: 240px;
+}
+.active-users h3 {
+    margin: 0 0 5px !important;
 }
 .discussion {
     float: left;
@@ -1724,9 +1731,13 @@ margin-top:10px;
     box-shadow: 4px 4px grey;
     float: left;
     margin-right: 25px;
-    padding: 1px 7px;
-    width: 332px;
+    padding: 10px 7px 0;
+    width: 406px;
 }
+.active-users table {
+margin-bottom:0 !important;
+}
+
 .projects .pane {
 width:240px;
 }
