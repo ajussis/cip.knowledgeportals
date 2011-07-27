@@ -1654,6 +1654,13 @@ clear:none !important;
     color: #581A74;
     margin-top: 0 !important;
 }
+
+.fpfeatured h2 {
+    color: #581A74;
+    margin-top: 0 !important;
+}
+
+
 .comments h2 {
     color: #581A74;
     margin-top: 0 !important;
@@ -1707,8 +1714,8 @@ margin:0;
 
 .comments {
     float: left;
-    margin: 0 10px;
-    width: 240px;
+    margin: 0 15px;
+    width: 280px;
 }
 .comments .pane {
 width:240px;
@@ -1818,7 +1825,13 @@ z-index:2;
 width:265px;
 }
 .fpfeatured {
-
+    float: left;
+    margin-right: 10px;
+    width: 390px;
+}
+.fplastline {
+float:left;
+width:950px;
 }
 div.fpUpdates div.pane-container ul.tabs li.current {
     background: none repeat scroll 0 0 transparent;
@@ -1877,6 +1890,7 @@ div.fpgalleries #tabnav li.tabs2-selected {
 }
 div.fpgalleries .frontP {
     margin-bottom: 10px !important;
+    border-bottom: 0;
 }
 div.fpgalleries .frontP img {
     border: 1px solid black;
