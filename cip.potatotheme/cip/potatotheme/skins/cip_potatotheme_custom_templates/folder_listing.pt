@@ -320,9 +320,9 @@
 						
 
 						<script type="text/javascript">
-						$(function() {
+						$(document).ready(function() {
 							tabnav = $('#tabnav').height();
-							$('.tabs-container').css('min-height',tabnav);
+							$('.tabs2-container').css('min-height',tabnav);
 						});
 						</script>
 
