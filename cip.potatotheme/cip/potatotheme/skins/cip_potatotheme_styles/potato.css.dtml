@@ -48,7 +48,7 @@ margin-bottom:0 !important;
     width: 228px;
 }
 .discussion-td2 {
-    width: 215px;
+    width: 197px;
 }
 
 .portlet-static-discussion-forum .portletHeader {
@@ -1433,11 +1433,6 @@ width:240px;
 width:240px;
 }
 
-.fpgalleries {
-margin-left:10px;
-float:left;
-width:225px;
-}
 .fpgalleries .pane {
 width:225px;
 }
@@ -1482,10 +1477,102 @@ width:390px;
 .discussion {
     float: left;
     width: 280px;
+    margin-bottom:20px;
 }
 .discussion-title {
 color:#8EAE1D;
 }
+
+/* --------- FOR FADING_TABS.JS --------------- */
+
+.tabs2-hide {
+display:none; /* hide non-active tabs */
+}
+.tabs2-container {
+background:#fff; /* kills fadding in/out IE text bug */
+}
+#tabnav li {
+    border-bottom: 0.2em dotted #DDDDDD;
+    color: white;
+    list-style: none outside none !important;
+    margin-left: 0 !important;
+    padding: 8px 0;
+}
+
+#tabnav li a {
+	width:190px;
+	padding:10px 5px !important;
+}
+
+#tabnav {
+	position:relative;
+	z-index:10;
+}
+li.tabs2-selected {
+    background: none repeat scroll 0 0 #EFEAC8;
+    border-bottom: 0 none !important;
+    width: 205px;
+    z-index: 999;
+}
+li.tabs2-selected a {
+    font-weight: bold;
+    padding-right: 40px;
+    width: 170px !important;
+}
+#tabnav li.tabs2-selected:hover {
+	background-color:#EFEAC8;
+}
+#tabnav li:hover {
+	background-color:transparent;
+}
+#tabnav li a:hover {
+	background-color:transparent;
+	
+}
+.tabs2-selected {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("subpointer.gif");
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+}
+
+.tabs2-container {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 10px 10px 10px 10px;
+}
+.tabs2 {
+width:500px;
+float:left;
+}
+
+.tabnav_styles {
+    background-color: #EFEAC8;
+    border-radius: 8px 8px 8px 8px;
+    float: left;
+    margin-left: 0 !important;
+    margin-right: 10px;
+    padding: 10px;
+    width: 180px;
+}
+
+.tabnav_contents {
+    background: none repeat scroll 0 0 #efeac8;
+    float: left;
+    margin-left: 3px;
+    padding: 5px 10px 16px;
+    position: relative;
+    width: 493px;
+    z-index: 1;
+}
+.tabnav_contents {
+border-top:0px solid #DB214C; float:left; border-bottom:0; margin-bottom:2px;
+}
+
+/* ------------------------------ */
+
 .front-h2-titles {
     background-image: url("h2titleicon.gif");
     background-position: 0 4px;
@@ -1502,11 +1589,79 @@ width:400px;
 float:left;
 }
 
-.active-users {
-width:325px;
-float:left;
+.fpgalleries .tabs {
+-webkit-border-radius:0.5em;
+-moz-border-radius:0.5em 0.5em 0.5em 0.5em;
+background-color:#F0F0F0;
+width:235px;
 }
 
+.fpgalleries {
+    float: left;
+    margin-left: 10px;
+    width: 432px;
+}
+.fpgalleries .pane {
+width:225px;
+}
+
+div.fpgalleries #tabnav li {
+    border-bottom: 0 none;
+    color: white;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 8px 0;
+}
+div.fpgalleries #tabnav li:hover {
+	background-color:transparent !important;
+	margin-top:13px;
+}
+div.fpgalleries #tabnav li img {
+	border:1px solid grey;
+}
+div.fpgalleries #tabnav li img:hover {
+	border-top:4px solid grey;
+}
+div.fpgalleries #tabnav li.tabs2-selected {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: none;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+}
+div.fpgalleries .frontP {
+    margin-bottom: 10px !important;
+}
+div.fpgalleries .frontP img {
+    border: 1px solid black;
+    box-shadow: 3px 3px grey;
+}
+.fpgallerytext {
+    background-color: white;
+    color: grey;
+    float: left;
+    font-size: 0.9em;
+    margin: -51px 0 0;
+    opacity: 0.8;
+    padding: 2px 4px;
+    position: relative;
+    text-transform: capitalize;
+    width: 393px;
+    z-index: 10;
+}
+
+div.fpgalleries ul#tabnav {
+    border-bottom: 3px dotted #F0F0F0;
+    margin-left: 0 !important;
+    padding-bottom: 8px;
+    width: 200px;
+}
+.active-users {
+    float: left;
+    width: 280px;
+}
 
 
 div.fpUpdates div.pane-container ul.tabs li.current {

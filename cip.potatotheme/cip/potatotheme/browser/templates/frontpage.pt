@@ -6,7 +6,8 @@
         <metal:main fill-slot="main"
                     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                                 canEdit python:checkPermission('Review portal content', context);
-                                isAnon context/@@plone_portal_state/anonymous;">
+                                isAnon context/@@plone_portal_state/anonymous;
+                                mtool context/portal_membership;">
 
             <div class="lineBreak"></div>
 
@@ -70,7 +71,6 @@
                     </tal:defs>
                 </div>
             </div>
-
             <div class="discussion">
 	            <h2 class="front-h2-titles"><img src="arrow_grey_right.png" />Discussion</h2>
                 <div class="discussion-box">
@@ -111,11 +111,67 @@
                 </div>
             </div>
 
-			<div class="gallery">
-	            <h2 class="front-h2-titles"><img src="arrow_grey_right.png" />Galleries</h2>
+	        <div class="fpgalleries gallery">
+                <div id="tabwrap" tal:define="galleries python:context.portal_catalog.searchResults(portal_type='Gallery Folder', sort_order='reverse', sort_on='Date')[:4]">
+                    <h2 class="front-h2-titles">Latest photo galleries</h2>
 
-				
-			</div>
+                    <tal:defs>
+                        <tal:defs2 tal:repeat="m galleries">
+                            <tal:rep define="author m/Creator;
+                                             href m/getURL;
+                                             item_id m/getId|m/id;
+                                             gob python:m.getObject();
+                                             cid python:gob.contentIds();
+                                             imgob python:len(cid);
+                                             item_url m/getURL;">
+								<div class="frontP" tal:attributes="id item_id" tal:condition="python:imgob > 0">
+	                                <a href="#" tal:attributes="href item_url" tal:define="imgurl python:item_url+'/'+cid[0]+'/image_preview'">
+	                                	<img src="#" tal:attributes="src imgurl" style="z-index:1;"/>
+	                                </a>
+	                                <div class="fpgallerytext">
+	                                	<a href="#" tal:attributes="href item_url">
+		                                    <span tal:replace="m/pretty_title_or_id"/>
+		                                </a>
+	                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                        <tal:defineAuthor define="creator m/Creator;">
+                                            <tal:name tal:condition="creator"
+                                                      tal:define="author python:mtool.getMemberInfo(creator);">
+                                                <a style="font-size:11px; margin-left:5px; font-style:normal;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+                                                            tal:content="python:author and author['fullname'] or creator"
+                                                            tal:omit-tag="not:author">
+                                                    Bob Dobalina
+                                                </a>
+                                            </tal:name>
+                                        </tal:defineAuthor>
+	                                </div>
+	                            </div>
+                            </tal:rep>
+                        </tal:defs2>
+                    </tal:defs>
+
+		  			<div class="lineBreak"></div>
+
+					<ul id="tabnav">
+                        <li tal:repeat="m galleries">
+                            <tal:defs define="item_title_or_id m/pretty_title_or_id;
+                                              item_id m/getId|m/id;
+                                              href m/getURL;
+                                              gob python:m.getObject();
+                                              cid python:gob.contentIds();
+                                              imgob python:len(cid);
+	                                          item_href python:'#'+item_id;">
+                                <a style="color:white;" tal:condition="python:imgob > 0" href="#" tal:attributes="href item_href">
+									<tal:def define="imgurl python:href+'/'+cid[0]+'/image_icon'">
+									<img src="#" tal:attributes="src imgurl" />
+								</tal:def>
+                                </a>
+                            </tal:defs>
+                        </li>
+                    </ul>
+
+                    <a href="../galleries" class="seeAll">See all...</a>
+                </div>
+            </div>
 
 			<div class="active-users">
 	            <h2 class="front-h2-titles"><img src="arrow_grey_right.png" />Active users</h2>
@@ -125,7 +181,7 @@
 							<h3 class="discussion-title">Most active users</h3>
 						</td>
 						<td>
-							<h3 class="discussion-title">Last 30d / total</h3>
+							<h3 class="discussion-title">Last 30d / all</h3>
 						</td>
 					</tr>
 				</table>
