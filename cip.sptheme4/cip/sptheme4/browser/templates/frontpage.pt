@@ -362,11 +362,19 @@
 	                    <tal:defs define="n projects/queryCatalog">
 	                        <p class="frontP" tal:repeat="m n">
 	                            <tal:rep define="pType m/portal_type;
-	                                             author m/Creator">
-	                                <a href="#" tal:attributes="href m/getURL">
+	                                             author m/Creator;
+                                       			 gobj python:m.getObject();
+                                       			 url m/getURL;
+                                  				 path python:gobj.getPhysicalPath()[4].replace('-', ' ').capitalize();">
+	                                <a href="#" tal:attributes="href url">
 	                                    <span tal:replace="m/pretty_title_or_id"/>
 	                                </a><br />
 	                                <span class="frontDate">
+										<span class="frontDate3">
+											Project: <a href="#" tal:attributes="href url">
+												<span tal:replace="path" />
+											</a>
+										</span><br />
 	                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
 	                                    <span class="frontDate2" tal:content="pType" />
 	                                        <tal:defineAuthor define="creator m/Creator;">

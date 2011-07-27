@@ -150,6 +150,8 @@ cip/sptheme4/skins/cip_sptheme4_custom_templates/folder_listing_private.pt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/folder_listing_private.pt.metadata
 cip/sptheme4/skins/cip_sptheme4_custom_templates/folder_listing_projectmain.pt
 cip/sptheme4/skins/cip_sptheme4_custom_templates/folder_listing_projectmain.pt.metadata
+cip/sptheme4/skins/cip_sptheme4_custom_templates/galleryListing.pt
+cip/sptheme4/skins/cip_sptheme4_custom_templates/galleryListing.pt.metadata
 cip/sptheme4/skins/cip_sptheme4_custom_templates/getMemberById.py
 cip/sptheme4/skins/cip_sptheme4_custom_templates/getMemberById.py.metadata
 cip/sptheme4/skins/cip_sptheme4_custom_templates/gettingStarted.js

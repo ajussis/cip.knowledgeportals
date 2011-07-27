@@ -49,7 +49,7 @@
 		                                                            Bob Dobalina
 		                                                        </a>  
 		                                                        <span class="galleryInfos">| 
-			                                                        Labled under: <tal:jou tal:replace="path" /> |
+			                                                        Labeled under: <tal:jou tal:replace="path" /> |
 			                                                        <tal:jou2 replace="python:toLocalizedTime(obj.Date)"/>
 																</span>
 		                                                    </tal:name>
