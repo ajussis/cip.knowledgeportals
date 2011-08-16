@@ -117,6 +117,14 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="*"
+      name="contentReviewView"
+      class=".activeMember.ContentReview"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
 <!-- Customize the navigation portlet -->
        <!--plone:portletRenderer
        portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"

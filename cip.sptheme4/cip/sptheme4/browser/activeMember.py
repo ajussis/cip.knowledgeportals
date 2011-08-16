@@ -237,3 +237,70 @@ class ActiveMember(BrowserView):
         Getting the memberlist created in allMembers section. Then sort the list by institution.
         """
         return sorted(memberlist, key=lambda user: user[2], reverse=True)
+
+
+class ContentReview(BrowserView):
+    """Default view of a Project Folder
+    """
+    __call__ = ViewPageTemplateFile('templates/contentreview.pt')
+
+    def allContentItems(self):
+        """
+            Fetch all the content items except the folders
+        """
+        catalog = getToolByName(self.context, 'portal_catalog')
+        portal_types = ['Document','File','Image','News Item','Event','Link','Institution','b-org Project','Gallery Folder','Discussion Item','Window']
+        s = {}
+        for n in portal_types:
+            content_items = catalog.searchResults(portal_type = n)
+            s[n] = len(content_items)
+        return s
+
+    def allTotal(self):
+        """
+            Fetch all the content items except the folders
+        """
+        catalog = getToolByName(self.context, 'portal_catalog')
+        portal_types = ['Document','File','Image','News Item','Event','Link','Institution','b-org Project','Gallery Folder','EasyNewsletter','Discussion Item']
+        allItems = catalog.searchResults(portal_type = portal_types)
+        return len(allItems)
+
+    def allContentByArea(self):
+        """
+            Fetch all the content items except the folders
+        """
+        catalog = getToolByName(self.context, 'portal_catalog')
+        portal_types = ['Document','File','Image','News Item','Event','Link','Institution','b-org Project','Gallery Folder','EasyNewsletter','Discussion Item']
+        areas = ['germplasm','seedsystem','crop-management','adding-value','use-consumption','institutions','projects-initiatives']
+        areas2 = ['Germplasm','Seedsystem','Crop Management','Adding Value','Use Consumption','Institutions','Projects Initiatives']
+        s = {}
+        mm = {}
+        for n in areas:
+            folder_path = '/sweetpotato3/' + n
+#            print folder_path
+            content_items = catalog.searchResults(path={'query':folder_path})
+            folders = catalog.searchResults(path={'query':folder_path}, portal_type = 'Folder')
+            s[n] = len(content_items) - len(folders)
+        z = 0
+        for n in areas2:
+            aa = areas[z]
+            v = s[aa]
+            mm[n] = v
+            z = z + 1
+        return mm
+
+    def notpublished(self):
+        catalog = getToolByName(self.context, 'portal_catalog')
+        portal_url_obj = getToolByName(self.context, 'portal_url')
+        portal_url = portal_url_obj.getPortalPath()
+        folders = ['sweetpotato-introduction','germplasm','seedsystem','crop-management','adding-value','use-consumption','projects-initiatives','institutions']
+        folds = []
+        for i in folders:
+            folds.append('/' + portal_url + '/' + i)
+        contents = catalog.searchResults(path={'query':folds}, review_state='private')
+        from Products.CMFPlone import Batch
+        b_start = self.context.REQUEST.get('b_start', 0)
+        b_size = 20
+        batch = Batch(contents, b_size, int(b_start), orphan=0)
+        return batch
+  

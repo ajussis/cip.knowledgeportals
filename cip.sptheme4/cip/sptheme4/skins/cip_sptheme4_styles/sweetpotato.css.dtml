@@ -912,6 +912,23 @@ background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; borde
     margin: 10px 0 0 15px;
     width: 280px;
 }
+.members_mostactive2 {
+    float: left;
+    margin: 10px 0 0 15px;
+    width: 315px;
+    background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:3px 6px;
+}
+
+.contentreview_notpublished {
+    float: left;
+    margin: 10px 0 0 15px;
+    background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:3px 6px;
+}
+.contentreview_1 {
+    float: left;
+    margin-left: 8px;
+}
+
 .gallerytopic {
 float:left;
 }

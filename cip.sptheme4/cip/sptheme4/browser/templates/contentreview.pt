@@ -1,0 +1,129 @@
+<html metal:use-macro="here/main_template/macros/master">
+
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main" tal:define="kssClassesView context/@@kss_field_decorator_view;
+                                                 getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                                                 templateId template/getId;
+                                                 toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+            <h1 tal:content="context/Title" />
+            <img src="userconfig.png" width="100" style="float:left;" />
+            <p style="margin: 7px 20px; float:left; width:75%; " tal:content="context/Description"/>
+
+            <div class="members_mostactive" tal:define="allcontent view/allContentItems;
+                                                                                 alltotal view/allTotal;
+                                                                                 allcontentbyarea view/allContentByArea;">
+                <div style="background:#f8f8f8; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:3px 6px;">
+                    <h2>Site statistics</h2>
+                    <div>
+                        All content items:
+                        <span style="width: 37px; background-color:white; -moz-border-radius:0.4em; -webkit-border-radius:0.4em; margin-bottom:5px; padding:5px; margin:3px 7px 0 0; font-size:20px; font-style:bold;">
+                            <span tal:content="alltotal" />
+                        </span>
+
+                        <script type="text/javascript">
+                        $(document).ready(function(){
+                            $('#showlink').next('div').hide();
+                            $('#showlink2').next('div').hide();
+                            $("#showlink").click(function(){
+                                $("div#allcontent").slideToggle();
+                                return false;
+                            });
+                            $("#showlink2").click(function(){
+                                $("div#allcontent2").slideToggle();
+                                return false;
+                            });
+                        });
+                        </script>
+
+                        <div style="clear:both;"></div>
+                        <div style="margin:10px;">
+                            <a href="#" id="showlink">Show by type »</a>
+                            <div id="allcontent">
+                                <table style="margin:10px 5px 5px 10px;">
+                                    <tal:block repeat="n allcontent">
+                                        <tr>
+                                            <td style="border-right:20px solid transparent;"><tal:doctype content="n" />:</td>
+                                            <td><span tal:content="python:allcontent[n]"/></td>
+                                        </tr>
+                                    </tal:block>
+                                </table>
+                            </div>
+
+                            <div style="clear:both;"></div>
+
+                            <a href="#" id="showlink2">Show by section »</a>
+                            <div id="allcontent2">
+                                <table style="margin:10px 5px 5px 10px;">
+                                    <tal:block repeat="n allcontentbyarea">
+                                        <tr>
+                                            <td style="border-right:20px solid transparent;"><tal:doctype content="n" />:</td>
+                                            <td><span tal:content="python:allcontentbyarea[n]"/></td>
+                                        </tr>
+                                    </tal:block>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="members_mostactive2">
+                <h2>There's more...</h2>
+                <p>
+                    More information can be found when registered as a member. 
+                    <a href="login">Register here</a>,
+                    and once your profile will be verified, you will be granted permissions to start
+                    contributing content.
+                </p>
+            </div>
+
+            <div class="contentreview_notpublished" tal:define="canEdit python:checkPermission('Modify portal content', here);">
+                <h2>Detailed content review</h2>
+                <p tal:condition="not: canEdit">
+                    To see more information please <a href="login">login</a>, or <a href="login">register</a>, a portal member.
+                </p>
+                <div tal:condition="canEdit" class="contentreview_1" tal:define="batch view/notpublished">
+                    <h3>Information not yet published</h3>
+                    <p>The following content is not visible for anonymous users. <br />
+                       Click the title and publish the content to reach wider audience.</p>
+                    <div class="visualClear"></div>
+                    <div metal:use-macro="here/batch_macros/macros/navigation" />
+
+                    <tal:block tal:repeat="item batch">
+                        <div tal:define="item_type item/portal_type;
+                                         item_title item/pretty_title_or_id;
+                                         item_url item/getURL|item/absolute_url;
+                                         creator item/Creator;
+                                         item_created item/CreationDate;
+                                         mtool context/portal_membership;
+                                         author python:mtool.getMemberInfo(creator);
+                                         section python:(item_url.split('/')[-2]).replace('-', ' ').capitalize();">
+                            <b><a href="#" tal:attributes="href item_url">
+                                <span tal:replace="item_title" />
+                            </a></b>
+                            <p style="font-size:11px">
+                                Creator: <a style="font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+                                   tal:content="python:author and author['fullname'] or creator"
+                                   tal:omit-tag="not:author">
+                                    Bob Dobalina
+                            </a> | <span tal:replace="python:toLocalizedTime(item_created,long_format=0)" /> | 
+                            Section: <span tal:replace="section" />
+                            </p>
+                        </div>
+                    </tal:block>
+
+                    <div class="visualClear"></div>
+                    <div metal:use-macro="here/batch_macros/macros/navigation" />
+
+                </div>
+                
+            </div>
+
+        </metal:main>
+    </metal:main_macro>
+</html>
+
