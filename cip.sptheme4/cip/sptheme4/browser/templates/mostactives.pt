@@ -283,6 +283,10 @@
                                     </tal:block>
                                 </table>
                             </div>
+                            <p>
+                                <br />
+                                <a href="../contentreview">More information about content items</a>
+                            </p>
                         </div>
 
                         <div style="clear:both;"></div>
