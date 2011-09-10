@@ -294,35 +294,37 @@
                     <h1 style="border:0; margin-bottom:0; padding-bottom:0;">Subfolders under <span tal:replace="context/Title" /></h1>
                     <p style="margin-bottom:10px; margin-left:15px; color:grey;">
                         <i>
-                            Folders under this section (<span tal:replace="context/Title" />) are listed below. 
+                            Folders under this section are listed below. 
                             Click on the folder name to see more information.
                         </i>
                     </p>
 					<script type="text/javascript">
 					$(function() {
-						$('#tabwrap').tabs2({ fxFade: true, fxSpeed: 'slow' }); 
+						$('#tabwrap').tabs2({ fxFade: true, fxSpeed: 'fast' }); 
 					});
 					</script>
 
-	                <div id="tabwrap" tal:condition="folds" style="float:left;">
+	                <div id="tabwrap" tal:condition="folds" style="float:left; width:101%;">
 	                    <ul id="tabnav" tal:condition="folds" class="tabnav_styles">
-	                        <li tal:repeat="item folds">
-	                            <tal:defs define="item_title_or_id item/pretty_title_or_id;
-	                                              item_id item/getId|item/id;
-		                                          item_href python:'#'+item_id">
-	                                <a style="color:white;" href="#" tal:attributes="href item_href"
-	                                   tal:content="item_title_or_id">
-	                                    <tal:block replace="item_title_or_id" />
-	                                </a>
-	                            </tal:defs>
-	                        </li>
+                            <tal:repnav repeat="item folds">
+                                <tal:defs define="item_title_or_id item/pretty_title_or_id;
+                                                  item_id item/getId|item/id;
+                                                  item_href python:'#'+item_id">
+
+        	                        <li>
+                                        <a href="#" tal:attributes="href item_href">
+        	                                <div style="width:190px" tal:content="item_title_or_id" />
+                                        </a>
+        	                        </li>
+                                </tal:defs>
+    	                    </tal:repnav>
 	                    </ul>
 						
 
 						<script type="text/javascript">
 						$(function() {
 							tabnav = $('#tabnav').height();
-							$('.tabs-container').css('min-height',tabnav);
+							$('.tabs2-container').css('min-height',tabnav);
 						});
 						</script>
 
@@ -365,10 +367,10 @@
 	                                                       over_limit python: limit_display and len(folderContents3) > limit_display;
 	                                                       folderContents3 python: (over_limit and folderContents3[:limit_display]) or folderContents3;
 	                                                       toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
-	                                        <div tal:condition="folderContents3">
-							                    <p class="folderListingInfo">
+	                                        <div style="margin-left:10px;" tal:condition="folderContents3">
+							                    <!--p class="folderListingInfo">
 						                            Latest three updates on this folder:
-							                    </p>
+							                    </p-->
 	                                            <tal:subcontents tal:repeat="obj folderContents3">
 	                                                <tal:defs2 tal:define="sub_obj obj/getObject;
 	                                                                       sub_title obj/pretty_title_or_id;
@@ -429,20 +431,21 @@
 	                                        </div>
 
 						                    <p tal:condition="python:len(folderContents3) == 0" class="folderListingInfo">
-					                            There are no folders under <span tal:replace="item_title_or_id" />.
+					                            There are no subfolders<!--span tal:replace="item_title_or_id" /-->
 						                    </p>
 
 
-	                                        <h2 tal:condition="python:len(folderContents3) != 0">Folders under <span tal:replace="item_title_or_id" /></h2>
+	                                        <h1 tal:condition="python:len(folderContents3) != 0">Subfolders under <span tal:replace="item_title_or_id" /></h1>
 	                                        <!--div style="float:right; margin-top:-4px; margin-right:-8px;" tal:condition="canEdit">
 	                                            <ul style="float:left; list-style:none outside none;">
 	                                                <li class="projectLi"><a href="#" tal:attributes="href cFolder">Add Folder</a></li>
 	                                            </ul>
 	                                        </div-->
-                                            <p tal:condition="python:len(folderContents3) != 0" class="folderListingInfo">
+                                            <!--p tal:condition="python:len(folderContents3) != 0" class="folderListingInfo">
                                                 TIP: The number of items in the folder is shown in parenthesis.
-                                            </p>
-	                                        <div tal:condition="folderContents3">
+                                            </p-->
+                                            <p class="folderListingInfo"></p>
+	                                        <div style="margin-left:10px;" tal:condition="folderContents3">
 	                                            <tal:subcontents tal:repeat="obj folderContents3">
 	                                                <tal:defs2 tal:define="sub_obj obj/getObject;
 	                                                                       sub_title obj/pretty_title_or_id;
