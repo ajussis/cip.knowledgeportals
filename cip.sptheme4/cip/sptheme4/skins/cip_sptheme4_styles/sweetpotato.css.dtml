@@ -1451,7 +1451,10 @@ float:left;
 width:350px;
 }
 .projectH2 {
-border-bottom:1px solid #581A74;
+    border-bottom: 0 solid #581A74;
+}
+.projectMembers p {
+    margin-left:10px;
 }
 
 #content a:hover, dl.portlet a:hover {

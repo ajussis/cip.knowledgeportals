@@ -66,7 +66,7 @@
             </div>
             <div class="lineBreak"></div>
      
-            <h1>Documentation</h1>
+            <h1>Documents</h1>
 
 
             <tal:defs tal:define="canEdit python:checkPermission('Modify portal content', here);
@@ -104,13 +104,12 @@
             </p-->
             <div class="visualClear"></div>
 
-            <tal:block tal:define="path python:'/'.join(here.getPhysicalPath());
+            <!--tal:block tal:define="path python:'/'.join(here.getPhysicalPath());
                                    folds python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Folder','b-org Project']);">
                 <div tal:condition="folds" style="width:180px; float:left;">
                     <h1 style="border:0; float:left; margin-bottom:0; padding-bottom:0;">Subfolders</h1>
                     <div tal:condition="folds" style="-webkit-border-radius:0.5em;-moz-border-radius-topleft: 8px; -moz-border-radius-topright: 8px; -moz-border-radius-bottomleft:8px;
                             -moz-border-radius-bottomright:8px; margin-right:10px; padding:10px; width:180px; float:left; background-color:#DB214C;">
-                        <!--img style="float:left; padding:5px 50px 0 20px; width:30px;" src="spfolder2.jpg"/-->
                         <div tal:repeat="item folds">
                             <tal:defs define="item_url item/getURL|item/absolute_url;
                                               item_title_or_id item/pretty_title_or_id;
@@ -124,7 +123,7 @@
                         </div>
                     </div>
                 </div>
-            </tal:block>
+            </tal:block-->
             <tal:checknews define="path python:'/'.join(here.getPhysicalPath());
                                    news python:context.portal_catalog(path={'query' : path, 'depth' : 3}, portal_type='News Item', contentFilter = {'sort_on' : 'modified', 'sort_order' : 'reverse' });
                                    news python:news[:1];
@@ -132,7 +131,7 @@
                                    links python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Link'], contentFilter = {'sort_on' : 'modified', 'sort_order' : 'reverse' });
                                    docs python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['File'], contentFilter = {'sort_on' : 'modified', 'sort_order' : 'reverse' });
                                    galleries python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = ['Gallery Folder'], contentFilter = {'sort_on' : 'modified', 'sort_order' : 'reverse' });">
-                <div style="width:70%; float:right; margin-top:6px;">
+                <div style="float:left; width:95%; margin-top:6px;">
                     <tal:bb tal:condition="news">
                         <h2 class="content-tab">Latest News</h2>
                         <img src="spnews.png" class="spIcon" />
@@ -268,7 +267,7 @@
                 <div metal:define-slot="inside" tal:replace="structure text">The body</div>
             </div>
 
-            <metal:listingmacro define-macro="listing">
+            <!--metal:listingmacro define-macro="listing">
                 <tal:foldercontents define="contentFilter contentFilter|request/contentFilter|nothing;
                                     limit_display limit_display|request/limit_display|nothing;
                                     more_url more_url|request/more_url|string:folder_contents;
@@ -282,7 +281,7 @@
                                     b_size python:12;b_start python:0;b_start request/b_start | b_start;
                                     top_id python:here.getId;">
                     <tal:listing condition="folderContents">
-                        <h1>Content in <!--tal:hmm tal:replace="here/Title" /--> subfolders</h1>
+                        <h1>Content in subfolders</h1>
                         <p style="margin-left:30px; text-style:italics;">
                             Here you can find the sections inside <tal:hmm tal:replace="here/Title" />.
                             Each category shows the section's subfolders and the latest changes.
@@ -311,20 +310,12 @@
                                     </a>
                                     <div class="visualClear"></div>
 
-                                    <!--div style="width:220px" class="tileItem visualIEFloatFix vevent">
-                                        <a href="" tal:attributes="href item/getURL">
-                                            <img style="float:left; padding:0px 50px 0 40px; width:100px;" src="spfolder2.jpg"
-                                                 tal:condition="python:item_type=='Folder' and item_id != 'news' or item_type=='Project Folder' or item_type=='Projects Holder'" />
-                                        </a>
-                                    </div-->
-
                                     <tal:getsubs define="path python:'/'.join(here.getPhysicalPath()) + '/' + item_id;
                                                          folderContents3 python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type='Folder', contentFilter = {'sort_on' : 'Date', 'sort_order' : 'reverse' });
                                                          cFolder python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + 'createObject?type_name=Folder';
                                                          canEdit python:checkPermission('Modify portal content', here);">
                                         <h2 class="default-content-tab">Subfolders</h2>
                                         <div style="float:right; margin-top:-4px; margin-right:-8px;" tal:condition="canEdit">
-                                            <!--p style="float:left; margin-right:7px; font-size:13px; margin-bottom:0;margin-top:3px;">Add </p-->
                                             <ul style="float:left; list-style:none outside none;">
                                                 <li class="projectLi"><a href="#" tal:attributes="href cFolder">Add Folder</a></li>
                                             </ul>
@@ -373,9 +364,6 @@
                                                        toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
                                         <h2 tal:condition="folderContents3" class="content-tab">Latest updates</h2>
                                         <div tal:condition="folderContents3">
-                                            <!--h2>
-                                                Latest on <tal:latest replace="item_title_or_id" />
-                                            </h2-->
                                             <tal:subcontents tal:repeat="obj folderContents3">
                                                 <tal:defs2 tal:define="sub_obj obj/getObject;
                                                                        sub_title obj/pretty_title_or_id;
@@ -419,7 +407,268 @@
                         </p>
                     </metal:empty>
                 </tal:foldercontents>
+            </metal:listingmacro-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <metal:listingmacro define-macro="listing3">
+                <tal:foldercontents define="contentFilter contentFilter|request/contentFilter|nothing;
+                                            limit_display limit_display|request/limit_display|nothing;
+                                            is_a_topic python:context.portal_type=='Topic';
+                                            path python:'/'.join(here.getPhysicalPath());
+                                            folderContents python:is_a_topic and here.queryCatalog(contentFilter, batch=True) or context.portal_catalog(path={'query': path, 'depth' : 1},portal_type=('Folder', 'Projects Holder'), sort_on='modified', sort_order='Reverse');
+                                            batch folderContents;
+                                            over_limit python: limit_display and len(folderContents) > limit_display;
+                                            folderContents python: (over_limit and folderContents[:limit_display]) or folderContents;
+                                            top_id python:here.getId;
+                                            folds python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Folder');">
+
+                    <tal:listing condition="python: folderContents and is_a_topic">
+                        <tal:block tal:repeat="item folderContents">
+                            <div tal:define="item_url item/getURL|item/absolute_url;
+                                             item_id item/getId|item/id;
+                                             item_title_or_id item/pretty_title_or_id;"
+                                 style="margin-left:1em;">
+                                <div>
+                                    <a href="#" tal:attributes="href item_url">
+                                        <h1 tal:content="item_title_or_id"
+                                            style="border-top:0px solid #DB214C; border-bottom:0; margin-bottom:2px;" />
+                                    </a>
+                                </div>
+                            </div>
+                        </tal:block>
+                    </tal:listing>
+
+                    <h1 style="border:0; margin-bottom:0; padding-bottom:0;">Subfolders <!--span tal:replace="context/Title" /--></h1>
+                    <p style="margin-bottom:10px; margin-left:15px; color:grey;">
+                        <!--i>
+                            Folders under this section are listed below. 
+                            Click on the folder name to see more information.
+                        </i-->
+                    </p>
+                    <script type="text/javascript">
+                    $(function() {
+                        $('#tabwrap').tabs2({ fxFade: true, fxSpeed: 'fast' }); 
+                    });
+                    </script>
+
+                    <div id="tabwrap" tal:condition="folds" style="float:left; width:101%;">
+                        <ul id="tabnav" tal:condition="folds" class="tabnav_styles">
+                            <tal:repnav repeat="item folds">
+                                <tal:defs define="item_title_or_id item/pretty_title_or_id;
+                                                  item_id item/getId|item/id;
+                                                  item_href python:'#'+item_id">
+
+                                    <li>
+                                        <a href="#" tal:attributes="href item_href">
+                                            <div style="width:190px" tal:content="item_title_or_id" />
+                                        </a>
+                                    </li>
+                                </tal:defs>
+                            </tal:repnav>
+                        </ul>
+                        
+
+                        <script type="text/javascript">
+                        $(function() {
+                            tabnav = $('#tabnav').height();
+                            $('.tabs2-container').css('min-height',tabnav);
+                        });
+                        </script>
+
+                        <tal:listing2 condition="python: folderContents and not is_a_topic">
+                            <!--p style="margin-left:30px; text-style:italics;">
+                                Here you can find the sections inside <tal:hmm tal:replace="here/Title" />.
+                                Each category shows the section's subfolders and the latest changes.
+                            </p-->
+                            <tal:block tal:repeat="item folderContents">
+                                <tal:block2 tal:define="item_url item/getURL|item/absolute_url;
+                                                       item_id item/getId|item/id;
+                                                       item_title_or_id item/pretty_title_or_id;
+                                                       item_description item/Description;
+                                                       item_type item/portal_type;
+                                                       item_type_title item/Type;
+                                                       item_modified item/ModificationDate;
+                                                       item_created item/CreationDate;
+                                                       item_creator item/Creator;
+                                                       item_start item/start/ISO|item/StartDate|nothing;
+                                                       item_end item/end/ISO|item/EndDate|nothing;
+                                                       item_object item/getObject;
+                                                       path python:'/'.join(here.getPhysicalPath()) + '/' + item_id;
+                                                       folderContents4 python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type=['Document','File','News Item','Event','Link'], contentFilter = {'sort_on' : 'Date', 'sort_order' : 'reverse' });">
+
+                                    <div id="#" tal:attributes="id item_id" class="tabnav_contents"
+                                         tal:condition="python:item_type == 'Folder' and item_id != 'news' or item_type == 'Project Folder'">
+                                        <a href="#" tal:attributes="href item_url">
+                                            <h1 class="tabnav_contentstitle" tal:condition="python:item_type != 'Image'">
+                                                <tal:block replace="item_title_or_id" />
+                                                <!--img src="arrow_right.png" style="margin: 5px 0 0 5px;" /-->
+                                            </h1>
+                                        </a>
+                                        <div class="visualClear"></div>
+
+                                        <tal:block define="limit_display python:3;
+                                                           path python:'/'.join(here.getPhysicalPath()) + '/' + item_id;
+                                                           more_url more_url|request/more_url|string:folder_contents;
+                                                           folderContents3 python:context.portal_catalog(path={'query': path, 'depth' : 1}, portal_type=('News Item', 'Event', 'File', 'Document', 'Window', 'Gallery Folder','Link','Window'), sort_on='modified', sort_order='Reverse');
+                                                           use_view_action site_properties/typesUseViewActionInListings|python:();
+                                                           over_limit python: limit_display and len(folderContents3) > limit_display;
+                                                           folderContents3 python: (over_limit and folderContents3[:limit_display]) or folderContents3;
+                                                           toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+                                            <div style="margin-left:10px;" tal:condition="folderContents3">
+                                                <!--p class="folderListingInfo">
+                                                    Latest three updates on this folder:
+                                                </p-->
+                                                <tal:subcontents tal:repeat="obj folderContents3">
+                                                    <tal:defs2 tal:define="sub_obj obj/getObject;
+                                                                           sub_title obj/pretty_title_or_id;
+                                                                           sub_desc obj/Description;
+                                                                           sub_url obj/getURL|obj/absolute_url;
+                                                                           sub_url_file python:sub_url+'/view';
+                                                                           sub_type obj/portal_type;
+                                                                           item_type item/portal_type;
+                                                                           item_url obj/getURL|item/absolute_url;
+                                                                           sub_id obj/getId|item/id;
+                                                                           author obj/Creator;
+                                                                           item_icon python:plone_view.getIcon(obj);">
+                                                        <div class="folderListingSubItem">
+                                                            <img tal:replace="structure item_icon/html_tag" style="margin-right:4px; float:left;"/>
+                                                            <a tal:condition="python:sub_type != 'File'" href="#"
+                                                                style="font-size:13px; margin-left:4px;"
+                                                                tal:content="sub_title"
+                                                                tal:attributes="href sub_url" />
+                                                            <tal:block condition="python:sub_type == 'File'">
+                                                                <a href="#"
+                                                                    style="font-size:13px; margin-left:4px;"
+                                                                    tal:content="sub_title"
+                                                                    tal:attributes="href sub_url_file" /> 
+                                                                <a style="margin-left:10px;" href="#" tal:attributes="href item_url">
+                                                                    <img alt="Download file directly" src="arrowDown.gif"/>
+                                                                </a>
+                                                            </tal:block><br />
+                                                            <span class="frontDateProject">
+                                                                <span class="frontDate2" tal:content="python:toLocalizedTime(obj.Date)" />
+                                                                <span class="frontDate2" tal:content="sub_type" />
+                                                                <tal:name tal:condition="obj/Creator"
+                                                                          tal:define="mtool context/portal_membership;
+                                                                                      creator obj/Creator;
+                                                                                      author python:mtool.getMemberInfo(creator);">
+                                                                    <a style="margin-left:5px; font-style:normal; font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+                                                                                tal:content="python:author and author['fullname'] or creator"
+                                                                                tal:omit-tag="not:author">
+                                                                        Bob Dobalina
+                                                                    </a>
+                                                                </tal:name>
+                                                            </span>
+                                                        </div>
+                                                    </tal:defs2>
+                                                </tal:subcontents>
+                                                <p class="folderListingSeeall">
+                                                    <a href="#" tal:attributes="href item_url">See all...</a>
+                                                </p>
+                                            </div>
+                                        </tal:block>
+
+                                        <tal:getsubs define="folderContents3 python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type='Folder', contentFilter = {'sort_on' : 'Date', 'sort_order' : 'reverse' });
+                                                             cFolder python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + 'createObject?type_name=Folder';
+                                                             canEdit python:checkPermission('Modify portal content', here);">
+                                            <div tal:condition="not: folderContents4">
+                                                <p class="folderListingInfo">
+                                                    There are no files in this folder
+                                                </p>
+                                            </div>
+
+                                            <p tal:condition="python:len(folderContents3) == 0" class="folderListingInfo">
+                                                There are no subfolders<!--span tal:replace="item_title_or_id" /-->
+                                            </p>
+
+
+                                            <h1 tal:condition="python:len(folderContents3) != 0">Subfolders under <span tal:replace="item_title_or_id" /></h1>
+                                            <!--div style="float:right; margin-top:-4px; margin-right:-8px;" tal:condition="canEdit">
+                                                <ul style="float:left; list-style:none outside none;">
+                                                    <li class="projectLi"><a href="#" tal:attributes="href cFolder">Add Folder</a></li>
+                                                </ul>
+                                            </div-->
+                                            <!--p tal:condition="python:len(folderContents3) != 0" class="folderListingInfo">
+                                                TIP: The number of items in the folder is shown in parenthesis.
+                                            </p-->
+                                            <p class="folderListingInfo"></p>
+                                            <div style="margin-left:10px;" tal:condition="folderContents3">
+                                                <tal:subcontents tal:repeat="obj folderContents3">
+                                                    <tal:defs2 tal:define="sub_obj obj/getObject;
+                                                                           sub_title obj/pretty_title_or_id;
+                                                                           sub_desc obj/Description;
+                                                                           sub_url obj/getURL|obj/absolute_url;
+                                                                           sub_type obj/portal_type;
+                                                                           item_type item/portal_type;
+                                                                           item_url obj/getURL|item/absolute_url;
+                                                                           sub_id obj/getId|item/id;
+                                                                           item_icon python:plone_view.getIcon(obj);
+                                                                           path python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + sub_id;
+                                                                           brains python:context.portal_catalog(path={'query' : path, 'depth' : 3}, portal_type=['File', 'Document', 'News Item', 'Gallery Folder']);
+                                                                           brains2 python:len(brains);">
+                                                        <img tal:replace="structure item_icon/html_tag" style="margin-right:4px; float:left;"/>
+                                                        <a href="#" class="folderListingFolderIcon"
+                                                            tal:content="sub_title"
+                                                            tal:attributes="href sub_url" />
+                                                            <span tal:condition="python:sub_type != 'News Item'" style="color:grey;">
+                                                                (<tal:publics replace="brains2"/>)
+                                                            </span>
+                                                        <div class="visualClear"></div>
+                                                    </tal:defs2>
+                                                </tal:subcontents>
+                                            </div>
+
+                                        </tal:getsubs>
+                                    </div>
+                                    <!--div class="visualClear"></div-->
+                                </tal:block2>
+                            </tal:block>
+                        </tal:listing2>
+                    </div>
+
+                    <metal:empty metal:define-slot="no_items_in_listing">
+                        <p class="discreet"
+                           tal:condition="not: folderContents"
+                           i18n:translate="description_no_items_in_folder">
+                            There are currently no subfolders.
+                        </p>
+                    </metal:empty>
+                </tal:foldercontents>
             </metal:listingmacro>
+
+
+
 
 
             <div class="lineBreak"></div>-
@@ -430,6 +679,11 @@
                     <div tal:replace="structure here/getInfo" />
                 </div>
             </tal:getInfo>
+
+
+
+
         </metal:main>
     </metal:main_macro>
+
 </html>
