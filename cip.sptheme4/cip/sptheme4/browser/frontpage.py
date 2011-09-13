@@ -49,5 +49,5 @@ class FrontpageView(BrowserView):
                 img = self.context.portal_membership.getPersonalPortrait(user[2]).absolute_url()
             except:
                 img = "defaultUser.gif"
-            finals.append([user[0], user[1], fullname, img, '/potato/Members/'+user[2],self.context.portal_membership.getMemberById(user[2]).getProperty("institution")])
+            finals.append([user[0], user[1], fullname, img, '/Members/'+user[2],self.context.portal_membership.getMemberById(user[2]).getProperty("institution")])
         return finals
