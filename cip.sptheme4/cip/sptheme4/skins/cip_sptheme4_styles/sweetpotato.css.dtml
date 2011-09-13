@@ -470,6 +470,17 @@ div.pane-container ul.tabs li {
     padding: 0;
 }
 .fpUpdates div.pane-container ul.tabs li {
+    background: none repeat scroll 0 0 transparent;
+    border-color: #EEE8F4;
+    border-radius: 8px 8px 0 0;
+    border-style: solid;
+    border-width: 0;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.fpUpdates div.pane-container ul.tabs li {
     float: left;
     margin: 0;
     padding: 0 0 0 9px;
