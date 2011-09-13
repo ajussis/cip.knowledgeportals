@@ -1655,7 +1655,7 @@ margin:0;
 
 .comments {
     float: left;
-    margin: 0 15px;
+    margin: 0 0;
     width: 280px;
 }
 .comments .pane {
@@ -1730,9 +1730,9 @@ background-size:30px;
 
 
 .fpgalleries {
-margin-left:10px;
-float:left;
-width:225px;
+    float: left;
+    margin-left: 0;
+    width: 225px;
 }
 .fpgalleries .pane {
 width:225px;
@@ -2061,7 +2061,11 @@ div.pane-container ul.tabs {
     padding: 10px 10px 0;
 }
 
-
+.fpgalleries .tabs2-container {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 10px 10px 10px 10px;
+    padding-left: 0 !important;
+}
 
 
 /* </dtml-with> */

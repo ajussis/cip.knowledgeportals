@@ -443,8 +443,26 @@
 				</div>
 
 	            <div class="comments">
-	                <div tal:define="comments python: getattr(context, 'comments');">
-	                    <h2>Comments on content</h2>
+	                <div style="cursor:pointer;" id="video" tal:define="comments python: getattr(context, 'comments');">
+	                    <h2>Video tutorial</h2>
+                        <img src="videofront.jpg" width="300" />
+                        <span>Click to show video</span> | <a href="about/How%20To%20Use%20the%20Sweetpotato%20Knowledge%20Portal.swf" target="_blank">Open video in new window</a>
+
+                        <style type="text/css">
+                            #video_tutorial{display:none}
+                            #video span:hover {background:yellow; color:#581A74;}
+                            #video span {color:#581A74;}
+                        </style>
+                        <script type="text/javascript">
+                        $(document).ready(function() {    
+                        $('#video').click(function() {
+                            $('#video_tutorial').toggle();
+                            });
+                        });
+                        </script>
+
+
+	                    <!--h2>Comments on content</h2>
 	                    <tal:defs define="n comments/queryCatalog">
 	                        <p class="frontP" tal:repeat="m n">
 	                            <tal:rep define="pType m/portal_type;
@@ -469,10 +487,17 @@
 	                            </tal:rep>
 	                        </p>
 	                        <a href="../comments" class="seeAll">See all...</a>
-	                    </tal:defs>
+	                    </tal:defs-->
 	                </div>
 	            </div>
 
+			</div>
+			<div style="margin-left:110px;" id="video_tutorial">
+                <object type="application/x-shockwave-flash" width="697" height="479"
+                        wmode="transparent" data="about/How%20To%20Use%20the%20Sweetpotato%20Knowledge%20Portal.swf?file=**vid location**&autoStart=true">
+                    <param name="movie" value="http://localhost:8081/sweetpotato3/about/How%20To%20Use%20the%20Sweetpotato%20Knowledge%20Portal.swf?file=**vid location**&autoStart=true" />
+                    <param name="wmode" value="transparent" />
+                </object>
 			</div>
         </metal:main>
     </metal:main_macro>
