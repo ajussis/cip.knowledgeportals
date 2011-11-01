@@ -24,8 +24,8 @@
                             <tr class="member_row">
                                 <tal:defineAgain define="firstName python:user[0];
                                                          lastName python:user[1];
-														 institution python:user[2];
-                                						 userUrl python:user[3];
+						         institution python:user[2];
+                                	                 userUrl python:user[3];
                                                          userObjects python:user[4];
                                                          location python:user[5];">
                                     <td class="member_column">
@@ -245,12 +245,17 @@
                         $(document).ready(function(){
                             $('#showlink').next('div').hide();
                             $('#showlink2').next('div').hide();
+                            $('#showlink3').next('div').hide();
                             $("#showlink").click(function(){
                                 $("div#allcontent").slideToggle();
                                 return false;
                             });
                             $("#showlink2").click(function(){
                                 $("div#allcontent2").slideToggle();
+                                return false;
+                            });
+                            $("#showlink3").click(function(){
+                                $("div#allcontent3").slideToggle();
                                 return false;
                             });
                         });
@@ -283,6 +288,28 @@
                                     </tal:block>
                                 </table>
                             </div>
+
+                            <div style="clear:both;"></div>
+
+                            <a href="#" id="showlink3">Show by creation period »</a>
+                            <div id="allcontent3" tal:define="periods python:['4/2010','1/2011','2/2011','3/2011','4/2011'];
+                                                            DateTime python:modules['DateTime'].DateTime;
+                                                            results python:
+                                                                [len(here.portal_catalog(created={ 'query' : [DateTime(2010,9,1), DateTime(2010,12,31)], 'range':'minmax'})),
+                                                                 len(here.portal_catalog(created={ 'query' : [DateTime(2011,1,1), DateTime(2011,3,31)], 'range':'minmax'})),
+                                                                 len(here.portal_catalog(created={ 'query' : [DateTime(2011,4,1), DateTime(2011,6,30)], 'range':'minmax'})),
+                                                                 len(here.portal_catalog(created={ 'query' : [DateTime(2011,7,1), DateTime(2011,9,30)], 'range':'minmax'})),
+                                                                 len(here.portal_catalog(created={ 'query' : [DateTime(2011,10,1), DateTime(2011,12,31)], 'range':'minmax'})),];">
+                                <table style="margin:10px 5px 5px 10px;">
+                                    <tal:block repeat="n periods">
+                                        <tr tal:define="nn repeat/n/index">
+                                            <td style="border-right:20px solid transparent;"><tal:doctype content="n" />:</td>
+                                            <td><span tal:content="python:results[nn]"/></td>
+                                        </tr>
+                                    </tal:block>
+                                </table>
+                            </div>
+
                             <p>
                                 <br />
                                 <a href="../contentreview">More information about content items</a>
