@@ -9,6 +9,18 @@ class IProjectFolder(Interface):
     """The container for Sweetpotato Projects"""
 
     # -*- schema definition goes here -*-
+    featuredproject = schema.Bool(
+        title=_(u"Featured project"),
+        required=False,
+        description=_(u"Check if you want this project to appear in the featured project sections"),
+    )
+#
+    category = schema.TextLine(
+        title=_(u"Project category"),
+        required=False,
+        description=_(u"Add project category"),
+    )
+#
     image = schema.Bytes(
         title=_(u"Project Image"),
         required=False,

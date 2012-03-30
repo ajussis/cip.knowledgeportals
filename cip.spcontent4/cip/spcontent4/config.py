@@ -5,6 +5,7 @@ PROJECTNAME = 'cip.spcontent4'
 
 ADD_PERMISSIONS = {
     # -*- extra stuff goes here -*-
+    'ProjectType': 'cip.spcontent4: Add ProjectType',
     'ResearchPaper': 'cip.spcontent4: Add Research Paper',
     'InstitutionsHolder': 'cip.spcontent4: Add Institutions Holder',
     'GalleryFolder': 'cip.spcontent4: Add Gallery Folder',

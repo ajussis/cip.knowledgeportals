@@ -6,6 +6,12 @@
   <!-- configure your content components here -->
   
   <!-- -*- extra stuff goes here -*- -->
+  <class class=".projecttype.ProjectType">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IProjectType"
+        />
+  </class>
   <class class=".researchpaper.ResearchPaper">
     <require
         permission="zope2.View"

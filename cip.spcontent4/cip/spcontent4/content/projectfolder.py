@@ -25,6 +25,28 @@ from cip.spcontent4.config import PROJECTNAME
 ProjectFolderSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
     # -*- Your Archetypes field definitions here ... -*-
+
+    atapi.BooleanField(
+        'featuredproject',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.BooleanWidget(
+            label=_(u"Featured project"),
+            description=_(u"Check if you want this project to appear in the featured project sections"),
+        ),
+    ),
+
+
+    atapi.StringField(
+        'category',
+        relationship='projectfolder_category',
+        vocabulary='getCategories',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.InAndOutWidget(
+            label=_(u"Project category"),
+            description=_(u"Add project category"),
+        ),
+    ),
+
     atapi.DateTimeField(
         'start',
         storage=atapi.AnnotationStorage(),
@@ -138,6 +160,10 @@ class ProjectFolder(folder.ATFolder):
     description = atapi.ATFieldProperty('description')
 
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
+    featuredproject = atapi.ATFieldProperty('featuredproject')
+
+    category = atapi.ATFieldProperty('category')
+
     image = atapi.ATFieldProperty('image')
 
     leaderText = atapi.ATFieldProperty('leaderText')
@@ -157,6 +183,9 @@ class ProjectFolder(folder.ATFolder):
     def getAreas(self):
         dl = ["Europa","Asia","Africa","South America","Central America"]
         return dl
+
+    def getCategories(self):
+        return ["Breeding","Promotion","Crop Management","Impact Assessment","Post-Harvest"]
 
     def getMembers(self):
         users2 = self.acl_users.getUserIds()

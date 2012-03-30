@@ -65,6 +65,8 @@
     meta_type="Factory-based Type Information with dynamic views"/>
  <object name="Projects Holder"
     meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="ProjectType"
+    meta_type="Factory-based Type Information with dynamic views"/>
  <object name="Institution"
     meta_type="Factory-based Type Information with dynamic views"/>
  <object name="Project Folder"
