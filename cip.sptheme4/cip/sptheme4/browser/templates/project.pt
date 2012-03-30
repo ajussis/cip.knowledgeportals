@@ -30,9 +30,18 @@
 
                 <div tal:define="areas python:context.getArea();
                                  areasL python:len(areas);
-                                 areas python:areas[:areasL-1];"
+                                 areas python:areas[:areasL-1];
+                                 categories python:context.getCategory();
+                                 categoriesL python:len(categories);
+                                 categories python:categories[:categoriesL-1];"
                      class="projectColumns">
-                    <h2 class="projectH2">Area</h2>
+                    <h2 class="projectH2">Project category</h2>
+                    <ol>
+                        <tal:block tal:repeat="cat categories">
+                            <li tal:content="cat" />
+                        </tal:block>
+                    </ol>
+                    <h2 class="projectH2">Geographical area</h2>
                     <ol>
                         <tal:block tal:repeat="area areas">
                             <li tal:content="area" />

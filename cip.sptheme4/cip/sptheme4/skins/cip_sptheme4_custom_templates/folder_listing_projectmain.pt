@@ -11,7 +11,6 @@
 
 <body>
 
-
     <div metal:fill-slot="main">
         <metal:main-macro define-macro="main"
                           tal:define="kssClassesView context/@@kss_field_decorator_view;
@@ -20,6 +19,7 @@
                                       toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
             <metal:listingmacro define-macro="listing">
                 <tal:foldercontents define="folderContents python:here.getFolderContents(batch=True, b_size=100);
+                                            folderContents python:context.portal_catalog(path={'query': '/sweetpotato2/germplasm'}, sort_on='Title');
 		                                    cProject python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Project+Folder';">
                     <ul style="float:right; margin-top:24px; list-style:none outside none;">
                         <li class="projectLi"><a href="#" tal:attributes="href cProject">Add a project</a></li>
@@ -29,6 +29,8 @@
 		            <p metal:use-macro="here/kss_generic_macros/macros/generic_description_view">
 		                Description
 		            </p>
+
+                    <h1>Featured projects</h1>
 
                     <tal:listing condition="folderContents">
                         <tal:block tal:repeat="item folderContents">
@@ -78,6 +80,7 @@
                             </div>
                         </tal:block>
                     </tal:listing>
+                    <
                 </tal:foldercontents>
             </metal:listingmacro>
             <metal:subtopics use-macro="here/atct_topic_view/macros/folderlisting_macro" />

@@ -1,0 +1,129 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+             tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+<metal:main_macro define-macro="main">
+    <metal:main fill-slot="main"
+                tal:define="kssClassesView context/@@kss_field_decorator_view;
+                                      getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                                      templateId template/getId;
+                                      toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+        <metal:listingmacro define-macro="listing">
+            <tal:foldercontents define="folderContents python:here.getFolderContents(batch=True, b_size=100);
+		                                cProject python:'/'.join(here.getPhysicalPath()) + '/' + 'createObject?type_name=Project+Folder';">
+                <ul style="float:right; margin-top:24px; list-style:none outside none;">
+                    <li class="projectLi"><a href="#" tal:attributes="href cProject">Add a project</a></li>
+                </ul>
+                <h1 tal:content="context/Title" style="font-size:2em;" />
+                <img src="spproject.png" class="spIcon" />
+                <p tal:content="context/Description">
+                    Description
+                </p>
+
+                <h1>Featured projects</h1>
+
+                <tal:listing condition="folderContents">
+                    <tal:block tal:repeat="item folderContents">
+                        <div style="margin-top:20px;"
+                             tal:define="item_url item/getURL|item/absolute_url;
+                                             item_id item/getId|item/id;
+                                             item_title_or_id item/pretty_title_or_id;
+                                             item_description item/Description;
+                                             item_creator item/Creator;
+                                             path python:'/'.join(here.getPhysicalPath()) + '/' + item_id;
+                                             brains python:context.portal_catalog(path={'query' : path, 'depth' : 3}, sort_on = 'Date', sort_order = 'reverse')[:2];
+                                             brains2 python:len(brains);
+                                             item_object item/getObject;
+                                             img python:item_object.getImage();
+                                             image python:item_id+'/image';
+                                             canEdit python:checkPermission('Modify portal content', here);
+                                             upload python:'/'.join(here.getPhysicalPath()) + '/' + '@@upload';">
+                            <a href="#" tal:attributes="href item_url">
+                                <h1 tal:content="item_title_or_id" style="border-bottom:0;" />
+                            </a>
+                            <img src="#" tal:attributes="src image" style="float:left; width:100px; margin:7px 20px 7px 20px;" tal:condition="img" />
+                            <p style="width:285px; float:left; padding-right:10px;">
+                                <tal:block replace="item_description" /><br />
+                                <a style="margin-top:10px; margin-right:10px; float:right;" href="#" tal:attributes="href item_id">Read more...</a>
+                            </p>
+                            <div style="margin-left:25px; float:left;width:275px;">
+                                <h2 style="margin-top:-2.75em;">
+                                    Latest updates
+                                </h2>
+                                <p tal:repeat="item brains">
+                                    <tal:def define="item_id item/getId|item/id;
+														 item_title_or_id item/pretty_title_or_id;
+				                                         item_type_title item/Type;
+			                                             item_object item/getObject;
+			                                             item_type item/portal_type;
+				                                         item_created item/CreationDate;
+														 item_url item/getURL|item/absolute_url;">
+                                        <a href="#" tal:attributes="href item_url" tal:content="item_title_or_id" /><br />
+											<span class="galleryInfos">
+		                                        <span style="font-size:11px; margin-left:20px; margin-right:10px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
+											</span>
+                                    </tal:def>
+                                </p>
+                            </div>
+                            <div class="visualClear"></div>
+                        </div>
+                    </tal:block>
+                </tal:listing>
+
+                <h1>All projects</h1>
+
+                <table tal:define="pros view/projects">
+                    <tr>
+                        <th>Project</th>
+                        <th>Areas</th>
+                        <th>Geographic</th>
+                        <th>End</th>
+                        <th>Start</th>
+                    </tr>
+                    <tal:block tal:repeat="item pros">
+                        <tr style="font-size:90%; border-bottom: 1px solid grey;"
+                            tal:define="item_url item/getURL|item/absolute_url;
+                                         item_id item/getId|item/id;
+                                         item_title_or_id item/pretty_title_or_id;
+                                         item_description item/Description;
+                                         item_creator item/Creator;
+                                         path python:'/'.join(here.getPhysicalPath()) + '/' + item_id;
+                                         brains python:context.portal_catalog(path={'query' : path, 'depth' : 3}, sort_on = 'Date', sort_order = 'reverse')[:2];
+                                         brains2 python:len(brains);
+                                         item_object item/getObject;
+                                         cats python:item_object.getCategory();
+                                         areas python:item_object.getAreas();
+                                         start python:item_object.getStart();
+                                         end python:item_object.getEnd();
+                                         toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+                            <td style="width:30%;">
+                                <a href="#" tal:attributes="href item_url" style="text-decoration: none;">
+                                    <span tal:content="item_title_or_id" />
+                                </a>
+                            </td>
+                            <td>
+                                <tal:cate repeat="cat cats">
+                                    <span tal:content="cat" />,
+                                </tal:cate>
+                            </td>
+                            <td style="margin-left:10px; float:left;width:275px;">
+                                <tal:area repeat="area areas">
+                                    <span tal:content="area" />,
+                                </tal:area>
+                            </td>
+                            <td>
+                                <span tal:content="python:toLocalizedTime(start)" />
+                            </td>
+                            <td>
+                                <span tal:content="python:toLocalizedTime(end)" />
+                            </td>
+                        </tr>
+                    </tal:block>
+                </table>
+
+            </tal:foldercontents>
+        </metal:listingmacro>
+        <metal:subtopics use-macro="here/atct_topic_view/macros/folderlisting_macro" />
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+    </metal:main>
+</metal:main_macro>
+</html>

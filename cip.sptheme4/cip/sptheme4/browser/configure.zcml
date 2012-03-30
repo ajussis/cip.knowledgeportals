@@ -32,6 +32,14 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="*"
+      name="projectsView"
+      class=".viewlets.FrontpageProjectsView"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
   <!-- Zope 3 browser resources -->
 
   <!-- Resource directory for images

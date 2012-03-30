@@ -5,6 +5,7 @@ from plone.app.layout.viewlets.common import ViewletBase
 from datetime import date
 from plone.app.portlets.cache import render_cachekey
 from plone.memoize import ram
+from Products.Five.browser import BrowserView
 
 # Sample code for a basic viewlet (In order to use it, you'll have to):
 # - Un-comment the following useable piece of code (viewlet python class).
@@ -24,6 +25,25 @@ from plone.memoize import ram
 #
 #    def update(self):
 #        self.computed_value = 'any output'
+
+class FrontpageProjectsView(BrowserView):
+    """ View for the projects front page
+    """
+    __call__ = ViewPageTemplateFile('templates/frontpage_projects.pt')
+
+    def projects(self):
+        pros = self.context.portal_catalog.searchResults(portal_type="Project Folder")
+
+        return pros
+
+    def featuredProjects(self):
+        pros = self.context.portal_catalog.searchResults(portal_type="Project Folder")
+        featured = []
+        for i in pros:
+            obj = i.getObject()
+            if obj.getFeaturedproject() is True:
+                featured.append(i)
+        return featured
 
 
 class FooterViewlet(ViewletBase):
