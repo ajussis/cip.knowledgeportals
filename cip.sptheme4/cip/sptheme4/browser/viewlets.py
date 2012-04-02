@@ -45,6 +45,30 @@ class FrontpageProjectsView(BrowserView):
                 featured.append(i)
         return featured
 
+"""
+portal = app.sweetpotato3
+pros = portal.portal_catalog.searchResults(portal_type="Project Folder")
+featured = []
+for i in pros:
+    print i.Title
+    obj = i.getObject()
+    if obj.getFeaturedproject() is True:
+        featured.append(i)
+        print "This is featured"
+    else:
+        print "This is not featured"
+
+p = pros[0]
+b = p.getObject()
+b.getFeaturedproject
+b.getFinancing
+
+p1 = pros[1]
+b1 = p1.getObject()
+b1.getFeaturedproject
+b1.getFinancing
+"""
+
 
 class FooterViewlet(ViewletBase):
     index = ViewPageTemplateFile('templates/footer.pt')
