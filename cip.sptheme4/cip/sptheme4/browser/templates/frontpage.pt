@@ -444,22 +444,26 @@
 
 	            <div class="comments">
 	                <div style="cursor:pointer;" id="video" tal:define="comments python: getattr(context, 'comments');">
-	                    <h2>Video tutorial</h2>
-                        <img src="videofront.jpg" width="300" />
-                        <span>Click to show video</span> | <a href="about/How%20To%20Use%20the%20Sweetpotato%20Knowledge%20Portal.swf" target="_blank">Open video in new window</a>
+                        <a href="/contests/sphi-photo-contest/">
+                            <img src="sphi-photo-contest.jpg" />
+                        </a>
+                        <h2><a href="/contests/sphi-photo-contest/">Participate!</a></h2>
+	                    <!--<h2>Video tutorial</h2>-->
+                        <!--<img src="videofront.jpg" width="300" />-->
+                        <!--<span>Click to show video</span> | <a href="about/How%20To%20Use%20the%20Sweetpotato%20Knowledge%20Portal.swf" target="_blank">Open video in new window</a>-->
 
-                        <style type="text/css">
-                            #video_tutorial{display:none}
-                            #video span:hover {background:yellow; color:#581A74;}
-                            #video span {color:#581A74;}
-                        </style>
-                        <script type="text/javascript">
-                        $(document).ready(function() {    
-                        $('#video').click(function() {
-                            $('#video_tutorial').toggle();
-                            });
-                        });
-                        </script>
+                        <!--<style type="text/css">-->
+                            <!--#video_tutorial{display:none}-->
+                            <!--#video span:hover {background:yellow; color:#581A74;}-->
+                            <!--#video span {color:#581A74;}-->
+                        <!--</style>-->
+                        <!--<script type="text/javascript">-->
+                        <!--$(document).ready(function() {    -->
+                        <!--$('#video').click(function() {-->
+                            <!--$('#video_tutorial').toggle();-->
+                            <!--});-->
+                        <!--});-->
+                        <!--</script>-->
 
 
 	                    <!--h2>Comments on content</h2>
