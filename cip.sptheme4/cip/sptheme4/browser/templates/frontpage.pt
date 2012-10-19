@@ -444,10 +444,32 @@
 
 	            <div class="comments">
 	                <div style="cursor:pointer;" id="video" tal:define="comments python: getattr(context, 'comments');">
-                        <a href="/contests/sphi-photo-contest/">
-                            <img src="sphi-photo-contest.jpg" />
+                        <a href="http://sweetpotatoknowledge.org/contests/sphi-photo-contest-winners-2012/">
+                            <div class="contest_photo">
+                                <h2>Photo contest winners</h2>
+                            </div>
                         </a>
-                        <h2><a href="/contests/sphi-photo-contest/">Participate!</a></h2>
+                        <style>
+                            .contest_photo {
+                                width:255px;
+                                height:190px;
+                                background-size:255px;
+                                background-image:url("http://sweetpotatoknowledge.org/contests/sphi-photo-contest-winners-2012/non-cip-ofsp1.png/image_mini");
+                            }
+                            .contest_photo h2 {
+                                width: 255px;
+                                height: 190px;
+                                float: left;
+                                background: white;
+                                opacity: 0.6;
+                                font-size: 43px;
+                                text-align: center;
+                                padding-top: 0;
+                            }
+                            .contest_photo h2:hover {
+                                opacity:0.4;
+                            }
+                        </style>
 	                    <!--<h2>Video tutorial</h2>-->
                         <!--<img src="videofront.jpg" width="300" />-->
                         <!--<span>Click to show video</span> | <a href="about/How%20To%20Use%20the%20Sweetpotato%20Knowledge%20Portal.swf" target="_blank">Open video in new window</a>-->
