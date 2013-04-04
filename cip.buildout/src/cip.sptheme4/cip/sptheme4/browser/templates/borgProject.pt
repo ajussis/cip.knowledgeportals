@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="borg.project">
+<head>
+</head>
+
+<body>
+<div metal:fill-slot="main">
+    
+    <div tal:replace="structure provider:plone.abovecontenttitle" />
+  
+    <!--h1 class="documentFirstHeading" tal:content="context/title" /-->
+    <p style="border-left: 3px solid #5C1B77; border-right:  3px solid #5C1B77; padding-left: 10px; margin: 20px; color: #DB214C; font-size:14px;">
+        This is a private workspace of <b style="color:#5C1B77;"><tal:wsTitle replace="context/Title" /></b>. All the documents and pages added to this section
+        are only available to assigned project members.
+    </p>
+    <!--div class="documentDescription" tal:content="context/description" /-->
+
+    <div tal:replace="structure provider:plone.abovecontentbody" />
+    
+    <div metal:use-macro="context/folder_listing_private/macros/main" />
+
+    <div tal:replace="structure provider:plone.belowcontentbody" />
+     
+</div>
+</body>
+</html>

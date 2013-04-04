@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+    <metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                 			 " />
+    <body>
+        <div metal:fill-slot="main">
+            <metal:main-macro define-macro="main">
+                <h1 tal:content="context/Title"/>
+                <tal:foldercontents define="folderContents python:context.portal_catalog(portal_type=('Gallery Folder'), sort_on='modified', sort_order='Reverse');">
+                    <tal:listing condition="folderContents">
+                        <tal:block tal:repeat="item folderContents">
+                        	<tal:def define="item_id item/getId|item/id;">
+	                            <tal:galleryrow tal:define="item_url item/getURL|item/absolute_url;
+						                                            item_title_or_id item/pretty_title_or_id;
+						                                            item_object item/getObject;
+						                                            toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+	                                <tal:imageblock tal:define="folderContents3 python:item_object.getFolderContents();
+	                                							imgcount python:len(folderContents3);
+	                                							folderContents3 python:folderContents3[:1];">
+	                                    <div class="galleryRow"  tal:repeat="obj folderContents3">
+	                                        <tal:defs2 define="sub_title obj/pretty_title_or_id;
+	                                                           sub_url obj/getURL;
+	                                                           sub_id obj/getId|item/id;
+	                                                           path python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + sub_id;
+	                                                           ">
+	                                            <tal:conds>
+	                                                <div class="galleryblock" tal:define="image python:sub_url + '/image_thumb'">
+	                                                    <a href="#" tal:attributes="href item_url">
+	                                                        <img src="#" tal:attributes="src image" />
+	                                                    </a>
+														<h2 class="gallerytopic" tal:content="item_title_or_id"></h2>
+														<p class="galleryInfosP">
+															<tal:name tal:condition="obj/Creator"
+				                                                                  tal:define="mtool context/portal_membership;
+				                                                                              creator obj/Creator;
+				                                                                              gobj python:obj.getObject();
+				                                                                              path python:gobj.getPhysicalPath()[2].replace('-', ' ').capitalize();
+				                                                                              author python:mtool.getMemberInfo(creator);">
+		                                                        <a style="font-style:normal; font-size:11px;" href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+		                                                                    tal:content="python:author and author['fullname'] or creator"
+		                                                                    tal:omit-tag="not:author">
+		                                                            Bob Dobalina
+		                                                        </a>  
+		                                                        <span class="galleryInfos">| 
+			                                                        Labeled under: <tal:jou tal:replace="path" /> |
+			                                                        <tal:jou2 replace="python:toLocalizedTime(obj.Date)"/>
+																</span>
+		                                                    </tal:name>
+		                                                <p>
+														<p>
+															This gallery includes <span tal:replace="imgcount" /> photos. 
+															<a href="#" tal:attributes="href item_url">
+	                                                    		See all...
+	                                                    	</a>
+	                                                    </p>
+	                                                    
+	                                                </div>
+	                                            </tal:conds>
+	                                        </tal:defs2>
+	                                    </div>
+	                                </tal:imageblock>
+	                                <div class="visualClear"></div>
+	                            </tal:galleryrow>
+	                        </tal:def>
+                        </tal:block>
+                    </tal:listing>
+                </tal:foldercontents>
+
+            </metal:main-macro>
+        </div>
+    </body>
+</html>
