@@ -1,0 +1,4364 @@
+<?xml version="1.0"?>
+<portlets>
+ <portletmanager name="plone.leftcolumn"
+    type="plone.app.portlets.interfaces.ILeftColumn"/>
+ <portletmanager name="plone.dashboard3"
+    type="plone.app.portlets.interfaces.IDashboard"/>
+ <portletmanager name="plone.rightcolumn"
+    type="plone.app.portlets.interfaces.IRightColumn"/>
+ <portletmanager name="plone.dashboard4"
+    type="plone.app.portlets.interfaces.IDashboard"/>
+ <portletmanager name="plone.dashboard2"
+    type="plone.app.portlets.interfaces.IDashboard"/>
+ <portletmanager name="plone.dashboard1"
+    type="plone.app.portlets.interfaces.IDashboard"/>
+ <portlet title="Login" addview="portlets.Login"
+    description="A portlet which can render a log-in box">
+  <for interface="plone.app.portlets.interfaces.IColumn"/>
+ </portlet>
+ <portlet title="Collection portlet"
+    addview="plone.portlet.collection.Collection"
+    description="A portlet which displays the results of a collection query"/>
+ <portlet title="TTGoogleMap Geo Reference" addview="portlets.TTGeoReference"
+    description="">
+  <for interface="plone.app.portlets.interfaces.IColumn"/>
+ </portlet>
+ <portlet title="Review list" addview="portlets.Review"
+    description="A portlet which can render a listing on the review queue.">
+  <for interface="plone.app.portlets.interfaces.IColumn"/>
+  <for interface="plone.app.portlets.interfaces.IDashboard"/>
+ </portlet>
+ <portlet title="RSS Feed" addview="portlets.rss"
+    description="A portlet which can receive and render an RSS feed.">
+  <for interface="plone.app.portlets.interfaces.IColumn"/>
+  <for interface="plone.app.portlets.interfaces.IDashboard"/>
+ </portlet>
+ <portlet title="Recent items" addview="portlets.Recent"
+    description="A portlet which can render a listing of recently changed items.">
+  <for interface="plone.app.portlets.interfaces.IColumn"/>
+  <for interface="plone.app.portlets.interfaces.IDashboard"/>
+ </portlet>
+ <portlet title="News" addview="portlets.News"
+    description="A portlet which can render a listing of recent news">
+  <for interface="plone.app.portlets.interfaces.IColumn"/>
+  <for interface="plone.app.portlets.interfaces.IDashboard"/>
+ </portlet>
+ <portlet title="Navigation" addview="portlets.Navigation"
+    description="A portlet which can render a navigation tree">
+  <for interface="plone.app.portlets.interfaces.IColumn"/>
+ </portlet>
+ <portlet title="Events" addview="portlets.Events"
+    description="A portlet which can render a listing of recent events">
+  <for interface="plone.app.portlets.interfaces.IColumn"/>
+  <for interface="plone.app.portlets.interfaces.IDashboard"/>
+ </portlet>
+ <portlet title="SP Galleries portlet" addview="cip.GalleriesPortlet"
+    description="Portlet with light grey background"/>
+ <portlet title="Calendar portlet" addview="portlets.Calendar"
+    description="A portlet which can render a calendar.">
+  <for interface="plone.app.portlets.interfaces.IColumn"/>
+  <for interface="plone.app.portlets.interfaces.IDashboard"/>
+ </portlet>
+ <portlet title="Explorer Portlet"
+    addview="collective.portlet.explore.ExplorerPortlet"
+    description="A navigation portlet"/>
+ <portlet title="Most Active Members" addview="cip.MembersPortlet"
+    description="This portlet displays the most active portal members."/>
+ <portlet title="Search" addview="portlets.Search"
+    description="A portlet which shows a search box.">
+  <for interface="plone.app.portlets.interfaces.IColumn"/>
+  <for interface="plone.app.portlets.interfaces.IDashboard"/>
+ </portlet>
+ <portlet title="Classic portlet" addview="portlets.Classic"
+    description="A portlet which can render a classic template-based portlet">
+  <for interface="plone.app.portlets.interfaces.IColumn"/>
+  <for interface="plone.app.portlets.interfaces.IDashboard"/>
+ </portlet>
+ <portlet title="Newsletter Subscriber" addview="portlets.Subscriber"
+    description="Portlet to add subscribers."/>
+ <portlet title="Potato Image portlet" addview="cip.spImagePortlet"
+    description="Portlet with light grey background"/>
+ <portlet title="Carousel portlet" addview="portlet.Carousel"
+    description="A portlet retrurning collection's result as carousel.">
+  <for interface="plone.app.portlets.interfaces.IColumn"/>
+ </portlet>
+ <portlet title="Plone True Gallery Portlet"
+    addview="collective.plonetruegallery.gallery"
+    description="A portlet shows gallery images."/>
+ <portlet title="Static text portlet" addview="plone.portlet.static.Static"
+    description="A portlet which can display static HTML text."/>
+ <assignment name="recent-items" category="user" key="Addis"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="AnnaMarie"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Aruco"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Beaufort"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Bezabih"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Blemaga"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="CaptEsau"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Cariocana"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Eliastoscano"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Frezer"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="GRodriguez"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Gssemakula"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="IjEgeonu"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Jado06"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Joneka"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Kagundu"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Keelin"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Kiruijw"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Letitia"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Lydia"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="LydiaSasu"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Ogwal"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Reka"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Ricas"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Samnamanda"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Solomon"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="SteffenSchulz"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Tobella"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="Yuventino"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="aanaico"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="ababio"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="abdulwahab"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="abelsefasi"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="abilioalvaro"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="adipeolu"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="agnesalajo"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="akofis"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="alight"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="amoskiragu"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="amueke"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="anarayan"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="antti"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="asafuagyei"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="azeb"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="barastere"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="barbara"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="bazmunhaua"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="bellamanhica"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="bking"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="blukuyu"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="bochieng"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="bshingiro"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="cagamala"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="carla_arizio"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="carlaarizio"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="carsten"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="cbagambisa"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="cebolaelias"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="cfidalgo"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="charles"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="cjosei"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="ckgachuiri"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="copoku"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="cyencho"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="demouser"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="eabaidoo"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="eabidin"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="eabole"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="ebmalauni"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="ekedera"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="ekinuthia"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="ekinyu"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="eliastoscano"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="eobengbio"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items-1" category="user" key="eobengbio"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="eobio"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="eschulteg"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="esiforiwaosp"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="eteye"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="faustoyj"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="felichipungu"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items-1" category="user" key="felichipungu"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="gachuiri"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="gbirru"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="gforbes"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="ghaffbay"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="gnabiswa"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="gokundi"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="gooday"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="grodriguez"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="gssemakula"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="gthiele"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="haliduosman"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="houedraogo"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="inoduro"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="inzuki"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="isaac"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="jafrika"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="janlow"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="januaris"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="jean.ntuli"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="jens"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="jjunior"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="jkreuze"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="jlow"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="jmahama"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="jmulabisana"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="jmunyemana"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="john1"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="jokonya"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="jriis"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items-1" category="user" key="jriis"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="jussi"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="jussitest"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="jvanbeem"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="karenjep"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="kchelemu"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="kedera"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="khell"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="kinyua"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="kirimi"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="lamisy"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="lbadstue"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="lclaessens"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="leninematavele"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="lexv"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="lillianaliyi"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="lutaladio"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="lwanjohi"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="m.kansiime"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="maltamirano"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="mandrade"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="marafiri"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="mauja"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="mchiona"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="mervatelfar"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="mfaber"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="michael"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="mmalebana"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="mmcewan"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="mnbyong"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="moyunga"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="mrsdrodebode"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="mshiphar"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="musoke"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="nanjekhoesyl"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="ndirigwe"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="newtest"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="niyireba@gmail.com"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="njclaude"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="njclaude5"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="nkassa"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="nziga"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="obengantwi"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="odaia"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="odwemena"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="panyin"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="pmudavadi"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="prueba"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="putriabidin"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="quarm"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="removeme"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="remytitien"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="rgatimu"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="rgibson"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="rjrukarwa"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="rkassali"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="rmutasa"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="rmwanga"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="roger"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="ronaldwabwire"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="ruaiene"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user"
+    key="ruganirwaclaude@yahoo.fr" manager="plone.dashboard2"
+    type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="rwaama"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="rwgibson"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="sadikm"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="sadimu"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="sagili"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="sattaluri"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="sentizo"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="sfuentes"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="skebede2011"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="skelemu"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="skoussao"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="smayanja"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="solomonafuape"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="sostino"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items-1" category="user" key="sostino"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="stellawambugu"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="stumwegamire"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="tcarey"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="test6"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="testjussi2"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="testu"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="testuser"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items-1" category="user" key="testuser"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="testuser2"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="testuserJussi"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="tgambrah"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="tomcaso"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="usaidrep"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="vanessa"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="vgwinner"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="wgruneberg"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="wmoar"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="yobong"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="recent-items" category="user" key="zmanirarora"
+    manager="plone.dashboard2" type="portlets.Recent" visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="news" category="user" key="Addis"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Addis"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="AnnaMarie"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="AnnaMarie"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Aruco"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Aruco"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Beaufort"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Beaufort"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Bezabih"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Bezabih"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Blemaga"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Blemaga"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="CaptEsau"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="CaptEsau"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Cariocana"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Cariocana"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Eliastoscano"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Eliastoscano"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Frezer"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Frezer"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="GRodriguez"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="GRodriguez"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Gssemakula"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Gssemakula"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="IjEgeonu"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="IjEgeonu"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Jado06"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Jado06"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Joneka"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Joneka"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Kagundu"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Kagundu"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Keelin"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Keelin"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Kiruijw"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Kiruijw"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Letitia"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Letitia"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Lydia"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Lydia"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="LydiaSasu"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="LydiaSasu"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Ogwal"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Ogwal"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Reka" manager="plone.dashboard1"
+    type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Reka"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Ricas"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Ricas"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Samnamanda"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Samnamanda"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Solomon"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Solomon"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="SteffenSchulz"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="SteffenSchulz"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Tobella"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Tobella"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="Yuventino"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="Yuventino"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="aanaico"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="aanaico"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="ababio"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="ababio"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="abdulwahab"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="abdulwahab"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="abelsefasi"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="abelsefasi"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="abilioalvaro"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="abilioalvaro"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="adipeolu"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="adipeolu"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="agnesalajo"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="agnesalajo"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="akofis"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="akofis"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="alight"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="alight"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="amoskiragu"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="amoskiragu"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="amueke"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="amueke"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="anarayan"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="anarayan"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="antti"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="antti"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="asafuagyei"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="asafuagyei"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="azeb" manager="plone.dashboard1"
+    type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="azeb"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="barastere"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="barastere"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="barbara"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="barbara"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="bazmunhaua"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="bazmunhaua"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="bellamanhica"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="bellamanhica"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="bking"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="bking"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="blukuyu"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="blukuyu"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="bochieng"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="bochieng"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="bshingiro"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="bshingiro"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="cagamala"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="cagamala"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="carla_arizio"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="carla_arizio"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="carlaarizio"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="carlaarizio"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="carsten"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="carsten"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="cbagambisa"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="cbagambisa"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="cebolaelias"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="cebolaelias"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="cfidalgo"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="cfidalgo"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="charles"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="charles"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="cjosei"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="cjosei"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="ckgachuiri"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="ckgachuiri"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="copoku"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="copoku"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="cyencho"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="cyencho"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="demouser"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="demouser"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="eabaidoo"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="eabaidoo"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="eabidin"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="eabidin"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="eabole"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="eabole"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="ebmalauni"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="ebmalauni"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="ekedera"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="ekedera"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="ekinuthia"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="ekinuthia"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="ekinyu"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="ekinyu"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="eliastoscano"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="eliastoscano"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="eobengbio"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="eobengbio"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news-1" category="user" key="eobengbio"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events-1" category="user" key="eobengbio"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="eobio"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="eobio"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="eschulteg"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="eschulteg"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="esiforiwaosp"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="esiforiwaosp"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="eteye"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="eteye"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="faustoyj"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="faustoyj"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="felichipungu"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="felichipungu"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news-1" category="user" key="felichipungu"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events-1" category="user" key="felichipungu"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="gachuiri"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="gachuiri"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="gbirru"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="gbirru"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="gforbes"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="gforbes"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="ghaffbay"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="ghaffbay"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="gnabiswa"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="gnabiswa"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="gokundi"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="gokundi"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="gooday"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="gooday"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="grodriguez"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="grodriguez"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="gssemakula"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="gssemakula"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="gthiele"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="gthiele"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="haliduosman"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="haliduosman"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="houedraogo"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="houedraogo"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="inoduro"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="inoduro"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="inzuki"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="inzuki"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="isaac"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="isaac"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="jafrika"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="jafrika"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="janlow"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="janlow"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="januaris"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="januaris"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="jean.ntuli"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="jean.ntuli"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="jens" manager="plone.dashboard1"
+    type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="jens"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="jjunior"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="jjunior"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="jkreuze"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="jkreuze"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="jlow" manager="plone.dashboard1"
+    type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="jlow"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="jmahama"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="jmahama"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="jmulabisana"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="jmulabisana"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="jmunyemana"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="jmunyemana"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="john1"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="john1"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="jokonya"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="jokonya"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="jriis"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="jriis"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news-1" category="user" key="jriis"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events-1" category="user" key="jriis"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="jussi"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="jussi"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="jussitest"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="jussitest"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="jvanbeem"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="jvanbeem"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="karenjep"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="karenjep"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="kchelemu"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="kchelemu"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="kedera"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="kedera"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="khell"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="khell"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="kinyua"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="kinyua"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="kirimi"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="kirimi"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="lamisy"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="lamisy"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="lbadstue"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="lbadstue"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="lclaessens"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="lclaessens"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="leninematavele"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="leninematavele"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="lexv" manager="plone.dashboard1"
+    type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="lexv"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="lillianaliyi"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="lillianaliyi"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="lutaladio"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="lutaladio"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="lwanjohi"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="lwanjohi"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="m.kansiime"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="m.kansiime"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="maltamirano"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="maltamirano"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="mandrade"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="mandrade"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="marafiri"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="marafiri"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="mauja"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="mauja"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="mchiona"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="mchiona"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="mervatelfar"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="mervatelfar"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="mfaber"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="mfaber"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="michael"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="michael"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="mmalebana"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="mmalebana"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="mmcewan"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="mmcewan"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="mnbyong"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="mnbyong"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="moyunga"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="moyunga"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="mrsdrodebode"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="mrsdrodebode"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="mshiphar"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="mshiphar"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="musoke"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="musoke"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="nanjekhoesyl"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="nanjekhoesyl"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="ndirigwe"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="ndirigwe"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="newtest"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="newtest"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="niyireba@gmail.com"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="niyireba@gmail.com"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="njclaude"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="njclaude"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="njclaude5"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="njclaude5"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="nkassa"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="nkassa"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="nziga"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="nziga"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="obengantwi"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="obengantwi"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="odaia"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="odaia"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="odwemena"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="odwemena"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="panyin"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="panyin"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="pmudavadi"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="pmudavadi"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="prueba"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="prueba"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="putriabidin"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="putriabidin"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="quarm"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="quarm"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="removeme"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="removeme"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="remytitien"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="remytitien"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="rgatimu"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="rgatimu"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="rgibson"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="rgibson"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="rjrukarwa"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="rjrukarwa"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="rkassali"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="rkassali"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="rmutasa"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="rmutasa"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="rmwanga"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="rmwanga"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="roger"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="roger"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="ronaldwabwire"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="ronaldwabwire"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="ruaiene"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="ruaiene"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="ruganirwaclaude@yahoo.fr"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="ruganirwaclaude@yahoo.fr"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="rwaama"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="rwaama"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="rwgibson"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="rwgibson"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="sadikm"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="sadikm"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="sadimu"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="sadimu"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="sagili"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="sagili"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="sattaluri"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="sattaluri"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="sentizo"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="sentizo"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="sfuentes"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="sfuentes"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="skebede2011"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="skebede2011"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="skelemu"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="skelemu"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="skoussao"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="skoussao"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="smayanja"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="smayanja"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="solomonafuape"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="solomonafuape"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="sostino"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="sostino"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news-1" category="user" key="sostino"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events-1" category="user" key="sostino"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="stellawambugu"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="stellawambugu"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="stumwegamire"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="stumwegamire"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="tcarey"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="tcarey"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="test6"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="test6"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="testjussi2"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="testjussi2"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="testu"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="testu"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="testuser"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="testuser"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news-1" category="user" key="testuser"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events-1" category="user" key="testuser"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="testuser2"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="testuser2"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="testuserJussi"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="testuserJussi"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="tgambrah"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="tgambrah"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="tomcaso"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="tomcaso"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="usaidrep"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="usaidrep"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="vanessa"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="vanessa"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="vgwinner"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="vgwinner"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="wgruneberg"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="wgruneberg"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="wmoar"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="wmoar"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="yobong"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="yobong"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="news" category="user" key="zmanirarora"
+    manager="plone.dashboard1" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="events" category="user" key="zmanirarora"
+    manager="plone.dashboard1" type="portlets.Events" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="review-list" category="user" key="Addis"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="AnnaMarie"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Aruco"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Beaufort"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Bezabih"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Blemaga"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="CaptEsau"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Cariocana"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Eliastoscano"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Frezer"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="GRodriguez"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Gssemakula"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="IjEgeonu"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Jado06"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Joneka"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Kagundu"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Keelin"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Kiruijw"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Letitia"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Lydia"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="LydiaSasu"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Ogwal"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Reka"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Ricas"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Samnamanda"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Solomon"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="SteffenSchulz"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Tobella"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="Yuventino"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="aanaico"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="ababio"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="abdulwahab"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="abelsefasi"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="abilioalvaro"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="adipeolu"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="agnesalajo"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="akofis"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="alight"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="amoskiragu"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="amueke"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="anarayan"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="antti"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="asafuagyei"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="azeb"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="barastere"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="barbara"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="bazmunhaua"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="bellamanhica"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="bking"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="blukuyu"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="bochieng"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="bshingiro"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="cagamala"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="carla_arizio"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="carlaarizio"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="carsten"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="cbagambisa"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="cebolaelias"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="cfidalgo"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="charles"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="cjosei"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="ckgachuiri"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="copoku"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="cyencho"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="demouser"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="eabaidoo"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="eabidin"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="eabole"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="ebmalauni"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="ekedera"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="ekinuthia"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="ekinyu"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="eliastoscano"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="eobengbio"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list-1" category="user" key="eobengbio"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="eobio"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="eschulteg"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="esiforiwaosp"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="eteye"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="faustoyj"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="felichipungu"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list-1" category="user" key="felichipungu"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="gachuiri"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="gbirru"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="gforbes"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="ghaffbay"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="gnabiswa"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="gokundi"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="gooday"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="grodriguez"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="gssemakula"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="gthiele"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="haliduosman"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="houedraogo"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="inoduro"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="inzuki"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="isaac"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="jafrika"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="janlow"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="januaris"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="jean.ntuli"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="jens"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="jjunior"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="jkreuze"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="jlow"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="jmahama"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="jmulabisana"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="jmunyemana"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="john1"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="jokonya"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="jriis"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list-1" category="user" key="jriis"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="jussi"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="jussitest"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="jvanbeem"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="karenjep"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="kchelemu"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="kedera"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="khell"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="kinyua"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="kirimi"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="lamisy"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="lbadstue"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="lclaessens"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="leninematavele"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="lexv"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="lillianaliyi"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="lutaladio"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="lwanjohi"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="m.kansiime"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="maltamirano"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="mandrade"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="marafiri"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="mauja"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="mchiona"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="mervatelfar"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="mfaber"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="michael"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="mmalebana"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="mmcewan"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="mnbyong"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="moyunga"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="mrsdrodebode"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="mshiphar"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="musoke"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="nanjekhoesyl"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="ndirigwe"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="newtest"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="niyireba@gmail.com"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="njclaude"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="njclaude5"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="nkassa"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="nziga"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="obengantwi"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="odaia"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="odwemena"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="panyin"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="pmudavadi"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="prueba"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="putriabidin"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="quarm"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="removeme"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="remytitien"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="rgatimu"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="rgibson"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="rjrukarwa"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="rkassali"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="rmutasa"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="rmwanga"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="roger"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="ronaldwabwire"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="ruaiene"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="ruganirwaclaude@yahoo.fr"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="rwaama"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="rwgibson"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="sadikm"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="sadimu"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="sagili"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="sattaluri"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="sentizo"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="sfuentes"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="skebede2011"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="skelemu"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="skoussao"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="smayanja"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="solomonafuape"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="sostino"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list-1" category="user" key="sostino"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="stellawambugu"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="stumwegamire"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="tcarey"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="test6"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="testjussi2"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="testu"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="testuser"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list-1" category="user" key="testuser"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="testuser2"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="testuserJussi"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="tgambrah"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="tomcaso"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="usaidrep"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="vanessa"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="vgwinner"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="wgruneberg"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="wmoar"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="yobong"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="review-list" category="user" key="zmanirarora"
+    manager="plone.dashboard4" type="portlets.Review" visible="True"/>
+ <assignment name="spImage2" category="context" key="/"
+    manager="plone.leftcolumn" stopUrls="" type="cip.spImagePortlet"
+    visible="True">
+  <property name="text"></property>
+  <property name="more_url"></property>
+  <property name="omit_border">False</property>
+  <property name="header"></property>
+  <property name="footer"></property>
+ </assignment>
+ <assignment name="spGalleries" category="context" key="/"
+    manager="plone.leftcolumn" stopUrls="" type="cip.GalleriesPortlet"
+    visible="True">
+  <property name="count">5</property>
+ </assignment>
+ <assignment name="login" category="context" key="/"
+    manager="plone.leftcolumn" stopUrls="" type="portlets.Login"
+    visible="True"/>
+ <assignment name="review" category="context" key="/"
+    manager="plone.leftcolumn" stopUrls="" type="portlets.Review"
+    visible="True"/>
+ <assignment name="news" category="context" key="/" manager="plone.leftcolumn"
+    stopUrls="" type="portlets.News" visible="True">
+  <property name="count">5</property>
+  <property name="state">
+   <element>published</element>
+  </property>
+ </assignment>
+ <assignment name="navigation" category="context" key="/"
+    manager="plone.rightcolumn" stopUrls="" type="portlets.Navigation"
+    visible="True">
+  <property name="topLevel">0</property>
+  <property name="currentFolderOnly">False</property>
+  <property name="name"></property>
+  <property name="includeTop">False</property>
+  <property name="bottomLevel">0</property>
+  <property name="root"/>
+ </assignment>
+ <assignment name="calendar" category="context" key="/"
+    manager="plone.rightcolumn" stopUrls="" type="portlets.Calendar"
+    visible="True"/>
+ <assignment name="discussion-forum" category="context" key="/"
+    manager="plone.rightcolumn" type="plone.portlet.static.Static"
+    visible="True">
+  <property
+     name="text">&lt;p style="text-align: center; "&gt;&lt;a class="internal-link" href="discussion-forum"&gt;&lt;img alt="Forum" class="image-inline" height="82" src="forum.png/image_thumb" width="82" /&gt;&lt;/a&gt;&lt;/p&gt;
+   &lt;p style="text-align: center; "&gt;&lt;b&gt;&lt;a class="internal-link" href="discussion-forum"&gt;Go to Forum&lt;/a&gt;&lt;/b&gt;&lt;/p&gt;</property>
+  <property name="more_url"/>
+  <property name="omit_border">False</property>
+  <property name="header">Discussion Forum</property>
+  <property name="footer"/>
+ </assignment>
+ <assignment name="members" category="context" key="/"
+    manager="plone.rightcolumn" type="plone.portlet.static.Static"
+    visible="True">
+  <property name="text">&lt;ul class="listTypeCircle"&gt;
+   &lt;li&gt;&lt;a href="../allmembers"&gt;&lt;b&gt;Find&lt;/b&gt;&lt;/a&gt; sweetpotato professionals&lt;/li&gt;
+   &lt;li&gt;&lt;a href="../allmembers"&gt;&lt;b&gt;Learn&lt;/b&gt;&lt;/a&gt; about most active users&lt;/li&gt;
+   &lt;li&gt;&lt;a href="../allmembers"&gt;&lt;b&gt;Become&lt;/b&gt;&lt;/a&gt; a member&lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;p style="text-align: right; "&gt;&lt;b&gt;&lt;a href="../allmembers"&gt;&lt;br /&gt;Click for more »&lt;/a&gt;&lt;/b&gt;&lt;/p&gt;</property>
+  <property name="more_url"/>
+  <property name="omit_border">False</property>
+  <property name="header">Members</property>
+  <property name="footer"/>
+ </assignment>
+ <assignment name="explorer-portlet" category="context" key="/"
+    manager="plone.rightcolumn"
+    type="collective.portlet.explore.ExplorerPortlet" visible="True">
+  <property name="topLevel">0</property>
+  <property name="currentFolderOnly">False</property>
+  <property name="name">Navigation</property>
+  <property name="includeTop">False</property>
+  <property name="bottomLevel">0</property>
+  <property name="root"/>
+ </assignment>
+ <assignment name="items-not-yet-published" category="context" key="/"
+    manager="plone.rightcolumn" type="plone.portlet.collection.Collection"
+    visible="True">
+  <property name="show_more">True</property>
+  <property name="header">Items not yet published</property>
+  <property name="limit">2</property>
+  <property name="target_collection">/review-all</property>
+  <property name="random">False</property>
+  <property name="show_dates">True</property>
+ </assignment>
+ <blacklist category="user" location="/" manager="plone.dashboard2"
+    status="acquire"/>
+ <blacklist category="group" location="/" manager="plone.dashboard2"
+    status="acquire"/>
+ <blacklist category="content_type" location="/" manager="plone.dashboard2"
+    status="acquire"/>
+ <blacklist category="context" location="/" manager="plone.dashboard2"
+    status="acquire"/>
+ <blacklist category="user" location="/" manager="plone.dashboard3"
+    status="acquire"/>
+ <blacklist category="group" location="/" manager="plone.dashboard3"
+    status="acquire"/>
+ <blacklist category="content_type" location="/" manager="plone.dashboard3"
+    status="acquire"/>
+ <blacklist category="context" location="/" manager="plone.dashboard3"
+    status="acquire"/>
+ <blacklist category="user" location="/" manager="plone.dashboard1"
+    status="acquire"/>
+ <blacklist category="group" location="/" manager="plone.dashboard1"
+    status="acquire"/>
+ <blacklist category="content_type" location="/" manager="plone.dashboard1"
+    status="acquire"/>
+ <blacklist category="context" location="/" manager="plone.dashboard1"
+    status="acquire"/>
+ <blacklist category="user" location="/" manager="plone.dashboard4"
+    status="acquire"/>
+ <blacklist category="group" location="/" manager="plone.dashboard4"
+    status="acquire"/>
+ <blacklist category="content_type" location="/" manager="plone.dashboard4"
+    status="acquire"/>
+ <blacklist category="context" location="/" manager="plone.dashboard4"
+    status="acquire"/>
+ <blacklist category="user" location="/" manager="plone.leftcolumn"
+    status="acquire"/>
+ <blacklist category="group" location="/" manager="plone.leftcolumn"
+    status="acquire"/>
+ <blacklist category="content_type" location="/" manager="plone.leftcolumn"
+    status="acquire"/>
+ <blacklist category="context" location="/" manager="plone.leftcolumn"
+    status="acquire"/>
+ <blacklist category="user" location="/" manager="plone.rightcolumn"
+    status="acquire"/>
+ <blacklist category="group" location="/" manager="plone.rightcolumn"
+    status="acquire"/>
+ <blacklist category="content_type" location="/" manager="plone.rightcolumn"
+    status="acquire"/>
+ <blacklist category="context" location="/" manager="plone.rightcolumn"
+    status="show"/>
+</portlets>

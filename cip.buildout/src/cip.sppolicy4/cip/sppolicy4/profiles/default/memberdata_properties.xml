@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<object name="portal_memberdata" meta_type="PlonePAS MemberData Tool">
+ <property name="fullname" type="string"/>
+ <property name="email" type="string"/>
+ <property name="portal_skin" type="string"/>
+ <property name="listed" type="boolean">True</property>
+ <property name="login_time" type="date">2000/01/01</property>
+ <property name="last_login_time" type="date">2000/01/01</property>
+ <property name="city" type="string"></property>
+ <property name="country" type="string"></property>
+ <property name="gender" type="string"></property>
+ <property name="mobile" type="string"></property>
+ <property name="officen" type="string"></property>
+ <property name="skype" type="string"></property>
+ <property name="institution" type="string"></property>
+ <property name="instadd" type="string"></property>
+ <property name="position" type="string"></property>
+ <property name="profession" type="string"></property>
+ <property name="error_log_update" type="float">0.0</property>
+ <property name="home_page" type="string"/>
+ <!--property name="location" type="string"/-->
+ <property name="description" type="text"/>
+ <property name="language" type="string"/>
+ <property name="ext_editor" type="boolean">False</property>
+ <property name="wysiwyg_editor" type="string"></property>
+ <property name="visible_ids" type="boolean">False</property>
+</object>
+
+
+<!--object name="portal_memberdata" meta_type="Plone Memberdata Tool">
+ <property name="firstname" type="string"></property>
+ <property name="lastname" type="string"></property>
+ <property name="city" type="string"></property>
+ <property name="country" type="string"></property>
+ <property name="birthdate" type="string"></property>
+ <property name="subscribe_newsletter" type="boolean"></property>
+ <property name="phone" type="string"></property>
+ <property name="gender" type="string"></property>
+</object-->

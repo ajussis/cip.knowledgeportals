@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<portlets
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="plone">
+
+
+ <!--portlet title="Google  Analytics"
+    addview="collective.googleanalytics.AnalyticsPortlet"
+    description="A portlet that pulls information from Google Analytics."/>
+
+ <assignment name="google-analytics" category="context" key="/"
+    manager="plone.rightcolumn"
+    type="collective.googleanalytics.AnalyticsPortlet" visible="True">
+  <property name="profile"></property>
+  <property name="portlet_title">Most viewed</property>
+  <property name="reports">
+   <element>page-pageviews-sparkline</element>
+   <element>page-timeonpage-sparkline</element>
+   <element>page-top-sources-table</element>
+   <element>page-top-keywords-table</element>
+   <element>page-top-previouspages-table</element>
+   <element>page-top-nextpages-table</element>
+  </property>
+ </assignment-->
+
+</portlets>

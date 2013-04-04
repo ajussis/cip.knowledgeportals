@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<object name="portal_types" meta_type="Plone Types Tool">
+ <property
+    name="title">Controls the available content types in your portal</property>
+ <object name="ATBooleanCriterion"
+    meta_type="Factory-based Type Information"/>
+ <object name="ATCurrentAuthorCriterion"
+    meta_type="Factory-based Type Information"/>
+ <object name="ATDateCriteria" meta_type="Factory-based Type Information"/>
+ <object name="ATDateRangeCriterion"
+    meta_type="Factory-based Type Information"/>
+ <object name="ATListCriterion" meta_type="Factory-based Type Information"/>
+ <object name="ATPathCriterion" meta_type="Factory-based Type Information"/>
+ <object name="ATRelativePathCriterion"
+    meta_type="Factory-based Type Information"/>
+ <object name="ATPortalTypeCriterion"
+    meta_type="Factory-based Type Information"/>
+ <object name="ATReferenceCriterion"
+    meta_type="Factory-based Type Information"/>
+ <object name="ATSelectionCriterion"
+    meta_type="Factory-based Type Information"/>
+ <object name="ATSimpleIntCriterion"
+    meta_type="Factory-based Type Information"/>
+ <object name="ATSimpleStringCriterion"
+    meta_type="Factory-based Type Information"/>
+ <object name="ATSortCriterion" meta_type="Factory-based Type Information"/>
+ <object name="Discussion Item" meta_type="Factory-based Type Information"/>
+ <object name="Document"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Event"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="File"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Folder"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Image"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Link"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="News Item"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Plone Site"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="TempFolder" meta_type="Factory-based Type Information"/>
+ <object name="Topic"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="TTGoogleMapPolygon"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="TTGoogleMapPolyline"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="TTGoogleMapMarker"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="TTGoogleMapCategory"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="TTGoogleMapCategoryContainer"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="TTGoogleMap"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="b-org Project" meta_type="Factory-based Type Information"/>
+ <object name="Research Paper"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Institutions Holder"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Gallery Folder"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Projects Holder"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="ProjectType"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Institution"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Project Folder"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="EasyNewsletter"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="ENLIssue"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="ENLSubscriber"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="ENLTemplate"
+    meta_type="Factory-based Type Information with dynamic views"/>
+</object>

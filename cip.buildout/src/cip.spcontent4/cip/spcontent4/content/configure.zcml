@@ -1,0 +1,57 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="cip.spcontent4">
+
+  <!-- configure your content components here -->
+  
+  <!-- -*- extra stuff goes here -*- -->
+  <class class=".projecttype.ProjectType">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IProjectType"
+        />
+  </class>
+  <class class=".researchpaper.ResearchPaper">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IResearchPaper"
+        />
+  </class>
+  <class class=".institutionsholder.InstitutionsHolder">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IInstitutionsHolder"
+        />
+  </class>
+  <class class=".galleryfolder.GalleryFolder">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IGalleryFolder"
+        />
+  </class>
+  <class class=".projectsholder.ProjectsHolder">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IProjectsHolder"
+        />
+  </class>
+  <class class=".institution.Institution">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IInstitution"
+        />
+  </class>
+  <class class=".projectfolder.ProjectFolder">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IProjectFolder"
+        />
+  </class>
+
+  <include package="archetypes.schemaextender" />
+  <adapter factory=".extender.FileExtender" />
+  <adapter factory=".extender.LinkExtender" />
+
+
+</configure>

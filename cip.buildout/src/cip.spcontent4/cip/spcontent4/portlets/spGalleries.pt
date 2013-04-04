@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      tal:omit-tag="">
+
+    <dl class="portlet portletStaticText"
+        i18n:domain="plone">
+
+        <!--dt class="portletHeader">
+            <span class="portletTopLeft"></span>
+            <a href="#"
+                tal:attributes="href view/recently_modified_link"
+                i18n:translate="box_recent_changes">Latest Galleries</a>
+            <span class="portletTopRight"></span>
+        </dt-->
+
+        <!--tal:defineThis define="users view/mostactivemembers">
+            <tal:block tal:repeat="user users">
+                <tal:defineAgain define="userName python:user[0];
+                                         userObjects python:user[1];
+                                         userImage python:user[2];">
+                    <img src="#" tal:attributes="src userImage" width="30" style="margin-right:10px; float:left;" />
+                    <h4 tal:content="userName"></h4>
+                    <p>
+                        Items created: <tal:contentThis content="userObjects"/>
+                    </p>
+                </tal:defineAgain>
+            </tal:block>
+        </tal:defineThis-->
+
+        <!--dd class="portletFooter">
+            <a href="#"
+               class="tile"
+               tal:attributes="href view/recently_modified_link"
+               i18n:translate="box_more_recently_changed">
+               All galleries&hellip;
+            </a>
+            <span class="portletBottomLeft"></span>
+            <span class="portletBottomRight"></span>
+       </dd-->
+       
+       <dt class="portletHeader">
+            <span>Mailing list</span>
+            <span class="portletTopRight"></span>
+        </dt>
+		<table class="mailinglist" cellspacing="0" border="0">
+			<tr>
+				<td>
+					<p>
+						Subscribe to receive updates about sweetpotato research
+					</p>
+				</td>
+			</tr>
+
+			<form action="http://groups.google.com/group/sweetpotato-research/boxsubscribe">
+				<tr>
+					<td style="padding-left: 5px;">
+						Email: <input type=text name=email size="11">
+						<input type=submit name="sub" value="Subscribe">
+					</td>
+				</tr>
+			</form>
+			<tr>
+				<td align=right>
+					<a href="http://groups.google.com/group/sweetpotato-research">Visit this group</a>
+				</td>
+			</tr>
+		</table>
+
+    </dl>
+</html>

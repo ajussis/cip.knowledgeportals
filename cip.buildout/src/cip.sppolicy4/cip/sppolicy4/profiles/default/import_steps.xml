@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="cip.sppolicy4.various"
+               version="20100309-01"
+               handler="cip.sppolicy4.setuphandlers.setupVarious"
+               title="Folder structure: miscellaneous import steps">
+    <dependency step="rolemap" />
+    Various import steps that are not handled by GS import/export
+    handlers.
+  </import-step>
+</import-steps>
