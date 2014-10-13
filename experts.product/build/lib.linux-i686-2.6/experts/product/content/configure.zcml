@@ -1,0 +1,44 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="experts.product">
+
+  <!-- configure your content components here -->
+  
+  <!-- -*- extra stuff goes here -*- -->
+  <class class=".contact.Contact">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IContact"
+        />
+  </class>
+  <class class=".expertsevent.ExpertsEvent">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IExpertsEvent"
+        />
+  </class>
+  
+ 
+  <class class=".directory.Directory">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IDirectory"
+        />
+  </class>
+  <class class=".photo.Photo">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IPhoto"
+        />
+  </class>
+  
+  <class class=".cipportfolio.CIPPortfolio">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.CIPPortfolio"
+        />
+  </class>
+  
+
+</configure>

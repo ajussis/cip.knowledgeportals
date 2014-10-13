@@ -1,0 +1,2 @@
+recursive-include experts *
+global-exclude *pyc
